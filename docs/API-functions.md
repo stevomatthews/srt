@@ -77,6 +77,16 @@
   * [srt_time_now](#srt_time_now)
   * [srt_connection_time](#srt_connection_time)
 
+## List of Functions
+
+| Function                        | Description                                                     | Returns  | Errors           |
+| ------------------------------- | --------------------------------------------------------------- | -------- | ---------------- |
+| [**srt_startup**](#srt-startup) | Called at the start of an application that uses the SRT library | 0, 1, -1 | `SRT_ECONNSETUP` |
+| [**srt_cleanup**](#srt-cleanup) | Cleans up global SRT resources before exiting an application    | 0        |         -        |
+
+
+
+
 
 ## Library initialization
 
@@ -91,22 +101,22 @@ global data, and starts the SRT GC thread. If this function isn't explicitly
 called, it will be called automatically when creating the first socket. However, 
 relying on this behavior is strongly discouraged.
 
-|      Returns     |                            Description                          |
+|      Returns     |                                                                 |
 |:----------------:|:--------------------------------------------------------------- |
 |         0        | Successfully run, or already started                            |
 |         1        | This is the first startup, but the GC thread is already running |
 |        -1        | Failed                                                          |
-|~~~~~~~~~~~~~~~~~~|~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
 
-|       Errors     |                            Description                          |
+|       Errors     |                                                                 |
 |:----------------:|:--------------------------------------------------------------- |
 | `SRT_ECONNSETUP` | With error code set, reported when required system resource(s) failed to initialize. This is currently used only on Windows to report a failure from `WSAStartup`. |
-|~~~~~~~~~~~~~~~~~~|~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
+
 
 
 [Return to top](#srt-api-functions)
 
 ---
+
 ### srt_cleanup
 ```
 int srt_cleanup(void);
@@ -125,13 +135,10 @@ relying on this behavior is stronly discouraged.
 This means that if you call `srt_startup` multiple times, you need to call the 
 `srt_cleanup` function exactly the same number of times.
 
+
 ## Creating and configuring sockets
 
 
-
-[Return to top](#srt-api-functions)
-
----
 ### srt_socket
 ```
 SRTSOCKET srt_socket(int af, int type, int protocol);
