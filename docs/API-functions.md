@@ -103,6 +103,11 @@
 | [**SRT_SOCKGROUPCONFIG**](#SRT_SOCKGROUPCONFIG) | Structure used to define entry points for connections for `srt_connect_group` | - |         -         |
 | [**SRT_SOCKGROUPDATA**](#SRT_SOCKGROUPDATA) | Most important structure for group member status | - |         -         |
 | [**SRT_MEMBERSTATUS**](#SRT_MEMBERSTATUS) | Enumeration type that defines the state of a member connection in the group | - |         -         |
+| [**srt_create_group**](#srt_create_group) | Creates a new group of type `type`. | - |         -         |
+| [**srt_include**](#srt_include) | Adds a socket to a group. | - |         -         |
+| [**srt_exclude**](#srt_exclude) | Removes a socket from a group to which it currently belongs. | - |         -         |
+| [**srt_groupof**](#srt_groupof) | Returns the group ID of a socket, or `SRT_INVALID_SOCK`. | - |         -         |
+| [**srt_group_data**](#srt_group_data) | Obtains the current member state of the group specified in `socketgroup`. | # of elements, -1 | `SRT_EINVPARAM`<br/>`SRT_ELARGEMSG` |
 
 
 
@@ -807,7 +812,7 @@ where:
   * [SRT_SOCKGROUPDATA](#SRT_SOCKGROUPDATA)
   * [SRT_MEMBERSTATUS](#SRT_MEMBERSTATUS)
   
-[Functions to be used on groups](#functions-to-be-used-on-groups)
+[Functions to be used on groups](#functions-to-be-used-on-groups):
 
   * [srt_create_group](#srt_create_group)
   * [srt_include](#srt_include)
@@ -966,10 +971,6 @@ become `SRT_GST_IDLE`).
 
 ## Functions to be used on groups:
 
-
-
-
----
 ### srt_create_group
 
 ```
@@ -982,10 +983,10 @@ The group ID is of the same domain as socket ID, with the exception that
 the `SRTGROUP_MASK` bit is set on it, unlike for socket ID.
 
 
-
 [Return to top](#srt-api-functions)
 
 ---
+
 ### srt_include
 
 ```
@@ -1014,6 +1015,7 @@ implemented.
 [Return to top](#srt-api-functions)
 
 ---
+
 ### srt_groupof
 
 ```
@@ -1028,6 +1030,7 @@ doesn't exist or it's not a member of any group.
 [Return to top](#srt-api-functions)
 
 ---
+
 ### srt_group_data 
 
 ```
@@ -1053,24 +1056,26 @@ Otherwise the array will not be filled and `SRT_ERROR` will be returned.
 This function can be used to get the group size by setting `output` to `NULL`,
 and providing `socketgroup` and `inoutlen`.
 
-- Returns:
+|      Returns     |                                                           |
+|:----------------:|:--------------------------------------------------------- |
+|      <number>    | The number of data elements filled, on success            |
+|         -1       | Error                                                     |
 
-   * the number of data elements filled, on success
-   * -1, on error
+|       Errors     |                                                           |
+|:----------------:|:--------------------------------------------------------- |
+| `SRT_EINVPARAM`  | Reported if `socketgroup` is not an existing group ID     |
+| `SRT_ELARGEMSG`  | Reported if `inoutlen` if less than the size of the group |
 
-- Errors:
+   
+   
 
-   * `SRT_EINVPARAM` reported if `socketgroup` is not an existing group ID
-   * `SRT_ELARGEMSG` reported if `inoutlen` if less than the size of the group
-
-| in:output | in:inoutlen    | returns      | out:output | out:inoutlen | Error |
-|-----------|----------------|--------------|-----------|--------------|--------|
-| NULL      | NULL           | -1           | NULL      | NULL         | `SRT_EINVPARAM` |
-| NULL      | ptr            | 0            | NULL      | group.size() | ✖️ |
+| in:output | in:inoutlen    | returns      | out:output | out:inoutlen | Error           |
+|:---------:|:--------------:|:------------:|:----------:|:------------:|:---------------:|
+| NULL      | NULL           | -1           | NULL       | NULL         | `SRT_EINVPARAM` |
+| NULL      | ptr            | 0            | NULL       | group.size() | ✖️              |
 | ptr       | NULL           | -1           | ✖️         | NULL         | `SRT_EINVPARAM` |
-| ptr       | ≥ group.size   | group.size() | group.data | group.size | ✖️ |
-| ptr       | < group.size   | -1           | ✖️         | group.size  | `SRT_ELARGEMSG` |
-
+| ptr       | ≥ group.size   | group.size() | group.data | group.size   | ✖️              |
+| ptr       | < group.size   | -1           | ✖️         | group.size   | `SRT_ELARGEMSG` |
 
 
 
