@@ -84,7 +84,7 @@
 | [**srt_startup**](#srt_startup)             | Called at the start of an application that uses the SRT library | 0, 1, -1                      | `SRT_ECONNSETUP` |
 | [**srt_cleanup**](#srt_cleanup)             | Cleans up global SRT resources before exiting an application    | 0                             |         -        |
 | [**srt_socket**](#srt_socket)               | Deprecated                                                      | -                             |         -        |
-| [**srt_create_socket**](#srt_create_socket) | Creates an SRT socket                                           | Socket ID <br/>``SRT_INVALID_SOCK` | `SRT_ENOTBUF`    |
+| [**srt_create_socket**](#srt_create_socket) | Creates an SRT socket                                           | Socket ID <br/>`SRT_INVALID_SOCK` | `SRT_ENOTBUF`    |
 | [**srt_bind**](#srt_bind)                   | Binds a socket to a local address and port.                     | `SRT_ERROR`                   | `SRT_EINVSOCK` <br/>`SRT_EINVOP` <br/>`SRT_ECONNSETUP` <br/>`SRT_ESOCKFAIL` |
 
 
