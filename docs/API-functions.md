@@ -91,6 +91,7 @@
 | [**srt_getsndbuffer**](#srt_getsndbuffer)   | Retrieves information about the sender buffer.                  |               -               |         -        |
 | [**srt_close**](#srt_close)                 | Closes the socket or group and frees all used resources.        | `SRT_ERROR`                   | `SRT_EINVSOCK`   |
 | [**srt_listen**](#srt_listen)               | Sets up the listening state on a socket.                        | `SRT_ERROR`                   | `SRT_EINVPARAM`<br/>`SRT_EINVSOCK`<br/>`SRT_EUNBOUNDSOCK`<br/>`SRT_ERDVNOSERV`<br/>`SRT_EINVOP`<br/>`SRT_ECONNSOCK`<br/>`SRT_EDUPLISTEN` |
+| [**srt_accept**](#srt_accept)               | Accepts a connection; creates/returns a new socket or group ID. | socket/group ID<br/>`SRT_ERROR` | `SRT_EINVPARAM`<br/>`SRT_EINVSOCK`<br/>`SRT_ENOLISTEN`<br/>`SRT_EASYNCRCV`<br/>`SRT_ESCLOSED` |
 
 
 
@@ -363,6 +364,7 @@ connections
 [Return to top](#srt-api-functions)
 
 ---
+
 ### srt_accept
 
 ```
@@ -398,25 +400,18 @@ for them, will be created in the background. The `SRT_EPOLL_UPDATE` event is
 raised on the `lsn` socket when a new background connection is attached to the
 group, although it's usually for internal use only.
 
-- Returns:
+|      Returns     |                                                           |
+|:----------------:|:--------------------------------------------------------- |
+| socket/group ID  | On success, a valid SRT socket or group ID to be used for transmission. |
+| `SRT_ERROR`      | (-1) on failure                                           |
 
-  * On success, a valid SRT socket or group ID to be used for transmission
-  * `SRT_ERROR` (-1) on failure 
-
-- Errors:
-
-  * `SRT_EINVPARAM`: NULL specified as `addrlen`, when `addr` is not NULL
-  * `SRT_EINVSOCK`: `lsn` designates no valid socket ID. 
-  * `SRT_ENOLISTEN`: `lsn` is not set up as a listener (`srt_listen` not called)
-  * `SRT_EASYNCRCV`: No connection reported so far. This error is reported only
-when the `lsn` listener socket was configured as non-blocking for reading
-(`SRTO_RCVSYN` set to false); otherwise the call blocks until a connection
-is reported or an error occurs
-  * `SRT_ESCLOSED`: The `lsn` socket has been closed while the function was
-blocking the call (if `SRTO_RCVSYN` is set to default true). This includes a
-situation when the socket was closed just at the moment when a connection was
-made and the socket got closed during processing
-
+|       Errors     |                                                           |
+|:----------------:|:--------------------------------------------------------- |
+| `SRT_EINVPARAM`  | NULL specified as `addrlen`, when `addr` is not NULL      |
+| `SRT_EINVSOCK`   | `lsn` designates no valid socket ID.                      |
+| `SRT_ENOLISTEN`  | `lsn` is not set up as a listener (`srt_listen` not called). |
+| `SRT_EASYNCRCV`  | No connection reported so far. This error is reported only when the `lsn` listener socket was configured as non-blocking for reading (`SRTO_RCVSYN` set to false); otherwise the call blocks until a connection is reported or an error occurs    |
+| `SRT_ESCLOSED`   | The `lsn` socket has been closed while the function was blocking the call (if `SRTO_RCVSYN` is set to default true). This includes a situation when the socket was closed just at the moment when a connection was made and the socket got closed during processing   |
 
 
 
