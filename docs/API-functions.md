@@ -81,8 +81,8 @@
 
 | Function                        | Description                                                     | Returns  | Errors           |
 | ------------------------------- | --------------------------------------------------------------- | -------- | ---------------- |
-| [**srt_startup**](#srt-startup) | Called at the start of an application that uses the SRT library | 0, 1, -1 | `SRT_ECONNSETUP` |
-| [**srt_cleanup**](#srt-cleanup) | Cleans up global SRT resources before exiting an application    | 0        |         -        |
+| [**srt_startup**](#srt_startup) | Called at the start of an application that uses the SRT library | 0, 1, -1 | `SRT_ECONNSETUP` |
+| [**srt_cleanup**](#srt_cleanup) | Cleans up global SRT resources before exiting an application    | 0        |         -        |
 
 
 
