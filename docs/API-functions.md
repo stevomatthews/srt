@@ -79,22 +79,33 @@
 
 ## List of Functions
 
-| Function                                    | Description                                                     | Returns                       | Errors           |
-| ------------------------------------------- | --------------------------------------------------------------- |:-----------------------------:|:----------------:|
-| [**srt_startup**](#srt_startup)             | Called at the start of an application that uses the SRT library | 0, 1, -1                      | `SRT_ECONNSETUP` |
-| [**srt_cleanup**](#srt_cleanup)             | Cleans up global SRT resources before exiting an application    | 0                             |         -        |
-| [**srt_socket**](#srt_socket)               | Deprecated                                                      | -                             |         -        |
-| [**srt_create_socket**](#srt_create_socket) | Creates an SRT socket                                           | Socket ID <br/>`SRT_INVALID_SOCK` | `SRT_ENOTBUF`    |
-| [**srt_bind**](#srt_bind)                   | Binds a socket to a local address and port.                     | `SRT_ERROR`                   | `SRT_EINVSOCK` <br/>`SRT_EINVOP` <br/>`SRT_ECONNSETUP` <br/>`SRT_ESOCKFAIL` |
-| [**srt_bind_acquire**](#srt_bind_acquire)   | Acquires a given UDP socket instead of creating one.            | -                             |         -        |
-| [**srt_getsockstate**](#srt_getsockstate)   | Gets the current status of the socket.                          | -                             |         -        |
-| [**srt_getsndbuffer**](#srt_getsndbuffer)   | Retrieves information about the sender buffer.                  |               -               |         -        |
-| [**srt_close**](#srt_close)                 | Closes the socket or group and frees all used resources.        | `SRT_ERROR`                   | `SRT_EINVSOCK`   |
-| [**srt_listen**](#srt_listen)               | Sets up the listening state on a socket.                        | `SRT_ERROR`                   | `SRT_EINVPARAM`<br/>`SRT_EINVSOCK`<br/>`SRT_EUNBOUNDSOCK`<br/>`SRT_ERDVNOSERV`<br/>`SRT_EINVOP`<br/>`SRT_ECONNSOCK`<br/>`SRT_EDUPLISTEN` |
-| [**srt_accept**](#srt_accept)               | Accepts a connection; creates/returns a new socket or group ID. | socket/group ID<br/>`SRT_ERROR` | `SRT_EINVPARAM`<br/>`SRT_EINVSOCK`<br/>`SRT_ENOLISTEN`<br/>`SRT_EASYNCRCV`<br/>`SRT_ESCLOSED` |
-| [**srt_accept_bond**](#srt_accept_bond)     | Accepts a connection pending on any sockets passed in the `listeners` array of `nlisteners` size. | SRT socket<br/>group ID<br/>`SRT_ERROR` | `SRT_EINVPARAM`<br/>`SRT_EINVSOCK`<br/>`SRT_ENOLISTEN`<br/>`SRT_EASYNCRCV` |
-| [**srt_listen_callback**](#srt_listen_callback) | Installs/executes a callback hook on a socket created to handle the incoming connection on a listening socket  | 0, -1 | `SRT_EINVPARAM` |
-| [**srt_connect**](#srt_connect)             | Connects a socket or a group to a remote party with a specified address and port. | `SRT_ERROR`<br/>0<br/>Socket ID | `SRT_EINVSOCK`<br/>`SRT_ERDVUNBOUND`<br/>`SRT_ECONNSOCK`<br/>`SRT_ECONNREJ`<br/>`SRT_ENOSERVER`<br/>`SRT_ESCLOSED` |
+| Function                                    | Description                                                     | Returns                       | Errors            |
+| ------------------------------------------- | --------------------------------------------------------------- |:-----------------------------:|:-----------------:|
+| [**srt_startup**](#srt_startup)             | Called at the start of an application that uses the SRT library | 0, 1, -1                      | `SRT_ECONNSETUP`  |
+| [**srt_cleanup**](#srt_cleanup)             | Cleans up global SRT resources before exiting an application    | 0                             |         -         |
+| [**srt_socket**](#srt_socket)               | Deprecated                                                      | -                             |         -         |
+| [**srt_create_socket**](#srt_create_socket) | Creates an SRT socket                                           | Socket ID <br/>`SRT_INVALID_SOCK` | `SRT_ENOTBUF` |
+| [**srt_bind**](#srt_bind)                   | Binds a socket to a local address and port.                     | `SRT_ERROR`                   | `SRT_EINVSOCK` <br/>`SRT_EINVOP` <br/>`SRT_ECONNSETUP` <br/>`SRT_ESOCKFAIL`                                                                                                                              |
+| [**srt_bind_acquire**](#srt_bind_acquire)   | Acquires a given UDP socket instead of creating one.            | -                             |         -         |
+| [**srt_getsockstate**](#srt_getsockstate)   | Gets the current status of the socket.                          | -                             |         -         |
+| [**srt_getsndbuffer**](#srt_getsndbuffer)   | Retrieves information about the sender buffer.                  |               -               |         -         |
+| [**srt_close**](#srt_close)                 | Closes the socket or group and frees all used resources.        | `SRT_ERROR`                   | `SRT_EINVSOCK`    |
+| [**srt_listen**](#srt_listen)               | Sets up the listening state on a socket.                        | `SRT_ERROR`                   | `SRT_EINVPARAM`<br/>`SRT_EINVSOCK`<br/>`SRT_EUNBOUNDSOCK`<br/>`SRT_ERDVNOSERV`<br/>`SRT_EINVOP`<br/>`SRT_ECONNSOCK`<br/>`SRT_EDUPLISTEN`                                                                  |
+| [**srt_accept**](#srt_accept)               | Accepts a connection; creates/returns a new socket or group ID. | socket/group ID<br/>`SRT_ERROR` | `SRT_EINVPARAM`<br/>`SRT_EINVSOCK`<br/>`SRT_ENOLISTEN`<br/>`SRT_EASYNCRCV`<br/>`SRT_ESCLOSED`                                                                                                             |
+| [**srt_accept_bond**](#srt_accept_bond)     | Accepts a connection pending on any sockets passed in the `listeners` array of `nlisteners` size. | SRT socket<br/>group ID<br/>`SRT_ERROR` | `SRT_EINVPARAM`<br/>`SRT_EINVSOCK`<br/>`SRT_ENOLISTEN`<br/>`SRT_EASYNCRCV`                                                                                          |
+| [**srt_listen_callback**](#srt_listen_callback) | Installs/executes a callback hook on a socket created to handle the incoming connection on a listening socket   | 0, -1 | `SRT_EINVPARAM` |
+| [**srt_connect**](#srt_connect)             | Connects a socket or a group to a remote party with a specified address and port. | `SRT_ERROR`<br/>0<br/>Socket ID | `SRT_EINVSOCK`<br/>`SRT_ERDVUNBOUND`<br/>`SRT_ECONNSOCK`<br/>`SRT_ECONNREJ`<br/>`SRT_ENOSERVER`<br/>`SRT_ESCLOSED`                                                                    |
+| [**srt_connect_bind**](#srt_connect_bind)   | Same as `srt_bind` then `srt_connect` if called with socket `u`. | `SRT_ERROR`<br/>0<br/>Socket ID | `SRT_EINVSOCK`<br/>`SRT_EINVOP`<br/>`SRT_ECONNSETUP`<br/>`SRT_ESOCKFAIL`<br/>`SRT_ERDVUNBOUND`<br/>`SRT_ECONNSOCK`<br/>`SRT_ECONNREJ`                                                                  |
+| [**srt_connect_debug**](#srt_connect_debug) |  Same as [`srt_connect`](#srt_connect) but allows specifying ISN (developers only)  |     -     |         -         |
+| [**srt_rendezvous**](#srt_rendezvous)       | Performs a rendezvous connection.                                | `SRT_ERROR`                  | `SRT_EINVSOCK`<br/>`SRT_EINVOP`<br/>`SRT_ECONNSETUP`<br/>`SRT_ESOCKFAIL`<br/>`SRT_ERDVUNBOUND`<br/>`SRT_ECONNSOCK`<br/>`SRT_ECONNREJ` |
+| [**srt_connect_callback**](#srt_connect_callback) | Installs/executes a callback hook on socket/group `u` after connection resolution/failure | 0, -1             | `SRT_EINVPARAM` |
+| [**SRT_GROUP_TYPE**](#SRT_GROUP_TYPE)       | Group types collected in an `SRT_GROUP_TYPE` enum | - |         -         |
+| [**SRT_SOCKGROUPCONFIG**](#SRT_SOCKGROUPCONFIG) | Structure used to define entry points for connections for `srt_connect_group` | - |         -         |
+| [**SRT_SOCKGROUPDATA**](#SRT_SOCKGROUPDATA) | Most important structure for group member status | - |         -         |
+| [**SRT_MEMBERSTATUS**](#SRT_MEMBERSTATUS) | Enumeration type that defines the state of a member connection in the group | - |         -         |
+
+
+
 
 
 
@@ -620,13 +631,6 @@ mode, you might want to use `srt_connect_group` instead.
 | `SRT_ESCLOSED`    | The socket `u` has been closed while the function was blocking the call (if `SRTO_RCVSYN` is set to default true)   |
 
 
-
-
-
-
-
-
-
 When `SRT_ECONNREJ` error is reported, you can get the reason for
 a rejected connection from `srt_getrejectreason`. In non-blocking
 mode (when `SRTO_RCVSYN` is set to false), only `SRT_EINVSOCK`,
@@ -638,10 +642,10 @@ reason for the error, including connection timeout (`SRT_REJ_TIMEOUT`).
 
 
 
-
 [Return to top](#srt-api-functions)
 
 ---
+
 ### srt_connect_bind
 
 ```
@@ -658,21 +662,22 @@ first on the automatically created socket for the connection.
 * `target`: Address to connect
 * `len`: size of the original structure of `source` and `target`
 
-- Returns:
+|      Returns      |                                                          |
+|:-----------------:|:-------------------------------------------------------- |
+| `SRT_ERROR`       | (-1) in case of error                                    |
+|         0         | In case when used for `u` socket                         |
+| Socket ID         | Created for connection for `u` group                     |
 
-  * `SRT_ERROR` (-1) in case of error
-  * 0 in case when used for `u` socket
-  * Socket ID created for connection for `u` group
+|       Errors      |                                                          |
+|:-----------------:|:-------------------------------------------------------- |
+| `SRT_EINVSOCK`    | Socket passed as `u` designates no valid socket          |
+| `SRT_EINVOP`      | Socket already bound                                     |
+| `SRT_ECONNSETUP`  | Internal creation of a UDP socket failed                 |
+| `SRT_ESOCKFAIL`   | Internal configuration of a UDP socket (`bind`, `setsockopt`) failed   |
+| `SRT_ERDVUNBOUND` | Internal error (`srt_connect` should not report it after `srt_bind` was called)   |
+| `SRT_ECONNSOCK`   | Socket `u` is already connected                          |
+| `SRT_ECONNREJ`    | Connection has been rejected                             |
 
-- Errors:
-
-  * `SRT_EINVSOCK`: Socket passed as `u` designates no valid socket
-  * `SRT_EINVOP`: Socket already bound
-  * `SRT_ECONNSETUP`: Internal creation of a UDP socket failed
-  * `SRT_ESOCKFAIL`: Internal configuration of a UDP socket (`bind`, `setsockopt`) failed
-  * `SRT_ERDVUNBOUND`: Internal error (`srt_connect` should not report it after `srt_bind` was called)
-  * `SRT_ECONNSOCK`: Socket `u` is already connected
-  * `SRT_ECONNREJ`: Connection has been rejected
 
 IMPORTANT: It's not allowed to bind and connect the same socket to two
 different families (that is, both `source` and `target` must be `AF_INET` or
@@ -683,6 +688,7 @@ different families (that is, both `source` and `target` must be `AF_INET` or
 [Return to top](#srt-api-functions)
 
 ---
+
 ### srt_connect_debug
 
 ```
@@ -699,6 +705,7 @@ is generated randomly.
 [Return to top](#srt-api-functions)
 
 ---
+
 ### srt_rendezvous
 ```
 int srt_rendezvous(SRTSOCKET u, const struct sockaddr* local_name, int local_namelen,
@@ -711,19 +718,19 @@ setting the `SRTO_RENDEZVOUS` option to true, and doing `srt_connect`.
 * `local_name`: specifies the local network interface and port to bind
 * `remote_name`: specifies the remote party's IP address and port
 
-- Returns:
+|      Returns      |                                                          |
+|:-----------------:|:-------------------------------------------------------- |
+| `SRT_ERROR`       | (-1) in case of error, otherwise 0                       |
 
-  * `SRT_ERROR` (-1) in case of error, otherwise 0
-
-- Errors:
-
-  * `SRT_EINVSOCK`: Socket passed as `u` designates no valid socket
-  * `SRT_EINVOP`: Socket already bound
-  * `SRT_ECONNSETUP`: Internal creation of a UDP socket failed
-  * `SRT_ESOCKFAIL`: Internal configuration of a UDP socket (`bind`, `setsockopt`) failed
-  * `SRT_ERDVUNBOUND`: Internal error (`srt_connect` should not report it after `srt_bind` was called)
-  * `SRT_ECONNSOCK`: Socket `u` is already connected
-  * `SRT_ECONNREJ`: Connection has been rejected
+|       Errors      |                                                          |
+|:-----------------:|:-------------------------------------------------------- |
+| `SRT_EINVSOCK`    | Socket passed as `u` designates no valid socket          |
+| `SRT_EINVOP`      | Socket already bound                                     |
+| `SRT_ECONNSETUP`  | Internal creation of a UDP socket failed                 |
+| `SRT_ESOCKFAIL`   | Internal configuration of a UDP socket (`bind`, `setsockopt`) failed    |
+| `SRT_ERDVUNBOUND` | Internal error (`srt_connect` should not report it after `srt_bind` was called)    |
+| `SRT_ECONNSOCK`   | Socket `u` is already connected                          |
+| `SRT_ECONNREJ`    | Connection has been rejected                             |
 
 IMPORTANT: It's not allowed to perform a rendezvous connection to two
 different families (that is, both `local_name` and `remote_name` must be `AF_INET` or
@@ -734,6 +741,7 @@ different families (that is, both `local_name` and `remote_name` must be `AF_INE
 [Return to top](#srt-api-functions)
 
 ---
+
 ### srt_connect_callback
 ```
 int srt_connect_callback(SRTSOCKET u, srt_connect_callback_fn* hook_fn, void* hook_opaque);
@@ -767,14 +775,16 @@ internal SRT threads.
 * `hook_fn`: The callback hook function pointer
 * `hook_opaque`: The pointer value that will be passed to the callback function
 
-- Returns:
 
-   * 0, if successful
-   * -1, on error
+|      Returns     |                                                           |
+|:----------------:|:--------------------------------------------------------- |
+|         0        | Successful                                                |
+|         -1       | Error                                                     |
 
-- Errors:
+|       Errors     |                                                           |
+|:----------------:|:--------------------------------------------------------- |
+| `SRT_EINVPARAM`  | Reported when `hook_fn` is a null pointer                 |
 
-   * `SRT_EINVPARAM` reported when `hook_fn` is a null pointer
 
 The callback function signature has the following type definition:
 
@@ -792,11 +802,27 @@ where:
 
 ## Socket group management
 
+  * [SRT_GROUP_TYPE](#SRT_GROUP_TYPE)
+  * [SRT_SOCKGROUPCONFIG](#SRT_SOCKGROUPCONFIG)
+  * [SRT_SOCKGROUPDATA](#SRT_SOCKGROUPDATA)
+  * [SRT_MEMBERSTATUS](#SRT_MEMBERSTATUS)
+  
+[Functions to be used on groups](#functions-to-be-used-on-groups)
 
+  * [srt_create_group](#srt_create_group)
+  * [srt_include](#srt_include)
+  * [srt_exclude](#srt_exclude)
+  * [srt_groupof](#srt_groupof)
+  * [srt_group_data](#srt_group_data)
+  * [srt_connect_group](#srt_connect_group)
+  * [srt_prepare_endpoint](#srt_prepare_endpoint)
+  * [srt_create_config](#srt_create_config)
+  * [srt_delete_config](#srt_delete_config)
+  * [srt_config_add](#srt_config_add)
 
-[Return to top](#srt-api-functions)
 
 ---
+
 ### SRT_GROUP_TYPE
 
 The following group types are collected in an `SRT_GROUP_TYPE` enum:
@@ -806,10 +832,10 @@ The following group types are collected in an `SRT_GROUP_TYPE` enum:
 * `SRT_GTYPE_BALANCING`: balancing type, share bandwidth usage between links
 
 
-
 [Return to top](#srt-api-functions)
 
 ---
+
 ### SRT_SOCKGROUPCONFIG
 
 This structure is used to define entry points for connections for the
@@ -859,11 +885,10 @@ The application can also set a unique value by itself and keep the same
 value for the same connection.
 
 
-
-
 [Return to top](#srt-api-functions)
 
 ---
+
 ### SRT_SOCKGROUPDATA
 
 The most important structure for the group member status is `SRT_SOCKGROUPDATA`:
@@ -892,10 +917,10 @@ where:
 * `token`: A token value set for that connection (see [`SRT_SOCKGROUPCONFIG`](#srt_sockgroupconfig))
 
 
-
 [Return to top](#srt-api-functions)
 
 ---
+
 ### SRT_MEMBERSTATUS
 
 The enumeration type that defines the state of the member
@@ -937,11 +962,12 @@ as the only active one, this link will be "silenced" (its state will
 become `SRT_GST_IDLE`).
 
 
+
+
 ## Functions to be used on groups:
 
 
 
-[Return to top](#srt-api-functions)
 
 ---
 ### srt_create_group
