@@ -96,9 +96,12 @@ relying on this behavior is strongly discouraged.
 |         0        | Successfully run, or already started                            |
 |         1        | This is the first startup, but the GC thread is already running |
 |        -1        | Failed                                                          |
-|                  |                                                                 |
-|     **Errors**   |                          **Description**                        |
+|~~~~~~~~~~~~~~~~~~|~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
+
+|       Errors     |                            Description                          |
+|:----------------:|:--------------------------------------------------------------- |
 | `SRT_ECONNSETUP` | With error code set, reported when required system resource(s) failed to initialize. This is currently used only on Windows to report a failure from `WSAStartup`. |
+|~~~~~~~~~~~~~~~~~~|~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
 
 
 [Return to top](#srt-api-functions)
