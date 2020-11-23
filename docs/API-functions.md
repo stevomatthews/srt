@@ -79,10 +79,13 @@
 
 ## List of Functions
 
-| Function                        | Description                                                     | Returns  | Errors           |
-| ------------------------------- | --------------------------------------------------------------- | -------- | ---------------- |
-| [**srt_startup**](#srt_startup) | Called at the start of an application that uses the SRT library | 0, 1, -1 | `SRT_ECONNSETUP` |
-| [**srt_cleanup**](#srt_cleanup) | Cleans up global SRT resources before exiting an application    | 0        |         -        |
+| Function                                    | Description                                                     | Returns                       | Errors           |
+| ------------------------------------------- | --------------------------------------------------------------- |:-----------------------------:|:----------------:|
+| [**srt_startup**](#srt_startup)             | Called at the start of an application that uses the SRT library | 0, 1, -1                      | `SRT_ECONNSETUP` |
+| [**srt_cleanup**](#srt_cleanup)             | Cleans up global SRT resources before exiting an application    | 0                             |         -        |
+| [**srt_socket**](#srt_socket)               | Deprecated                                                      | -                             |         -        |
+| [**srt_create_socket**](#srt_create_socket) | Creates an SRT socket                                           | Socket ID, `SRT_INVALID_SOCK` | `SRT_ENOTBUF`    |
+| [**srt_bind**](#srt_bind)                   | Binds a socket to a local address and port.                     | `SRT_ERROR`                   | `SRT_EINVSOCK` <br/>`SRT_EINVOP` <br/>`SRT_ECONNSETUP` <br/>`SRT_ESOCKFAIL` |
 
 
 
@@ -110,7 +113,6 @@ relying on this behavior is strongly discouraged.
 |       Errors     |                                                                 |
 |:----------------:|:--------------------------------------------------------------- |
 | `SRT_ECONNSETUP` | With error code set, reported when required system resource(s) failed to initialize. This is currently used only on Windows to report a failure from `WSAStartup`. |
-
 
 
 [Return to top](#srt-api-functions)
@@ -162,11 +164,10 @@ similar to the SCTP protocol). In SRT these two modes are available by setting
 (TCP-like), or set it to true, which corresponds to "message" mode (SCTP-like).
 
 
-
-
 [Return to top](#srt-api-functions)
 
 ---
+
 ### srt_create_socket
 ```
 SRTSOCKET srt_create_socket();
@@ -176,14 +177,14 @@ Creates an SRT socket.
 
 Note that socket IDs always have the `SRTGROUP_MASK` bit clear.
 
-- Returns:
+|       Returns      |                                                         |
+|:------------------:|:------------------------------------------------------- |
+|      Socket ID     | A valid socket ID on success                            |
+| `SRT_INVALID_SOCK` | (`-1`) on error                                         |
 
-  * a valid socket ID on success
-  * `SRT_INVALID_SOCK` (`-1`) on error
-
-- Errors:
-
-  * `SRT_ENOTBUF`: not enough memory to allocate required resources
+|     Errors    |                                                              |
+|:-------------:|:------------------------------------------------------------ |
+| `SRT_ENOTBUF` |  Not enough memory to allocate required resources          . |
 
 **NOTE:** This is probably a design flaw (**BUG?**). Usually underlying system 
 errors are reported by `SRT_ECONNSETUP`.
@@ -221,16 +222,17 @@ NOTE: This function cannot be called on socket group. If you need to
 have the group-member socket bound to the specified source address before
 connecting, use `srt_connect_bind` for that purpose.
 
-- Returns:
+|      Returns     |                                                           |
+|:----------------:|:--------------------------------------------------------- |
+| `SRT_ERROR`      | (-1) on error, otherwise 0                                |
 
-  * `SRT_ERROR` (-1) on error, otherwise 0
+|       Errors     |                                                           |
+|:----------------:|:--------------------------------------------------------- |
+| `SRT_EINVSOCK`   | Socket passed as `u` designates no valid socket           |
+| `SRT_EINVOP`     | Socket already bound                                      |
+| `SRT_ECONNSETUP` | Internal creation of a UDP socket failed                  |
+| `SRT_ESOCKFAIL`  | Internal configuration of a UDP socket (`bind`, `setsockopt`) failed       |
 
-- Errors:
-
-  * `SRT_EINVSOCK`: Socket passed as `u` designates no valid socket
-  * `SRT_EINVOP`: Socket already bound
-  * `SRT_ECONNSETUP`: Internal creation of a UDP socket failed 
-  * `SRT_ESOCKFAIL`: Internal configuration of a UDP socket (`bind`, `setsockopt`) failed
 
 
 
