@@ -92,12 +92,17 @@
 | [**srt_close**](#srt_close)                 | Closes the socket or group and frees all used resources.        | `SRT_ERROR`                   | `SRT_EINVSOCK`   |
 | [**srt_listen**](#srt_listen)               | Sets up the listening state on a socket.                        | `SRT_ERROR`                   | `SRT_EINVPARAM`<br/>`SRT_EINVSOCK`<br/>`SRT_EUNBOUNDSOCK`<br/>`SRT_ERDVNOSERV`<br/>`SRT_EINVOP`<br/>`SRT_ECONNSOCK`<br/>`SRT_EDUPLISTEN` |
 | [**srt_accept**](#srt_accept)               | Accepts a connection; creates/returns a new socket or group ID. | socket/group ID<br/>`SRT_ERROR` | `SRT_EINVPARAM`<br/>`SRT_EINVSOCK`<br/>`SRT_ENOLISTEN`<br/>`SRT_EASYNCRCV`<br/>`SRT_ESCLOSED` |
+| [**srt_accept_bond**](#srt_accept_bond)     | Accepts a connection pending on any sockets passed in the `listeners` array of `nlisteners` size. | SRT socket<br/>group ID<br/>`SRT_ERROR` | `SRT_EINVPARAM`<br/>`SRT_EINVSOCK`<br/>`SRT_ENOLISTEN`<br/>`SRT_EASYNCRCV` |
 
 
 
 
 
 ## Library initialization
+
+* [srt_startup](#srt_startup)
+* [srt_cleanup](#srt_cleanup)
+
 
 ### srt_startup
 ```
@@ -145,6 +150,14 @@ This means that if you call `srt_startup` multiple times, you need to call the
 
 
 ## Creating and configuring sockets
+
+* [srt_socket](#srt_socket)
+* [srt_create_socket](#srt_create_socket)
+* [srt_bind](#srt_bind)
+* [srt_bind_acquire](#srt_bind_acquire)
+* [srt_getsockstate](#srt_getsockstate)
+* [srt_getsndbuffer](#srt_getsndbuffer)
+* [srt_close](#srt_close)
 
 
 ### srt_socket
@@ -418,6 +431,7 @@ group, although it's usually for internal use only.
 [Return to top](#srt-api-functions)
 
 ---
+
 ### srt_accept_bond
 
 ```
@@ -453,26 +467,17 @@ endpoints. Note also that the settings as to whether listeners should
 accept or reject socket or group connections, should be applied to the
 listener sockets appropriately prior to calling this function.
 
-- Returns:
+|      Returns            |                                                    |
+|:-----------------------:|:-------------------------------------------------- |
+| SRT socket<br/>group ID | On success, a valid SRT socket or group ID to be used for transmission |
+| `SRT_ERROR`             | (-1) on failure                                    |
 
-  * On success, a valid SRT socket or group ID to be used for transmission
-  * `SRT_ERROR` (-1) on failure 
-
-- Errors:
-
-  * `SRT_EINVPARAM`: NULL specified as `listeners` or `nlisteners` < 1
-
-  * `SRT_EINVSOCK`: any socket in `listeners` designates no valid socket ID.
-Can also mean Internal Error when an error occurred while creating an
-accepted socket (**BUG?**)
-
-  * `SRT_ENOLISTEN`: any socket in `listeners` is not set up as a listener
-(`srt_listen` not called, or the listener socket has already been closed)
-
-  * `SRT_EASYNCRCV`: No connection reported on any listener socket as the
-timeout has been reached. This error is only reported when msTimeOut is
-not -1
-
+|       Errors    |                                                           |
+|:---------------:|:--------------------------------------------------------- |
+| `SRT_EINVPARAM` | NULL specified as `listeners` or `nlisteners` < 1         |
+| `SRT_EINVSOCK`  | any socket in `listeners` designates no valid socket ID. Can also mean Internal Error when an error occurred while creating an accepted socket (**BUG?**) |
+| `SRT_ENOLISTEN` | any socket in `listeners` is not set up as a listener (`srt_listen` not called, or the listener socket has already been closed)                           |
+| `SRT_EASYNCRCV` | No connection reported on any listener socket as the timeout has been reached. This error is only reported when msTimeOut is not -1                       |
 
 
 
