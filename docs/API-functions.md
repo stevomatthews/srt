@@ -93,6 +93,8 @@
 | [**srt_listen**](#srt_listen)               | Sets up the listening state on a socket.                        | `SRT_ERROR`                   | `SRT_EINVPARAM`<br/>`SRT_EINVSOCK`<br/>`SRT_EUNBOUNDSOCK`<br/>`SRT_ERDVNOSERV`<br/>`SRT_EINVOP`<br/>`SRT_ECONNSOCK`<br/>`SRT_EDUPLISTEN` |
 | [**srt_accept**](#srt_accept)               | Accepts a connection; creates/returns a new socket or group ID. | socket/group ID<br/>`SRT_ERROR` | `SRT_EINVPARAM`<br/>`SRT_EINVSOCK`<br/>`SRT_ENOLISTEN`<br/>`SRT_EASYNCRCV`<br/>`SRT_ESCLOSED` |
 | [**srt_accept_bond**](#srt_accept_bond)     | Accepts a connection pending on any sockets passed in the `listeners` array of `nlisteners` size. | SRT socket<br/>group ID<br/>`SRT_ERROR` | `SRT_EINVPARAM`<br/>`SRT_EINVSOCK`<br/>`SRT_ENOLISTEN`<br/>`SRT_EASYNCRCV` |
+| [**srt_listen_callback**](#srt_listen_callback) | Installs/executes a callback hook on a socket created to handle the incoming connection on a listening socket  | 0, -1 | `SRT_EINVPARAM` |
+| [**srt_connect**](#srt_connect)             | Connects a socket or a group to a remote party with a specified address and port. | `SRT_ERROR`<br/>0<br/>Socket ID | `SRT_EINVSOCK`<br/>`SRT_ERDVUNBOUND`<br/>`SRT_ECONNSOCK`<br/>`SRT_ECONNREJ`<br/>`SRT_ENOSERVER`<br/>`SRT_ESCLOSED` |
 
 
 
@@ -340,6 +342,15 @@ last user closed.
 
 ## Connecting
 
+* [srt_listen](#srt_listen)
+* [srt_accept](#srt_accept)
+* [srt_accept_bond](#srt_accept_bond)
+* [srt_listen_callback](#srt_listen_callback)
+* [srt_connect](#srt_connect)
+* [srt_connect_bind](#srt_connect_bind)
+* [srt_connect_debug](#srt_connect_debug)
+* [srt_rendezvous](#srt_rendezvous)
+* [srt_connect_callback](#srt_connect_callback)
 
 ### srt_listen
 ```
@@ -370,7 +381,7 @@ connections
 | `SRT_ERDVNOSERV`   | `SRTO_RENDEZVOUS` flag is set to true on specified socket.|
 | `SRT_EINVOP`       | Internal error (should not happen when `SRT_EUNBOUNDSOCK` is reported).   |
 | `SRT_ECONNSOCK`    | The socket is already connected.                        |
-| `SRT_EDUPLISTEN`   | The address used in `srt_bind` by this socket is already occupied by another listening socket. Binding multiple sockets to one IP address  and port is allowed, as long as `SRTO_REUSEADDR` is set to true, but only one of  these sockets can be set up as a listener.   |
+| `SRT_EDUPLISTEN`   | The address used in `srt_bind` by this socket is already occupied by another listening socket. Binding multiple sockets to one IP address  and port is allowed, as long as `SRTO_REUSEADDR` is set to true, but only one of these sockets can be set up as a listener.   |
 
 
 
@@ -484,6 +495,7 @@ listener sockets appropriately prior to calling this function.
 [Return to top](#srt-api-functions)
 
 ---
+
 ### srt_listen_callback
 
 ```
@@ -499,14 +511,14 @@ has been accepted.
 * `hook_fn`: The callback hook function pointer
 * `hook_opaque`: The pointer value that will be passed to the callback function
 
-- Returns:
+|      Returns     |                                                           |
+|:----------------:|:--------------------------------------------------------- |
+|         0        | Successful                                                |
+|         -1       | Error                                                     |
 
-   * 0, if successful
-   * -1, on error
-
-- Errors:
-
-   * `SRT_EINVPARAM` reported when `hook_fn` is a null pointer
+|       Errors     |                                                           |
+|:----------------:|:--------------------------------------------------------- |
+| `SRT_EINVPARAM`  | Reported when `hook_fn` is a null pointer                 |
 
 The callback function has the signature as per this type definition:
 ```
@@ -522,10 +534,10 @@ The callback function gets the following parameters passed:
 * `peeraddr`: The address of the incoming connection
 * `streamid`: The value set to `SRTO_STREAMID` option set on the peer side
 
-(Note that versions that use handshake version 4 are incapable of using
+Note that versions that use handshake version 4 are incapable of using
 any extensions, such as streamid, however they do support encryption.
 Note also that the SRT version isn't yet extracted, however you can
-prevent too old version connections using `SRTO_MINVERSION` option).
+prevent too old version connections using `SRTO_MINVERSION` option.
 
 The callback function is given an opportunity to:
 
@@ -563,10 +575,10 @@ streamid or peeraddr.
 
 
 
-
 [Return to top](#srt-api-functions)
 
 ---
+
 ### srt_connect
 
 ```
@@ -592,25 +604,28 @@ automatically for every call of this function.
 3. If you want to connect a group to multiple links at once and use blocking
 mode, you might want to use `srt_connect_group` instead.
 
-- Returns:
+|      Returns     |                                                           |
+|:----------------:|:--------------------------------------------------------- |
+| `SRT_ERROR`      | (-1) in case of error                                     |
+|         0        | In case when used for `u` socket                          |
+| Socket ID        | Created for connection for `u` group                      |
 
-  * `SRT_ERROR` (-1) in case of error
-  * 0 in case when used for `u` socket
-  * Socket ID created for connection for `u` group
+|       Errors     |                                                           |
+|:----------------:|:--------------------------------------------------------- |
+| `SRT_EINVSOCK`    | Socket `u` indicates no valid socket ID                  |
+| `SRT_ERDVUNBOUND` | Socket `u` has set `SRTO_RENDEZVOUS` to true, but `srt_bind` hasn't yet been called on it. The `srt_connect` function is also used to connect a rendezvous socket, but rendezvous sockets must be explicitly bound to a local interface prior to connecting. Non-rendezvous sockets (caller sockets) can be left without binding - the call to `srt_connect` will bind them automatically. |
+| `SRT_ECONNSOCK`   | Socket `u` is already connected                          |
+| `SRT_ECONNREJ`    | Connection has been rejected                             |
+| `SRT_ENOSERVER`   | Connection has been timed out (see `SRTO_CONNTIMEO`)     |
+| `SRT_ESCLOSED`    | The socket `u` has been closed while the function was blocking the call (if `SRTO_RCVSYN` is set to default true)   |
 
-- Errors:
 
-  * `SRT_EINVSOCK`: Socket `u` indicates no valid socket ID
-  * `SRT_ERDVUNBOUND`: Socket `u` has set `SRTO_RENDEZVOUS` to true, but `srt_bind`
-hasn't yet been called on it. The `srt_connect` function is also used to connect a
-rendezvous socket, but rendezvous sockets must be explicitly bound to a local
-interface prior to connecting. Non-rendezvous sockets (caller sockets) can be
-left without binding - the call to `srt_connect` will bind them automatically.
-  * `SRT_ECONNSOCK`: Socket `u` is already connected
-  * `SRT_ECONNREJ`: Connection has been rejected
-  * `SRT_ENOSERVER`: Connection has been timed out (see `SRTO_CONNTIMEO`)
-  * `SRT_ESCLOSED`: The socket `u` has been closed while the function was
-blocking the call (if `SRTO_RCVSYN` is set to default true)
+
+
+
+
+
+
 
 When `SRT_ECONNREJ` error is reported, you can get the reason for
 a rejected connection from `srt_getrejectreason`. In non-blocking
