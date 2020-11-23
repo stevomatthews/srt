@@ -88,6 +88,9 @@
 | [**srt_bind**](#srt_bind)                   | Binds a socket to a local address and port.                     | `SRT_ERROR`                   | `SRT_EINVSOCK` <br/>`SRT_EINVOP` <br/>`SRT_ECONNSETUP` <br/>`SRT_ESOCKFAIL` |
 | [**srt_bind_acquire**](#srt_bind_acquire)   | Acquires a given UDP socket instead of creating one.            | -                             |         -        |
 | [**srt_getsockstate**](#srt_getsockstate)   | Gets the current status of the socket.                          | -                             |         -        |
+| [**srt_getsndbuffer**](#srt_getsndbuffer)   | Retrieves information about the sender buffer.                  |               -               |         -        |
+| [**srt_close**](#srt_close)                 | Closes the socket or group and frees all used resources.        | `SRT_ERROR`                   | `SRT_EINVSOCK`   |
+| [**srt_listen**](#srt_listen)               | Sets up the listening state on a socket.                        | `SRT_ERROR`                   | `SRT_EINVPARAM`<br/>`SRT_EINVSOCK`<br/>`SRT_EUNBOUNDSOCK`<br/>`SRT_ERDVNOSERV`<br/>`SRT_EINVOP`<br/>`SRT_ECONNSOCK`<br/>`SRT_EDUPLISTEN` |
 
 
 
@@ -279,6 +282,7 @@ Gets the current status of the socket. Possible states are:
 [Return to top](#srt-api-functions)
 
 ---
+
 ### srt_getsndbuffer
 
 ```
@@ -299,6 +303,7 @@ socket needs to be closed asynchronously.
 [Return to top](#srt-api-functions)
 
 ---
+
 ### srt_close
 
 ```
@@ -309,21 +314,19 @@ Closes the socket or group and frees all used resources. Note that underlying
 UDP sockets may be shared between sockets, so these are freed only with the
 last user closed.
 
-- Returns:
+|      Returns     |                                                           |
+|:----------------:|:--------------------------------------------------------- |
+| `SRT_ERROR`      | (-1) in case of error, otherwise 0                        |
 
-  * `SRT_ERROR` (-1) in case of error, otherwise 0
+|       Errors     |                                                           |
+|:----------------:|:--------------------------------------------------------- |
+| `SRT_EINVSOCK`   | Socket `u` indicates no valid socket ID                   |
 
-- Errors:
 
-  * `SRT_EINVSOCK`: Socket `u` indicates no valid socket ID
 
 ## Connecting
 
 
-
-[Return to top](#srt-api-functions)
-
----
 ### srt_listen
 ```
 int srt_listen(SRTSOCKET u, int backlog);
@@ -341,22 +344,19 @@ before `srt_accept` can happen
 * `SRTO_GROUPCONNECT` option allows the listener socket to accept group
 connections
 
-- Returns:
+|      Returns     |                                                           |
+|:----------------:|:--------------------------------------------------------- |
+| `SRT_ERROR`      | (-1) in case of error, otherwise 0.                       |
 
-  * `SRT_ERROR` (-1) in case of error, otherwise 0.
-
-- Errors:
-
-  * `SRT_EINVPARAM`: Value of `backlog` is 0 or negative.
-  * `SRT_EINVSOCK`: Socket `u` indicates no valid SRT socket.
-  * `SRT_EUNBOUNDSOCK`: `srt_bind` has not yet been called on that socket.
-  * `SRT_ERDVNOSERV`: `SRTO_RENDEZVOUS` flag is set to true on specified socket.
-  * `SRT_EINVOP`: Internal error (should not happen when `SRT_EUNBOUNDSOCK` is reported).
-  * `SRT_ECONNSOCK`: The socket is already connected.
-  * `SRT_EDUPLISTEN`: The address used in `srt_bind` by this socket is already
-occupied by another listening socket. Binding multiple sockets to one IP address 
-and port is allowed, as long as `SRTO_REUSEADDR` is set to true, but only one of 
-these sockets can be set up as a listener.
+|       Errors       |                                                         |
+|:------------------:|:------------------------------------------------------- |
+| `SRT_EINVPARAM`    | Value of `backlog` is 0 or negative.                    |
+| `SRT_EINVSOCK`     | Socket `u` indicates no valid SRT socket.               |
+| `SRT_EUNBOUNDSOCK` | `srt_bind` has not yet been called on that socket.      |
+| `SRT_ERDVNOSERV`   | `SRTO_RENDEZVOUS` flag is set to true on specified socket.|
+| `SRT_EINVOP`       | Internal error (should not happen when `SRT_EUNBOUNDSOCK` is reported).   |
+| `SRT_ECONNSOCK`    | The socket is already connected.                        |
+| `SRT_EDUPLISTEN`   | The address used in `srt_bind` by this socket is already occupied by another listening socket. Binding multiple sockets to one IP address  and port is allowed, as long as `SRTO_REUSEADDR` is set to true, but only one of  these sockets can be set up as a listener.   |
 
 
 
