@@ -80,16 +80,6 @@
 
 ## Library initialization
 
-
-
-[Return to top](#srt-api-functions)
-
----
-
-
-[Return to top](#srt-api-functions)
-
----
 ### srt_startup
 ```
 int srt_startup(void);
@@ -103,12 +93,14 @@ relying on this behavior is strongly discouraged.
 
 #### RETURNS:
 
+|----|-----------------------------------------------------------------|
 |  0 | successfully run, or already started                            |
 |  1 | this is the first startup, but the GC thread is already running |
 | -1 | failed                                                          |
 
 #### ERRORS:
 
+|----|-----------------------------------------------------------------|
 | `SRT_ECONNSETUP` | (with error code set): Reported when required system
 resource(s) failed to initialize. This is currently used only on Windows to 
 report a failure from `WSAStartup`. |
