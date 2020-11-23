@@ -86,6 +86,8 @@
 | [**srt_socket**](#srt_socket)               | Deprecated                                                      | -                             |         -        |
 | [**srt_create_socket**](#srt_create_socket) | Creates an SRT socket                                           | Socket ID <br/>`SRT_INVALID_SOCK` | `SRT_ENOTBUF`    |
 | [**srt_bind**](#srt_bind)                   | Binds a socket to a local address and port.                     | `SRT_ERROR`                   | `SRT_EINVSOCK` <br/>`SRT_EINVOP` <br/>`SRT_ECONNSETUP` <br/>`SRT_ESOCKFAIL` |
+| [**srt_bind_acquire**](#srt_bind_acquire)   | Acquires a given UDP socket instead of creating one.            | -                             |         -        |
+| [**srt_getsockstate**](#srt_getsockstate)   | Gets the current status of the socket.                          | -                             |         -        |
 
 
 
@@ -260,22 +262,24 @@ SRT_SOCKSTATUS srt_getsockstate(SRTSOCKET u);
 
 Gets the current status of the socket. Possible states are:
 
-* `SRTS_INIT`: Created, but not bound
-* `SRTS_OPENED`: Created and bound, but not in use yet.
-* `SRTS_LISTENING`: Socket is in listening state
-* `SRTS_CONNECTING`: The connect operation was initiated, but not yet 
+|       State       | Description                                                 |
+|:-----------------:|:----------------------------------------------------------- |
+| `SRTS_INIT`       | Created, but not bound                                      |
+| `SRTS_OPENED`     | Created and bound, but not in use yet.                      |
+| `SRTS_LISTENING`  | Socket is in listening state                                |
+| `SRTS_CONNECTING` | The connect operation was initiated, but not yet 
 finished. This may also mean that it has timed out; you can only know
 that after getting a socket error report from `srt_epoll_wait`. In blocking
 mode it's not possible because `srt_connect` does not return until the
-socket is connected or failed due to timeout or interrupted call.
-* `SRTS_CONNECTED`: The socket is connected and ready for transmission.
-* `SRTS_BROKEN`: The socket was connected, but the connection was broken
-* `SRTS_CLOSING`: The socket may still be open and active, but closing
+socket is connected or failed due to timeout or interrupted call.                 |
+| `SRTS_CONNECTED`  | The socket is connected and ready for transmission.         |
+| `SRTS_BROKEN`     | The socket was connected, but the connection was broken     |
+| `SRTS_CLOSING`    | The socket may still be open and active, but closing
 is requested, so no further operations will be accepted (active operations will 
-be completed before closing)
-* `SRTS_CLOSED`: The socket has been closed, but not yet removed by the GC
-thread
-* `SRTS_NONEXIST`: The specified number does not correspond to a valid socket.
+be completed before closing)                                                      |
+| `SRTS_CLOSED`     | The socket has been closed, but not yet removed by the GC
+thread   |
+| `SRTS_NONEXIST`   | The specified number does not correspond to a valid socket. |
 
 
 
