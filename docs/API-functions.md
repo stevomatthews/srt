@@ -93,9 +93,9 @@ relying on this behavior is strongly discouraged.
 
 |      Returns     |                            Description                          |
 |:----------------:|:--------------------------------------------------------------- |
-|         0        | successfully run, or already started                            |
-|         1        | this is the first startup, but the GC thread is already running |
-|        -1        | failed                                                          |
+|         0        | Successfully run, or already started                            |
+|         1        | This is the first startup, but the GC thread is already running |
+|        -1        | Failed                                                          |
 |                  |                                                                 |
 |     **Errors**   |                          **Description**                        |
 | `SRT_ECONNSETUP` | With error code set, reported when required system resource(s) failed to initialize. This is currently used only on Windows to report a failure from `WSAStartup`. |
@@ -114,9 +114,9 @@ exiting the application that uses the SRT library. This cleanup function will st
 be called from the C++ global destructor, if not called by the application, although
 relying on this behavior is stronly discouraged.
 
-- Returns:
-
-  * 0 (A possibility to return other values is reserved for future use)
+|      Returns     |                            Description                          |
+|:----------------:|:--------------------------------------------------------------- |
+|         0        | A possibility to return other values is reserved for future use |
 
 **IMPORTANT**: Note that the startup/cleanup calls have an instance counter.
 This means that if you call `srt_startup` multiple times, you need to call the 
