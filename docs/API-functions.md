@@ -91,30 +91,15 @@ global data, and starts the SRT GC thread. If this function isn't explicitly
 called, it will be called automatically when creating the first socket. However, 
 relying on this behavior is strongly discouraged.
 
-#### Returns/Errors:
+|      Return      | Description                                                     |
+|:----------------:| --------------------------------------------------------------- |
+| `       0      ` | successfully run, or already started                            |
+| `       1      ` | this is the first startup, but the GC thread is already running |
+| `      -1      ` | failed                                                          |
 
-| Return | Description                                                     |
-|:------:| --------------------------------------------------------------- |
-|    0   | successfully run, or already started                            |
-|    1   | this is the first startup, but the GC thread is already running |
-|   -1   | failed                                                          |
-
-|       Error      | Description                                       |
-|------------------|---------------------------------------------------|
+|       Error      | Description                                                     |
+|------------------|-----------------------------------------------------------------|
 | `SRT_ECONNSETUP` | With error code set, reported when required system resource(s) failed to initialize. This is currently used only on Windows to report a failure from `WSAStartup`. |
-
-- Returns:
-
-  *  0 = successfully run, or already started
-  *  1 = this is the first startup, but the GC thread is already running
-  * -1 = failed
-
-- Errors:
-
-  * `SRT_ECONNSETUP` (with error code set): Reported when required system
-resource(s) failed to initialize. This is currently used only on Windows to 
-report a failure from `WSAStartup`.
-
 
 
 [Return to top](#srt-api-functions)
