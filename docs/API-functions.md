@@ -92,11 +92,11 @@ called, it will be called automatically when creating the first socket. However,
 relying on this behavior is strongly discouraged.
 
 |      Return      |                            Description                          |
-|:----------------:| --------------------------------------------------------------- |
+|:----------------:|:--------------------------------------------------------------- |
 |         0        | successfully run, or already started                            |
 |         1        | this is the first startup, but the GC thread is already running |
 |        -1        | failed                                                          |
-|                  |                                                                 |
+|         +        |                                 +                               |
 |     **Error**    |                          **Description**                        |
 |------------------|-----------------------------------------------------------------|
 | `SRT_ECONNSETUP` | With error code set, reported when required system resource(s) failed to initialize. This is currently used only on Windows to report a failure from `WSAStartup`. |
