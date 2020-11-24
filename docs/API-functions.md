@@ -1,23 +1,6 @@
 # SRT API Functions
 
-- [**Library Initialization**](#Library-Initialization)
-- [**Creating and configuring sockets**](#Creating-and-configuring-sockets)
-- [**Connecting**](#Connecting)
-- [**Socket group management**](#Socket-group-management)
-- [**Options and properties**](#Options-and-properties)
-- [**Helper data types for transmission**](#Helper-data-types-for-transmission)
-- [**Transmission**](#Transmission)
-- [**Diagnostics**](#Diagnostics)
-- [**Performance tracking**](#Performance-tracking)
-- [**Asynchronous operations (epoll)**](#Asynchronous-operations-epoll)
-- [**Logging control**](#Logging-control)
-- [**Time Access**](#time-access)
-
-## List of Functions & Structures
-
-
-
-***Library Initialization***
+### ***Library Initialization***
   
 | Function/Structure                                | Description                                                                                                    |
 | ------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- |
@@ -26,7 +9,7 @@
 |     ![](/docs/images/1x290.png)                   | ![](/docs/images/1x720.png)                                                                                    |
 
 
-***Creating and configuring sockets***
+### ***Creating and configuring sockets***
  
 | Function/Structure                                | Description                                                                                                    |
 | ------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- |
@@ -40,7 +23,7 @@
 |     ![](/docs/images/1x290.png)                   | ![](/docs/images/1x720.png)                                                                                    |
 
 
-***Connecting***
+### ***Connecting***
   
 | Function/Structure                                | Description                                                                                                    |
 | ------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- |
@@ -56,7 +39,7 @@
 |     ![](/docs/images/1x290.png)                   | ![](/docs/images/1x720.png)                                                                                    |
 
 
-***Socket group management***
+### ***Socket group management***
   
 | Function/Structure                                | Description                                                                                                    |
 | ------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- |
