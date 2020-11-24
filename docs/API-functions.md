@@ -50,7 +50,7 @@
 |   - [srt_group_data](#srt_group_data)             | Obtains the current member state of the group specified in `socketgroup`.                                      |
 |   - [srt_connect_group](#srt_connect_group)       | Similar to calling `srt_connect` or `srt_connect_bind` in a loop for every item in an array.                   |
 |   - [srt_prepare_endpoint](#srt_prepare_endpoint) | Prepares a default `SRT_SOCKGROUPCONFIG` object as an element of an array for `srt_connect_group`.             |
-|   ![](/docs/1x280.png)                            |                                                                                                                |
+|   ![](/docs/1x380.png)                            |                                                                                                                |
 
 
 
