@@ -15,37 +15,37 @@
 
 ## List of Functions
 
-| Function                                    | Description                                                     | Returns                       | Errors            |
-| ------------------------------------------- | --------------------------------------------------------------- |:-----------------------------:|:-----------------:|
-| [**srt_startup**](#srt_startup)             | Called at the start of an application that uses the SRT library | 0, 1, -1                      | `SRT_ECONNSETUP`  |
-| [**srt_cleanup**](#srt_cleanup)             | Cleans up global SRT resources before exiting an application    | 0                             |         -         |
-| [**srt_socket**](#srt_socket)               | Deprecated                                                      | -                             |         -         |
-| [**srt_create_socket**](#srt_create_socket) | Creates an SRT socket                                           | Socket ID <br/>`SRT_INVALID_SOCK` | `SRT_ENOTBUF` |
-| [**srt_bind**](#srt_bind)                   | Binds a socket to a local address and port.                     | `SRT_ERROR`                   | `SRT_EINVSOCK` <br/>`SRT_EINVOP` <br/>`SRT_ECONNSETUP` <br/>`SRT_ESOCKFAIL`                                                                                                                              |
-| [**srt_bind_acquire**](#srt_bind_acquire)   | Acquires a given UDP socket instead of creating one.            | -                             |         -         |
-| [**srt_getsockstate**](#srt_getsockstate)   | Gets the current status of the socket.                          | -                             |         -         |
-| [**srt_getsndbuffer**](#srt_getsndbuffer)   | Retrieves information about the sender buffer.                  |               -               |         -         |
-| [**srt_close**](#srt_close)                 | Closes the socket or group and frees all used resources.        | `SRT_ERROR`                   | `SRT_EINVSOCK`    |
-| [**srt_listen**](#srt_listen)               | Sets up the listening state on a socket.                        | `SRT_ERROR`                   | `SRT_EINVPARAM`<br/>`SRT_EINVSOCK`<br/>`SRT_EUNBOUNDSOCK`<br/>`SRT_ERDVNOSERV`<br/>`SRT_EINVOP`<br/>`SRT_ECONNSOCK`<br/>`SRT_EDUPLISTEN`                                                                  |
-| [**srt_accept**](#srt_accept)               | Accepts a connection; creates/returns a new socket or group ID. | socket/group ID<br/>`SRT_ERROR` | `SRT_EINVPARAM`<br/>`SRT_EINVSOCK`<br/>`SRT_ENOLISTEN`<br/>`SRT_EASYNCRCV`<br/>`SRT_ESCLOSED`                                                                                                             |
-| [**srt_accept_bond**](#srt_accept_bond)     | Accepts a connection pending on any sockets passed in the `listeners` array of `nlisteners` size. | SRT socket<br/>group ID<br/>`SRT_ERROR` | `SRT_EINVPARAM`<br/>`SRT_EINVSOCK`<br/>`SRT_ENOLISTEN`<br/>`SRT_EASYNCRCV`                                                                                          |
-| [**srt_listen_callback**](#srt_listen_callback) | Installs/executes a callback hook on a socket created to handle the incoming connection on a listening socket   | 0, -1 | `SRT_EINVPARAM` |
-| [**srt_connect**](#srt_connect)             | Connects a socket or a group to a remote party with a specified address and port. | `SRT_ERROR`<br/>0<br/>Socket ID | `SRT_EINVSOCK`<br/>`SRT_ERDVUNBOUND`<br/>`SRT_ECONNSOCK`<br/>`SRT_ECONNREJ`<br/>`SRT_ENOSERVER`<br/>`SRT_ESCLOSED`                                                                    |
-| [**srt_connect_bind**](#srt_connect_bind)   | Same as `srt_bind` then `srt_connect` if called with socket `u`. | `SRT_ERROR`<br/>0<br/>Socket ID | `SRT_EINVSOCK`<br/>`SRT_EINVOP`<br/>`SRT_ECONNSETUP`<br/>`SRT_ESOCKFAIL`<br/>`SRT_ERDVUNBOUND`<br/>`SRT_ECONNSOCK`<br/>`SRT_ECONNREJ`                                                                  |
-| [**srt_connect_debug**](#srt_connect_debug) |  Same as [`srt_connect`](#srt_connect) but allows specifying ISN (developers only)  |     -     |         -         |
-| [**srt_rendezvous**](#srt_rendezvous)       | Performs a rendezvous connection.                                | `SRT_ERROR`                  | `SRT_EINVSOCK`<br/>`SRT_EINVOP`<br/>`SRT_ECONNSETUP`<br/>`SRT_ESOCKFAIL`<br/>`SRT_ERDVUNBOUND`<br/>`SRT_ECONNSOCK`<br/>`SRT_ECONNREJ` |
-| [**srt_connect_callback**](#srt_connect_callback) | Installs/executes a callback hook on socket/group `u` after connection resolution/failure | 0, -1             | `SRT_EINVPARAM` |
-| [**SRT_GROUP_TYPE**](#SRT_GROUP_TYPE)       | Group types collected in an `SRT_GROUP_TYPE` enum | - |         -         |
-| [**SRT_SOCKGROUPCONFIG**](#SRT_SOCKGROUPCONFIG) | Structure used to define entry points for connections for `srt_connect_group` | - |         -         |
-| [**SRT_SOCKGROUPDATA**](#SRT_SOCKGROUPDATA) | Most important structure for group member status | - |         -         |
-| [**SRT_MEMBERSTATUS**](#SRT_MEMBERSTATUS) | Enumeration type that defines the state of a member connection in the group | - |         -         |
-| [**srt_create_group**](#srt_create_group) | Creates a new group of type `type`. | - |         -         |
-| [**srt_include**](#srt_include) | Adds a socket to a group. | - |         -         |
-| [**srt_exclude**](#srt_exclude) | Removes a socket from a group to which it currently belongs. | - |         -         |
-| [**srt_groupof**](#srt_groupof) | Returns the group ID of a socket, or `SRT_INVALID_SOCK`. | - |         -         |
-| [**srt_group_data**](#srt_group_data) | Obtains the current member state of the group specified in `socketgroup`. | # of elements, -1 | `SRT_EINVPARAM`<br/>`SRT_ELARGEMSG` |
-| [**srt_connect_group**](#srt_connect_group) | Similar to calling `srt_connect` or `srt_connect_bind` in a loop for every item in an array. | `SRT_ERROR`<br/>0<br/>Socket ID | `SRT_EINVSOCK`<br/>`SRT_ERDVUNBOUND`<br/>`SRT_ECONNSOCK`<br/>`SRT_ECONNREJ`<br/>`SRT_ENOSERVER`<br/>`SRT_ESCLOSED`                                                  |
-| [**srt_prepare_endpoint**](#srt_prepare_endpoint) | Prepares a default `SRT_SOCKGROUPCONFIG` object as an element of an array for `srt_connect_group`. | - |         -         |
+| Function                                          | Description                                                                                                    |
+| ------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- |
+| [**srt_startup**](#srt_startup)                   | Called at the start of an application that uses the SRT library                                                |
+| [**srt_cleanup**](#srt_cleanup)                   | Cleans up global SRT resources before exiting an application                                                   |
+| [**srt_socket**](#srt_socket)                     | Deprecated                                                                                                     |
+| [**srt_create_socket**](#srt_create_socket)       | Creates an SRT socket                                                                                          |
+| [**srt_bind**](#srt_bind)                         | Binds a socket to a local address and port                                                                     |
+| [**srt_bind_acquire**](#srt_bind_acquire)         | Acquires a given UDP socket instead of creating one                                                            |
+| [**srt_getsockstate**](#srt_getsockstate)         | Gets the current status of the socket                                                                          |
+| [**srt_getsndbuffer**](#srt_getsndbuffer)         | Retrieves information about the sender buffer                                                                  |
+| [**srt_close**](#srt_close)                       | Closes the socket or group and frees all used resources.                                                       |
+| [**srt_listen**](#srt_listen)                     | Sets up the listening state on a socket                                                                        |
+| [**srt_accept**](#srt_accept)                     | Accepts a connection; creates/returns a new socket or group ID.                                                |
+| [**srt_accept_bond**](#srt_accept_bond)           | Accepts a connection pending on any sockets passed in the `listeners` array of `nlisteners` size               |
+| [**srt_listen_callback**](#srt_listen_callback)   | Installs/executes a callback hook on a socket created to handle the incoming connection on a listening socket  |
+| [**srt_connect**](#srt_connect)                   | Connects a socket or a group to a remote party with a specified address and port                               |
+| [**srt_connect_bind**](#srt_connect_bind)         | Same as `srt_bind` then `srt_connect` if called with socket `u`                                                |
+| [**srt_connect_debug**](#srt_connect_debug)       |  Same as [`srt_connect`](#srt_connect) but allows specifying ISN (developers only)                             |
+| [**srt_rendezvous**](#srt_rendezvous)             | Performs a rendezvous connection                                                                               |
+| [**srt_connect_callback**](#srt_connect_callback) | Installs/executes a callback hook on socket/group `u` after connection resolution/failure                      |
+| [**SRT_GROUP_TYPE**](#SRT_GROUP_TYPE)             | Group types collected in an `SRT_GROUP_TYPE` enum                                                              |
+| [**SRT_SOCKGROUPCONFIG**](#SRT_SOCKGROUPCONFIG)   | Structure used to define entry points for connections for `srt_connect_group`                                  |
+| [**SRT_SOCKGROUPDATA**](#SRT_SOCKGROUPDATA)       | Most important structure for group member status                                                               |
+| [**SRT_MEMBERSTATUS**](#SRT_MEMBERSTATUS)         | Enumeration type that defines the state of a member connection in the group                                    |
+| [**srt_create_group**](#srt_create_group)         | Creates a new group of type `type`                                                                             |
+| [**srt_include**](#srt_include)                   | Adds a socket to a group                                                                                       |
+| [**srt_exclude**](#srt_exclude)                   | Removes a socket from a group to which it currently belongs                                                    |
+| [**srt_groupof**](#srt_groupof)                   | Returns the group ID of a socket, or `SRT_INVALID_SOCK`                                                        |
+| [**srt_group_data**](#srt_group_data)             | Obtains the current member state of the group specified in `socketgroup`                                       |
+| [**srt_connect_group**](#srt_connect_group)       | Similar to calling `srt_connect` or `srt_connect_bind` in a loop for every item in an array                    |
+| [**srt_prepare_endpoint**](#srt_prepare_endpoint) | Prepares a default `SRT_SOCKGROUPCONFIG` object as an element of an array for `srt_connect_group`              |
 
 
 
@@ -82,7 +82,7 @@ relying on this behavior is strongly discouraged.
 | `SRT_ECONNSETUP` | With error code set, reported when required system resource(s) failed to initialize. This is currently used only on Windows to report a failure from `WSAStartup`. |
 
 
-[Return to top](#srt-api-functions)
+[Return to List of Functions](#list-of-functions)
 
 ---
 
@@ -139,7 +139,7 @@ similar to the SCTP protocol). In SRT these two modes are available by setting
 (TCP-like), or set it to true, which corresponds to "message" mode (SCTP-like).
 
 
-[Return to top](#srt-api-functions)
+[Return to List of Functions](#list-of-functions)
 
 ---
 
@@ -167,7 +167,7 @@ errors are reported by `SRT_ECONNSETUP`.
 
 
 
-[Return to top](#srt-api-functions)
+[Return to List of Functions](#list-of-functions)
 
 ---
 ### srt_bind
@@ -211,7 +211,7 @@ connecting, use `srt_connect_bind` for that purpose.
 
 
 
-[Return to top](#srt-api-functions)
+[Return to List of Functions](#list-of-functions)
 
 ---
 ### srt_bind_acquire
@@ -224,7 +224,7 @@ A version of `srt_bind` that acquires a given UDP socket instead of creating one
 
 
 
-[Return to top](#srt-api-functions)
+[Return to List of Functions](#list-of-functions)
 
 ---
 ### srt_getsockstate
@@ -249,7 +249,7 @@ Gets the current status of the socket. Possible states are:
 
 
 
-[Return to top](#srt-api-functions)
+[Return to List of Functions](#list-of-functions)
 
 ---
 
@@ -270,7 +270,7 @@ socket needs to be closed asynchronously.
 
 
 
-[Return to top](#srt-api-functions)
+[Return to List of Functions](#list-of-functions)
 
 ---
 
@@ -339,7 +339,7 @@ connections
 
 
 
-[Return to top](#srt-api-functions)
+[Return to List of Functions](#list-of-functions)
 
 ---
 
@@ -393,7 +393,7 @@ group, although it's usually for internal use only.
 
 
 
-[Return to top](#srt-api-functions)
+[Return to List of Functions](#list-of-functions)
 
 ---
 
@@ -446,7 +446,7 @@ listener sockets appropriately prior to calling this function.
 
 
 
-[Return to top](#srt-api-functions)
+[Return to List of Functions](#list-of-functions)
 
 ---
 
@@ -529,7 +529,7 @@ streamid or peeraddr.
 
 
 
-[Return to top](#srt-api-functions)
+[Return to List of Functions](#list-of-functions)
 
 ---
 
@@ -585,7 +585,7 @@ reason for the error, including connection timeout (`SRT_REJ_TIMEOUT`).
 
 
 
-[Return to top](#srt-api-functions)
+[Return to List of Functions](#list-of-functions)
 
 ---
 
@@ -628,7 +628,7 @@ different families (that is, both `source` and `target` must be `AF_INET` or
 
 
 
-[Return to top](#srt-api-functions)
+[Return to List of Functions](#list-of-functions)
 
 ---
 
@@ -645,7 +645,7 @@ is generated randomly.
 
 
 
-[Return to top](#srt-api-functions)
+[Return to List of Functions](#list-of-functions)
 
 ---
 
@@ -681,7 +681,7 @@ different families (that is, both `local_name` and `remote_name` must be `AF_INE
 
 
 
-[Return to top](#srt-api-functions)
+[Return to List of Functions](#list-of-functions)
 
 ---
 
@@ -775,7 +775,7 @@ The following group types are collected in an `SRT_GROUP_TYPE` enum:
 * `SRT_GTYPE_BALANCING`: balancing type, share bandwidth usage between links
 
 
-[Return to top](#srt-api-functions)
+[Return to List of Functions](#list-of-functions)
 
 ---
 
@@ -828,7 +828,7 @@ The application can also set a unique value by itself and keep the same
 value for the same connection.
 
 
-[Return to top](#srt-api-functions)
+[Return to List of Functions](#list-of-functions)
 
 ---
 
@@ -860,7 +860,7 @@ where:
 * `token`: A token value set for that connection (see [`SRT_SOCKGROUPCONFIG`](#srt_sockgroupconfig))
 
 
-[Return to top](#srt-api-functions)
+[Return to List of Functions](#list-of-functions)
 
 ---
 
@@ -921,7 +921,7 @@ The group ID is of the same domain as socket ID, with the exception that
 the `SRTGROUP_MASK` bit is set on it, unlike for socket ID.
 
 
-[Return to top](#srt-api-functions)
+[Return to List of Functions](#list-of-functions)
 
 ---
 
@@ -936,7 +936,7 @@ groups. No such group type is currently implemented.
 
 
 
-[Return to top](#srt-api-functions)
+[Return to List of Functions](#list-of-functions)
 
 ---
 ### srt_exclude
@@ -950,7 +950,7 @@ implemented.
 
 
 
-[Return to top](#srt-api-functions)
+[Return to List of Functions](#list-of-functions)
 
 ---
 
@@ -965,7 +965,7 @@ doesn't exist or it's not a member of any group.
 
 
 
-[Return to top](#srt-api-functions)
+[Return to List of Functions](#list-of-functions)
 
 ---
 
@@ -1017,7 +1017,7 @@ and providing `socketgroup` and `inoutlen`.
 
 
 
-[Return to top](#srt-api-functions)
+[Return to List of Functions](#list-of-functions)
 
 ---
 
@@ -1128,7 +1128,7 @@ in which case the `token` value will be preserved.
 
 
 
-[Return to top](#srt-api-functions)
+[Return to List of Functions](#list-of-functions)
 
 ---
 
@@ -1175,7 +1175,7 @@ connection, and the status can be obtained from `errorcode` field.
 
 
 
-[Return to top](#srt-api-functions)
+[Return to List of Functions](#list-of-functions)
 
 ---
 ### srt_create_config
@@ -1197,7 +1197,7 @@ Returns:
 
 
 
-[Return to top](#srt-api-functions)
+[Return to List of Functions](#list-of-functions)
 
 ---
 ### srt_delete_config
@@ -1211,7 +1211,7 @@ Deletes the configurartion object.
 
 
 
-[Return to top](#srt-api-functions)
+[Return to List of Functions](#list-of-functions)
 
 ---
 ### srt_config_add
@@ -1282,7 +1282,7 @@ Retrieves the remote address to which the socket is connected.
 
 
 
-[Return to top](#srt-api-functions)
+[Return to List of Functions](#list-of-functions)
 
 ---
 ### srt_getsockname
@@ -1308,7 +1308,7 @@ address to return (**BUG?** It should rather be `SRT_EUNBOUNDSOCK`)
 
 
 
-[Return to top](#srt-api-functions)
+[Return to List of Functions](#list-of-functions)
 
 ---
 ### srt_getsockopt, srt_getsockflag
@@ -1338,7 +1338,7 @@ type. Specifications are provided in the `apps/socketoptions.hpp` file at the
 
 
 
-[Return to top](#srt-api-functions)
+[Return to List of Functions](#list-of-functions)
 
 ---
 ### srt_setsockopt, srt_setsockflag
@@ -1374,7 +1374,7 @@ are then derived by the member sockets.
 
 
 
-[Return to top](#srt-api-functions)
+[Return to List of Functions](#list-of-functions)
 
 ---
 ### srt_getversion
@@ -1561,7 +1561,7 @@ set to a value other than -1.
 
 
 
-[Return to top](#srt-api-functions)
+[Return to List of Functions](#list-of-functions)
 
 ---
 ### srt_recv, srt_recvmsg, srt_recvmsg2
@@ -1643,7 +1643,7 @@ and the timeout has passed. This is only reported in blocking mode when
 
 
 
-[Return to top](#srt-api-functions)
+[Return to List of Functions](#list-of-functions)
 
 ---
 ### srt_sendfile, srt_recvfile
@@ -1734,7 +1734,7 @@ associated with the last error. The system error is:
 
 
 
-[Return to top](#srt-api-functions)
+[Return to List of Functions](#list-of-functions)
 
 ---
 ### srt_strerror
@@ -1752,7 +1752,7 @@ moment*
 
 
 
-[Return to top](#srt-api-functions)
+[Return to List of Functions](#list-of-functions)
 
 ---
 ### srt_getlasterror_str
@@ -1767,7 +1767,7 @@ Note that, in contradiction to `srt_strerror`, this function is thread safe.
 
 
 
-[Return to top](#srt-api-functions)
+[Return to List of Functions](#list-of-functions)
 
 ---
 ### srt_clearlasterror
@@ -1781,7 +1781,7 @@ report a "successful" code.
 
 
 
-[Return to top](#srt-api-functions)
+[Return to List of Functions](#list-of-functions)
 
 ---
 ### srt_getrejectreason
@@ -1799,7 +1799,7 @@ The following codes are currently reported:
 
 
 
-[Return to top](#srt-api-functions)
+[Return to List of Functions](#list-of-functions)
 
 ---
 #### SRT_REJ_UNKNOWN
@@ -1808,7 +1808,7 @@ A fallback value for cases when there was no connection rejected.
 
 
 
-[Return to top](#srt-api-functions)
+[Return to List of Functions](#list-of-functions)
 
 ---
 #### SRT_REJ_SYSTEM
@@ -1818,7 +1818,7 @@ error or lack of system resources to complete the task.
 
 
 
-[Return to top](#srt-api-functions)
+[Return to List of Functions](#list-of-functions)
 
 ---
 #### SRT_REJ_PEER
@@ -1828,7 +1828,7 @@ This usually means that the peer doesn't support rejection reason reporting.
 
 
 
-[Return to top](#srt-api-functions)
+[Return to List of Functions](#list-of-functions)
 
 ---
 #### SRT_REJ_RESOURCE
@@ -1837,7 +1837,7 @@ A problem with resource allocation (usually memory).
 
 
 
-[Return to top](#srt-api-functions)
+[Return to List of Functions](#list-of-functions)
 
 ---
 #### SRT_REJ_ROGUE
@@ -1848,7 +1848,7 @@ events are happening on the network.
 
 
 
-[Return to top](#srt-api-functions)
+[Return to List of Functions](#list-of-functions)
 
 ---
 #### SRT_REJ_BACKLOG
@@ -1859,7 +1859,7 @@ its limit).
 
 
 
-[Return to top](#srt-api-functions)
+[Return to List of Functions](#list-of-functions)
 
 ---
 #### SRT_REJ_IPE
@@ -1870,7 +1870,7 @@ local and foreign host).
 
 
 
-[Return to top](#srt-api-functions)
+[Return to List of Functions](#list-of-functions)
 
 ---
 #### SRT_REJ_CLOSE
@@ -1880,7 +1880,7 @@ is being closed. It's likely that your next attempt will result with timeout.
 
 
 
-[Return to top](#srt-api-functions)
+[Return to List of Functions](#list-of-functions)
 
 ---
 #### SRT_REJ_VERSION
@@ -1890,7 +1890,7 @@ that connection, and the other party didn't satisfy this requirement.
 
 
 
-[Return to top](#srt-api-functions)
+[Return to List of Functions](#list-of-functions)
 
 ---
 #### SRT_REJ_RDVCOOKIE
@@ -1906,7 +1906,7 @@ this reject reason will be reported by every attempt.
 
 
 
-[Return to top](#srt-api-functions)
+[Return to List of Functions](#list-of-functions)
 
 ---
 #### SRT_REJ_BADSECRET
@@ -1915,7 +1915,7 @@ Both parties have defined a passprhase for connection and they differ.
 
 
 
-[Return to top](#srt-api-functions)
+[Return to List of Functions](#list-of-functions)
 
 ---
 #### SRT_REJ_UNSECURE
@@ -1925,7 +1925,7 @@ Only one connection party has set up a password. See also
 
 
 
-[Return to top](#srt-api-functions)
+[Return to List of Functions](#list-of-functions)
 
 ---
 #### SRT_REJ_MESSAGEAPI
@@ -1935,7 +1935,7 @@ parties.
 
 
 
-[Return to top](#srt-api-functions)
+[Return to List of Functions](#list-of-functions)
 
 ---
 #### SRT_REJ_CONGESTION
@@ -1945,7 +1945,7 @@ connection parties.
 
 
 
-[Return to top](#srt-api-functions)
+[Return to List of Functions](#list-of-functions)
 
 ---
 #### SRT_REJ_FILTER
@@ -1955,7 +1955,7 @@ parties.
 
 
 
-[Return to top](#srt-api-functions)
+[Return to List of Functions](#list-of-functions)
 
 ---
 #### SRT_REJ_GROUP
@@ -1969,7 +1969,7 @@ completely different from the existing connections in the bonding group.
 
 
 
-[Return to top](#srt-api-functions)
+[Return to List of Functions](#list-of-functions)
 
 ---
 #### SRT_REJ_TIMEOUT
@@ -1987,7 +1987,7 @@ the application.
 
 
 
-[Return to top](#srt-api-functions)
+[Return to List of Functions](#list-of-functions)
 
 ---
 ### srt_rejectreason_str
@@ -2009,7 +2009,7 @@ array.
 
 
 
-[Return to top](#srt-api-functions)
+[Return to List of Functions](#list-of-functions)
 
 ---
 ### srt_setrejectreason
@@ -2041,7 +2041,7 @@ is not availble - it then sets the value to `SRT_REJC_PREDEFINED + 404`.
 
 
 
-[Return to top](#srt-api-functions)
+[Return to List of Functions](#list-of-functions)
 
 ---
 ### Error codes
@@ -2055,7 +2055,7 @@ functions an appropriate symbol is defined, like `SRT_INVALID_SOCK` for
 
 
 
-[Return to top](#srt-api-functions)
+[Return to List of Functions](#list-of-functions)
 
 ---
 #### `SRT_EUNKNOWN`
@@ -2064,7 +2064,7 @@ Internal error when setting the right error code.
 
 
 
-[Return to top](#srt-api-functions)
+[Return to List of Functions](#list-of-functions)
 
 ---
 #### `SRT_SUCCESS`
@@ -2073,7 +2073,7 @@ The value set when the last error was cleared and no error has occurred since th
 
 
 
-[Return to top](#srt-api-functions)
+[Return to List of Functions](#list-of-functions)
 
 ---
 #### `SRT_ECONNSETUP`
@@ -2082,7 +2082,7 @@ General setup error resulting from internal system state.
 
 
 
-[Return to top](#srt-api-functions)
+[Return to List of Functions](#list-of-functions)
 
 ---
 #### `SRT_ENOSERVER`
@@ -2092,7 +2092,7 @@ that when this happens, `srt_getrejectreason` also reports the timeout reason.
 
 
 
-[Return to top](#srt-api-functions)
+[Return to List of Functions](#list-of-functions)
 
 ---
 #### `SRT_ECONNREJ`
@@ -2102,7 +2102,7 @@ Connection has been rejected. Additional reject reason can be obtained through
 
 
 
-[Return to top](#srt-api-functions)
+[Return to List of Functions](#list-of-functions)
 
 ---
 #### `SRT_ESOCKFAIL`
@@ -2113,7 +2113,7 @@ passed by pointer to `srt_getlasterror`.
 
 
 
-[Return to top](#srt-api-functions)
+[Return to List of Functions](#list-of-functions)
 
 ---
 #### `SRT_ESECFAIL`
@@ -2123,7 +2123,7 @@ request wasn't properly fulfilled.
 
 
 
-[Return to top](#srt-api-functions)
+[Return to List of Functions](#list-of-functions)
 
 ---
 #### `SRT_ESCLOSED`
@@ -2139,7 +2139,7 @@ parameter to `srt_connect*` or `srt_accept` is no longer usable.
 
 
 
-[Return to top](#srt-api-functions)
+[Return to List of Functions](#list-of-functions)
 
 ---
 #### `SRT_ECONNFAIL`
@@ -2148,7 +2148,7 @@ General connection failure of unknown details.
 
 
 
-[Return to top](#srt-api-functions)
+[Return to List of Functions](#list-of-functions)
 
 ---
 #### `SRT_ECONNLOST`
@@ -2158,7 +2158,7 @@ This specialzation is reported from the transmission functions.
 
 
 
-[Return to top](#srt-api-functions)
+[Return to List of Functions](#list-of-functions)
 
 ---
 #### `SRT_ENOCONN`
@@ -2169,7 +2169,7 @@ socket data.
 
 
 
-[Return to top](#srt-api-functions)
+[Return to List of Functions](#list-of-functions)
 
 ---
 #### `SRT_ERESOURCE`
@@ -2179,7 +2179,7 @@ Usually it means some internal error.
 
 
 
-[Return to top](#srt-api-functions)
+[Return to List of Functions](#list-of-functions)
 
 ---
 #### `SRT_ETHREAD`
@@ -2188,7 +2188,7 @@ System was unable to spawn a new thread when requried.
 
 
 
-[Return to top](#srt-api-functions)
+[Return to List of Functions](#list-of-functions)
 
 ---
 #### `SRT_ENOBUF`
@@ -2197,7 +2197,7 @@ System was unable to allocate memory for buffers.
 
 
 
-[Return to top](#srt-api-functions)
+[Return to List of Functions](#list-of-functions)
 
 ---
 #### `SRT_ESYSOBJ`
@@ -2207,7 +2207,7 @@ sockets, mutexes or condition variables).
 
 
 
-[Return to top](#srt-api-functions)
+[Return to List of Functions](#list-of-functions)
 
 ---
 #### `SRT_EFILE`
@@ -2216,7 +2216,7 @@ General filesystem error (for functions operating with file transmission).
 
 
 
-[Return to top](#srt-api-functions)
+[Return to List of Functions](#list-of-functions)
 
 ---
 #### `SRT_EINVRDOFF`
@@ -2226,7 +2226,7 @@ be modified while it was read from).
 
 
 
-[Return to top](#srt-api-functions)
+[Return to List of Functions](#list-of-functions)
 
 ---
 #### `SRT_ERDPERM`
@@ -2235,7 +2235,7 @@ Read permission was denied when trying to read from file.
 
 
 
-[Return to top](#srt-api-functions)
+[Return to List of Functions](#list-of-functions)
 
 ---
 #### `SRT_EINVWROFF`
@@ -2244,7 +2244,7 @@ Failed to set position in the written file.
 
 
 
-[Return to top](#srt-api-functions)
+[Return to List of Functions](#list-of-functions)
 
 ---
 #### `SRT_EWRPERM`
@@ -2253,7 +2253,7 @@ Write permission was denied when trying to write to a file.
 
 
 
-[Return to top](#srt-api-functions)
+[Return to List of Functions](#list-of-functions)
 
 ---
 #### `SRT_EINVOP`
@@ -2265,7 +2265,7 @@ again.
 
 
 
-[Return to top](#srt-api-functions)
+[Return to List of Functions](#list-of-functions)
 
 ---
 #### `SRT_EBOUNDSOCK`
@@ -2277,7 +2277,7 @@ that is currently connected is also considered bound.
 
 
 
-[Return to top](#srt-api-functions)
+[Return to List of Functions](#list-of-functions)
 
 ---
 #### `SRT_ECONNSOCK`
@@ -2291,7 +2291,7 @@ while the socket isn't in a state that allows it (only `SRTS_INIT` or
 
 
 
-[Return to top](#srt-api-functions)
+[Return to List of Functions](#list-of-functions)
 
 ---
 #### `SRT_EINVPARAM`
@@ -2304,7 +2304,7 @@ can be easily avoided if you set the values correctly.
 
 
 
-[Return to top](#srt-api-functions)
+[Return to List of Functions](#list-of-functions)
 
 ---
 #### `SRT_EINVSOCK`
@@ -2316,7 +2316,7 @@ type of entity was passed, even if it was valid.
 
 
 
-[Return to top](#srt-api-functions)
+[Return to List of Functions](#list-of-functions)
 
 ---
 #### `SRT_EUNBOUNDSOCK`
@@ -2327,7 +2327,7 @@ calling `srt_listen`, which cannot work with an implicitly bound socket.
 
 
 
-[Return to top](#srt-api-functions)
+[Return to List of Functions](#list-of-functions)
 
 ---
 #### `SRT_ENOLISTEN`
@@ -2337,7 +2337,7 @@ state (`srt_listen` must be called first).
 
 
 
-[Return to top](#srt-api-functions)
+[Return to List of Functions](#list-of-functions)
 
 ---
 #### `SRT_ERDVNOSERV`
@@ -2348,7 +2348,7 @@ trying to call `srt_listen` on such a socket.
 
 
 
-[Return to top](#srt-api-functions)
+[Return to List of Functions](#list-of-functions)
 
 ---
 #### `SRT_ERDVUNBOUND`
@@ -2364,7 +2364,7 @@ for regular caller sockets (not rendezvous).
 
 
 
-[Return to top](#srt-api-functions)
+[Return to List of Functions](#list-of-functions)
 
 ---
 #### `SRT_EINVALMSGAPI`
@@ -2383,7 +2383,7 @@ perform the operation on the group, not on this socket
 
 
 
-[Return to top](#srt-api-functions)
+[Return to List of Functions](#list-of-functions)
 
 ---
 #### `SRT_EINVALBUFFERAPI`
@@ -2396,7 +2396,7 @@ to check call parameters.
 
 
 
-[Return to top](#srt-api-functions)
+[Return to List of Functions](#list-of-functions)
 
 ---
 #### `SRT_EDUPLISTEN`
@@ -2407,7 +2407,7 @@ every socket that bound it), but only one such socket can be a listener.
 
 
 
-[Return to top](#srt-api-functions)
+[Return to List of Functions](#list-of-functions)
 
 ---
 #### `SRT_ELARGEMSG`
@@ -2425,7 +2425,7 @@ size of the preset sender buffer, so it cannot be stored in the sender buffer.
 
 
 
-[Return to top](#srt-api-functions)
+[Return to List of Functions](#list-of-functions)
 
 ---
 #### `SRT_EINVPOLLID`
@@ -2434,7 +2434,7 @@ The epoll ID passed to an epoll function is invalid
 
 
 
-[Return to top](#srt-api-functions)
+[Return to List of Functions](#list-of-functions)
 
 ---
 #### `SRT_EPOLLEMPTY`
@@ -2451,7 +2451,7 @@ you can subscribe them later from another thread.
 
 
 
-[Return to top](#srt-api-functions)
+[Return to List of Functions](#list-of-functions)
 
 ---
 #### `SRT_EASYNCFAIL`
@@ -2461,7 +2461,7 @@ General asynchronous failure (not in use currently).
 
 
 
-[Return to top](#srt-api-functions)
+[Return to List of Functions](#list-of-functions)
 
 ---
 #### `SRT_EASYNCSND`
@@ -2473,7 +2473,7 @@ the function would block the call otherwise).
 
 
 
-[Return to top](#srt-api-functions)
+[Return to List of Functions](#list-of-functions)
 
 ---
 #### `SRT_EASYNCRCV`
@@ -2486,7 +2486,7 @@ the call otherwise).
 
 
 
-[Return to top](#srt-api-functions)
+[Return to List of Functions](#list-of-functions)
 
 ---
 #### `SRT_ETIMEOUT`
@@ -2498,7 +2498,7 @@ the function call was blocking, but the required timeout time has passed.
 
 
 
-[Return to top](#srt-api-functions)
+[Return to List of Functions](#list-of-functions)
 
 ---
 #### `SRT_ECONGEST`
@@ -2518,7 +2518,7 @@ rate to avoid congestion.
 
 
 
-[Return to top](#srt-api-functions)
+[Return to List of Functions](#list-of-functions)
 
 ---
 #### `SRT_EPEERERR`
@@ -2601,7 +2601,7 @@ then be used to block until any readiness status in the whole `eid` is set.
 
 
 
-[Return to top](#srt-api-functions)
+[Return to List of Functions](#list-of-functions)
 
 ---
 ### srt_epoll_create
@@ -2625,7 +2625,7 @@ like epoll on Linux.
 
 
 
-[Return to top](#srt-api-functions)
+[Return to List of Functions](#list-of-functions)
 
 ---
 ### srt_epoll_add_usock, srt_epoll_add_ssock, srt_epoll_update_usock, srt_epoll_update_ssock
@@ -2723,7 +2723,7 @@ call which actually results in `SRT_SUCCESS`. For cases like that the
 
 
 
-[Return to top](#srt-api-functions)
+[Return to List of Functions](#list-of-functions)
 
 ---
 ### srt_epoll_remove_usock, srt_epoll_remove_ssock
@@ -2749,7 +2749,7 @@ The `_ssock` suffix refers to a system socket.
 
 
 
-[Return to top](#srt-api-functions)
+[Return to List of Functions](#list-of-functions)
 
 ---
 ### srt_epoll_wait
@@ -2811,7 +2811,7 @@ indefinitely.
 
 
 
-[Return to top](#srt-api-functions)
+[Return to List of Functions](#list-of-functions)
 
 ---
 ### srt_epoll_uwait
@@ -2881,7 +2881,7 @@ closed and its state can be verified with a call to `srt_getsockstate`.
 
 
 
-[Return to top](#srt-api-functions)
+[Return to List of Functions](#list-of-functions)
 
 ---
 ### srt_epoll_clear_usocks
@@ -2902,7 +2902,7 @@ container identified by `eid`.
 
 
 
-[Return to top](#srt-api-functions)
+[Return to List of Functions](#list-of-functions)
 
 ---
 ### srt_epoll_set
@@ -2943,7 +2943,7 @@ or a special value -1 in case when an error occurred.
 
 
 
-[Return to top](#srt-api-functions)
+[Return to List of Functions](#list-of-functions)
 
 ---
 ### srt_epoll_release
@@ -2982,7 +2982,7 @@ particular socket, and some are shared between sockets.
 
 
 
-[Return to top](#srt-api-functions)
+[Return to List of Functions](#list-of-functions)
 
 ---
 ### srt_setloglevel
@@ -3006,7 +3006,7 @@ The constants for this value are those from `<sys/syslog.h>`
 
 
 
-[Return to top](#srt-api-functions)
+[Return to List of Functions](#list-of-functions)
 
 ---
 ### srt_addlogfa, srt_dellogfa, srt_resetlogfa
@@ -3031,7 +3031,7 @@ if strictly required for the development), or some duplicated information
 
 
 
-[Return to top](#srt-api-functions)
+[Return to List of Functions](#list-of-functions)
 
 ---
 ### srt_setloghandler
@@ -3046,7 +3046,7 @@ the sending to a stream with a handler function that will receive them.
 
 
 
-[Return to top](#srt-api-functions)
+[Return to List of Functions](#list-of-functions)
 
 ---
 ### srt_setlogflags
@@ -3131,7 +3131,7 @@ as system clock is vulnerable to time modifications during transmission.
 
 
 
-[Return to top](#srt-api-functions)
+[Return to List of Functions](#list-of-functions)
 
 ---
 ### srt_time_now
@@ -3147,7 +3147,7 @@ Get time in microseconds elapsed since epoch using SRT internal clock (steady or
 
 
 
-[Return to top](#srt-api-functions)
+[Return to List of Functions](#list-of-functions)
 
 ---
 ### srt_connection_time
