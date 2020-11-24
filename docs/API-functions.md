@@ -1,81 +1,17 @@
 # SRT API Functions
 
 - [**Library Initialization**](#Library-Initialization)
-  * [srt_startup](#srt_startup)
-  * [srt_cleanup](#srt_cleanup)
 - [**Creating and configuring sockets**](#Creating-and-configuring-sockets)
-  * [srt_socket](#srt_socket)
-  * [srt_create_socket](#srt_create_socket)
-  * [srt_bind](#srt_bind)
-  * [srt_bind_acquire](#srt_bind_acquire)
-  * [srt_getsockstate](#srt_getsockstate)
-  * [srt_getsndbuffer](#srt_getsndbuffer)
-  * [srt_close](#srt_close)
 - [**Connecting**](#Connecting)
-  * [srt_listen](#srt_listen)
-  * [srt_accept](#srt_accept)
-  * [srt_accept_bond](#srt_accept_bond)
-  * [srt_listen_callback](#srt_listen_callback)
-  * [srt_connect](#srt_connect)
-  * [srt_connect_bind](#srt_connect_bind)
-  * [srt_connect_debug](#srt_connect_debug)
-  * [srt_rendezvous](#srt_rendezvous)
-  * [srt_connect_callback](#srt_connect_callback)
 - [**Socket group management**](#Socket-group-management)
-  * [SRT_GROUP_TYPE](#SRT_GROUP_TYPE)
-  * [SRT_SOCKGROUPCONFIG](#SRT_SOCKGROUPCONFIG)
-  * [SRT_SOCKGROUPDATA](#SRT_SOCKGROUPDATA)
-  * [SRT_MEMBERSTATUS](#SRT_MEMBERSTATUS)
-  * [srt_create_group](#srt_create_group)
-  * [srt_include](#srt_include)
-  * [srt_exclude](#srt_exclude)
-  * [srt_groupof](#srt_groupof)
-  * [srt_group_data](#srt_group_data)
-  * [srt_connect_group](#srt_connect_group)
-  * [srt_prepare_endpoint](#srt_prepare_endpoint)
-  * [srt_create_config](#srt_create_config)
-  * [srt_delete_config](#srt_delete_config)
-  * [srt_config_add](#srt_config_add)
 - [**Options and properties**](#Options-and-properties)
-  * [srt_getpeername](#srt_getpeername)
-  * [srt_getsockname](#srt_getsockname)
-  * [srt_getsockopt, srt_getsockflag](#srt_getsockopt-srt_getsockflag)
-  * [srt_setsockopt, srt_setsockflag](#srt_setsockopt-srt_setsockflag)
-  * [srt_getversion](#srt_getversion)
 - [**Helper data types for transmission**](#Helper-data-types-for-transmission)
-  * [SRT_MSGCTRL](#SRT_MSGCTRL)
 - [**Transmission**](#Transmission)
-  * [srt_send, srt_sendmsg, srt_sendmsg2](#srt_send-srt_sendmsg-srt_sendmsg2)
-  * [srt_recv, srt_recvmsg, srt_recvmsg2](#srt_recv-srt_recvmsg-srt_recvmsg2)
-  * [srt_sendfile, srt_recvfile](#srt_sendfile-srt_recvfile)
 - [**Diagnostics**](#Diagnostics)
-  * [srt_getlasterror_str](#srt_getlasterror_str)
-  * [srt_getlasterror](#srt_getlasterror)
-  * [srt_strerror](#srt_strerror)
-  * [srt_clearlasterror](#srt_clearlasterror)
-  * [srt_getrejectreason](#srt_getrejectreason)
-  * [srt_rejectreason_str](#srt_rejectreason_str)
-  * [srt_setrejectreason](#srt_setrejectreason)
-  * [Error Codes](#error-codes)
 - [**Performance tracking**](#Performance-tracking)
-  * [srt_bstats, srt_bistats](#srt_bstats-srt_bistats)
 - [**Asynchronous operations (epoll)**](#Asynchronous-operations-epoll)
-  * [srt_epoll_create](#srt_epoll_create)
-  * [srt_epoll_add_usock, srt_epoll_add_ssock, srt_epoll_update_usock, srt_epoll_update_ssock](#srt_epoll_add_usock-srt_epoll_add_ssock-srt_epoll_update_usock-srt_epoll_update_ssock)
-  * [srt_epoll_remove_usock, srt_epoll_remove_ssock](#srt_epoll_remove_usock-srt_epoll_remove_ssock)
-  * [srt_epoll_wait](#srt_epoll_wait)
-  * [srt_epoll_uwait](#srt_epoll_uwait)
-  * [srt_epoll_clear_usocks](#srt_epoll_clear_usocks)
-  * [srt_epoll_set](#srt_epoll_set)
-  * [srt_epoll_release](#srt_epoll_release)
 - [**Logging control**](#Logging-control)
-  * [srt_setloglevel](#srt_setloglevel)
-  * [srt_addlogfa, srt_dellogfa, srt_resetlogfa](#srt_addlogfa-srt_dellogfa-srt_resetlogfa)
-  * [srt_setloghandler](#srt_setloghandler)
-  * [srt_setlogflags](#srt_setlogflags)
 - [**Time Access**](#time-access)
-  * [srt_time_now](#srt_time_now)
-  * [srt_connection_time](#srt_connection_time)
 
 ## List of Functions
 
@@ -108,6 +44,8 @@
 | [**srt_exclude**](#srt_exclude) | Removes a socket from a group to which it currently belongs. | - |         -         |
 | [**srt_groupof**](#srt_groupof) | Returns the group ID of a socket, or `SRT_INVALID_SOCK`. | - |         -         |
 | [**srt_group_data**](#srt_group_data) | Obtains the current member state of the group specified in `socketgroup`. | # of elements, -1 | `SRT_EINVPARAM`<br/>`SRT_ELARGEMSG` |
+| [**srt_connect_group**](#srt_connect_group) | Similar to calling `srt_connect` or `srt_connect_bind` in a loop for every item in an array. | `SRT_ERROR`<br/>0<br/>Socket ID | `SRT_EINVSOCK`<br/>`SRT_ERDVUNBOUND`<br/>`SRT_ECONNSOCK`<br/>`SRT_ECONNREJ`<br/>`SRT_ENOSERVER`<br/>`SRT_ESCLOSED`                                                  |
+| [**srt_prepare_endpoint**](#srt_prepare_endpoint) | Prepares a default `SRT_SOCKGROUPCONFIG` object as an element of an array for `srt_connect_group`. | - |         -         |
 
 
 
@@ -1058,10 +996,10 @@ and providing `socketgroup` and `inoutlen`.
 
 |      Returns     |                                                           |
 |:----------------:|:--------------------------------------------------------- |
-|      <number>    | The number of data elements filled, on success            |
+|   # of elements  | The number of data elements filled, on success            |
 |         -1       | Error                                                     |
 
-|       Errors     |                                                           |
+|      Errors      |                                                           |
 |:----------------:|:--------------------------------------------------------- |
 | `SRT_EINVPARAM`  | Reported if `socketgroup` is not an existing group ID     |
 | `SRT_ELARGEMSG`  | Reported if `inoutlen` if less than the size of the group |
@@ -1082,6 +1020,7 @@ and providing `socketgroup` and `inoutlen`.
 [Return to top](#srt-api-functions)
 
 ---
+
 ### srt_connect_group
 
 ```
@@ -1089,12 +1028,12 @@ int srt_connect_group(SRTSOCKET group,
                       SRT_SOCKGROUPCONFIG name [], int arraysize);
 ```
 
-This function does almost the same as calling `srt_connect` or `srt_connect_bind`
-(when the source was specified for `srt_prepare_endpoint`) in a loop for every
-item specified in `name` array. However if you did this in blocking mode, the
-first call to `srt_connect` would block until the connection is established,
-whereas this function blocks until any of the specified connections is
-established.
+This function does almost the same as calling [`srt_connect`](#srt_connect) or 
+[`srt_connect_bind`](#srt_connect_bind) (when the source was specified for 
+`srt_prepare_endpoint`) in a loop for every item specified in `name` array. 
+However if you did this in blocking mode, the first call to `srt_connect` would 
+block until the connection is established, whereas this function blocks until 
+any of the specified connections is established.
 
 If you set the group nonblocking mode (`SRTO_RCVSYN` option), there's no
 difference, except that the `SRT_SOCKGROUPCONFIG` structure allows you
@@ -1114,7 +1053,7 @@ array upon return from the `errorcode` field.
 
 The fields of `SRT_SOCKGROUPCONFIG` structure have the following meaning:
 
-Input:
+**Input**:
 
 * `id`: unused, should be -1 (default when created by `srt_prepare_endpoint`)
 * `srcaddr`: address to bind before connecting, if specified (see below for details)
@@ -1124,7 +1063,7 @@ Input:
 * `errorcode`: unused, should be `SRT_SUCCESS` (default)
 * `token`: An integer value unique for every connection, or -1 if unused
 
-Output:
+**Output**:
 
 * `id`: The socket created for that connection (-1 if failed to create)
 * `srcaddr`: unchanged
@@ -1192,6 +1131,7 @@ in which case the `token` value will be preserved.
 [Return to top](#srt-api-functions)
 
 ---
+
 ### srt_prepare_endpoint
 
 ```
