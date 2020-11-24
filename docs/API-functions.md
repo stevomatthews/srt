@@ -1637,14 +1637,12 @@ In both **file/message** and **live mode** the successful return is always equal
 |:---------------------:|:------------------------------------------------------------------------------------------------------------------- |
 | `SRT_ENOCONN`         | Socket `u` used when the operation is not connected.                                                                |
 | `SRT_ECONNLOST`       | Socket `u` used for the operation has lost its connection.                                                          |
-| `SRT_EINVALMSGAPI`    | Incorrect API usage in **message mode**:                                                                            |
-|                       | **live mode**: trying to send more bytes at once than `SRTO_PAYLOADSIZE` or wrong source time was provided.         |
-| `SRT_EINVALBUFFERAPI` | Incorrect API usage in **stream mode** (reserved for future use):                                                   |
-|                       | The congestion controller object used for this mode doesn't use any restrictions on this call, but this may change. |
+| `SRT_EINVALMSGAPI`    | Incorrect API usage in **message mode**:<br/>**live mode**: trying to send more bytes at once than `SRTO_PAYLOADSIZE` or wrong source time was provided. |
+| `SRT_EINVALBUFFERAPI` | Incorrect API usage in **stream mode** (reserved for future use):<br/>The congestion controller object used for this mode doesn't use any restrictions on this call, but this may change. |
 | `SRT_ELARGEMSG`       | Message to be sent can't fit in the sending buffer (that is, it exceeds the current total space in the sending buffer in bytes). This means that the sender buffer is too small, or the application is trying to send a larger message than initially predicted.                                                    |
 | `SRT_EASYNCSND`       | There's no free space currently in the buffer to schedule the payload. This is only reported in non-blocking mode (`SRTO_SNDSYN` set to false); in blocking mode the call is blocked until enough free space in the sending buffer becomes available.                                                              |
 | `SRT_ETIMEOUT`        | The condition described above still persists and the timeout has passed. This is only reported in blocking mode when `SRTO_SNDTIMEO` is set to a value other than -1. |
-| `SRT_EPEERERR`  | This is reported only in the case where, as a stream is being received by a peer, the `srt_recvfile` function encounters an error during a write operation on a file. This is reported by a `UMSG_PEERERROR` message from the peer, and the agent sets the appropriate flag internally. This flag persists up to the moment when the connection is broken or closed. |
+| `SRT_EPEERERR`        | This is reported only in the case where, as a stream is being received by a peer, the `srt_recvfile` function encounters an error during a write operation on a file. This is reported by a `UMSG_PEERERROR` message from the peer, and the agent sets the appropriate flag internally. This flag persists up to the moment when the connection is broken or closed. |
 
 
 
