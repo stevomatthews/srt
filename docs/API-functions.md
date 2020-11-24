@@ -1256,9 +1256,12 @@ being a group member
 
 ## Options and properties
 
+* [srt_getpeername](#srt_getpeername)
+* [srt_getsockname](#srt_getsockname)
+* [srt_getsockopt, srt_getsockflag](#srt_getsockopt-srt_getsockflag)
+* [srt_setsockopt, srt_setsockflag](#srt_setsockopt-srt_setsockflag)
+* [srt_getversion](#srt_getversion)
 
-
-[Return to top](#srt-api-functions)
 
 ---
 ### srt_getpeername
@@ -1390,9 +1393,8 @@ where x = ("%d", (version>>16) & 0xff), etc.
 
 ## Helper data types for transmission
 
+  * [SRT_MSGCTRL](#SRT_MSGCTRL)
 
-
-[Return to top](#srt-api-functions)
 
 ---
 ### SRT_MSGCTRL
@@ -1481,9 +1483,10 @@ mutable, as they use some fields to output values.
 
 ## Transmission
 
+* [srt_send, srt_sendmsg, srt_sendmsg2](#srt_send-srt_sendmsg-srt_sendmsg2)
+* [srt_recv, srt_recvmsg, srt_recvmsg2](#srt_recv-srt_recvmsg-srt_recvmsg2)
+* [srt_sendfile, srt_recvfile](#srt_sendfile-srt_recvfile)
 
-
-[Return to top](#srt-api-functions)
 
 ---
 ### srt_send, srt_sendmsg, srt_sendmsg2
@@ -1704,9 +1707,15 @@ performed as long as you call this diagnostic function just after the failed
 function has returned. In any other situation the information provided by the
 diagnostic function is undefined.
 
+* [srt_getlasterror_str](#srt_getlasterror_str)
+* [srt_getlasterror](#srt_getlasterror)
+* [srt_strerror](#srt_strerror)
+* [srt_clearlasterror](#srt_clearlasterror)
+* [srt_getrejectreason](#srt_getrejectreason)
+* [srt_rejectreason_str](#srt_rejectreason_str)
+* [srt_setrejectreason](#srt_setrejectreason)
+* [Error Codes](#error-codes)
 
-
-[Return to top](#srt-api-functions)
 
 ---
 ### srt_getlasterror
@@ -2537,9 +2546,9 @@ always assumes that the sequence number are in the required range already, so
 for a numbers like 0x7FFFFFF0 and 0x10, for which the "numeric difference"
 would be 0x7FFFFFE0, the "distance" is 0x20.
 
+* [srt_bstats, srt_bistats](#srt_bstats-srt_bistats)
 
 
-[Return to top](#srt-api-functions)
 
 ---
 ### srt_bstats, srt_bistats
@@ -2562,6 +2571,15 @@ Reports the current statistics
 of the fields please refer to the document [statistics.md](statistics.md).
 
 ## Asynchronous operations (epoll)
+
+* [srt_epoll_create](#srt_epoll_create)
+* [srt_epoll_add_usock, srt_epoll_add_ssock, srt_epoll_update_usock, srt_epoll_update_ssock](#srt_epoll_add_usock-srt_epoll_add_ssock-srt_epoll_update_usock-srt_epoll_update_ssock)
+* [srt_epoll_remove_usock, srt_epoll_remove_ssock](#srt_epoll_remove_usock-srt_epoll_remove_ssock)
+* [srt_epoll_wait](#srt_epoll_wait)
+* [srt_epoll_uwait](#srt_epoll_uwait)
+* [srt_epoll_clear_usocks](#srt_epoll_clear_usocks)
+* [srt_epoll_set](#srt_epoll_set)
+* [srt_epoll_release](#srt_epoll_release)
 
 The epoll system is currently the only method for using multiple sockets in one
 thread with having the blocking operation moved to epoll waiting so that it can
@@ -2947,6 +2965,11 @@ Deletes the epoll container.
 
 ## Logging control
 
+* [srt_setloglevel](#srt_setloglevel)
+* [srt_addlogfa, srt_dellogfa, srt_resetlogfa](#srt_addlogfa-srt_dellogfa-srt_resetlogfa)
+* [srt_setloghandler](#srt_setloghandler)
+* [srt_setlogflags](#srt_setlogflags)
+
 SRT has a widely used system of logs, as this is usually the only way to determine
 how the internals are working, without changing the rules by the act of tracing.
 Logs are split into levels (5 levels out of those defined by syslog are in use)
@@ -3047,6 +3070,9 @@ The following flags are available, as collected in `logging_api.h` public header
 - `SRT_LOGF_DISABLE_EOL`: Do not add the end-of-line character to the log line
 
 ## Time Access
+
+* [srt_time_now](#srt_time_now)
+* [srt_connection_time](#srt_connection_time)
 
 The following set of functions is intended to retrieve timestamps from the clock used by SRT.
 The sender can pass the timestamp in `MSGCTRL::srctime` of the `srt_sendmsg2(..)`
