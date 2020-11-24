@@ -1,8 +1,8 @@
 # SRT API Functions
 
-### Library Initialization**
+### Library Initialization
   
-| Function/Structure                                | Description                                                                                                    |
+|: *Function/Structure*                               |: *Description*                                                                                                   |
 | ------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- |
 |     [srt_startup](#srt_startup)                   | Called at the start of an application that uses the SRT library                                                |
 |     [srt_cleanup](#srt_cleanup)                   | Cleans up global SRT resources before exiting an application                                                   |
