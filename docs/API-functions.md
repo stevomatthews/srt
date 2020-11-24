@@ -80,13 +80,13 @@ global data, and starts the SRT GC thread. If this function isn't explicitly
 called, it will be called automatically when creating the first socket. However, 
 relying on this behavior is strongly discouraged.
 
-|`|    Returns   |`|                                                                 |
+|`[    Returns   ]`|                                                                 |
 |:----------------:|:--------------------------------------------------------------- |
 |         0        | Successfully run, or already started                            |
 |         1        | This is the first startup, but the GC thread is already running |
 |        -1        | Failed                                                          |
 
-|`|     Errors   |`|                                                                 |
+|`[     Errors   ]`|                                                                 |
 |:----------------:|:--------------------------------------------------------------- |
 | `SRT_ECONNSETUP` | With error code set, reported when required system resource(s) failed to initialize. This is currently used only on Windows to report a failure from `WSAStartup`. |
 
@@ -105,7 +105,7 @@ exiting the application that uses the SRT library. This cleanup function will st
 be called from the C++ global destructor, if not called by the application, although
 relying on this behavior is stronly discouraged.
 
-|`|    Returns   |`|                            Description                          |
+|`[    Returns   ]`|                            Description                          |
 |:----------------:|:--------------------------------------------------------------- |
 |         0        | A possibility to return other values is reserved for future use |
 
