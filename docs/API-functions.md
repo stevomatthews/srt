@@ -4,8 +4,8 @@
   
 | *Function / Structure*                            | *Description*                                                                                                  |
 |:------------------------------------------------- |:-------------------------------------------------------------------------------------------------------------- |
-| [srt_startup](#srt_startup)                       | • Called at the start of an application that uses the SRT library                                                |
-| [srt_cleanup](#srt_cleanup)                       | – Cleans up global SRT resources before exiting an application                                                   |
+| [srt_startup](#srt_startup)                       | Called at the start of an application that uses the SRT library                                                |
+| [srt_cleanup](#srt_cleanup)                       | Cleans up global SRT resources before exiting an application                                                   |
 | ![](/docs/images/1x290.png)                       | ![](/docs/images/1x720.png)                                                                                    |
 
 
@@ -13,9 +13,9 @@
  
 | *Function / Structure*                            | *Description*                                                                                                  |
 |:------------------------------------------------- |:-------------------------------------------------------------------------------------------------------------- |
-| [srt_socket](#srt_socket)                         | • Deprecated                                                                                                     |
-| [srt_create_socket](#srt_create_socket)           | – Creates an SRT socket                                                                                          |
-| [srt_bind](#srt_bind)                             | — Binds a socket to a local address and port.                                                                    |
+| [srt_socket](#srt_socket)                         | Deprecated                                                                                                     |
+| [srt_create_socket](#srt_create_socket)           | Creates an SRT socket                                                                                          |
+| [srt_bind](#srt_bind)                             | Binds a socket to a local address and port.                                                                    |
 | [srt_bind_acquire](#srt_bind_acquire)             | Acquires a given UDP socket instead of creating one.                                                           |
 | [srt_getsockstate](#srt_getsockstate)             | Gets the current status of the socket.                                                                         |
 | [srt_getsndbuffer](#srt_getsndbuffer)             | Retrieves information about the sender buffer.                                                                 |
@@ -74,7 +74,7 @@
 | ![](/docs/images/1x290.png)                       | ![](/docs/images/1x720.png)                                                                                    |
 
 
-### Helper Data Types for Transmission**
+### **Helper Data Types for Transmission**
   
 | *Function / Structure*                            | *Description*                                                                                                  |
 |:------------------------------------------------- |:-------------------------------------------------------------------------------------------------------------- |
@@ -82,7 +82,7 @@
 | ![](/docs/images/1x290.png)                       | ![](/docs/images/1x720.png)                                                                                    |
 
 
-### Transmission**
+### **Transmission**
   
 | *Function / Structure*                            | *Description*                                                                                                  |
 |:------------------------------------------------- |:-------------------------------------------------------------------------------------------------------------- |
@@ -92,9 +92,17 @@
 | [**srt_recv**](#srt_recv)                         | Extracts the payload waiting to be received.                                                                   |
 | [**srt_recvmsg**](#srt_recvmsg)                   | Extracts the payload waiting to be received.                                                                   |
 | [**srt_recvmsg2**](#srt_recvmsg2)                 | Extracts the payload waiting to be received.                                                                   |
+| [**srt_sendfile**](#srt_sendfile)                 | Function dedicated to sending a file                                                                           |
+| [**srt_recvfile**](#srt_recvfile)                 | Function dedicated to receiving a file                                                                         |
 | ![](/docs/images/1x290.png)                       | ![](/docs/images/1x720.png)                                                                                    |
 
 
+### **Diagnostics**
+  
+| *Function / Structure*                            | *Description*                                                                                                  |
+|:------------------------------------------------- |:-------------------------------------------------------------------------------------------------------------- |
+| [**srt_getlasterror**](#srt_getlasterror)         | Get the numeric code of the last error.                                                                        |
+| ![](/docs/images/1x290.png)                       | ![](/docs/images/1x720.png)                                                                                    |
 
 
 
@@ -1698,43 +1706,6 @@ it will be kept in the receiver buffer; also, when the time to play has come
 for a message that is next to the currently lost one, it will be delivered
 and the lost one dropped.
 
-- Returns:
-
-  * Size (\>0) of the data received, if successful.
-  * 0, if the connection has been closed
-  * `SRT_ERROR` (-1) when an error occurs 
-
-- Errors:
-
-  * `SRT_ENOCONN`: Socket `u` used for the operation is not connected.
-  * `SRT_ECONNLOST`: Socket `u` used for the operation has lost connection
-(this is reported only if the connection was unexpectedly broken, not
-when it was closed by the foreign host).
-  * `SRT_EINVALMSGAPI`: Incorrect API usage in **message mode**:
-    * **live mode**: size of the buffer is less than `SRTO_PAYLOADSIZE`
-  * `SRT_EINVALBUFFERAPI`: Incorrect API usage in **stream mode**:
-    * Currently not in use. File congestion control used for **stream mode** 
-     does not restrict the parameters. **???**
-  * `SRT_ELARGEMSG`: Message to be sent can't fit in the sending buffer (that is,
-it exceeds the current total space in the sending buffer in bytes). This means
-that the sender buffer is too small, or the application is trying to send
-a larger message than initially intended.
-  * `SRT_EASYNCRCV`: There are no data currently waiting for delivery. This
-happens only in non-blocking mode (when `SRTO_RCVSYN` is set to false). In
-blocking mode the call is blocked until the data are ready. How this is defined,
-depends on the mode:
-   * In **live mode** (with `SRTO_TSBPDMODE` on), at least one packet must
-   be present in the receiver buffer and its time to play be in the past
-   * In **file/message mode**, one full message must be available,
-     * the next one waiting if there are no messages with `inorder` = false, or 
-     possibly the first message ready with `inorder` = false
-   * In **file/stream mode**, it is expected to have at least one byte of data 
-   still not extracted
-   * `SRT_ETIMEOUT`: The readiness condition described above is still not achieved 
-and the timeout has passed. This is only reported in blocking mode when
-`SRTO_RCVTIMEO` is set to a value other than -1.
-
-
 |      Returns     |                                                           |
 |:----------------:|:--------------------------------------------------------- |
 | Size             | Size (\>0) of the data received, if successful.           |
@@ -1745,18 +1716,20 @@ and the timeout has passed. This is only reported in blocking mode when
 |:----------------:|:--------------------------------------------------------- |
 | `SRT_ENOCONN`        | Socket `u` used for the operation is not connected.                                                              |
 | `SRT_ECONNLOST`        | Socket `u` used for the operation has lost connection (this is reported only if the connection was unexpectedly broken, not when it was closed by the foreign host). |
-| `SRT_EINVALMSGAPI`  | Incorrect API usage in **message mode**:<br/>* **live mode**: size of the buffer is less than `SRTO_PAYLOADSIZE`  |
-| `SRT_EINVALBUFFERAPI`  | Incorrect API usage in **stream mode**:<br/>* Currently not in use. File congestion control used for **stream mode** does not restrict the parameters. **???**   |
+| `SRT_EINVALMSGAPI`  | Incorrect API usage in **message mode**:<br/>-- **live mode**: size of the buffer is less than `SRTO_PAYLOADSIZE`  |
+| `SRT_EINVALBUFFERAPI`  | Incorrect API usage in **stream mode**:<br/>• Currently not in use. File congestion control used for **stream mode** does not restrict the parameters. **???**   |
 | `SRT_ELARGEMSG` | Message to be sent can't fit in the sending buffer (that is, it exceeds the current total space in the sending buffer in bytes). This means that the sender buffer is too small, or the application is trying to send a larger message than initially intended.                                                     |
-| `SRT_EASYNCRCV` | There are no data currently waiting for delivery. This happens only in non-blocking mode (when `SRTO_RCVSYN` is set to false). In blocking mode the call is blocked until the data are ready. How this is defined, depends on the mode:<br/>In **live mode** (with `SRTO_TSBPDMODE` on), at least one packet must be present in the receiver buffer and its time to play be in the past<br/>In **file/message mode**, one full message must be available, the next one waiting if there are no messages with `inorder` = false, or possibly the first message ready with `inorder` = false<br/>In **file/stream mode**, it is expected to have at least one byte of data still not extracted                       |
-| `SRT_ETIMEOUT` | he readiness condition described above is still not achieved and the timeout has passed. This is only reported in blocking mode when`SRTO_RCVTIMEO` is set to a value other than -1.                                                                       |
+| `SRT_EASYNCRCV` | There are no data currently waiting for delivery. This happens only in non-blocking mode (when `SRTO_RCVSYN` is set to false). In blocking mode the call is blocked until the data are ready. How this is defined, depends on the mode:<br/>• In **live mode** (with `SRTO_TSBPDMODE` on), at least one packet must be present in the receiver buffer and its time to play be in the past<br/>• In **file/message mode**, one full message must be available, the next one waiting if there are no messages with `inorder` = false, or possibly the first message ready with `inorder` = false<br/>In **file/stream mode**, it is expected to have at least one byte of data still not extracted                       |
+| `SRT_ETIMEOUT` | The readiness condition described above is still not achieved and the timeout has passed. This is only reported in blocking mode when`SRTO_RCVTIMEO` is set to a value other than -1.                                                                       |
 
 
 
 [Back to List of Functions & Structures](#srt-api-functions)
 
----
-### srt_sendfile, srt_recvfile
+---  
+  
+### srt_sendfile
+### srt_recvfile
 
 ```
 int64_t srt_sendfile(SRTSOCKET u, const char* path, int64_t* offset, int64_t size, int block);
@@ -1786,27 +1759,21 @@ The following values are recommended for the `block` parameter:
 You need to pass them to the `srt_sendfile` or `srt_recvfile` function if you 
 don't know what value to chose.
 
-- Returns:
+|      Returns     |                                                           |
+|:----------------:|:--------------------------------------------------------- |
+|       Size       | The size (\>0) of the transmitted data of a file. It may be less than `size`, if the size was greater than the free space in the buffer, in which case you have to send rest of the file next time.                                                         |
+|        -1        | in case of error                                          |
 
-  * Size (\>0) of the transmitted data of a file. It may be less than `size`, if 
-  the size was greater than the free space in the buffer, in which case you have 
-  to send rest of the file next time.
-  * -1 in case of error.
+|       Errors          |                                                              |
+|:---------------------:|:------------------------------------------------------------ |
+| `SRT_ENOCONN`         | Socket `u` used for the operation is not connected.          |
+| `SRT_ECONNLOST`       | Socket `u` used for the operation has lost its connection.   |
+| `SRT_EINVALBUFFERAPI` | When socket has `SRTO_MESSAGEAPI` = true or `SRTO_TSBPDMODE` = true. (**BUG?**: Looxlike MESSAGEAPI isn't checked)   |
+| `SRT_EINVRDOFF`       | There is a mistake in `offset` or `size` parameters, which should match the index availability and size of the bytes available since `offset` index. This is actually reported for `srt_sendfile` when the `seekg` or `tellg` operations resulted in error.  |
+| `SRT_EINVWROFF`       | Like above, reported for `srt_recvfile` and `seekp`/`tellp`. |
+| `SRT_ERDPERM`         | The read from file operation has failed (`srt_sendfile`).    |
+| `SRT_EWRPERM`         | The write to file operation has failed (`srt_recvfile`).     |
 
-- Errors:
-
-  * `SRT_ENOCONN`: Socket `u` used for the operation is not connected.
-  * `SRT_ECONNLOST`: Socket `u` used for the operation has lost its connection.
-  * `SRT_EINVALBUFFERAPI`: When socket has `SRTO_MESSAGEAPI` = true or 
-  `SRTO_TSBPDMODE` = true.
-(**BUG?**: Looxlike MESSAGEAPI isn't checked)
-  * `SRT_EINVRDOFF`: There is a mistake in `offset` or `size` parameters, which 
-  should match the index availability and size of the bytes available since 
-  `offset` index. This is actually reported for `srt_sendfile` when the `seekg` 
-  or `tellg` operations resulted in error.
-  * `SRT_EINVWROFF`: Like above, reported for `srt_recvfile` and `seekp`/`tellp`.
-  * `SRT_ERDPERM`: The read from file operation has failed (`srt_sendfile`).
-  * `SRT_EWRPERM`: The write to file operation has failed (`srt_recvfile`).
 
 ## Diagnostics
 
@@ -1827,7 +1794,8 @@ diagnostic function is undefined.
 * [Error Codes](#error-codes)
 
 
----
+---  
+  
 ### srt_getlasterror
 
 ```
@@ -1840,8 +1808,6 @@ associated with the last error. The system error is:
 
   * On POSIX systems, the value from `errno`
   * On Windows, the result from `GetLastError()` call
-
-
 
 
 [Back to List of Functions & Structures](#srt-api-functions)
