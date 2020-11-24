@@ -17,35 +17,35 @@
 
 | Function                                          | Description                                                                                                    |
 | ------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- |
-| [**srt_startup**](#srt_startup)                   | Called at the start of an application that uses the SRT library                                                |
-| [**srt_cleanup**](#srt_cleanup)                   | Cleans up global SRT resources before exiting an application                                                   |
-| [**srt_socket**](#srt_socket)                     | Deprecated                                                                                                     |
-| [**srt_create_socket**](#srt_create_socket)       | Creates an SRT socket                                                                                          |
-| [**srt_bind**](#srt_bind)                         | Binds a socket to a local address and port                                                                     |
-| [**srt_bind_acquire**](#srt_bind_acquire)         | Acquires a given UDP socket instead of creating one                                                            |
-| [**srt_getsockstate**](#srt_getsockstate)         | Gets the current status of the socket                                                                          |
-| [**srt_getsndbuffer**](#srt_getsndbuffer)         | Retrieves information about the sender buffer                                                                  |
-| [**srt_close**](#srt_close)                       | Closes the socket or group and frees all used resources.                                                       |
-| [**srt_listen**](#srt_listen)                     | Sets up the listening state on a socket                                                                        |
-| [**srt_accept**](#srt_accept)                     | Accepts a connection; creates/returns a new socket or group ID.                                                |
 | [**srt_accept_bond**](#srt_accept_bond)           | Accepts a connection pending on any sockets passed in the `listeners` array of `nlisteners` size               |
-| [**srt_listen_callback**](#srt_listen_callback)   | Installs/executes a callback hook on a socket created to handle the incoming connection on a listening socket  |
-| [**srt_connect**](#srt_connect)                   | Connects a socket or a group to a remote party with a specified address and port                               |
+| [**srt_accept**](#srt_accept)                     | Accepts a connection; creates/returns a new socket or group ID.                                                |
+| [**srt_bind_acquire**](#srt_bind_acquire)         | Acquires a given UDP socket instead of creating one                                                            |
+| [**srt_bind**](#srt_bind)                         | Binds a socket to a local address and port                                                                     |
+| [**srt_cleanup**](#srt_cleanup)                   | Cleans up global SRT resources before exiting an application                                                   |
+| [**srt_close**](#srt_close)                       | Closes the socket or group and frees all used resources.                                                       |
 | [**srt_connect_bind**](#srt_connect_bind)         | Same as `srt_bind` then `srt_connect` if called with socket `u`                                                |
-| [**srt_connect_debug**](#srt_connect_debug)       |  Same as [`srt_connect`](#srt_connect) but allows specifying ISN (developers only)                             |
-| [**srt_rendezvous**](#srt_rendezvous)             | Performs a rendezvous connection                                                                               |
 | [**srt_connect_callback**](#srt_connect_callback) | Installs/executes a callback hook on socket/group `u` after connection resolution/failure                      |
+| [**srt_connect_debug**](#srt_connect_debug)       | Same as [`srt_connect`](#srt_connect) but allows specifying ISN (developers only)                             |
+| [**srt_connect_group**](#srt_connect_group)       | Similar to calling `srt_connect` or `srt_connect_bind` in a loop for every item in an array                    |
+| [**srt_connect**](#srt_connect)                   | Connects a socket or a group to a remote party with a specified address and port                               |
+| [**srt_create_group**](#srt_create_group)         | Creates a new group of type `type`                                                                             |
+| [**srt_create_socket**](#srt_create_socket)       | Creates an SRT socket                                                                                          |
+| [**srt_exclude**](#srt_exclude)                   | Removes a socket from a group to which it currently belongs                                                    |
+| [**srt_getsndbuffer**](#srt_getsndbuffer)         | Retrieves information about the sender buffer                                                                  |
+| [**srt_getsockstate**](#srt_getsockstate)         | Gets the current status of the socket                                                                          |
+| [**srt_group_data**](#srt_group_data)             | Obtains the current member state of the group specified in `socketgroup`                                       |
 | [**SRT_GROUP_TYPE**](#SRT_GROUP_TYPE)             | Group types collected in an `SRT_GROUP_TYPE` enum                                                              |
+| [**srt_groupof**](#srt_groupof)                   | Returns the group ID of a socket, or `SRT_INVALID_SOCK`                                                        |
+| [**srt_include**](#srt_include)                   | Adds a socket to a group                                                                                       |
+| [**srt_listen_callback**](#srt_listen_callback)   | Installs/executes a callback hook on a socket created to handle the incoming connection on a listening socket  |
+| [**srt_listen**](#srt_listen)                     | Sets up the listening state on a socket                                                                        |
+| [**SRT_MEMBERSTATUS**](#SRT_MEMBERSTATUS)         | Enumeration type that defines the state of a member connection in the group                                    |
+| [**srt_prepare_endpoint**](#srt_prepare_endpoint) | Prepares a default `SRT_SOCKGROUPCONFIG` object as an element of an array for `srt_connect_group`              |
+| [**srt_rendezvous**](#srt_rendezvous)             | Performs a rendezvous connection                                                                               |
+| [**srt_socket**](#srt_socket)                     | Deprecated                                                                                                     |
 | [**SRT_SOCKGROUPCONFIG**](#SRT_SOCKGROUPCONFIG)   | Structure used to define entry points for connections for `srt_connect_group`                                  |
 | [**SRT_SOCKGROUPDATA**](#SRT_SOCKGROUPDATA)       | Most important structure for group member status                                                               |
-| [**SRT_MEMBERSTATUS**](#SRT_MEMBERSTATUS)         | Enumeration type that defines the state of a member connection in the group                                    |
-| [**srt_create_group**](#srt_create_group)         | Creates a new group of type `type`                                                                             |
-| [**srt_include**](#srt_include)                   | Adds a socket to a group                                                                                       |
-| [**srt_exclude**](#srt_exclude)                   | Removes a socket from a group to which it currently belongs                                                    |
-| [**srt_groupof**](#srt_groupof)                   | Returns the group ID of a socket, or `SRT_INVALID_SOCK`                                                        |
-| [**srt_group_data**](#srt_group_data)             | Obtains the current member state of the group specified in `socketgroup`                                       |
-| [**srt_connect_group**](#srt_connect_group)       | Similar to calling `srt_connect` or `srt_connect_bind` in a loop for every item in an array                    |
-| [**srt_prepare_endpoint**](#srt_prepare_endpoint) | Prepares a default `SRT_SOCKGROUPCONFIG` object as an element of an array for `srt_connect_group`              |
+| [**srt_startup**](#srt_startup)                   | Called at the start of an application that uses the SRT library                                                |
 
 
 
