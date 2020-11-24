@@ -89,6 +89,9 @@
 | [**srt_send**](#srt_send)                         | Sends a payload to a remote party over a given socket                                                          |
 | [**srt_sendmsg**](#srt_sendmsg)                   | Sends a payload to a remote party over a given socket                                                          |
 | [**srt_sendmsg2**](#srt_sendmsg2)                 | Sends a payload to a remote party over a given socket                                                          |
+| [**srt_recv**](#srt_recv)                         | Extracts the payload waiting to be received.                                                                   |
+| [**srt_recvmsg**](#srt_recvmsg)                   | Extracts the payload waiting to be received.                                                                   |
+| [**srt_recvmsg2**](#srt_recvmsg2)                 | Extracts the payload waiting to be received.                                                                   |
 | ![](/docs/images/1x290.png)                       | ![](/docs/images/1x720.png)                                                                                    |
 
 
@@ -1649,8 +1652,12 @@ In both **file/message** and **live mode** the successful return is always equal
 
 [Back to List of Functions & Structures](#srt-api-functions)
 
----
-### srt_recv, srt_recvmsg, srt_recvmsg2
+---  
+  
+### srt_recv
+### srt_recvmsg
+### srt_recvmsg2
+
 
 ```
 int srt_recv(SRTSOCKET u, char* buf, int len);
@@ -1726,6 +1733,23 @@ depends on the mode:
    * `SRT_ETIMEOUT`: The readiness condition described above is still not achieved 
 and the timeout has passed. This is only reported in blocking mode when
 `SRTO_RCVTIMEO` is set to a value other than -1.
+
+
+|      Returns     |                                                           |
+|:----------------:|:--------------------------------------------------------- |
+| Size             | Size (\>0) of the data received, if successful.           |
+| 0                | If the connection has been closed                         |
+| `SRT_ERROR`      | (-1) when an error occurs                                 |
+
+|       Errors     |                                                           |
+|:----------------:|:--------------------------------------------------------- |
+| `SRT_ENOCONN`        | Socket `u` used for the operation is not connected.                                                              |
+| `SRT_ECONNLOST`        | Socket `u` used for the operation has lost connection (this is reported only if the connection was unexpectedly broken, not when it was closed by the foreign host). |
+| `SRT_EINVALMSGAPI`  | Incorrect API usage in **message mode**:<br/>* **live mode**: size of the buffer is less than `SRTO_PAYLOADSIZE`  |
+| `SRT_EINVALBUFFERAPI`  | Incorrect API usage in **stream mode**:<br/>* Currently not in use. File congestion control used for **stream mode** does not restrict the parameters. **???**   |
+| `SRT_ELARGEMSG` | Message to be sent can't fit in the sending buffer (that is, it exceeds the current total space in the sending buffer in bytes). This means that the sender buffer is too small, or the application is trying to send a larger message than initially intended.                                                     |
+| `SRT_EASYNCRCV` | There are no data currently waiting for delivery. This happens only in non-blocking mode (when `SRTO_RCVSYN` is set to false). In blocking mode the call is blocked until the data are ready. How this is defined, depends on the mode:<br/>In **live mode** (with `SRTO_TSBPDMODE` on), at least one packet must be present in the receiver buffer and its time to play be in the past<br/>In **file/message mode**, one full message must be available, the next one waiting if there are no messages with `inorder` = false, or possibly the first message ready with `inorder` = false<br/>In **file/stream mode**, it is expected to have at least one byte of data still not extracted                       |
+| `SRT_ETIMEOUT` | he readiness condition described above is still not achieved and the timeout has passed. This is only reported in blocking mode when`SRTO_RCVTIMEO` is set to a value other than -1.                                                                       |
 
 
 
