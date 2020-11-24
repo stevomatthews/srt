@@ -23,7 +23,7 @@
 | ------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- |
 |     [srt_startup](#srt_startup)                   | Called at the start of an application that uses the SRT library                                                |
 |     [srt_cleanup](#srt_cleanup)                   | Cleans up global SRT resources before exiting an application                                                   |
-| <div style="width:280px">property</div> | <div style="width:480px">property</div> |
+| <div style="width:280px"><img src="https://github.com/stevomatthews/srt/blob/master/docs/1x280.png"</img></div> | <div style="width:380px"><img src="https://github.com/stevomatthews/srt/blob/master/docs/1x380.png"</img></div> |
 
 
 **Creating and configuring sockets**
@@ -37,7 +37,7 @@
 |     [srt_getsockstate](#srt_getsockstate)         | Gets the current status of the socket.                                                                         |
 |     [srt_getsndbuffer](#srt_getsndbuffer)         | Retrieves information about the sender buffer.                                                                 |
 |     [srt_close](#srt_close)                       | Closes the socket or group and frees all used resources.                                                       |
-| <div style="width:280px">property</div> | <div style="width:480px">property</div> |
+| <div style="width:280px"><img src="https://github.com/stevomatthews/srt/blob/master/docs/1x280.png"</img></div> | <div style="width:380px"><img src="https://github.com/stevomatthews/srt/blob/master/docs/1x380.png"</img></div> |
 
 
 **Connecting**
@@ -53,7 +53,7 @@
 |     [srt_connect_debug](#srt_connect_debug)       |  Same as [`srt_connect`](#srt_connect) but allows specifying ISN (developers only)                             |
 |     [srt_rendezvous](#srt_rendezvous)             | Performs a rendezvous connection.                                                                              |
 |     [srt_connect_callback](#srt_connect_callback) | Installs/executes a callback hook on socket/group `u` after connection resolution/failure                      |
-| <div style="width:280px">property</div> | <div style="width:480px">property</div> |
+| <div style="width:280px"><img src="https://github.com/stevomatthews/srt/blob/master/docs/1x280.png"</img></div> | <div style="width:380px"><img src="https://github.com/stevomatthews/srt/blob/master/docs/1x380.png"</img></div> |
 
 
 **Socket group management**
@@ -71,7 +71,7 @@
 |     [srt_group_data](#srt_group_data)             | Obtains the current member state of the group specified in `socketgroup`.                                      |
 |     [srt_connect_group](#srt_connect_group)       | Similar to calling `srt_connect` or `srt_connect_bind` in a loop for every item in an array.                   |
 |     [srt_prepare_endpoint](#srt_prepare_endpoint) | Prepares a default `SRT_SOCKGROUPCONFIG` object as an element of an array for `srt_connect_group`.             |
-| <div style="width:280px">property</div> | <div style="width:480px">property</div> |
+| <div style="width:280px"><img src="https://github.com/stevomatthews/srt/blob/master/docs/1x280.png"</img></div> | <div style="width:380px"><img src="https://github.com/stevomatthews/srt/blob/master/docs/1x380.png"</img></div> |
 
 
 
