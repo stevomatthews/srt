@@ -4,8 +4,8 @@
   
 | *Function / Structure*                            | *Description*                                                                                                  |
 |:------------------------------------------------- |:-------------------------------------------------------------------------------------------------------------- |
-| [srt_startup](#srt_startup)                       | -- Called at the start of an application that uses the SRT library                                                |
-| [srt_cleanup](#srt_cleanup)                       | Cleans up global SRT resources before exiting an application                                                   |
+| [srt_startup](#srt_startup)                       | • Called at the start of an application that uses the SRT library                                                |
+| [srt_cleanup](#srt_cleanup)                       | – Cleans up global SRT resources before exiting an application                                                   |
 | ![](/docs/images/1x290.png)                       | ![](/docs/images/1x720.png)                                                                                    |
 
 
@@ -13,9 +13,9 @@
  
 | *Function / Structure*                            | *Description*                                                                                                  |
 |:------------------------------------------------- |:-------------------------------------------------------------------------------------------------------------- |
-| [srt_socket](#srt_socket)                         | Deprecated                                                                                                     |
-| [srt_create_socket](#srt_create_socket)           | Creates an SRT socket                                                                                          |
-| [srt_bind](#srt_bind)                             | Binds a socket to a local address and port.                                                                    |
+| [srt_socket](#srt_socket)                         | • Deprecated                                                                                                     |
+| [srt_create_socket](#srt_create_socket)           | – Creates an SRT socket                                                                                          |
+| [srt_bind](#srt_bind)                             | — Binds a socket to a local address and port.                                                                    |
 | [srt_bind_acquire](#srt_bind_acquire)             | Acquires a given UDP socket instead of creating one.                                                           |
 | [srt_getsockstate](#srt_getsockstate)             | Gets the current status of the socket.                                                                         |
 | [srt_getsndbuffer](#srt_getsndbuffer)             | Retrieves information about the sender buffer.                                                                 |
