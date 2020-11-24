@@ -1,6 +1,6 @@
 # SRT API Functions
 
-### **Library Initialization**
+### Library Initialization**
   
 | Function/Structure                                | Description                                                                                                    |
 | ------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- |
@@ -9,7 +9,7 @@
 |     ![](/docs/images/1x290.png)                   | ![](/docs/images/1x720.png)                                                                                    |
 
 
-### **Creating and configuring sockets**
+### Creating and configuring sockets
  
 | Function/Structure                                | Description                                                                                                    |
 | ------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- |
