@@ -29,12 +29,12 @@
 |:------------------------------------------------- |:-------------------------------------------------------------------------------------------------------------- |
 | [srt_listen](#srt_listen)                         | Sets up the listening state on a socket.                                                                       |
 | [srt_accept](#srt_accept)                         | Accepts a connection; creates/returns a new socket or group ID.                                                |
-| [srt_accept_bond](#srt_accept_bond)               | Accepts a connection pending on any sockets passed in the `listeners` array of `nlisteners` size.              |
+| [srt_accept_bond](#srt_accept_bond)               | Accepts a connection pending on any sockets passed in the `listeners` array of `nlisteners` size               |
 | [srt_listen_callback](#srt_listen_callback)       | Installs/executes a callback hook on a socket created to handle the incoming connection on a listening socket  |
-| [srt_connect](#srt_connect)                       | Connects a socket or a group to a remote party with a specified address and port.                              |
+| [srt_connect](#srt_connect)                       | Connects a socket or a group to a remote party with a specified address and port                               |
 | [srt_connect_bind](#srt_connect_bind)             | Same as `srt_bind` then `srt_connect` if called with socket `u`.                                               |
 | [srt_connect_debug](#srt_connect_debug)           |  Same as [`srt_connect`](#srt_connect) but allows specifying ISN (developers only)                             |
-| [srt_rendezvous](#srt_rendezvous)                 | Performs a rendezvous connection.                                                                              |
+| [srt_rendezvous](#srt_rendezvous)                 | Performs a rendezvous connection                                                                               |
 | [srt_connect_callback](#srt_connect_callback)     | Installs/executes a callback hook on socket/group `u` after connection resolution/failure                      |
 | ![](/docs/images/1x290.png)                       | ![](/docs/images/1x720.png)                                                                                    |
 
@@ -47,16 +47,49 @@
 | [SRT_SOCKGROUPCONFIG](#SRT_SOCKGROUPCONFIG)       | Structure used to define entry points for connections for `srt_connect_group`                                  |
 | [SRT_SOCKGROUPDATA](#SRT_SOCKGROUPDATA)           | Most important structure for group member status                                                               |
 | [SRT_MEMBERSTATUS](#SRT_MEMBERSTATUS)             | Enumeration type that defines the state of a member connection in the group                                    |
-| [srt_create_group](#srt_create_group)             | Creates a new group of type `type`.                                                                            |
+| [srt_create_group](#srt_create_group)             | Creates a new group of type `type`                                                                             |
 | [srt_include](#srt_include)                       | Adds a socket to a group.                                                                                      |
-| [srt_exclude](#srt_exclude)                       | Removes a socket from a group to which it currently belongs.                                                   |
+| [srt_exclude](#srt_exclude)                       | Removes a socket from a group to which it currently belongs                                                    |
 | [srt_groupof](#srt_groupof)                       | Returns the group ID of a socket, or `SRT_INVALID_SOCK`.                                                       |
-| [srt_group_data](#srt_group_data)                 | Obtains the current member state of the group specified in `socketgroup`.                                      |
+| [srt_group_data](#srt_group_data)                 | Obtains the current member state of the group specified in `socketgroup`                                       |
 | [srt_connect_group](#srt_connect_group)           | Similar to calling `srt_connect` or `srt_connect_bind` in a loop for every item in an array.                   |
-| [srt_prepare_endpoint](#srt_prepare_endpoint)     | Prepares a default `SRT_SOCKGROUPCONFIG` object as an element of an array for `srt_connect_group`.             |
+| [srt_prepare_endpoint](#srt_prepare_endpoint)     | Prepares a default `SRT_SOCKGROUPCONFIG` object as an element of an array for `srt_connect_group`              |
+| [**srt_create_config**](#srt_create_config)       | Creates a dynamic object for specifying socket options                                                         |
+| [**srt_delete_config**](#srt_delete_config)       | Deletes the configuration object                                                                               |
+| [**srt_config_add**](#srt_config_add)             | Adds a configuration option to the configuration object                                                        |
 | ![](/docs/images/1x290.png)                       | ![](/docs/images/1x720.png)                                                                                    |
 
 
+### **Options and Properties**
+  
+| *Function / Structure*                            | *Description*                                                                                                  |
+|:------------------------------------------------- |:-------------------------------------------------------------------------------------------------------------- |
+| [**srt_getpeername**](#srt_getpeername)           | Retrieves the remote address to which the socket is connected                                                  |
+| [**srt_getsockname**](#srt_getsockname)           | Extracts the address to which the socket was bound                                                             |
+| [**srt_getsockopt**](#srt_getsockopt)             | Gets the value of the given socket option (from a socket or a group)                                           |
+| [**srt_getsockflag**](#srt_getsockflag)           | Gets the value of the given socket option (from a socket or a group)                                           |
+| [**srt_setsockopt**](#srt_setsockopt)             | Sets a value for a socket option in the socket or group                                                        |
+| [**srt_setsockflag**](#srt_setsockflag)           | Sets a value for a socket option in the socket or group                                                        |
+| [**srt_getversion**](#srt_getversion)             | Get SRT version value                                                                                          |
+| ![](/docs/images/1x290.png)                       | ![](/docs/images/1x720.png)                                                                                    |
+
+
+### Helper Data Types for Transmission**
+  
+| *Function / Structure*                            | *Description*                                                                                                  |
+|:------------------------------------------------- |:-------------------------------------------------------------------------------------------------------------- |
+| [**SRT_MSGCTRL**](#SRT_MSGCTRL)                   | Used in `srt_sendmsg2` and `srt_recvmsg2` calls; specifies some extra parameters                               |
+| ![](/docs/images/1x290.png)                       | ![](/docs/images/1x720.png)                                                                                    |
+
+
+### Transmission**
+  
+| *Function / Structure*                            | *Description*                                                                                                  |
+|:------------------------------------------------- |:-------------------------------------------------------------------------------------------------------------- |
+| [**srt_send**](#srt_send)                         | Sends a payload to a remote party over a given socket                                                          |
+| [**srt_sendmsg**](#srt_sendmsg)                   | Sends a payload to a remote party over a given socket                                                          |
+| [**srt_sendmsg2**](#srt_sendmsg2)                 | Sends a payload to a remote party over a given socket                                                          |
+| ![](/docs/images/1x290.png)                       | ![](/docs/images/1x720.png)                                                                                    |
 
 
 
@@ -80,21 +113,21 @@ global data, and starts the SRT GC thread. If this function isn't explicitly
 called, it will be called automatically when creating the first socket. However, 
 relying on this behavior is strongly discouraged.
 
-|`[    Returns   ]`|                                                                 |
+|      Returns     |                                                                 |
 |:----------------:|:--------------------------------------------------------------- |
 |         0        | Successfully run, or already started                            |
 |         1        | This is the first startup, but the GC thread is already running |
 |        -1        | Failed                                                          |
 
-|`[     Errors   ]`|                                                                 |
+|       Errors     |                                                                 |
 |:----------------:|:--------------------------------------------------------------- |
 | `SRT_ECONNSETUP` | With error code set, reported when required system resource(s) failed to initialize. This is currently used only on Windows to report a failure from `WSAStartup`. |
 
 
 [Back to List of Functions & Structures](#srt-api-functions)
 
----
-
+---  
+  
 ### srt_cleanup
 ```
 int srt_cleanup(void);
@@ -105,7 +138,7 @@ exiting the application that uses the SRT library. This cleanup function will st
 be called from the C++ global destructor, if not called by the application, although
 relying on this behavior is stronly discouraged.
 
-|`[    Returns   ]`|                            Description                          |
+|      Returns     |                                                                 |
 |:----------------:|:--------------------------------------------------------------- |
 |         0        | A possibility to return other values is reserved for future use |
 
@@ -150,8 +183,8 @@ similar to the SCTP protocol). In SRT these two modes are available by setting
 
 [Back to List of Functions & Structures](#srt-api-functions)
 
----
-
+---  
+  
 ### srt_create_socket
 ```
 SRTSOCKET srt_create_socket();
@@ -178,7 +211,8 @@ errors are reported by `SRT_ECONNSETUP`.
 
 [Back to List of Functions & Structures](#srt-api-functions)
 
----
+---  
+  
 ### srt_bind
 ```
 int srt_bind(SRTSOCKET u, const struct sockaddr* name, int namelen);
@@ -202,7 +236,7 @@ the communication. It is allowed that multiple SRT sockets share one local
 outgoing port, as long as `SRTO_REUSEADDR` is set to *true* (default). Without
 this call the port will be automatically selected by the system.
 
-NOTE: This function cannot be called on socket group. If you need to
+**NOTE**: This function cannot be called on socket group. If you need to
 have the group-member socket bound to the specified source address before
 connecting, use `srt_connect_bind` for that purpose.
 
@@ -222,7 +256,8 @@ connecting, use `srt_connect_bind` for that purpose.
 
 [Back to List of Functions & Structures](#srt-api-functions)
 
----
+---  
+  
 ### srt_bind_acquire
 
 ```
@@ -235,7 +270,8 @@ A version of `srt_bind` that acquires a given UDP socket instead of creating one
 
 [Back to List of Functions & Structures](#srt-api-functions)
 
----
+---  
+  
 ### srt_getsockstate
 
 ```
@@ -260,8 +296,8 @@ Gets the current status of the socket. Possible states are:
 
 [Back to List of Functions & Structures](#srt-api-functions)
 
----
-
+---  
+  
 ### srt_getsndbuffer
 
 ```
@@ -281,8 +317,8 @@ socket needs to be closed asynchronously.
 
 [Back to List of Functions & Structures](#srt-api-functions)
 
----
-
+---  
+  
 ### srt_close
 
 ```
@@ -350,8 +386,8 @@ connections
 
 [Back to List of Functions & Structures](#srt-api-functions)
 
----
-
+---  
+  
 ### srt_accept
 
 ```
@@ -404,8 +440,8 @@ group, although it's usually for internal use only.
 
 [Back to List of Functions & Structures](#srt-api-functions)
 
----
-
+---  
+  
 ### srt_accept_bond
 
 ```
@@ -457,8 +493,8 @@ listener sockets appropriately prior to calling this function.
 
 [Back to List of Functions & Structures](#srt-api-functions)
 
----
-
+---  
+  
 ### srt_listen_callback
 
 ```
@@ -540,8 +576,8 @@ streamid or peeraddr.
 
 [Back to List of Functions & Structures](#srt-api-functions)
 
----
-
+---  
+  
 ### srt_connect
 
 ```
@@ -596,8 +632,8 @@ reason for the error, including connection timeout (`SRT_REJ_TIMEOUT`).
 
 [Back to List of Functions & Structures](#srt-api-functions)
 
----
-
+---  
+  
 ### srt_connect_bind
 
 ```
@@ -639,8 +675,8 @@ different families (that is, both `source` and `target` must be `AF_INET` or
 
 [Back to List of Functions & Structures](#srt-api-functions)
 
----
-
+---  
+  
 ### srt_connect_debug
 
 ```
@@ -656,8 +692,8 @@ is generated randomly.
 
 [Back to List of Functions & Structures](#srt-api-functions)
 
----
-
+---  
+  
 ### srt_rendezvous
 ```
 int srt_rendezvous(SRTSOCKET u, const struct sockaddr* local_name, int local_namelen,
@@ -692,8 +728,8 @@ different families (that is, both `local_name` and `remote_name` must be `AF_INE
 
 [Back to List of Functions & Structures](#srt-api-functions)
 
----
-
+---  
+  
 ### srt_connect_callback
 ```
 int srt_connect_callback(SRTSOCKET u, srt_connect_callback_fn* hook_fn, void* hook_opaque);
@@ -731,7 +767,7 @@ internal SRT threads.
 |      Returns     |                                                           |
 |:----------------:|:--------------------------------------------------------- |
 |         0        | Successful                                                |
-|         -1       | Error                                                     |
+|        -1        | Error                                                     |
 
 |       Errors     |                                                           |
 |:----------------:|:--------------------------------------------------------- |
@@ -773,8 +809,8 @@ where:
   * [srt_config_add](#srt_config_add)
 
 
----
-
+---  
+  
 ### SRT_GROUP_TYPE
 
 The following group types are collected in an `SRT_GROUP_TYPE` enum:
@@ -786,8 +822,8 @@ The following group types are collected in an `SRT_GROUP_TYPE` enum:
 
 [Back to List of Functions & Structures](#srt-api-functions)
 
----
-
+---  
+  
 ### SRT_SOCKGROUPCONFIG
 
 This structure is used to define entry points for connections for the
@@ -839,8 +875,8 @@ value for the same connection.
 
 [Back to List of Functions & Structures](#srt-api-functions)
 
----
-
+---  
+  
 ### SRT_SOCKGROUPDATA
 
 The most important structure for the group member status is `SRT_SOCKGROUPDATA`:
@@ -871,8 +907,8 @@ where:
 
 [Back to List of Functions & Structures](#srt-api-functions)
 
----
-
+---  
+  
 ### SRT_MEMBERSTATUS
 
 The enumeration type that defines the state of the member
@@ -932,8 +968,8 @@ the `SRTGROUP_MASK` bit is set on it, unlike for socket ID.
 
 [Back to List of Functions & Structures](#srt-api-functions)
 
----
-
+---  
+  
 ### srt_include
 
 ```
@@ -947,7 +983,8 @@ groups. No such group type is currently implemented.
 
 [Back to List of Functions & Structures](#srt-api-functions)
 
----
+---  
+  
 ### srt_exclude
 
 ```
@@ -961,8 +998,8 @@ implemented.
 
 [Back to List of Functions & Structures](#srt-api-functions)
 
----
-
+---  
+  
 ### srt_groupof
 
 ```
@@ -976,8 +1013,8 @@ doesn't exist or it's not a member of any group.
 
 [Back to List of Functions & Structures](#srt-api-functions)
 
----
-
+---  
+  
 ### srt_group_data 
 
 ```
@@ -1028,8 +1065,8 @@ and providing `socketgroup` and `inoutlen`.
 
 [Back to List of Functions & Structures](#srt-api-functions)
 
----
-
+---  
+  
 ### srt_connect_group
 
 ```
@@ -1139,8 +1176,8 @@ in which case the `token` value will be preserved.
 
 [Back to List of Functions & Structures](#srt-api-functions)
 
----
-
+---  
+  
 ### srt_prepare_endpoint
 
 ```
@@ -1182,11 +1219,10 @@ would be reported only by `srt_connect_group`, separately for every individual
 connection, and the status can be obtained from `errorcode` field.
 
 
-
-
 [Back to List of Functions & Structures](#srt-api-functions)
 
----
+---  
+  
 ### srt_create_config
 
 ```
@@ -1199,30 +1235,28 @@ mount this object into the `config` field in `SRT_SOCKGROUPCONFIG`
 object for that particular connection. After the object is no
 longer needed, you should delete it using `srt_delete_config`.
 
-Returns:
-
-* The pointer to the created object (memory allocation errors apply)
-
-
+|      Returns     |                                                                    |
+|:----------------:|:------------------------------------------------------------------ |
+|      Pointer     | The pointer to the created object (memory allocation errors apply) |
 
 
 [Back to List of Functions & Structures](#srt-api-functions)
 
----
+---  
+  
 ### srt_delete_config
 
 ```
 void srt_delete_config(SRT_SOCKOPT_CONFIG* c);
 ```
 
-Deletes the configurartion object.
-
-
+Deletes the configuration object.
 
 
 [Back to List of Functions & Structures](#srt-api-functions)
 
----
+---  
+  
 ### srt_config_add
 
 ```
@@ -1255,13 +1289,19 @@ The following options are allowed to be set on the member socket:
 * `SRTO_PEERIDLETIMEO`: If you want to be more tolerant for temporary outages
 * `SRTO_GROUPSTABTIMEO`: To set ACK jitter tolerance per individual link
 
+|      Returns     |                                                           |
+|:----------------:|:--------------------------------------------------------- |
+|         0        | Success                                                   |
+|        -1        | Failure                                                   |
 
-Returns: 0 if succeeded, -1 when failed
+|       Errors     |                                                                       |
+|:----------------:|:--------------------------------------------------------------------- |
+| `SRT_EINVPARAM`  | This option is not allowed to be set on a socket being a group member |
 
-Errors:
 
-* `SRT_EINVPARAM`: this option is not allowed to be set on a socket
-being a group member
+[Back to List of Functions & Structures](#srt-api-functions)
+
+
 
 ## Options and properties
 
@@ -1272,7 +1312,8 @@ being a group member
 * [srt_getversion](#srt_getversion)
 
 
----
+---  
+  
 ### srt_getpeername
 ```
 int srt_getpeername(SRTSOCKET u, struct sockaddr* name, int* namelen);
@@ -1280,47 +1321,47 @@ int srt_getpeername(SRTSOCKET u, struct sockaddr* name, int* namelen);
 
 Retrieves the remote address to which the socket is connected.
 
-- Returns:
+|      Returns     |                                                           |
+|:----------------:|:--------------------------------------------------------- |
+| `SRT_ERROR`      | (-1) in case of error, otherwise 0                        |
 
-  * `SRT_ERROR` (-1) in case of error, otherwise 0
-
-- Errors:
-
-  * `SRT_EINVSOCK`: Socket `u` indicates no valid socket ID
-  * `SRT_ENOCONN`: Socket `u` isn't connected, so there's no remote address to return
-
+|       Errors     |                                                           |
+|:----------------:|:--------------------------------------------------------- |
+| `SRT_EINVSOCK`   | Socket `u` indicates no valid socket ID                   |
+| `SRT_ENOCONN`    | Socket `u` isn't connected, so there's no remote address to return        |
 
 
 [Back to List of Functions & Structures](#srt-api-functions)
 
----
+---  
+  
 ### srt_getsockname
 ```
 int srt_getsockname(SRTSOCKET u, struct sockaddr* name, int* namelen);
 ```
 
-Extracts the address to which the socket was bound. Although you  should know 
+Extracts the address to which the socket was bound. Although you should know 
 the address(es) that you have used for binding yourself, this function can be 
 useful for extracting the local outgoing port number when it was specified as 0 
 with binding for system autoselection. With this function you can extract the 
 port number after it has been autoselected.
 
-- Returns:
+|      Returns     |                                                           |
+|:----------------:|:--------------------------------------------------------- |
+| `SRT_ERROR`      | (-1) in case of error, otherwise 0                        |
 
-  * `SRT_ERROR` (-1) in case of error, otherwise 0
-
-- Errors:
-
-  * `SRT_EINVSOCK`: Socket `u` indicates no valid socket ID
-  * `SRT_ENOCONN`: Socket `u` isn't bound, so there's no local
-address to return (**BUG?** It should rather be `SRT_EUNBOUNDSOCK`)
-
+|       Errors     |                                                           |
+|:----------------:|:--------------------------------------------------------- |
+| `SRT_EINVSOCK`   | Socket `u` indicates no valid socket ID                   |
+| `SRT_ENOCONN`    | Socket `u` isn't bound, so there's no local address to return (**BUG?** It should rather be `SRT_EUNBOUNDSOCK`)        |
 
 
 [Back to List of Functions & Structures](#srt-api-functions)
 
----
-### srt_getsockopt, srt_getsockflag
+---  
+  
+### srt_getsockopt
+### srt_getsockflag
 ```
 int srt_getsockopt(SRTSOCKET u, int level /*ignored*/, SRT_SOCKOPT opt, void* optval, int* optlen);
 int srt_getsockflag(SRTSOCKET u, SRT_SOCKOPT opt, void* optval, int* optlen);
@@ -1336,21 +1377,21 @@ assigned to a particular option, and to pass a variable of the appropriate data
 type. Specifications are provided in the `apps/socketoptions.hpp` file at the 
 `srt_options` object declaration.
 
-- Returns:
+|      Returns     |                                                           |
+|:----------------:|:--------------------------------------------------------- |
+| `SRT_ERROR`      | (-1) in case of error, otherwise 0                        |
 
-  * `SRT_ERROR` (-1) in case of error, otherwise 0
-
-- Errors:
-
-  * `SRT_EINVSOCK`: Socket `u` indicates no valid socket ID
-  * `SRT_EINVOP`: Option `opt` indicates no valid option
-
+|       Errors     |                                                           |
+|:----------------:|:--------------------------------------------------------- |
+| `SRT_EINVSOCK`   | Socket `u` indicates no valid socket ID                   |
+| `SRT_EINVOP`     | Option `opt` indicates no valid option                    |
 
 
 [Back to List of Functions & Structures](#srt-api-functions)
 
 ---
-### srt_setsockopt, srt_setsockflag
+### srt_setsockopt
+### srt_setsockflag
 
 ```
 int srt_setsockopt(SRTSOCKET u, int level /*ignored*/, SRT_SOCKOPT opt, const void* optval, int optlen);
@@ -1370,22 +1411,24 @@ Please note that some of the options can only be set on sockets or only on
 groups, although most of the options can be set on the groups so that they
 are then derived by the member sockets.
 
-- Returns:
+|      Returns     |                                                           |
+|:----------------:|:--------------------------------------------------------- |
+| `SRT_ERROR`      | (-1) in case of error, otherwise 0                        |
 
-  * `SRT_ERROR` (-1) in case of error, otherwise 0
+|       Errors     |                                                           |
+|:----------------:|:--------------------------------------------------------- |
+| `SRT_EINVSOCK`   | Socket `u` indicates no valid socket ID                   |
+| `SRT_EINVOP`     | Option `opt` indicates no valid option                    |
 
--Errors:
-
-  * `SRT_EINVSOCK`: Socket `u` indicates no valid socket ID
-  * `SRT_EINVOP`: Option `opt` indicates no valid option
-  * Various other errors that may result from problems when setting a specific 
-    option (see option description for details).
+**NOTE*: Various other errors may result from problems when setting a 
+specific option (see option description for details).
 
 
 
 [Back to List of Functions & Structures](#srt-api-functions)
 
----
+---  
+  
 ### srt_getversion
 
 ```
@@ -1395,9 +1438,11 @@ uint32_t srt_getversion();
 Get SRT version value. The version format in hex is 0xXXYYZZ for x.y.z in human readable form, 
 where x = ("%d", (version>>16) & 0xff), etc.
 
-- Returns:
+|      Returns     |                                                           |
+|:----------------:|:--------------------------------------------------------- |
+| SRT Version      | Unsigned 32-bit integer                                   |
 
-  * srt version as an unsigned 32-bit integer
+
 
 
 ## Helper data types for transmission
@@ -1405,7 +1450,8 @@ where x = ("%d", (version>>16) & 0xff), etc.
   * [SRT_MSGCTRL](#SRT_MSGCTRL)
 
 
----
+---  
+  
 ### SRT_MSGCTRL
 
 The `SRT_MSGCTRL` structure:
@@ -1490,6 +1536,9 @@ object and can be used as a source for assignment. Note that you cannot pass
 this constant object into any of the API functions because they require it to be 
 mutable, as they use some fields to output values.
 
+
+
+
 ## Transmission
 
 * [srt_send, srt_sendmsg, srt_sendmsg2](#srt_send-srt_sendmsg-srt_sendmsg2)
@@ -1497,8 +1546,12 @@ mutable, as they use some fields to output values.
 * [srt_sendfile, srt_recvfile](#srt_sendfile-srt_recvfile)
 
 
----
-### srt_send, srt_sendmsg, srt_sendmsg2
+---  
+  
+### srt_send
+### srt_sendmsg
+### srt_sendmsg2
+
 ```
 int srt_send(SRTSOCKET u, const char* buf, int len);
 int srt_sendmsg(SRTSOCKET u, const char* buf, int len, int ttl/* = -1*/, int inorder/* = false*/);
@@ -1506,6 +1559,7 @@ int srt_sendmsg2(SRTSOCKET u, const char* buf, int len, SRT_MSGCTRL *mctrl);
 ```
 
 Sends a payload to a remote party over a given socket.
+
 
 * `u`: Socket used to send. The socket must be connected for this operation.
 * `buf`: Points to the buffer containing the payload to send.
@@ -1567,6 +1621,31 @@ set to a value other than -1.
   write operation on a file. This is reported by a `UMSG_PEERERROR` message from 
   the peer, and the agent sets the appropriate flag internally. This flag 
   persists up to the moment when the connection is broken or closed.
+
+
+|      Returns     |                                                           |
+|:----------------:|:--------------------------------------------------------- |
+|       Size       | Size of the data sent, if successful                      |
+|    `SRT_ERROR`   | In case of error (-1)                                     |
+
+**NOTE**: Note that in **file/stream mode** the returned size may be less than `len`, 
+which means that it didn't send the whole contents of the buffer. You would need to 
+call this function again with the rest of the buffer next time to send it completely. 
+In both **file/message** and **live mode** the successful return is always equal to `len`
+
+|       Errors          |                                                                                                                     |
+|:---------------------:|:------------------------------------------------------------------------------------------------------------------- |
+| `SRT_ENOCONN`         | Socket `u` used when the operation is not connected.                                                                |
+| `SRT_ECONNLOST`       | Socket `u` used for the operation has lost its connection.                                                          |
+| `SRT_EINVALMSGAPI`    | Incorrect API usage in **message mode**:                                                                            |
+|                       | **live mode**: trying to send more bytes at once than `SRTO_PAYLOADSIZE` or wrong source time was provided.         |
+| `SRT_EINVALBUFFERAPI` | Incorrect API usage in **stream mode** (reserved for future use):                                                   |
+|                       | The congestion controller object used for this mode doesn't use any restrictions on this call, but this may change. |
+| `SRT_ELARGEMSG`       | Message to be sent can't fit in the sending buffer (that is, it exceeds the current total space in the sending buffer in bytes). This means that the sender buffer is too small, or the application is trying to send a larger message than initially predicted.                                                    |
+| `SRT_EASYNCSND`       | There's no free space currently in the buffer to schedule the payload. This is only reported in non-blocking mode (`SRTO_SNDSYN` set to false); in blocking mode the call is blocked until enough free space in the sending buffer becomes available.                                                              |
+| `SRT_ETIMEOUT`        | The condition described above still persists and the timeout has passed. This is only reported in blocking mode when `SRTO_SNDTIMEO` is set to a value other than -1. |
+| `SRT_EPEERERR`  | This is reported only in the case where, as a stream is being received by a peer, the `srt_recvfile` function encounters an error during a write operation on a file. This is reported by a `UMSG_PEERERROR` message from the peer, and the agent sets the appropriate flag internally. This flag persists up to the moment when the connection is broken or closed. |
+
 
 
 
