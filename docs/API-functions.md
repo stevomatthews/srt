@@ -107,16 +107,30 @@
 | [srt_clearlasterror](#srt_clearlasterror)         | Clears the last error.                                                                                         |
 | [srt_getrejectreason](#srt_getrejectreason)       | Provides a detailed reason for a failed connection attempt.                                                    |
 | [SRT_REJ_UNKNOWN](#SRT_REJ_UNKNOWN)               | A fallback value for cases when there was no connection rejected.                                              |
-| [SRT_REJ_SYSTEM](#SRT_REJ_SYSTEM)               | A system function reported a failure..                                              |
-| [SRT_REJ_PEER](#SRT_REJ_PEER)               | The connection has been rejected by peer, but no further details are available.                      |
-| [SRT_REJ_RESOURCE](#SRT_REJ_RESOURCE)               | A problem with resource allocation (usually memory).                      |
-| [SRT_REJ_ROGUE](#SRT_REJ_ROGUE)               | The data sent by one party to another cannot be properly interpreted.                      |
-| [SRT_REJ_BACKLOG](#SRT_REJ_BACKLOG)               | The listener's backlog has exceeded.                      |
-| [SRT_REJ_IPE](#SRT_REJ_IPE)               | Internal Program Error.                      |
-| [SRT_REJ_CLOSE](#SRT_REJ_CLOSE)               | The listener socket received a request as it is being closed..                      |
-| [SRT_REJ_VERSION](#SRT_REJ_VERSION)               | A party did not satisfy the minimum version requirement that had been set up for a connection...                      |
+| [SRT_REJ_SYSTEM](#SRT_REJ_SYSTEM)                 | A system function reported a failure..                                                                         |
+| [SRT_REJ_PEER](#SRT_REJ_PEER)                     | The connection has been rejected by peer, but no further details are available.                                |
+| [SRT_REJ_RESOURCE](#SRT_REJ_RESOURCE)             | A problem with resource allocation (usually memory).                                                           |
+| [SRT_REJ_ROGUE](#SRT_REJ_ROGUE)                   | The data sent by one party to another cannot be properly interpreted.                                          |
+| [SRT_REJ_BACKLOG](#SRT_REJ_BACKLOG)               | The listener's backlog has exceeded.                                                                           |
+| [SRT_REJ_IPE](#SRT_REJ_IPE)                       | Internal Program Error.                                                                                        |
+| [SRT_REJ_CLOSE](#SRT_REJ_CLOSE)                   | The listener socket received a request as it is being closed..                                                 |
+| [SRT_REJ_VERSION](#SRT_REJ_VERSION)               | A party did not satisfy the minimum version requirement that had been set up for a connection...               |
+| [SRT_REJ_RDVCOOKIE](#SRT_REJ_RDVCOOKIE)           | Rendezvous cookie collision.                                                                                   |
+| [SRT_REJ_BADSECRET](#SRT_REJ_BADSECRET)           | Both parties have defined a passprhase for connection and they differ.                                         |
+| [SRT_REJ_UNSECURE](#SRT_REJ_UNSECURE)             | Only one connection party has set up a password.                                                               |
+| [SRT_REJ_MESSAGEAPI](#SRT_REJ_MESSAGEAPI)         | The value for `SRTO_MESSAGEAPI` flag is different on both connection parties.                                  |
+| [SRT_REJ_FILTER](#SRT_REJ_FILTER)                 | The `SRTO_PACKETFILTER` option has been set differently on both connection parties.                            |
+| [SRT_REJ_GROUP](#SRT_REJ_GROUP)                   | The group type or some group settings are incompatible for both connection parties.                            |
+| [SRT_REJ_TIMEOUT](#SRT_REJ_TIMEOUT)               | The connection wasn't rejected, but it timed out.                                                              |
+| [srt_rejectreason_str](#srt_rejectreason_str)     | Returns a constant string for the reason of the connection rejected, as per given code ID.                     |
+| [srt_setrejectreason](#srt_setrejectreason)       | Sets the rejection code on the socket.                                                                         |
 | ![](/docs/images/1x290.png)                       | ![](/docs/images/1x720.png)                                                                                    |
 
+
+| *Error Code*                                      | *Description*                                                                                                  |
+|:------------------------------------------------- |:-------------------------------------------------------------------------------------------------------------- |
+| [SRT_EUNKNOWN](#SRT_EUNKNOWN)                     | Internal error when setting the right error code.                                                              |
+| ![](/docs/images/1x290.png)                       | ![](/docs/images/1x720.png)                                                                                    |
 
 
 
@@ -1609,44 +1623,6 @@ single call to this function determines a message's boundaries.
 3. In **live mode**, you are only allowed to send up to the length of
 `SRTO_PAYLOADSIZE`, which can't be larger than 1456 bytes (1316 default).
 
-- Returns:
-
-  * Size of the data sent, if successful. Note that in **file/stream mode** the
-returned size may be less than `len`, which means that it didn't send the
-whole contents of the buffer. You would need to call this function again
-with the rest of the buffer next time to send it completely. In both
-**file/message** and **live mode** the successful return is always equal to `len`
-  * In case of error, `SRT_ERROR` (-1)
-
-- Errors:
-
-  * `SRT_ENOCONN`: Socket `u` used when the operation is not connected.
-  * `SRT_ECONNLOST`: Socket `u` used for the operation has lost its connection.
-  * `SRT_EINVALMSGAPI`: Incorrect API usage in **message mode**:
-    * **live mode**: trying to send more bytes at once than `SRTO_PAYLOADSIZE`
-    or wrong source time was provided.
-  * `SRT_EINVALBUFFERAPI`: Incorrect API usage in **stream mode**:
-    * Reserved for future use. The congestion controller object
-      used for this mode doesn't use any restrictions on this call for now,
-      but this may change in future.
-  * `SRT_ELARGEMSG`: Message to be sent can't fit in the sending buffer (that is,
-it exceeds the current total space in the sending buffer in bytes). This means
-that the sender buffer is too small, or the application is trying to send
-a larger message than initially predicted.
-  * `SRT_EASYNCSND`: There's no free space currently in the buffer to schedule
-the payload. This is only reported in non-blocking mode (`SRTO_SNDSYN` set
-to false); in blocking mode the call is blocked until enough free space in
-the sending buffer becomes available.
-  * `SRT_ETIMEOUT`: The condition described above still persists and the timeout
-has passed. This is only reported in blocking mode when `SRTO_SNDTIMEO` is
-set to a value other than -1.
-  * `SRT_EPEERERR`: This is reported only in the case where, as a stream is being 
-  received by a peer, the `srt_recvfile` function encounters an error during a 
-  write operation on a file. This is reported by a `UMSG_PEERERROR` message from 
-  the peer, and the agent sets the appropriate flag internally. This flag 
-  persists up to the moment when the connection is broken or closed.
-
-
 |      Returns     |                                                           |
 |:----------------:|:--------------------------------------------------------- |
 |       Size       | Size of the data sent, if successful                      |
@@ -1977,12 +1953,11 @@ is being closed. It's likely that your next attempt will result with timeout.
 Any party of the connection has set up minimum version that is required for
 that connection, and the other party didn't satisfy this requirement.
 
-| [SRT_REJ_VERSION](#SRT_REJ_VERSION)               | A party did not satisfy the minimum version requirement that had been set up for a connection...                      |
-
 
 [Back to List of Functions & Structures](#srt-api-functions)
 
----
+---  
+  
 #### SRT_REJ_RDVCOOKIE
 
 Rendezvous cookie collision. This normally should never happen, or the
@@ -1995,34 +1970,33 @@ were sent by the peer, who is this party itself. When this happens,
 this reject reason will be reported by every attempt.
 
 
-
 [Back to List of Functions & Structures](#srt-api-functions)
 
----
+---  
+  
 #### SRT_REJ_BADSECRET
 
 Both parties have defined a passprhase for connection and they differ.
 
 
-
 [Back to List of Functions & Structures](#srt-api-functions)
 
----
+---  
+  
 #### SRT_REJ_UNSECURE
 
 Only one connection party has set up a password. See also
 `SRTO_ENFORCEDENCRYPTION` flag in API.md.
 
 
-
 [Back to List of Functions & Structures](#srt-api-functions)
 
----
+---  
+  
 #### SRT_REJ_MESSAGEAPI
 
 The value for `SRTO_MESSAGEAPI` flag is different on both connection
 parties.
-
 
 
 [Back to List of Functions & Structures](#srt-api-functions)
@@ -2037,17 +2011,18 @@ connection parties.
 
 [Back to List of Functions & Structures](#srt-api-functions)
 
----
+---  
+  
 #### SRT_REJ_FILTER
 
 The `SRTO_PACKETFILTER` option has been set differently on both connection
 parties.
 
 
-
 [Back to List of Functions & Structures](#srt-api-functions)
 
----
+---  
+  
 #### SRT_REJ_GROUP
 
 The group type or some group settings are incompatible for both connection parties. 
@@ -2058,10 +2033,10 @@ ID for the connection that is trying to contact a machine/application that is
 completely different from the existing connections in the bonding group.
 
 
-
 [Back to List of Functions & Structures](#srt-api-functions)
 
----
+---  
+  
 #### SRT_REJ_TIMEOUT
 
 The connection wasn't rejected, but it timed out. This code is always set on
@@ -2076,10 +2051,10 @@ adopted HTTP codes). Values above `SRT_REJC_USERDEFINED` are freely defined by
 the application.
 
 
-
 [Back to List of Functions & Structures](#srt-api-functions)
 
----
+---  
+  
 ### srt_rejectreason_str
 
 ```
@@ -2098,10 +2073,10 @@ less than `SRT_REJ_E_SIZE`, can be also obtained from `srt_rejectreason_msg`
 array.
 
 
-
 [Back to List of Functions & Structures](#srt-api-functions)
 
----
+---  
+  
 ### srt_setrejectreason
 
 ```
@@ -2120,14 +2095,15 @@ For example, your application can inform the calling side that the resource
 specified under the `r` key in the StreamID string (see `SRTO_STREAMID`)
 is not availble - it then sets the value to `SRT_REJC_PREDEFINED + 404`.
 
-- Returns:
-  * 0 in case of success.
-  * -1 in case of error.
+|      Returns     |                                                           |
+|:----------------:|:--------------------------------------------------------- |
+|         0        | Error                                                     |
+|        -1        | Success                                                   |
 
-- Errors:
-
-  * `SRT_EINVSOCK`: Socket `sock` is not an ID of a valid socket
-  * `SRT_EINVPARAM`: `value` is less than `SRT_REJC_PREDEFINED`
+|       Errors     |                                                           |
+|:----------------:|:--------------------------------------------------------- |
+| `SRT_EINVSOCK`   | Socket `sock` is not an ID of a valid socket              |
+| `SRT_EINVPARAM`  | `value` is less than `SRT_REJC_PREDEFINED`                |
 
 
 
@@ -2144,14 +2120,13 @@ functions an appropriate symbol is defined, like `SRT_INVALID_SOCK` for
 `SRT_ERRNO` enum:
 
 
-
-[Back to List of Functions & Structures](#srt-api-functions)
-
----
+---  
+  
 #### `SRT_EUNKNOWN`
 
 Internal error when setting the right error code.
 
+| [SRT_EUNKNOWN](#SRT_EUNKNOWN)               | Internal error when setting the right error code.                |
 
 
 [Back to List of Functions & Structures](#srt-api-functions)
