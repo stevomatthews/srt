@@ -54,9 +54,9 @@
 | [srt_group_data](#srt_group_data)                 | Obtains the current member state of the group specified in `socketgroup`                                       |
 | [srt_connect_group](#srt_connect_group)           | Similar to calling `srt_connect` or `srt_connect_bind` in a loop for every item in an array.                   |
 | [srt_prepare_endpoint](#srt_prepare_endpoint)     | Prepares a default `SRT_SOCKGROUPCONFIG` object as an element of an array for `srt_connect_group`              |
-| [**srt_create_config**](#srt_create_config)       | Creates a dynamic object for specifying socket options                                                         |
-| [**srt_delete_config**](#srt_delete_config)       | Deletes the configuration object                                                                               |
-| [**srt_config_add**](#srt_config_add)             | Adds a configuration option to the configuration object                                                        |
+| [srt_create_config](#srt_create_config)           | Creates a dynamic object for specifying socket options                                                         |
+| [srt_delete_config](#srt_delete_config)           | Deletes the configuration object                                                                               |
+| [srt_config_add](#srt_config_add)                 | Adds a configuration option to the configuration object                                                        |
 | ![](/docs/images/1x290.png)                       | ![](/docs/images/1x720.png)                                                                                    |
 
 
@@ -64,13 +64,13 @@
   
 | *Function / Structure*                            | *Description*                                                                                                  |
 |:------------------------------------------------- |:-------------------------------------------------------------------------------------------------------------- |
-| [**srt_getpeername**](#srt_getpeername)           | Retrieves the remote address to which the socket is connected                                                  |
-| [**srt_getsockname**](#srt_getsockname)           | Extracts the address to which the socket was bound                                                             |
-| [**srt_getsockopt**](#srt_getsockopt)             | Gets the value of the given socket option (from a socket or a group)                                           |
-| [**srt_getsockflag**](#srt_getsockflag)           | Gets the value of the given socket option (from a socket or a group)                                           |
-| [**srt_setsockopt**](#srt_setsockopt)             | Sets a value for a socket option in the socket or group                                                        |
-| [**srt_setsockflag**](#srt_setsockflag)           | Sets a value for a socket option in the socket or group                                                        |
-| [**srt_getversion**](#srt_getversion)             | Get SRT version value                                                                                          |
+| [srt_getpeername](#srt_getpeername)               | Retrieves the remote address to which the socket is connected                                                  |
+| [srt_getsockname](#srt_getsockname)               | Extracts the address to which the socket was bound                                                             |
+| [srt_getsockopt](#srt_getsockopt)                 | Gets the value of the given socket option (from a socket or a group)                                           |
+| [srt_getsockflag](#srt_getsockflag)               | Gets the value of the given socket option (from a socket or a group)                                           |
+| [srt_setsockopt](#srt_setsockopt)                 | Sets a value for a socket option in the socket or group                                                        |
+| [srt_setsockflag](#srt_setsockflag)               | Sets a value for a socket option in the socket or group                                                        |
+| [srt_getversion](#srt_getversion)                 | Get SRT version value                                                                                          |
 | ![](/docs/images/1x290.png)                       | ![](/docs/images/1x720.png)                                                                                    |
 
 
@@ -78,7 +78,7 @@
   
 | *Function / Structure*                            | *Description*                                                                                                  |
 |:------------------------------------------------- |:-------------------------------------------------------------------------------------------------------------- |
-| [**SRT_MSGCTRL**](#SRT_MSGCTRL)                   | Used in `srt_sendmsg2` and `srt_recvmsg2` calls; specifies some extra parameters                               |
+| [SRT_MSGCTRL](#SRT_MSGCTRL)                       | Used in `srt_sendmsg2` and `srt_recvmsg2` calls; specifies some extra parameters                               |
 | ![](/docs/images/1x290.png)                       | ![](/docs/images/1x720.png)                                                                                    |
 
 
@@ -86,14 +86,14 @@
   
 | *Function / Structure*                            | *Description*                                                                                                  |
 |:------------------------------------------------- |:-------------------------------------------------------------------------------------------------------------- |
-| [**srt_send**](#srt_send)                         | Sends a payload to a remote party over a given socket                                                          |
-| [**srt_sendmsg**](#srt_sendmsg)                   | Sends a payload to a remote party over a given socket                                                          |
-| [**srt_sendmsg2**](#srt_sendmsg2)                 | Sends a payload to a remote party over a given socket                                                          |
-| [**srt_recv**](#srt_recv)                         | Extracts the payload waiting to be received.                                                                   |
-| [**srt_recvmsg**](#srt_recvmsg)                   | Extracts the payload waiting to be received.                                                                   |
-| [**srt_recvmsg2**](#srt_recvmsg2)                 | Extracts the payload waiting to be received.                                                                   |
-| [**srt_sendfile**](#srt_sendfile)                 | Function dedicated to sending a file                                                                           |
-| [**srt_recvfile**](#srt_recvfile)                 | Function dedicated to receiving a file                                                                         |
+| [srt_send](#srt_send)                             | Sends a payload to a remote party over a given socket                                                          |
+| [srt_sendmsg](#srt_sendmsg)                       | Sends a payload to a remote party over a given socket                                                          |
+| [srt_sendmsg2](#srt_sendmsg2)                     | Sends a payload to a remote party over a given socket                                                          |
+| [srt_recv](#srt_recv)                             | Extracts the payload waiting to be received.                                                                   |
+| [srt_recvmsg](#srt_recvmsg)                       | Extracts the payload waiting to be received.                                                                   |
+| [srt_recvmsg2](#srt_recvmsg2)                     | Extracts the payload waiting to be received.                                                                   |
+| [srt_sendfile](#srt_sendfile)                     | Function dedicated to sending a file                                                                           |
+| [srt_recvfile](#srt_recvfile)                     | Function dedicated to receiving a file                                                                         |
 | ![](/docs/images/1x290.png)                       | ![](/docs/images/1x720.png)                                                                                    |
 
 
@@ -101,7 +101,20 @@
   
 | *Function / Structure*                            | *Description*                                                                                                  |
 |:------------------------------------------------- |:-------------------------------------------------------------------------------------------------------------- |
-| [**srt_getlasterror**](#srt_getlasterror)         | Get the numeric code of the last error.                                                                        |
+| [srt_getlasterror](#srt_getlasterror)             | Get the numeric code of the last error.                                                                        |
+| [srt_strerror](#srt_strerror)                     | Returns a string message that represents a given SRT error code and possibly the `errno` value, if not 0.      |
+| [srt_getlasterror_str](#srt_getlasterror_str)     | Gets the text message for the last error.                                                                      |
+| [srt_clearlasterror](#srt_clearlasterror)         | Clears the last error.                                                                                         |
+| [srt_getrejectreason](#srt_getrejectreason)       | Provides a detailed reason for a failed connection attempt.                                                    |
+| [SRT_REJ_UNKNOWN](#SRT_REJ_UNKNOWN)               | A fallback value for cases when there was no connection rejected.                                              |
+| [SRT_REJ_SYSTEM](#SRT_REJ_SYSTEM)               | A system function reported a failure..                                              |
+| [SRT_REJ_PEER](#SRT_REJ_PEER)               | The connection has been rejected by peer, but no further details are available.                      |
+| [SRT_REJ_RESOURCE](#SRT_REJ_RESOURCE)               | A problem with resource allocation (usually memory).                      |
+| [SRT_REJ_ROGUE](#SRT_REJ_ROGUE)               | The data sent by one party to another cannot be properly interpreted.                      |
+| [SRT_REJ_BACKLOG](#SRT_REJ_BACKLOG)               | The listener's backlog has exceeded.                      |
+| [SRT_REJ_IPE](#SRT_REJ_IPE)               | Internal Program Error.                      |
+| [SRT_REJ_CLOSE](#SRT_REJ_CLOSE)               | The listener socket received a request as it is being closed..                      |
+| [SRT_REJ_VERSION](#SRT_REJ_VERSION)               | A party did not satisfy the minimum version requirement that had been set up for a connection...                      |
 | ![](/docs/images/1x290.png)                       | ![](/docs/images/1x720.png)                                                                                    |
 
 
@@ -1812,7 +1825,8 @@ associated with the last error. The system error is:
 
 [Back to List of Functions & Structures](#srt-api-functions)
 
----
+---  
+  
 ### srt_strerror
 ```
 const char* srt_strerror(int code, int errnoval);
@@ -1830,7 +1844,8 @@ moment*
 
 [Back to List of Functions & Structures](#srt-api-functions)
 
----
+---  
+  
 ### srt_getlasterror_str
 ```
 const char* srt_getlasterror_str(void);
@@ -1841,11 +1856,10 @@ Get the text message for the last error. It's a shortcut to calling first
 Note that, in contradiction to `srt_strerror`, this function is thread safe.
 
 
-
-
 [Back to List of Functions & Structures](#srt-api-functions)
 
----
+---  
+  
 ### srt_clearlasterror
 
 ```
@@ -1856,10 +1870,10 @@ This function clears the last error. After this call, the `srt_getlasterror` wil
 report a "successful" code.
 
 
-
 [Back to List of Functions & Structures](#srt-api-functions)
 
----
+---  
+  
 ### srt_getrejectreason
 
 ```
@@ -1874,14 +1888,13 @@ numeric code, which can be translated into a message by `srt_rejectreason_str`.
 The following codes are currently reported:
 
 
-
 [Back to List of Functions & Structures](#srt-api-functions)
 
----
+---  
+  
 #### SRT_REJ_UNKNOWN
 
 A fallback value for cases when there was no connection rejected.
-
 
 
 [Back to List of Functions & Structures](#srt-api-functions)
@@ -1893,29 +1906,29 @@ One of system function reported a failure. Usually this means some system
 error or lack of system resources to complete the task.
 
 
-
 [Back to List of Functions & Structures](#srt-api-functions)
 
----
+---  
+  
 #### SRT_REJ_PEER
 
 The connection has been rejected by peer, but no further details are available.
 This usually means that the peer doesn't support rejection reason reporting.
 
 
-
 [Back to List of Functions & Structures](#srt-api-functions)
 
----
+---  
+  
 #### SRT_REJ_RESOURCE
 
 A problem with resource allocation (usually memory).
 
 
-
 [Back to List of Functions & Structures](#srt-api-functions)
 
----
+---  
+  
 #### SRT_REJ_ROGUE
 
 The data sent by one party to another cannot be properly interpreted. This
@@ -1923,10 +1936,10 @@ should not happen during normal usage, unless it's a bug, or some weird
 events are happening on the network.
 
 
-
 [Back to List of Functions & Structures](#srt-api-functions)
 
----
+---  
+  
 #### SRT_REJ_BACKLOG
 
 The listener's backlog has exceeded (there are many other callers waiting for
@@ -1934,10 +1947,10 @@ the opportunity of being connected and wait in the queue, which has reached
 its limit).
 
 
-
 [Back to List of Functions & Structures](#srt-api-functions)
 
----
+---  
+  
 #### SRT_REJ_IPE
 
 Internal Program Error. This should not happen during normal usage and it
@@ -1945,25 +1958,26 @@ usually means a bug in the software (although this can be reported by both
 local and foreign host).
 
 
-
 [Back to List of Functions & Structures](#srt-api-functions)
 
----
+---  
+  
 #### SRT_REJ_CLOSE
 
 The listener socket was able to receive your request, but at this moment it
 is being closed. It's likely that your next attempt will result with timeout.
 
 
-
 [Back to List of Functions & Structures](#srt-api-functions)
 
----
+---  
+  
 #### SRT_REJ_VERSION
 
 Any party of the connection has set up minimum version that is required for
 that connection, and the other party didn't satisfy this requirement.
 
+| [SRT_REJ_VERSION](#SRT_REJ_VERSION)               | A party did not satisfy the minimum version requirement that had been set up for a connection...                      |
 
 
 [Back to List of Functions & Structures](#srt-api-functions)
