@@ -125,11 +125,48 @@
 | [srt_rejectreason_str](#srt_rejectreason_str)     | Returns a constant string for the reason of the connection rejected, as per given code ID.                     |
 | [srt_setrejectreason](#srt_setrejectreason)       | Sets the rejection code on the socket.                                                                         |
 | ![](/docs/images/1x290.png)                       | ![](/docs/images/1x720.png)                                                                                    |
-
-
-| *Error Code*                                      | *Description*                                                                                                  |
-|:------------------------------------------------- |:-------------------------------------------------------------------------------------------------------------- |
+| ***Error Code***                                  | ***Description***                                                                                              |
 | [SRT_EUNKNOWN](#SRT_EUNKNOWN)                     | Internal error when setting the right error code.                                                              |
+| [SUCCESS](#SUCCESS)                               | The value set when the last error was cleared and no error has occurred since then.                            |
+| [ECONNSETUP](#ECONNSETUP)                         | General setup error resulting from internal system state.                                                      |
+| [ENOSERVER](#ENOSERVER)                           | Connection timed out while attempting to connect to the remote address.                                        |
+| [ECONNREJ](#ECONNREJ)                             | Connection has been rejected.                                                                                  |
+| [ESOCKFAIL](#ESOCKFAIL)                           | An error occurred when trying to call a system function on an internally used UDP socket.                      |
+| [ESECFAIL](#ESECFAIL)                             | A possible tampering with the handshake packets was detected, or encryption request wasn't properly fulfilled. |
+| [ESCLOSED](#ESCLOSED)                             | A socket that was vital for an operation called in blocking mode has been closed during the operation.         |
+| [ECONNFAIL](#ECONNFAIL)                           | General connection failure of unknown details.                                                                 |
+| [ECONNLOST](#ECONNLOST)                           | The socket was properly connected, but the connection has been broken.                                         |
+| [ENOCONN](#ENOCONN)                               | The socket is not connected.                                                                                   |
+| [ERESOURCE](#ERESOURCE)                           | System or standard library error reported unexpectedly for unknown purpose.                                    |
+| [ETHREAD](#ETHREAD)                               | System was unable to spawn a new thread when requried.                                                         |
+| [ENOBUF](#ENOBUF)                                 | System was unable to allocate memory for buffers.                                                              |
+| [ESYSOBJ](#ESYSOBJ)                               | System was unable to allocate system specific objects.                                                         |
+| [EFILE](#EFILE)                                   | General filesystem error (for functions operating with file transmission).                                     |
+| [EINVRDOFF](#EINVRDOFF)                           | Failure when trying to read from a given position in the file.                                                 |
+| [ERDPERM](#ERDPERM)                               | Read permission was denied when trying to read from file.                                                      |
+| [EINVWROFF](#EINVWROFF)                           | Failed to set position in the written file.                                                                    |
+| [EWRPERM](#EWRPERM)                               | Write permission was denied when trying to write to a file.                                                    |
+| [EINVOP](#EINVOP)                                 | Invalid operation performed for the current state of a socket.                                                 |
+| [EBOUNDSOCK](#EBOUNDSOCK)                         | The socket is currently bound and the required operation cannot be performed in this state.                    |
+| [ECONNSOCK](#ECONNSOCK)                           | The socket is currently connected and therefore performing the required operation is not possible.             |
+| [EINVPARAM](#EINVPARAM)                           | Call parameters for API functions have some requirements that were not satisfied.                              |
+| [EINVSOCK](#EINVSOCK)                             | The API function required an ID of an entity (socket or group) and it was invalid.                             |
+| [EUNBOUNDSOCK](#EUNBOUNDSOCK)                     | The operation to be performed on a socket requires that it first be explicitly bound.                          |
+| [ENOLISTEN](#ENOLISTEN)                           | The socket passed for the operation is required to be in the listen state                                      |
+| [ERDVNOSERV](#ERDVNOSERV)                         | The required operation cannot be performed when the socket is set to rendezvous mode                           |
+| [ERDVUNBOUND](#ERDVUNBOUND)                       | An attempt was made to connect to a socket set to rendezvous mode that was not first bound.                    |
+| [EINVALMSGAPI](#EINVALMSGAPI)                     | The function was used incorrectly in the message API.                                                          |
+| [EINVALBUFFERAPI](#EINVALBUFFERAPI)               | The function was used incorrectly in the stream (buffer) API                                                   |
+| [EDUPLISTEN](#EDUPLISTEN)                         | The port tried to be bound for listening is already busy.                                                      |
+| [ELARGEMSG](#ELARGEMSG)                           | Size exceeded.                                                                                                 |
+| [EINVPOLLID](#EINVPOLLID)                         | The epoll ID passed to an epoll function is invalid                                                            |
+| [EPOLLEMPTY](#EPOLLEMPTY)                         | The epoll container currently has no subscribed sockets.                                                       |
+| [EASYNCFAIL](#EASYNCFAIL)                         | General asynchronous failure (not in use currently).                                                           |
+| [EASYNCSND](#EASYNCSND)                           | Sending operation is not ready to perform.                                                                     |
+| [EASYNCRCV](#EASYNCRCV)                           | Receiving operation is not ready to perform.                                                                   |
+| [ETIMEOUT](#ETIMEOUT)                             | The operation timed out.                                                                                       |
+| [ECONGEST](#ECONGEST)                             | With `SRTO_TSBPDMODE` and `SRTO_TLPKTDROP` set to true, some packets were dropped by sender                    |
+| [EPEERERR](#EPEERERR)                             | Receiver peer is writing to a file that the agent is sending.                                                  |
 | ![](/docs/images/1x290.png)                       | ![](/docs/images/1x720.png)                                                                                    |
 
 
