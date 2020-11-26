@@ -191,7 +191,34 @@
 | [srt_epoll_remove_usock](#srt_epoll_remove_usock) | Removes a specified user socket from an epoll container; clears all readiness states for that socket.          |
 | [srt_epoll_remove_ssock](#srt_epoll_remove_ssock) | Removes a specified system socket from an epoll container; clears all readiness states for that socket.        |
 | [srt_epoll_wait](#srt_epoll_wait)                 | Blocks the call until any readiness state occurs in the epoll container.                                       |
+| [srt_epoll_uwait](#srt_epoll_uwait)               | Blocks a call until any readiness state occurs in the epoll container.                                         |
+| [srt_epoll_clear_usocks](#srt_epoll_clear_usocks) | removes all SRT ("user") socket subscriptions from the epoll container identified by `eid`.                    |
+| [srt_epoll_set](#srt_epoll_set)                   | Allows setting or retrieving flags that change the default behavior of the epoll functions.                    |
+| [srt_epoll_release](#srt_epoll_release)           | Deletes the epoll container.                                                                                   |
 | ![](/docs/images/1x290.png)                       | ![](/docs/images/1x720.png)                                                                                    |
+
+
+### **Logging Control**
+  
+| *Function / Structure*                            | *Description*                                                                                                  |
+|:------------------------------------------------- |:-------------------------------------------------------------------------------------------------------------- |
+| [srt_setloglevel](#srt_setloglevel)               | Sets the minimum severity for logging.                                                                         |
+| [srt_addlogfa](#srt_addlogfa)                     | Add a functional area (FA), which is an additional filtering mechanism for logging.                            |
+| [srt_dellogfa](#srt_dellogfa)                     | Delete a functional area (FA), which is an additional filtering mechanism for logging.                         |
+| [srt_resetlogfa](#srt_resetlogfa)                 | Reset a functional area (FA), which is an additional filtering mechanism for logging.                          |
+| [srt_setloghandler](#srt_setloghandler)           | Replaces default standard stream for error logging.                                                            |
+| [srt_setlogflags](#srt_setlogflags)               | Allows configuring parts of log information that are not to be passed.                                         |
+| ![](/docs/images/1x290.png)                       | ![](/docs/images/1x720.png)                                                                                    |
+
+
+### **Time Access**
+  
+| *Function / Structure*                            | *Description*                                                                                                  |
+|:------------------------------------------------- |:-------------------------------------------------------------------------------------------------------------- |
+| [srt_time_now](#srt_time_now)                     | Get time in microseconds elapsed since epoch using SRT internal clock (steady or monotonic clock).             |
+| [srt_connection_time](#srt_connection_time)       | Get connection time in microseconds elapsed since epoch using SRT internal clock (steady or monotonic clock).  |
+| ![](/docs/images/1x290.png)                       | ![](/docs/images/1x720.png)                                                                                    |
+
 
 
 
@@ -2942,7 +2969,8 @@ of error has occurred on the socket.
 
 [Back to List of Functions & Structures](#srt-api-functions)
 
----
+---  
+  
 ### srt_epoll_uwait
 ```
 int srt_epoll_uwait(int eid, SRT_EPOLL_EVENT* fdsSet, int fdsSize, int64_t msTimeOut);
@@ -2963,29 +2991,17 @@ indefinitely until a readiness state occurs.
    * 0: Don't wait, return immediately (report any sockets currently ready)
    * -1: Wait indefinitely.
 
-- Returns:
+|      Returns     |                                                                                                                                        |
+|:----------------:|:-------------------------------------------------------------------------------------------------------------------------------------- |
+|       Number     | The number of user socket (SRT socket) state changes that have been reported in `fdsSet`, if this number isn't greater than `fdsSize`  |
+|   `fdsSize` + 1  | his means that there was not enough space in the output array to report all events. For events subscribed with `SRT_EPOLL_ET` flag only those will be cleared that were reported. Others will wait for the next call.                                                                                                               |
+|         0        | If no readiness state was found on any socket and the timeout has passed (this is not possible when waiting indefinitely)              |
+|        -1        | Error                                                                                                                                  |
 
-  * The number of user socket (SRT socket) state changes that have been reported
-in `fdsSet`, if this number isn't greater than `fdsSize`
-
-  * Otherwise the return value is `fdsSize` + 1. This means that there was not
-enough space in the output array to report all events. For events subscribed with
-`SRT_EPOLL_ET` flag only those will be cleared that were reported. Others will
-wait for the next call.
-
-  * If no readiness state was found on any socket and the timeout has passed, 0
-is returned (this is not possible when waiting indefinitely)
-
-  * -1 in case of error
-
-
-- Errors:
-
-  * `SRT_EINVPOLLID`: `eid` parameter doesn't refer to a valid epoll container
-  * `SRT_EINVPARAM`: One of possible usage errors:
-    * `fdsSize` is < 0
-    * `fdsSize` is > 0 and `fdsSet` is a null pointer
-    * `eid` was subscribed to any system socket
+|       Errors     |                                                                                                                                                             |
+|:----------------:|:----------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `SRT_EINVPOLLID` | `eid` parameter doesn't refer to a valid epoll container                                                                                                    |
+| `SRT_EINVPARAM`  | One of possible usage errors:<br/>* `fdsSize` is < 0<br/>* `fdsSize` is > 0 and `fdsSet` is a null pointer<br/>* `eid` was subscribed to any system socket  |
 
 (IMPORTANT: this function reports timeout by returning 0, not by `SRT_ETIMEOUT` error.)
 
@@ -3009,10 +3025,10 @@ can't be retrieved with `srt_getlasterror()`. The socket will be automatically
 closed and its state can be verified with a call to `srt_getsockstate`.
 
 
-
 [Back to List of Functions & Structures](#srt-api-functions)
 
----
+---  
+  
 ### srt_epoll_clear_usocks
 ```
 int srt_epoll_clear_usocks(int eid);
@@ -3021,19 +3037,21 @@ int srt_epoll_clear_usocks(int eid);
 This function removes all SRT ("user") socket subscriptions from the epoll
 container identified by `eid`.
 
-- Returns:
-  * 0 on success
-  * -1 in case of error
+|      Returns     |                                                           |
+|:----------------:|:--------------------------------------------------------- |
+|         0        | Success                                                   |
+|        -1        | Failure                                                   |
 
-- Errors:
-
-  * `SRT_EINVPOLLID`: `eid` parameter doesn't refer to a valid epoll container
+|       Errors     |                                                           |
+|:----------------:|:--------------------------------------------------------- |
+| `SRT_EINVPOLLID` | `eid` parameter doesn't refer to a valid epoll container  |
 
 
 
 [Back to List of Functions & Structures](#srt-api-functions)
 
----
+---  
+  
 ### srt_epoll_set
 ```
 int32_t srt_epoll_set(int eid, int32_t flags);
@@ -3060,21 +3078,22 @@ the general output array is not empty.
       * 0: clear all flags (set all defaults)
       * -1: do not modify any flags
 
-- Returns:
+|      Returns     |                                                                            |
+|:----------------:|:-------------------------------------------------------------------------- |
+|                  | This function returns the state of the flags at the time before the call.  |
+|        -1        | Special value in case when an error occurred.                              |
 
-This function returns the state of the flags at the time before the call,
-or a special value -1 in case when an error occurred.
-
-- Errors:
-
-  * `SRT_EINVPOLLID`: `eid` parameter doesn't refer to a valid epoll container
+|       Errors     |                                                           |
+|:----------------:|:--------------------------------------------------------- |
+| `SRT_EINVPOLLID` | `eid` parameter doesn't refer to a valid epoll container  |
 
 
 
 
 [Back to List of Functions & Structures](#srt-api-functions)
 
----
+---  
+  
 ### srt_epoll_release
 ```
 int srt_epoll_release(int eid);
@@ -3082,15 +3101,17 @@ int srt_epoll_release(int eid);
 
 Deletes the epoll container.
 
-- Returns:
+|      Returns     |                                                                |
+|:----------------:|:-------------------------------------------------------------- |
+|                  | The number (\>0) of ready sockets, of whatever kind (if any).  |
+|        -1        | Error                           .                              |
 
-  * The number (\>0) of ready sockets, of whatever kind (if any)
-  * -1 in case of error
+|       Errors     |                                                           |
+|:----------------:|:--------------------------------------------------------- |
+| `SRT_EINVPOLLID` | `eid` parameter doesn't refer to a valid epoll container  |
 
-- Errors:
 
 
-  * `SRT_EINVPOLLID`: `eid` parameter doesn't refer to a valid epoll container
 
 ## Logging control
 
@@ -3110,10 +3131,10 @@ socket. This is because lots of operations in SRT are not dedicated to any
 particular socket, and some are shared between sockets.
 
 
-
 [Back to List of Functions & Structures](#srt-api-functions)
 
----
+---  
+  
 ### srt_setloglevel
 
 ```
@@ -3137,8 +3158,11 @@ The constants for this value are those from `<sys/syslog.h>`
 
 [Back to List of Functions & Structures](#srt-api-functions)
 
----
-### srt_addlogfa, srt_dellogfa, srt_resetlogfa
+---  
+  
+### srt_addlogfa
+### srt_dellogfa
+### srt_resetlogfa
 
 ```c++
 void srt_addlogfa(int fa);
@@ -3162,7 +3186,8 @@ if strictly required for the development), or some duplicated information
 
 [Back to List of Functions & Structures](#srt-api-functions)
 
----
+---  
+  
 ### srt_setloghandler
 
 ```c++
@@ -3174,10 +3199,10 @@ By default logs are printed to standard error stream. This function replaces
 the sending to a stream with a handler function that will receive them.
 
 
-
 [Back to List of Functions & Structures](#srt-api-functions)
 
----
+---  
+  
 ### srt_setlogflags
 
 ```c++
@@ -3198,6 +3223,8 @@ The following flags are available, as collected in `logging_api.h` public header
 - `SRT_LOGF_DISABLE_SEVERITY`: Do not provide severity information in the header
 - `SRT_LOGF_DISABLE_EOL`: Do not add the end-of-line character to the log line
 
+
+
 ## Time Access
 
 * [srt_time_now](#srt_time_now)
@@ -3209,7 +3236,7 @@ function together with the packet being submitted to SRT.
 If the `srctime` value is not provided (the default value of 0 is set), SRT will use internal
 clock and assign the packet submission time as the packet timestamp.
 If the sender wants to explicitly assign a timestamp
-to a certain packet. this timestamp MUST be taken from SRT Time Access functions.
+to a certain packet this timestamp MUST be taken from SRT Time Access functions.
 The time value provided MUST equal or exceed the connection start time (`srt_connection_time(..)`)
 of the SRT socket passed to `srt_sendmsg2(..)`.
 
@@ -3262,7 +3289,8 @@ as system clock is vulnerable to time modifications during transmission.
 
 [Back to List of Functions & Structures](#srt-api-functions)
 
----
+---  
+  
 ### srt_time_now
 
 ```c++
@@ -3271,14 +3299,16 @@ int64_t srt_time_now();
 
 Get time in microseconds elapsed since epoch using SRT internal clock (steady or monotonic clock).
 
-- Returns:
-  - Current time in microseconds elapsed since epoch of SRT internal clock.
+|      Returns     |                                                                          |
+|:----------------:|:------------------------------------------------------------------------ |
+|                  | Current time in microseconds elapsed since epoch of SRT internal clock.  |
 
 
 
 [Back to List of Functions & Structures](#srt-api-functions)
 
----
+---  
+  
 ### srt_connection_time
 
 ```c++
@@ -3290,11 +3320,19 @@ The connection time represents the time when SRT socket was open to establish a 
 Milliseconds elapsed since connection start time can be determined using [**Performance tracking**](#Performance-tracking)
 functions and `msTimeStamp` value of the `SRT_TRACEBSTATS` (see [statistics.md](statistics.md)).
 
-- Returns:
-  - Connection time in microseconds elapsed since epoch of SRT internal clock.
-  - -1 in case of error
+|      Returns     |                                                                             |
+|:----------------:|:--------------------------------------------------------------------------- |
+|                  | Connection time in microseconds elapsed since epoch of SRT internal clock.  |
+|        -1        | Error                                                                       |
 
-- Errors:
-  - `SRT_EINVSOCK`: Socket `sock` is not an ID of a valid SRT socket
+|       Errors     |                                                           |
+|:----------------:|:--------------------------------------------------------- |
+| `SRT_EINVSOCK`   | Socket `sock` is not an ID of a valid SRT socket          |
+
+
+
+  
+  
+  
 
 [RETURN TO TOP OF PAGE](#SRT-API-Functions)
