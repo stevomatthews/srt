@@ -127,46 +127,70 @@
 | ![](/docs/images/1x290.png)                       | ![](/docs/images/1x720.png)                                                                                    |
 | ***Error Code***                                  | ***Description***                                                                                              |
 | [SRT_EUNKNOWN](#SRT_EUNKNOWN)                     | Internal error when setting the right error code.                                                              |
-| [SUCCESS](#SUCCESS)                               | The value set when the last error was cleared and no error has occurred since then.                            |
-| [ECONNSETUP](#ECONNSETUP)                         | General setup error resulting from internal system state.                                                      |
-| [ENOSERVER](#ENOSERVER)                           | Connection timed out while attempting to connect to the remote address.                                        |
-| [ECONNREJ](#ECONNREJ)                             | Connection has been rejected.                                                                                  |
-| [ESOCKFAIL](#ESOCKFAIL)                           | An error occurred when trying to call a system function on an internally used UDP socket.                      |
-| [ESECFAIL](#ESECFAIL)                             | A possible tampering with the handshake packets was detected, or encryption request wasn't properly fulfilled. |
-| [ESCLOSED](#ESCLOSED)                             | A socket that was vital for an operation called in blocking mode has been closed during the operation.         |
-| [ECONNFAIL](#ECONNFAIL)                           | General connection failure of unknown details.                                                                 |
-| [ECONNLOST](#ECONNLOST)                           | The socket was properly connected, but the connection has been broken.                                         |
-| [ENOCONN](#ENOCONN)                               | The socket is not connected.                                                                                   |
-| [ERESOURCE](#ERESOURCE)                           | System or standard library error reported unexpectedly for unknown purpose.                                    |
-| [ETHREAD](#ETHREAD)                               | System was unable to spawn a new thread when requried.                                                         |
-| [ENOBUF](#ENOBUF)                                 | System was unable to allocate memory for buffers.                                                              |
-| [ESYSOBJ](#ESYSOBJ)                               | System was unable to allocate system specific objects.                                                         |
-| [EFILE](#EFILE)                                   | General filesystem error (for functions operating with file transmission).                                     |
-| [EINVRDOFF](#EINVRDOFF)                           | Failure when trying to read from a given position in the file.                                                 |
-| [ERDPERM](#ERDPERM)                               | Read permission was denied when trying to read from file.                                                      |
-| [EINVWROFF](#EINVWROFF)                           | Failed to set position in the written file.                                                                    |
-| [EWRPERM](#EWRPERM)                               | Write permission was denied when trying to write to a file.                                                    |
-| [EINVOP](#EINVOP)                                 | Invalid operation performed for the current state of a socket.                                                 |
-| [EBOUNDSOCK](#EBOUNDSOCK)                         | The socket is currently bound and the required operation cannot be performed in this state.                    |
-| [ECONNSOCK](#ECONNSOCK)                           | The socket is currently connected and therefore performing the required operation is not possible.             |
-| [EINVPARAM](#EINVPARAM)                           | Call parameters for API functions have some requirements that were not satisfied.                              |
-| [EINVSOCK](#EINVSOCK)                             | The API function required an ID of an entity (socket or group) and it was invalid.                             |
-| [EUNBOUNDSOCK](#EUNBOUNDSOCK)                     | The operation to be performed on a socket requires that it first be explicitly bound.                          |
-| [ENOLISTEN](#ENOLISTEN)                           | The socket passed for the operation is required to be in the listen state                                      |
-| [ERDVNOSERV](#ERDVNOSERV)                         | The required operation cannot be performed when the socket is set to rendezvous mode                           |
-| [ERDVUNBOUND](#ERDVUNBOUND)                       | An attempt was made to connect to a socket set to rendezvous mode that was not first bound.                    |
-| [EINVALMSGAPI](#EINVALMSGAPI)                     | The function was used incorrectly in the message API.                                                          |
-| [EINVALBUFFERAPI](#EINVALBUFFERAPI)               | The function was used incorrectly in the stream (buffer) API                                                   |
-| [EDUPLISTEN](#EDUPLISTEN)                         | The port tried to be bound for listening is already busy.                                                      |
-| [ELARGEMSG](#ELARGEMSG)                           | Size exceeded.                                                                                                 |
-| [EINVPOLLID](#EINVPOLLID)                         | The epoll ID passed to an epoll function is invalid                                                            |
-| [EPOLLEMPTY](#EPOLLEMPTY)                         | The epoll container currently has no subscribed sockets.                                                       |
-| [EASYNCFAIL](#EASYNCFAIL)                         | General asynchronous failure (not in use currently).                                                           |
-| [EASYNCSND](#EASYNCSND)                           | Sending operation is not ready to perform.                                                                     |
-| [EASYNCRCV](#EASYNCRCV)                           | Receiving operation is not ready to perform.                                                                   |
-| [ETIMEOUT](#ETIMEOUT)                             | The operation timed out.                                                                                       |
-| [ECONGEST](#ECONGEST)                             | With `SRTO_TSBPDMODE` and `SRTO_TLPKTDROP` set to true, some packets were dropped by sender                    |
-| [EPEERERR](#EPEERERR)                             | Receiver peer is writing to a file that the agent is sending.                                                  |
+| [SRT_SUCCESS](#SUCCESS)                           | The value set when the last error was cleared and no error has occurred since then.                            |
+| [SRT_ECONNSETUP](#ECONNSETUP)                     | General setup error resulting from internal system state.                                                      |
+| [SRT_ENOSERVER](#ENOSERVER)                       | Connection timed out while attempting to connect to the remote address.                                        |
+| [SRT_ECONNREJ](#ECONNREJ)                         | Connection has been rejected.                                                                                  |
+| [SRT_ESOCKFAIL](#ESOCKFAIL)                       | An error occurred when trying to call a system function on an internally used UDP socket.                      |
+| [SRT_ESECFAIL](#ESECFAIL)                         | A possible tampering with the handshake packets was detected, or encryption request wasn't properly fulfilled. |
+| [SRT_ESCLOSED](#ESCLOSED)                         | A socket that was vital for an operation called in blocking mode has been closed during the operation.         |
+| [SRT_ECONNFAIL](#ECONNFAIL)                       | General connection failure of unknown details.                                                                 |
+| [SRT_ECONNLOST](#ECONNLOST)                       | The socket was properly connected, but the connection has been broken.                                         |
+| [SRT_ENOCONN](#ENOCONN)                           | The socket is not connected.                                                                                   |
+| [SRT_ERESOURCE](#ERESOURCE)                       | System or standard library error reported unexpectedly for unknown purpose.                                    |
+| [SRT_ETHREAD](#ETHREAD)                           | System was unable to spawn a new thread when requried.                                                         |
+| [SRT_ENOBUF](#ENOBUF)                             | System was unable to allocate memory for buffers.                                                              |
+| [SRT_ESYSOBJ](#ESYSOBJ)                           | System was unable to allocate system specific objects.                                                         |
+| [SRT_EFILE](#EFILE)                               | General filesystem error (for functions operating with file transmission).                                     |
+| [SRT_EINVRDOFF](#EINVRDOFF)                       | Failure when trying to read from a given position in the file.                                                 |
+| [SRT_ERDPERM](#ERDPERM)                           | Read permission was denied when trying to read from file.                                                      |
+| [SRT_EINVWROFF](#EINVWROFF)                       | Failed to set position in the written file.                                                                    |
+| [SRT_EWRPERM](#EWRPERM)                           | Write permission was denied when trying to write to a file.                                                    |
+| [SRT_EINVOP](#EINVOP)                             | Invalid operation performed for the current state of a socket.                                                 |
+| [SRT_EBOUNDSOCK](#EBOUNDSOCK)                     | The socket is currently bound and the required operation cannot be performed in this state.                    |
+| [SRT_ECONNSOCK](#ECONNSOCK)                       | The socket is currently connected and therefore performing the required operation is not possible.             |
+| [SRT_EINVPARAM](#EINVPARAM)                       | Call parameters for API functions have some requirements that were not satisfied.                              |
+| [SRT_EINVSOCK](#EINVSOCK)                         | The API function required an ID of an entity (socket or group) and it was invalid.                             |
+| [SRT_EUNBOUNDSOCK](#EUNBOUNDSOCK)                 | The operation to be performed on a socket requires that it first be explicitly bound.                          |
+| [SRT_ENOLISTEN](#ENOLISTEN)                       | The socket passed for the operation is required to be in the listen state                                      |
+| [SRT_ERDVNOSERV](#ERDVNOSERV)                     | The required operation cannot be performed when the socket is set to rendezvous mode                           |
+| [SRT_ERDVUNBOUND](#ERDVUNBOUND)                   | An attempt was made to connect to a socket set to rendezvous mode that was not first bound.                    |
+| [SRT_EINVALMSGAPI](#EINVALMSGAPI)                 | The function was used incorrectly in the message API.                                                          |
+| [SRT_EINVALBUFFERAPI](#EINVALBUFFERAPI)           | The function was used incorrectly in the stream (buffer) API                                                   |
+| [SRT_EDUPLISTEN](#EDUPLISTEN)                     | The port tried to be bound for listening is already busy.                                                      |
+| [SRT_ELARGEMSG](#ELARGEMSG)                       | Size exceeded.                                                                                                 |
+| [SRT_EINVPOLLID](#EINVPOLLID)                     | The epoll ID passed to an epoll function is invalid                                                            |
+| [SRT_EPOLLEMPTY](#EPOLLEMPTY)                     | The epoll container currently has no subscribed sockets.                                                       |
+| [SRT_EASYNCFAIL](#EASYNCFAIL)                     | General asynchronous failure (not in use currently).                                                           |
+| [SRT_EASYNCSND](#EASYNCSND)                       | Sending operation is not ready to perform.                                                                     |
+| [SRT_EASYNCRCV](#EASYNCRCV)                       | Receiving operation is not ready to perform.                                                                   |
+| [SRT_ETIMEOUT](#ETIMEOUT)                         | The operation timed out.                                                                                       |
+| [SRT_ECONGEST](#ECONGEST)                         | With `SRTO_TSBPDMODE` and `SRTO_TLPKTDROP` set to true, some packets were dropped by sender                    |
+| [SRT_EPEERERR](#EPEERERR)                         | Receiver peer is writing to a file that the agent is sending.                                                  |
+| ![](/docs/images/1x290.png)                       | ![](/docs/images/1x720.png)                                                                                    |
+
+
+### **Performance Tracking**
+  
+| *Function / Structure*                            | *Description*                                                                                                  |
+|:------------------------------------------------- |:-------------------------------------------------------------------------------------------------------------- |
+| [srt_bstats](#srt_bstats)                         | Reports the current statistics                                                                                 |
+| [srt_bistats](#srt_bistats)                       | Reports the current statistics                                                                                 |
+| ![](/docs/images/1x290.png)                       | ![](/docs/images/1x720.png)                                                                                    |
+
+
+### **Asynchronous Operations (epoll)**
+  
+| *Function / Structure*                            | *Description*                                                                                                  |
+|:------------------------------------------------- |:-------------------------------------------------------------------------------------------------------------- |
+| [srt_epoll_create](#srt_epoll_create)             | Creates a new epoll container.                                                                                 |
+| [srt_epoll_add_usock](#srt_epoll_add_usock)       | Adds a user socket to a container, or updates an existing socket subscription..                                |
+| [srt_epoll_add_ssock](#srt_epoll_add_ssock)       | Adds a system socket to a container, or updates an existing socket subscription..                              |
+| [srt_epoll_update_usock](#srt_epoll_update_usock) | Adds a user socket to a container, or updates an existing socket subscription..                                |
+| [srt_epoll_update_ssock](#srt_epoll_update_ssock) | Adds a system socket to a container, or updates an existing socket subscription..                              |
+| [srt_epoll_remove_usock](#srt_epoll_remove_usock) | Removes a specified user socket from an epoll container; clears all readiness states for that socket.          |
+| [srt_epoll_remove_ssock](#srt_epoll_remove_ssock) | Removes a specified system socket from an epoll container; clears all readiness states for that socket.        |
+| [srt_epoll_wait](#srt_epoll_wait)                 | Blocks the call until any readiness state occurs in the epoll container.                                       |
 | ![](/docs/images/1x290.png)                       | ![](/docs/images/1x720.png)                                                                                    |
 
 
@@ -2163,8 +2187,6 @@ functions an appropriate symbol is defined, like `SRT_INVALID_SOCK` for
 
 Internal error when setting the right error code.
 
-| [SRT_EUNKNOWN](#SRT_EUNKNOWN)               | Internal error when setting the right error code.                |
-
 
 [Back to List of Functions & Structures](#srt-api-functions)
 
@@ -2651,9 +2673,10 @@ would be 0x7FFFFFE0, the "distance" is 0x20.
 * [srt_bstats, srt_bistats](#srt_bstats-srt_bistats)
 
 
-
----
-### srt_bstats, srt_bistats
+---  
+  
+### srt_bstats
+### srt_bistats
 ```
 // Performance monitor with Byte counters for better bitrate estimation.
 int srt_bstats(SRTSOCKET u, SRT_TRACEBSTATS * perf, int clear);
@@ -2671,6 +2694,8 @@ Reports the current statistics
 
 `SRT_TRACEBSTATS` is an alias to `struct CBytePerfMon`. For a complete description
 of the fields please refer to the document [statistics.md](statistics.md).
+
+
 
 ## Asynchronous operations (epoll)
 
@@ -2702,10 +2727,10 @@ readiness status of particular operations. The `srt_epoll_wait` function can
 then be used to block until any readiness status in the whole `eid` is set.
 
 
-
 [Back to List of Functions & Structures](#srt-api-functions)
 
----
+---  
+  
 ### srt_epoll_create
 ```
 int srt_epoll_create(void);
@@ -2713,24 +2738,24 @@ int srt_epoll_create(void);
 
 Creates a new epoll container.
 
-- Returns:
+|      Returns     |                                                           |
+|:----------------:|:--------------------------------------------------------- |
+|     valid EID    | Success                                                   |
+|        -1        | Failure                                                   |
 
-  * valid EID on success
-  * -1 on failure
-
-- Errors:
-
-  * `SRT_ECONNSETUP`: System operation failed or not enough space to create a new epoll.
-System error might happen on systems that use a 
-special method for the system part of epoll (`epoll_create()`, `kqueue()`), and therefore associated resources,
-like epoll on Linux.
-
+|       Errors     |                                                                       |
+|:----------------:|:--------------------------------------------------------------------- |
+| `SRT_ECONNSETUP` | System operation failed or not enough space to create a new epoll. System error might happen on systems that use a special method for the system part of epoll (`epoll_create()`, `kqueue()`), and therefore associated resources, like epoll on Linux.   |
 
 
 [Back to List of Functions & Structures](#srt-api-functions)
 
----
-### srt_epoll_add_usock, srt_epoll_add_ssock, srt_epoll_update_usock, srt_epoll_update_ssock
+---  
+  
+### srt_epoll_add_usock
+### srt_epoll_add_ssock
+### srt_epoll_update_usock
+### srt_epoll_update_ssock
 
 ```
 int srt_epoll_add_usock(int eid, SRTSOCKET u, const int* events);
@@ -2811,13 +2836,14 @@ level-triggered, you can do two separate subscriptions for the same socket.
 you must use `srt_epoll_uwait`. Note that this function doesn't work with
 system file descriptors.
 
-- Returns:
+|      Returns     |                                                           |
+|:----------------:|:--------------------------------------------------------- |
+|         0        | Success                                                   |
+|        -1        | Failure                                                   |
 
-  * 0 if successful, otherwise -1
-
-- Errors:
-
-  * `SRT_EINVPOLLID`: `eid` parameter doesn't refer to a valid epoll container
+|       Errors     |                                                           |
+|:----------------:|:--------------------------------------------------------- |
+| `SRT_EINVPOLLID` | `eid` parameter doesn't refer to a valid epoll container  |
 
 **BUG?**: for `add_ssock` the system error results in an empty `CUDTException()`
 call which actually results in `SRT_SUCCESS`. For cases like that the
@@ -2827,8 +2853,10 @@ call which actually results in `SRT_SUCCESS`. For cases like that the
 
 [Back to List of Functions & Structures](#srt-api-functions)
 
----
-### srt_epoll_remove_usock, srt_epoll_remove_ssock
+---  
+  
+### srt_epoll_remove_usock
+### srt_epoll_remove_ssock
 
 ```
 int srt_epoll_remove_usock(int eid, SRTSOCKET u);
@@ -2841,19 +2869,20 @@ states recorded for that socket.
 The `_usock` suffix refers to a user socket (SRT socket). 
 The `_ssock` suffix refers to a system socket.
 
-- Returns:
+|      Returns     |                                                           |
+|:----------------:|:--------------------------------------------------------- |
+|         0        | Success                                                   |
+|        -1        | Failure                                                   |
 
-  * 0 if successful, otherwise -1
-
-- Errors:
-
-  * `SRT_EINVPOLLID`: `eid` parameter doesn't refer to a valid epoll container
-
+|       Errors     |                                                           |
+|:----------------:|:--------------------------------------------------------- |
+| `SRT_EINVPOLLID` | `eid` parameter doesn't refer to a valid epoll container  |
 
 
 [Back to List of Functions & Structures](#srt-api-functions)
 
----
+---  
+  
 ### srt_epoll_wait
 ```
 int srt_epoll_wait(int eid, SRTSOCKET* readfds, int* rnum, SRTSOCKET* writefds, int* wnum, int64_t msTimeOut,
@@ -2899,17 +2928,15 @@ sockets you can still perform an operation, just you should expect that it will
 always report and error. On the other hand that's the only way to know what kind
 of error has occurred on the socket.
 
-- Returns:
+|      Returns     |                                                              |
+|:----------------:|:------------------------------------------------------------ |
+|       Number     | The number (\>0) of ready sockets, of whatever kind (if any) |
+|         -1       | Error                                                        |
 
-  * The number (\>0) of ready sockets, of whatever kind (if any)
-  * -1 in case of error
-
-- Errors:
-
-  * `SRT_EINVPOLLID`: `eid` parameter doesn't refer to a valid epoll container
-  * `SRT_ETIMEOUT`: Up to `msTimeOut` no sockets subscribed in `eid` were ready.
-This is reported only if `msTimeOut` was \>=0, otherwise the function waits
-indefinitely.
+|       Errors     |                                                                                                                                                        |
+|:----------------:|:------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `SRT_EINVPOLLID` | `eid` parameter doesn't refer to a valid epoll container                                                                                               |
+| `SRT_ETIMEOUT`   | Up to `msTimeOut` no sockets subscribed in `eid` were ready. This is reported only if `msTimeOut` was \>=0, otherwise the function waits indefinitely. |
 
 
 
