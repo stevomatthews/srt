@@ -353,10 +353,10 @@ Note that socket IDs always have the `SRTGROUP_MASK` bit clear.
 |:----------------------------:|:------------------------------------------------------- |
 |      Socket ID               | A valid socket ID on success                            |
 | `SRT_INVALID_SOCK`           | (`-1`) on error                                         |
-| ![](/docs/images/1x150.png)  | ![](/docs/images/1x600.png)                             |
+|                              |                                                         |
 |     **Errors**               |                                                         |
-|:----------------------------:|:------------------------------------------------------- |
 | `SRT_ENOTBUF`                |  Not enough memory to allocate required resources       |
+| ![](/docs/images/1x150.png)  | ![](/docs/images/1x600.png)                             |
 
 **NOTE:** This is probably a design flaw (**BUG?**). Usually underlying system 
 errors are reported by `SRT_ECONNSETUP`.
