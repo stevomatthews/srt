@@ -336,6 +336,30 @@ errors are reported by `SRT_ECONNSETUP`.
 
 
 [Back to List of Functions & Structures](#srt-api-functions)
+---  
+  
+### srt_create_socket ALT
+```
+SRTSOCKET srt_create_socket();
+```
+
+Creates an SRT socket.
+
+Note that socket IDs always have the `SRTGROUP_MASK` bit clear.
+
+|       Returns      |                               |     Errors    |                                                     |
+|:------------------:|:----------------------------- |:-------------:|:--------------------------------------------------- |
+|      Socket ID     | A valid socket ID on success  | `SRT_ENOTBUF` |  Not enough memory to allocate required resources.  |
+| `SRT_INVALID_SOCK` | (`-1`) on error               |               |                                                     |
+
+**NOTE:** This is probably a design flaw (**BUG?**). Usually underlying system 
+errors are reported by `SRT_ECONNSETUP`.
+
+
+
+
+[Back to List of Functions & Structures](#srt-api-functions)
+
 
 ---  
   
