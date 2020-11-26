@@ -269,7 +269,7 @@ relying on this behavior is stronly discouraged.
 |         0        | A possibility to return other values is reserved for future use |
 
 **IMPORTANT**: Note that the startup/cleanup calls have an instance counter.
-This means that if you call `srt_startup` multiple times, you need to call the 
+This means that if you call [`srt_startup`](#srt_startup) multiple times, you need to call the 
 `srt_cleanup` function exactly the same number of times.
 
 
@@ -333,11 +333,41 @@ Note that socket IDs always have the `SRTGROUP_MASK` bit clear.
 errors are reported by `SRT_ECONNSETUP`.
 
 
+
+
 [Back to List of Functions & Structures](#srt-api-functions)
+
 
 ---  
   
-### srt_create_socket ALT
+### srt_create_socket ALT 1
+```
+SRTSOCKET srt_create_socket();
+```
+
+Creates an SRT socket.
+
+Note that socket IDs always have the `SRTGROUP_MASK` bit clear.
+
+|       Returns                |                                                         |
+|:----------------------------:|:------------------------------------------------------- |
+|      Socket ID               | A valid socket ID on success                            |
+| `SRT_INVALID_SOCK`           | (`-1`) on error                                         |
+| ![](/docs/images/1x150.png)  | ![](/docs/images/1x600.png)                             |
+|     **Errors**               |                                                         |
+|:----------------------------:|:------------------------------------------------------- |
+| `SRT_ENOTBUF`                |  Not enough memory to allocate required resources       |
+
+**NOTE:** This is probably a design flaw (**BUG?**). Usually underlying system 
+errors are reported by `SRT_ECONNSETUP`.
+
+
+
+
+[Back to List of Functions & Structures](#srt-api-functions)
+---  
+  
+### srt_create_socket ALT 2
 ```
 SRTSOCKET srt_create_socket();
 ```
@@ -353,6 +383,8 @@ Note that socket IDs always have the `SRTGROUP_MASK` bit clear.
 
 **NOTE:** This is probably a design flaw (**BUG?**). Usually underlying system 
 errors are reported by `SRT_ECONNSETUP`.
+
+
 
 
 [Back to List of Functions & Structures](#srt-api-functions)
