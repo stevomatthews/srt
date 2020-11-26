@@ -364,7 +364,10 @@ errors are reported by `SRT_ECONNSETUP`.
 
 
 
+
 [Back to List of Functions & Structures](#srt-api-functions)
+
+
 ---  
   
 ### srt_create_socket ALT 2
