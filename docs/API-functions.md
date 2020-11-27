@@ -128,7 +128,7 @@
 | ***Error Code***                                  | ***Description***                                                                                              |
 | [SRT_EUNKNOWN](#SRT_EUNKNOWN)                     | Internal error when setting the right error code.                                                              |
 | [SRT_SUCCESS](#SUCCESS)                           | The value set when the last error was cleared and no error has occurred since then.                            |
-| [SRT_ECONNSETUP](#-econnsetup-)                     | General setup error resulting from internal system state.                                                      |
+| [SRT_ECONNSETUP](#srt-econnsetup)                     | General setup error resulting from internal system state.                                                      |
 | [SRT_ENOSERVER](#ENOSERVER)                       | Connection timed out while attempting to connect to the remote address.                                        |
 | [SRT_ECONNREJ](#ECONNREJ)                         | Connection has been rejected.                                                                                  |
 | [SRT_ESOCKFAIL](#ESOCKFAIL)                       | An error occurred when trying to call a system function on an internally used UDP socket.                      |
