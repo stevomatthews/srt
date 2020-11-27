@@ -1,5 +1,8 @@
 # SRT API Functions
 
+[eid](#eid)
+
+
 ### **Library Initialization**
   
 | *Function / Structure*                            | *Description*                                                                                                  |
@@ -219,6 +222,7 @@
 | [srt_connection_time](#srt_connection_time)       | Get connection time in microseconds elapsed since epoch using SRT internal clock (steady or monotonic clock).  |
 | ![](/docs/images/1x290.png)                       | ![](/docs/images/1x720.png)                                                                                    |
 
+<a name="eid">`eid`</a>: epoll container id
 
 
 
