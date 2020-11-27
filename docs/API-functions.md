@@ -355,7 +355,6 @@ Note that socket IDs always have the `SRTGROUP_MASK` bit clear.
 | `SRT_INVALID_SOCK`           | (`-1`) on error                                         |
 | ![](/docs/images/1x150.png)  | ![](/docs/images/1x600.png)                             |
 |     **Errors**               |                                                         |
-|:----------------------------:|:------------------------------------------------------- |
 | `SRT_ENOTBUF`                |  Not enough memory to allocate required resources       |
 
 **NOTE:** This is probably a design flaw (**BUG?**). Usually underlying system 
