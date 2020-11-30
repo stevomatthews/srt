@@ -423,7 +423,7 @@ connecting, use [`srt_connect_bind`](#srt_connect_bind) for that purpose.
 | `SRT_ERROR`      | (-1) on error, otherwise 0                                |
 
 |       Errors                        |                                                                      |
-|:-----------------------   ---------:|:-------------------------------------------------------------------- |
+|:-----------------------------------:|:-------------------------------------------------------------------- |
 | [`SRT_EINVSOCK`](#srt_einvsock)     | Socket passed as [`u`](#u) designates no valid socket                |
 | [`SRT_EINVOP`](#srt_einvop)         | Socket already bound                                                 |
 | [`SRT_ECONNSETUP`](#srt_econnsetup) | Internal creation of a UDP socket failed                             |
