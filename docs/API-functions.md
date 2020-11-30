@@ -361,9 +361,9 @@ Note that socket IDs always have the `SRTGROUP_MASK` bit clear.
 errors are reported by [`SRT_ECONNSETUP`](#srt_econnsetup).
 
 
-
-
 [Back to List of Functions & Structures](#srt-api-functions)
+
+
 ---  
   
 ### srt_create_socket ALT 2
@@ -382,8 +382,6 @@ Note that socket IDs always have the `SRTGROUP_MASK` bit clear.
 
 **NOTE:** This is probably a design flaw (**BUG?**). Usually underlying system 
 errors are reported by [`SRT_ECONNSETUP`](#srt_econnsetup).
-
-
 
 
 [Back to List of Functions & Structures](#srt-api-functions)
