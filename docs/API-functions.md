@@ -3363,8 +3363,7 @@ a file, it sends the `UMSG_PEERERROR` message back to the sender, and the sender
 reports this error from the API sending function.
 
 
-[**Creating and configuring sockets**](#**creating-and-configuring-sockets**)
-
+**TEST LINK** (to be removed):
 [Creating and configuring sockets](#creating-and-configuring-sockets)
   
   
