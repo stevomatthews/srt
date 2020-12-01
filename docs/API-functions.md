@@ -6,7 +6,8 @@
 |:------------------------------------------------- |:-------------------------------------------------------------------------------------------------------------- |
 | [srt_startup](#srt_startup)                       | Called at the start of an application that uses the SRT library                                                |
 | [srt_cleanup](#srt_cleanup)                       | Cleans up global SRT resources before exiting an application                                                   |
-| ![](/docs/images/1x290.png)                       | ![](/docs/images/1x720.png)                                                                                    |
+| <img width=290px height=1px/>                     | <img width=720px height=1px/>                                                                                  |
+
 
 
 ### **Creating and Configuring Sockets**
@@ -20,7 +21,7 @@
 | [srt_getsockstate](#srt_getsockstate)             | Gets the current status of the socket.                                                                         |
 | [srt_getsndbuffer](#srt_getsndbuffer)             | Retrieves information about the sender buffer.                                                                 |
 | [srt_close](#srt_close)                           | Closes the socket or group and frees all used resources.                                                       |
-| ![](/docs/images/1x290.png)                       | ![](/docs/images/1x720.png)                                                                                    |
+| <img width=290px height=1px/>                     | <img width=720px height=1px/>                                                                                  |
 
 
 ### **Connecting**
@@ -1932,6 +1933,9 @@ performed as long as you call this diagnostic function just after the failed
 function has returned. In any other situation the information provided by the
 diagnostic function is undefined.
 
+**NOTE**: There is a list of [Error Codes](#error-codes) at the bottom of this document.
+
+
 * [srt_getlasterror_str](#srt_getlasterror_str)
 * [srt_getlasterror](#srt_getlasterror)
 * [srt_strerror](#srt_strerror)
@@ -1939,7 +1943,6 @@ diagnostic function is undefined.
 * [srt_getrejectreason](#srt_getrejectreason)
 * [srt_rejectreason_str](#srt_rejectreason_str)
 * [srt_setrejectreason](#srt_setrejectreason)
-* [Error Codes](#error-codes)
 
 
 ---  
@@ -2888,7 +2891,7 @@ and `msTimeStamp` value of the `SRT_TRACEBSTATS` (see [statistics.md](statistics
 ---  
   
   
-### Error codes
+### Error Codes
 
 All functions that return the status via `int` value return -1 (designated as 
 `SRT_ERROR`) always when the call has failed (in case of resource creation
@@ -2897,8 +2900,6 @@ functions an appropriate symbol is defined, like `SRT_INVALID_SOCK` for
 `srt_getlasterror` function. The values for the error are collected in an
 `SRT_ERRNO` enum:
 
-
----  
   
 #### `SRT_EUNKNOWN`
 
