@@ -959,7 +959,6 @@ where:
   * [srt_config_add](#srt_config_add)
 
 
----  
   
 ### SRT_GROUP_TYPE
 
@@ -1468,7 +1467,6 @@ The following options are allowed to be set on the member socket:
 
 **NOTE**: For more information, see [Getting and Setting Options](../docs/APISocketOptions.md#getting-and-setting-options)
 
----  
   
 ### srt_getpeername
 ```
@@ -1614,10 +1612,6 @@ readable form, where x = ("%d", (version>>16) & 0xff), etc.
 
 ## Helper data types for transmission
 
-  * [SRT_MSGCTRL](#SRT_MSGCTRL)
-
-
----  
   
 ### SRT_MSGCTRL
 
@@ -1712,8 +1706,6 @@ to be mutable, as they use some fields to output values.
 * [srt_recv, srt_recvmsg, srt_recvmsg2](#srt_recv-srt_recvmsg-srt_recvmsg2)
 * [srt_sendfile, srt_recvfile](#srt_sendfile-srt_recvfile)
 
-
----  
   
 ### srt_send
 ### srt_sendmsg
@@ -1921,8 +1913,6 @@ diagnostic function is undefined.
 * [srt_rejectreason_str](#srt_rejectreason_str)
 * [srt_setrejectreason](#srt_setrejectreason)
 
-
----  
   
 ### srt_getlasterror
 
@@ -2234,8 +2224,6 @@ the required range already, so for a numbers like 0x7FFFFFF0 and 0x10, for which
 
 * [srt_bstats, srt_bistats](#srt_bstats-srt_bistats)
 
-
----  
   
 ### srt_bstats
 ### srt_bistats
@@ -2294,7 +2282,6 @@ function can then be used to block until any readiness status in the whole
 
 [:arrow_up: &nbsp; Back to List of Functions & Structures](#srt-api-functions)
 
----  
   
 ### srt_epoll_create
 ```
@@ -2688,7 +2675,6 @@ particular socket, and some are shared between sockets.
 
 [:arrow_up: &nbsp; Back to List of Functions & Structures](#srt-api-functions)
 
----  
   
 ### srt_setloglevel
 
@@ -2842,7 +2828,6 @@ as system clock is vulnerable to time modifications during transmission.
 
 [:arrow_up: &nbsp; Back to List of Functions & Structures](#srt-api-functions)
 
----  
   
 ### srt_time_now
 
