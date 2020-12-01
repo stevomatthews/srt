@@ -13,6 +13,8 @@ Live streaming over public networks
 | Connection rejection reason | 1.X.X   |              | !                                      |
 
 
+
+
 ## Access Control
 
 | Feature                     | Version | Status       | Description/Comments                   |
@@ -20,6 +22,7 @@ Live streaming over public networks
 | User authentication         | 1.X.X   | Done         | User name is not encrypted             |
 | Resource request            | 1.X.X   | Done         | Not encrypted                          |
 | Stream definition           | 1.X.X   |              | To do: RFC-4566: SDP                   |
+| <img width=150px height=1px/> |         | <img width=60px height=1px/> | <img width=500px height=1px/> |
 
 
 
@@ -31,6 +34,7 @@ Live streaming over public networks
 | Pre-shared password + PBKD2 | 1.X.X   | Done         | TBD                                    |
 | TLS                         | 1.X.X   |              | Could be added?                        |
 | DTLS                        | 1.X.X   |              | Potentially works                      |
+| <img width=150px height=1px/> |         | <img width=60px height=1px/> | <img width=500px height=1px/> |
 
 
 ## Content Delivery
@@ -50,6 +54,7 @@ Live streaming over public networks
 | Congestion control          | 1.X.X   | Done         | To be improved                         |
 | Flow control                | 1.X.X   | Done         | To be improved                         |
 | Network friendliness        | 1.X.X   | Done         | To be improved                         |
+| <img width=150px height=1px/> |         | <img width=60px height=1px/> | <img width=500px height=1px/> |
 
 
 
@@ -60,6 +65,7 @@ Live streaming over public networks
 | Data duplication            | 1.5.0   | In progress  | Broadcast                              |
 | Backup link                 | 1.5.0   | In progress  |                                        |
 | Smart link utilization      | 1.5.0   | In progress  | Balancing                              |
+| <img width=150px height=1px/> |         | <img width=60px height=1px/> | <img width=500px height=1px/> |
 
 
 
