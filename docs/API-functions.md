@@ -1,6 +1,6 @@
 # SRT API Functions
 
-### **Library Initialization**
+<h3 id="Library Initialization">Library Initialization</h3>
   
 | *Function / Structure*                            | *Description*                                                                                                  |
 |:------------------------------------------------- |:-------------------------------------------------------------------------------------------------------------- |
