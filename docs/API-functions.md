@@ -37,7 +37,7 @@
 | [srt_connect_debug](#srt_connect_debug)           | Same as [`srt_connect`](#srt_connect)but allows specifying ISN (developers only)                               |
 | [srt_rendezvous](#srt_rendezvous)                 | Performs a rendezvous connection                                                                               |
 | [srt_connect_callback](#srt_connect_callback)     | Installs/executes a callback hook on socket/group [`u`](#u) after connection resolution/failure                |
-| ![](/docs/images/1x290.png)                       | ![](/docs/images/1x720.png)                                                                                    |
+| <img width=290px height=1px/>                     | <img width=720px height=1px/>                                                                                  |
 
 
 ### **Socket Group Management**
@@ -58,7 +58,7 @@
 | [srt_create_config](#srt_create_config)           | Creates a dynamic object for specifying socket options                                                         |
 | [srt_delete_config](#srt_delete_config)           | Deletes the configuration object                                                                               |
 | [srt_config_add](#srt_config_add)                 | Adds a configuration option to the configuration object                                                        |
-| ![](/docs/images/1x290.png)                       | ![](/docs/images/1x720.png)                                                                                    |
+| <img width=290px height=1px/>                     | <img width=720px height=1px/>                                                                                  |
 
 
 ### **Options and Properties**
@@ -72,7 +72,7 @@
 | [srt_setsockopt](#srt_setsockopt)                 | Sets a value for a socket option in the socket or group                                                        |
 | [srt_setsockflag](#srt_setsockflag)               | Sets a value for a socket option in the socket or group                                                        |
 | [srt_getversion](#srt_getversion)                 | Get SRT version value                                                                                          |
-| ![](/docs/images/1x290.png)                       | ![](/docs/images/1x720.png)                                                                                    |
+| <img width=290px height=1px/>                     | <img width=720px height=1px/>                                                                                  |
 
 
 ### **Helper Data Types for Transmission**
@@ -80,7 +80,7 @@
 | *Function / Structure*                            | *Description*                                                                                                  |
 |:------------------------------------------------- |:-------------------------------------------------------------------------------------------------------------- |
 | [SRT_MSGCTRL](#SRT_MSGCTRL)                       | Used in [`srt_sendmsg2`](#srt_sendmsg) and [`srt_recvmsg2`](#srt_recvmsg2) calls; specifies some extra parameters  |
-| ![](/docs/images/1x290.png)                       | ![](/docs/images/1x720.png)                                                                                    |
+| <img width=290px height=1px/>                     | <img width=720px height=1px/>                                                                                  |
 
 
 ### **Transmission**
@@ -95,7 +95,7 @@
 | [srt_recvmsg2](#srt_recvmsg2)                     | Extracts the payload waiting to be received.                                                                   |
 | [srt_sendfile](#srt_sendfile)                     | Function dedicated to sending a file                                                                           |
 | [srt_recvfile](#srt_recvfile)                     | Function dedicated to receiving a file                                                                         |
-| ![](/docs/images/1x290.png)                       | ![](/docs/images/1x720.png)                                                                                    |
+| <img width=290px height=1px/>                     | <img width=720px height=1px/>                                                                                  |
 
 
 ### **Diagnostics**
@@ -125,8 +125,8 @@
 | [SRT_REJ_TIMEOUT](#SRT_REJ_TIMEOUT)               | The connection wasn't rejected, but it timed out.                                                              |
 | [srt_rejectreason_str](#srt_rejectreason_str)     | Returns a constant string for the reason of the connection rejected, as per given code ID.                     |
 | [srt_setrejectreason](#srt_setrejectreason)       | Sets the rejection code on the socket.                                                                         |
-| ![](/docs/images/1x290.png)                       | ![](/docs/images/1x720.png)                                                                                    |
-| ![](/docs/images/1x290.png)                       | ![](/docs/images/1x720.png)                                                                                    |
+| <img width=290px height=1px/>                     | <img width=720px height=1px/>                                                                                  |
+| <img width=290px height=1px/>                     | <img width=720px height=1px/>                                                                                  |
 
 
 ### **Performance Tracking**
@@ -135,7 +135,7 @@
 |:------------------------------------------------- |:-------------------------------------------------------------------------------------------------------------- |
 | [srt_bstats](#srt_bstats)                         | Reports the current statistics                                                                                 |
 | [srt_bistats](#srt_bistats)                       | Reports the current statistics                                                                                 |
-| ![](/docs/images/1x290.png)                       | ![](/docs/images/1x720.png)                                                                                    |
+| <img width=290px height=1px/>                     | <img width=720px height=1px/>                                                                                  |
 
 
 ### **Asynchronous Operations (epoll)**
@@ -154,7 +154,7 @@
 | [srt_epoll_clear_usocks](#srt_epoll_clear_usocks) | removes all SRT ("user") socket subscriptions from the epoll container identified by [`eid`](#eid).            |
 | [srt_epoll_set](#srt_epoll_set)                   | Allows setting or retrieving flags that change the default behavior of the epoll functions.                    |
 | [srt_epoll_release](#srt_epoll_release)           | Deletes the epoll container.                                                                                   |
-| ![](/docs/images/1x290.png)                       | ![](/docs/images/1x720.png)                                                                                    |
+| <img width=290px height=1px/>                     | <img width=720px height=1px/>                                                                                  |
 
 
 ### **Logging Control**
@@ -167,7 +167,7 @@
 | [srt_resetlogfa](#srt_resetlogfa)                 | Reset a functional area (FA), which is an additional filtering mechanism for logging.                          |
 | [srt_setloghandler](#srt_setloghandler)           | Replaces default standard stream for error logging.                                                            |
 | [srt_setlogflags](#srt_setlogflags)               | Allows configuring parts of log information that are not to be passed.                                         |
-| ![](/docs/images/1x290.png)                       | ![](/docs/images/1x720.png)                                                                                    |
+| <img width=290px height=1px/>                     | <img width=720px height=1px/>                                                                                  |
 
 
 ### **Time Access**
@@ -176,7 +176,7 @@
 |:------------------------------------------------- |:-------------------------------------------------------------------------------------------------------------- |
 | [srt_time_now](#srt_time_now)                     | Get time in microseconds elapsed since epoch using SRT internal clock (steady or monotonic clock).             |
 | [srt_connection_time](#srt_connection_time)       | Get connection time in microseconds elapsed since epoch using SRT internal clock (steady or monotonic clock).  |
-| ![](/docs/images/1x290.png)                       | ![](/docs/images/1x720.png)                                                                                    |
+| <img width=290px height=1px/>                     | <img width=720px height=1px/>                                                                                  |
 
 
 
@@ -225,7 +225,7 @@
 [`SRT_ETIMEOUT`](#srt_etimeout)                     | The operation timed out.                                                                                       |
 [`SRT_ECONGEST`](#srt_econgest)                     | With [`SRTO_TSBPDMODE`](../docs/APISocketOptions.md#SRTO_TSBPDMODE) and [`SRTO_TLPKTDROP`](../docs/APISocketOptions.md#SRTO_TLPKTDROP) set to true, some packets were dropped by sender                    |
 [`SRT_EPEERERR`](#srt_epeererr)                     | Receiver peer is writing to a file that the agent is sending.                                                  |
-| ![](/docs/images/1x290.png)                       | ![](/docs/images/1x720.png)                                                                                    |
+| <img width=290px height=1px/>                     | <img width=720px height=1px/>                                                                                  |
 
 
 
@@ -3336,7 +3336,7 @@ extra argument (`[srt_epoll_wait](#srt_epoll_wait)` or [`srt_accept_bond`](#srt_
 and the function call was blocking, but the required timeout time has passed.
 
 
-[:point_up_2: Back to List of Functions & Structures](#srt-api-functions)
+[:arrow_up: Back to List of Functions & Structures](#srt-api-functions)
 
 ---  
   
@@ -3358,7 +3358,7 @@ function is successful, but the application might want to slow down the sending
 rate to avoid congestion.
 
 
-[:point_up_2: Back to List of Functions & Structures](#srt-api-functions)
+[:top: Back to List of Functions & Structures](#srt-api-functions)
 
 ---  
   
