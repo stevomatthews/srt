@@ -3323,7 +3323,7 @@ the socket is not ready for that operation, but [`SRTO_RCVSYN`](../docs/APISocke
 was set to false (when true, the function would block the call otherwise).
 
 
-[:point_up_2: &#8209; Back to List of Functions & Structures](#srt-api-functions)
+[:point_up_2: &nbsp; Back to List of Functions & Structures](#srt-api-functions)
 
 ---  
   
@@ -3336,7 +3336,7 @@ extra argument (`[srt_epoll_wait](#srt_epoll_wait)` or [`srt_accept_bond`](#srt_
 and the function call was blocking, but the required timeout time has passed.
 
 
-[:arrow_up: &#8209; Back to List of Functions & Structures](#srt-api-functions)
+[:arrow_up: &nbsp; Back to List of Functions & Structures](#srt-api-functions)
 
 ---  
   
@@ -3358,7 +3358,7 @@ function is successful, but the application might want to slow down the sending
 rate to avoid congestion.
 
 
-[:top: &#8209; Back to List of Functions & Structures](#srt-api-functions)
+[:top: &nbsp; Back to List of Functions & Structures](#srt-api-functions)
 
 ---  
   
