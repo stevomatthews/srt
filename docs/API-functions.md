@@ -1497,6 +1497,8 @@ The following options are allowed to be set on the member socket:
 * [srt_getversion](#srt_getversion)
 
 
+**NOTE**: For more information, see [Getting and Setting Options](../docs/APISocketOptions.md#getting-and-setting-options)
+
 ---  
   
 ### srt_getpeername
