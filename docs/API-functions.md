@@ -3,7 +3,7 @@
 <h3 id="Library Initialization">Library Initialization</h3>
   
 | *Function / Structure*               | *Description*                                                                                                  |
-|:------------------------------------------------- |:-------------------------------------------------------------------------------------------------------------- |
+|:------------------------------------ |:-------------------------------------------------------------------------------------------------------------- |
 | [srt_startup](#srt_startup)          | Called at the start of an application that uses the SRT library                                                |
 | [srt_cleanup](#srt_cleanup)          | Cleans up global SRT resources before exiting an application                                                   |
 | <img width=290px height=1px/>        | <img width=720px height=1px/>                                                                                  |
@@ -12,7 +12,7 @@
 <h3 id="creating-and-configuring-sockets">Creating and Configuring Sockets</h3>
   
 | *Function / Structure*               | *Description*                                                                                                  |
-|:------------------------------------------------- |:-------------------------------------------------------------------------------------------------------------- |
+|:------------------------------------ |:-------------------------------------------------------------------------------------------------------------- |
 | [srt_socket](#srt_socket)            | Deprecated                                                                                                     |
 | [srt_create_socket](#srt_create_socket)           | Creates an SRT socket                                                                                          |
 | [srt_bind](#srt_bind)                | Binds a socket to a local address and port.                                                                    |
@@ -25,7 +25,7 @@
 <h3 id="connecting">Connecting</h3>
   
 | *Function / Structure*               | *Description*                                                                                                  |
-|:------------------------------------------------- |:-------------------------------------------------------------------------------------------------------------- |
+|:------------------------------------ |:-------------------------------------------------------------------------------------------------------------- |
 | [srt_listen](#srt_listen)            | Sets up the listening state on a socket.                                                                       |
 | [srt_accept](#srt_accept)            | Accepts a connection; creates/returns a new socket or group ID.                                                |
 | [srt_accept_bond](#srt_accept_bond)  | Accepts a connection pending on any sockets passed in the `listeners` array of `nlisteners` size               |
@@ -60,7 +60,7 @@
 <h3 id="options-and-properties">Options and Properties</h3>
   
 | *Function / Structure*               | *Description*                                                                                                  |
-|:------------------------------------------------- |:-------------------------------------------------------------------------------------------------------------- |
+|:------------------------------------ |:-------------------------------------------------------------------------------------------------------------- |
 | [srt_getpeername](#srt_getpeername)  | Retrieves the remote address to which the socket is connected                                                  |
 | [srt_getsockname](#srt_getsockname)  | Extracts the address to which the socket was bound                                                             |
 | [srt_getsockopt](#srt_getsockopt)    | Gets the value of the given socket option (from a socket or a group)                                           |
@@ -73,14 +73,14 @@
 <h3 id="helper-data-types-for-transmission">Helper Data Types for Transmission</h3>
   
 | *Function / Structure*               | *Description*                                                                                                  |
-|:------------------------------------------------- |:-------------------------------------------------------------------------------------------------------------- |
+|:------------------------------------ |:-------------------------------------------------------------------------------------------------------------- |
 | [SRT_MSGCTRL](#SRT_MSGCTRL)          | Used in [`srt_sendmsg2`](#srt_sendmsg) and [`srt_recvmsg2`](#srt_recvmsg2) calls; specifies some extra parameters  |
 | <img width=290px height=1px/>        | <img width=720px height=1px/>                                                                                  |
 
 <h3 id="transmission">Transmission</h3>
   
 | *Function / Structure*               | *Description*                                                                                                  |
-|:------------------------------------------------- |:-------------------------------------------------------------------------------------------------------------- |
+|:------------------------------------ |:-------------------------------------------------------------------------------------------------------------- |
 | [srt_send](#srt_send)                | Sends a payload to a remote party over a given socket                                                          |
 | [srt_sendmsg](#srt_sendmsg)          | Sends a payload to a remote party over a given socket                                                          |
 | [srt_sendmsg2](#srt_sendmsg2)        | Sends a payload to a remote party over a given socket                                                          |
@@ -94,7 +94,7 @@
 <h3 id="diagnostics">Diagnostics</h3>
   
 | *Function / Structure*               | *Description*                                                                                                  |
-|:------------------------------------------------- |:-------------------------------------------------------------------------------------------------------------- |
+|:------------------------------------ |:-------------------------------------------------------------------------------------------------------------- |
 | [srt_getlasterror](#srt_getlasterror)| Get the numeric code of the last error.                                                                        |
 | [srt_strerror](#srt_strerror)        | Returns a string message that represents a given SRT error code and possibly the `errno` value, if not 0.      |
 | [srt_getlasterror_str](#srt_getlasterror_str)     | Gets the text message for the last error.                                                                      |
@@ -123,7 +123,7 @@
 <h3 id="performance-tracking">Performance Tracking</h3>
   
 | *Function / Structure*               | *Description*                                                                                                  |
-|:------------------------------------------------- |:-------------------------------------------------------------------------------------------------------------- |
+|:------------------------------------ |:-------------------------------------------------------------------------------------------------------------- |
 | [srt_bstats](#srt_bstats)            | Reports the current statistics                                                                                 |
 | [srt_bistats](#srt_bistats)          | Reports the current statistics                                                                                 |
 | <img width=290px height=1px/>        | <img width=720px height=1px/>                                                                                  |
@@ -131,7 +131,7 @@
 <h3 id="asynchronous-operations-epoll">Asynchronous Operations (epoll)</h3>
   
 | *Function / Structure*               | *Description*                                                                                                  |
-|:------------------------------------------------- |:-------------------------------------------------------------------------------------------------------------- |
+|:------------------------------------ |:-------------------------------------------------------------------------------------------------------------- |
 | [srt_epoll_create](#srt_epoll_create)| Creates a new epoll container.                                                                                 |
 | [srt_epoll_add_usock](#srt_epoll_add_usock)       | Adds a user socket to a container, or updates an existing socket subscription..                                |
 | [srt_epoll_add_ssock](#srt_epoll_add_ssock)       | Adds a system socket to a container, or updates an existing socket subscription..                              |
@@ -149,7 +149,7 @@
 <h3 id="logging-control">Logging Control</h3>
   
 | *Function / Structure*               | *Description*                                                                                                  |
-|:------------------------------------------------- |:-------------------------------------------------------------------------------------------------------------- |
+|:------------------------------------ |:-------------------------------------------------------------------------------------------------------------- |
 | [srt_setloglevel](#srt_setloglevel)  | Sets the minimum severity for logging.                                                                         |
 | [srt_addlogfa](#srt_addlogfa)        | Add a functional area (FA), which is an additional filtering mechanism for logging.                            |
 | [srt_dellogfa](#srt_dellogfa)        | Delete a functional area (FA), which is an additional filtering mechanism for logging.                         |
@@ -161,7 +161,7 @@
 <h3 id="time-access">Time Access</h3>
   
 | *Function / Structure*               | *Description*                                                                                                  |
-|:------------------------------------------------- |:-------------------------------------------------------------------------------------------------------------- |
+|:------------------------------------ |:-------------------------------------------------------------------------------------------------------------- |
 | [srt_time_now](#srt_time_now)        | Get time in microseconds elapsed since epoch using SRT internal clock (steady or monotonic clock).             |
 | [srt_connection_time](#srt_connection_time)       | Get connection time in microseconds elapsed since epoch using SRT internal clock (steady or monotonic clock).  |
 | <img width=290px height=1px/>        | <img width=720px height=1px/>                                                                                  |
@@ -169,7 +169,7 @@
 <h3 id="error-codes">Error Codes</h3>
   
 | *Error Code*                         | *Description*                                                                                                  |
-|:------------------------------------------------- |:-------------------------------------------------------------------------------------------------------------- |
+|:------------------------------------ |:-------------------------------------------------------------------------------------------------------------- |
 [`SRT_EUNKNOWN`](#srt_eunknown)        | Internal error when setting the right error code.                                                              |
 [`SRT_SUCCESS`](#srt_success)          | The value set when the last error was cleared and no error has occurred since then.                            |
 [`SRT_ECONNSETUP`](#srt_econnsetup)    | General setup error resulting from internal system state.                                                      |
@@ -234,12 +234,12 @@ relying on this behavior is strongly discouraged.
 
 |      Returns                  |                                                                 |
 |:----------------------------- |:--------------------------------------------------------------- |
-|         0        | Successfully run, or already started                            |
-|         1        | This is the first startup, but the GC thread is already running |
-|        -1        | Failed                                                          |
+|         0                     | Successfully run, or already started                            |
+|         1                     | This is the first startup, but the GC thread is already running |
+|        -1                     | Failed                                                          |
 | <img width=150px height=1px/> | <img width=600px height=1px/>                      |
 
-|       Errors     |                                                                 |
+|       Errors                  |                                                                 |
 |:----------------------------- |:--------------------------------------------------------------- |
 | [`SRT_ECONNSETUP`](#srt_econnsetup) | With error code set, reported when required system resource(s) failed to initialize. This is currently used only on Windows to report a failure from `WSAStartup`. |
 | <img width=150px height=1px/> | <img width=600px height=1px/>                      |
@@ -261,7 +261,7 @@ relying on this behavior is strongly discouraged.
 
 |      Returns                  |                                                                 |
 |:----------------------------- |:--------------------------------------------------------------- |
-|         0        | A possibility to return other values is reserved for future use |
+|         0                     | A possibility to return other values is reserved for future use |
 | <img width=150px height=1px/> | <img width=600px height=1px/>                      |
 
 **IMPORTANT**: Note that the startup/cleanup calls have an instance counter.
@@ -316,13 +316,13 @@ Creates an SRT socket.
 
 Note that socket IDs always have the `SRTGROUP_MASK` bit clear.
 
-|       Returns    |                                                         |
+|       Returns                 |                                                         |
 |:----------------------------- |:------------------------------------------------------- |
-|      Socket ID   | A valid socket ID on success                            |
+|      Socket ID                | A valid socket ID on success                            |
 | `SRT_INVALID_SOCK`            | (`-1`) on error                                         |
 | <img width=150px height=1px/> | <img width=600px height=1px/>                      |
 
-|     Errors       |                                                              |
+|     Errors                    |                                                              |
 |:----------------------------- |:------------------------------------------------------------ |
 | [`SRT_ENOBUF`](#srt_enobuf)   |  Not enough memory to allocate required resources          . |
 | <img width=150px height=1px/> | <img width=600px height=1px/>                      |
@@ -367,16 +367,16 @@ connecting, use [`srt_connect_bind`](#srt_connect_bind) for that purpose.
 
 |      Returns                  |                                                           |
 |:----------------------------- |:--------------------------------------------------------- |
-| `SRT_ERROR`      | (-1) on error, otherwise 0                                |
+| `SRT_ERROR`                   | (-1) on error, otherwise 0                                |
 | <img width=150px height=1px/> | <img width=600px height=1px/>                      |
 
-|       Errors     |                                                                      |
-|:----------------------------- |:-------------------------------------------------------------------- |
+|       Errors                        |                                                                      |
+|:----------------------------------- |:-------------------------------------------------------------------- |
 | [`SRT_EINVSOCK`](#srt_einvsock)     | Socket passed as [`u`](#u) designates no valid socket                |
 | [`SRT_EINVOP`](#srt_einvop)         | Socket already bound                                                 |
 | [`SRT_ECONNSETUP`](#srt_econnsetup) | Internal creation of a UDP socket failed                             |
 | [`SRT_ESOCKFAIL`](#srt_esockfail)   | Internal configuration of a UDP socket (`bind`, `setsockopt`) failed |
-| <img width=150px height=1px/> | <img width=600px height=1px/>                      |
+| <img width=150px height=1px/>       | <img width=600px height=1px/>                      |
 
 
 
@@ -407,9 +407,9 @@ SRT_SOCKSTATUS srt_getsockstate(SRTSOCKET u);
 
 Gets the current status of the socket. Possible states are:
 
-|       State                        | Description                                                       |
+|       State                                     | Description                                                       |
 |:----------------------------------------------- |:----------------------------------------------------------------- |
-| <a name="SRTS_INIT">`SRTS_INIT`</a>| Created, but not bound.                                           |
+| <a name="SRTS_INIT">`SRTS_INIT`</a>             | Created, but not bound.                                           |
 | <a name="SRTS_OPENED">`SRTS_OPENED`</a>         | Created and bound, but not in use yet.                            |
 | <a name="SRTS_LISTENING">`SRTS_LISTENING`</a>   | Socket is in listening state.                                     |
 | <a name="SRTS_CONNECTING">`SRTS_CONNECTING`</a> | The connect operation was initiated, but not yet finished. This may also mean that it has timed out; you can only know that after getting a socket error report from [`srt_epoll_wait`](#srt_epoll_wait). In blocking mode it's not possible because [`srt_connect`](#srt_connect) does not return until the socket is connected or failed due to timeout or interrupted call.  |
@@ -418,7 +418,7 @@ Gets the current status of the socket. Possible states are:
 | <a name="SRTS_CLOSING">`SRTS_CLOSING`</a>       | The socket may still be open and active, but closing is requested, so no further operations will be accepted (active operations will be completed before closing) |
 | <a name="SRTS_CLOSED">`SRTS_CLOSED`</a>         | The socket has been closed, but not yet removed by the GC thread. |
 | <a name="SRTS_NONEXIST">`SRTS_NONEXIST`</a>     | The specified number does not correspond to a valid socket.       |
-| <img width=150px height=1px/>      | <img width=600px height=1px/>                      |
+| <img width=150px height=1px/>                   | <img width=600px height=1px/>                      |
 
 
 
@@ -459,10 +459,10 @@ last user closed.
 
 |      Returns                  |                                                           |
 |:----------------------------- |:--------------------------------------------------------- |
-| `SRT_ERROR`      | (-1) in case of error, otherwise 0                        |
+| `SRT_ERROR`                   | (-1) in case of error, otherwise 0                        |
 | <img width=150px height=1px/> | <img width=600px height=1px/>                             |
 
-|       Errors       |                                                 |
+|       Errors                    |                                                 |
 |:------------------------------- |:----------------------------------------------- |
 | [`SRT_EINVSOCK`](#srt_einvsock) | Socket [`u`](#u) indicates no valid socket ID   |
 | <img width=150px height=1px/>   | <img width=600px height=1px/>                   |
@@ -500,10 +500,10 @@ the listener socket to accept group connections
 
 |      Returns                  |                                                           |
 |:----------------------------- |:--------------------------------------------------------- |
-| `SRT_ERROR`      | (-1) in case of error, otherwise 0.                       |
+| `SRT_ERROR`                   | (-1) in case of error, otherwise 0.                       |
 | <img width=150px height=1px/> | <img width=600px height=1px/>                      |
 
-|       Errors               |                                                                                              |
+|       Errors                            |                                                                                              |
 |:--------------------------------------- |:-------------------------------------------------------------------------------------------- |
 | [`SRT_EINVPARAM`](#srt_einvparam)       | Value of `backlog` is 0 or negative.                                                         |
 | [`SRT_EINVSOCK`](#srt_einvsock)         | Socket [`u`](#u) indicates no valid SRT socket.                                              |
@@ -558,11 +558,11 @@ internal use only.
 
 |      Returns                  |                                                                         |
 |:----------------------------- |:----------------------------------------------------------------------- |
-| socket/group ID  | On success, a valid SRT socket or group ID to be used for transmission. |
-| `SRT_ERROR`      | (-1) on failure                                                         |
+| socket/group ID               | On success, a valid SRT socket or group ID to be used for transmission. |
+| `SRT_ERROR`                   | (-1) on failure                                                         |
 | <img width=150px height=1px/> | <img width=600px height=1px/>                      |
 
-|       Errors         |                                                                         |
+|       Errors                      |                                                                         |
 |:--------------------------------- |:----------------------------------------------------------------------- |
 | [`SRT_EINVPARAM`](#srt_einvparam) | NULL specified as `addrlen`, when `addr` is not NULL  |
 | [`SRT_EINVSOCK`](#srt_einvsock)   | `lsn` designates no valid socket ID.                   |
@@ -617,7 +617,7 @@ calling this function.
 | `SRT_ERROR`      | (-1) on failure                                                        |
 | <img width=150px height=1px/> | <img width=600px height=1px/>                      |
 
-|       Errors         |                                                              |
+|       Errors                      |                                                              |
 |:--------------------------------- |:------------------------------------------------------------ |
 | [`SRT_EINVPARAM`](#srt_einvparam) | NULL specified as `listeners` or `nlisteners` < 1            |
 | [`SRT_EINVSOCK`](#srt_einvsock)   | Any socket in `listeners` designates no valid socket ID. Can also mean Internal Error when an error occurred while creating an accepted socket (**BUG?**) |
@@ -648,11 +648,11 @@ connection has been accepted.
 
 |      Returns                  |                                                            |
 |:----------------------------- |:---------------------------------------------------------- |
-|         0        | Successful                                                 |
-|        -1        | Error                                                      |
+|         0                     | Successful                                                 |
+|        -1                     | Error                                                      |
 | <img width=150px height=1px/> | <img width=600px height=1px/>                      |
 
-|       Errors         |                                           |
+|       Errors                      |                                           |
 |:--------------------------------- |:----------------------------------------- |
 | [`SRT_EINVPARAM`](#srt_einvparam) | Reported when `hook_fn` is a null pointer |
 | <img width=150px height=1px/>     | <img width=600px height=1px/>                      |
@@ -743,9 +743,9 @@ mode, you might want to use [`srt_connect_group`](#srt_connect_group) instead.
 
 |      Returns                  |                                                           |
 |:----------------------------- |:--------------------------------------------------------- |
-|    `SRT_ERROR`   | (-1) in case of error                                     |
-|         0        | In case when used for [`u`](#u) socket                    |
-|     Socket ID    | Created for connection for [`u`](#u) group                |
+|    `SRT_ERROR`                | (-1) in case of error                                     |
+|         0                     | In case when used for [`u`](#u) socket                    |
+|     Socket ID                 | Created for connection for [`u`](#u) group                |
 | <img width=150px height=1px/> | <img width=600px height=1px/>                      |
 
 |       Errors                          |                                                             |
@@ -756,7 +756,7 @@ mode, you might want to use [`srt_connect_group`](#srt_connect_group) instead.
 | [`SRT_ECONNREJ`](#srt_econnrej)       | Connection has been rejected                                |
 | [`SRT_ENOSERVER`](#srt_enoserver)     | Connection has been timed out (see [`SRTO_CONNTIMEO`](../docs/APISocketOptions.md#SRTO_CONNTIMEO)) |
 | [`SRT_ESCLOSED`](#srt_esclosed)       | The socket [`u`](#u) has been closed while the function was blocking the call (if [`SRTO_RCVSYN`](../docs/APISocketOptions.md#SRTO_RCVSYN) is set to default true)   |
-| <img width=150px height=1px/> | <img width=600px height=1px/>                      |
+| <img width=150px height=1px/>         | <img width=600px height=1px/>                      |
 
 
 When the [`SRT_ECONNREJ`](#srt_econnrej) error is reported, you can get the reason 
@@ -794,9 +794,9 @@ first on the automatically created socket for the connection.
 
 |      Returns                  |                                                          |
 |:----------------------------- |:-------------------------------------------------------- |
-|    `SRT_ERROR`   | (-1) in case of error                                    |
-|         0        | In case when used for [`u`](#u) socket                   |
-|    Socket ID     | Created for connection for [`u`](#u) group               |
+|    `SRT_ERROR`                | (-1) in case of error                                    |
+|         0                     | In case when used for [`u`](#u) socket                   |
+|    Socket ID                  | Created for connection for [`u`](#u) group               |
 | <img width=150px height=1px/> | <img width=600px height=1px/>                      |
 
 |       Errors                          |                                                          |
