@@ -361,6 +361,8 @@ Note that socket IDs always have the `SRTGROUP_MASK` bit clear.
 errors are reported by [`SRT_ECONNSETUP`](#srt_econnsetup).
 
 
+
+
 [Back to List of Functions & Structures](#srt-api-functions)
 
 
@@ -382,6 +384,8 @@ Note that socket IDs always have the `SRTGROUP_MASK` bit clear.
 
 **NOTE:** This is probably a design flaw (**BUG?**). Usually underlying system 
 errors are reported by [`SRT_ECONNSETUP`](#srt_econnsetup).
+
+
 
 
 [Back to List of Functions & Structures](#srt-api-functions)
@@ -1084,7 +1088,7 @@ where:
 * `weight`: current weight value set on the link
 * `memberstate`: current state of the member (see below)
 * `result`: result of the operation (if this operation recently updated this structure)
-* `token`: A token value set for that connection (see [`SRT_SOCKGROUPCONFIG`](#SRT_SOCKGROUPCONFIG)
+* `token`: A token value set for that connection (see [`SRT_SOCKGROUPCONFIG`](#SRT_SOCKGROUPCONFIG))
 
 
 [Back to List of Functions & Structures](#srt-api-functions)
@@ -2282,7 +2286,7 @@ Connection has been rejected. Additional reject reason can be obtained through
 
 ---  
   
-#### [`SRT_ESOCKFAIL`](#srt_esockfail)
+#### `SRT_ESOCKFAIL`
 
 An error occurred when trying to call a system function on an internally used
 UDP socket. Note that the detailed system error is available in the extra variable
@@ -2293,7 +2297,7 @@ passed by pointer to `srt_getlasterror`.
 
 ---  
   
-#### [`SRT_ESECFAIL`](#srt_esecfail)
+#### `SRT_ESECFAIL`
 
 A possible tampering with the handshake packets was detected, or an encryption
 request wasn't properly fulfilled.
