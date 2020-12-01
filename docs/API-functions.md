@@ -125,48 +125,6 @@
 | [srt_rejectreason_str](#srt_rejectreason_str)     | Returns a constant string for the reason of the connection rejected, as per given code ID.                     |
 | [srt_setrejectreason](#srt_setrejectreason)       | Sets the rejection code on the socket.                                                                         |
 | ![](/docs/images/1x290.png)                       | ![](/docs/images/1x720.png)                                                                                    |
-| ***Error Code***                                  | ***Description***                                                                                              |
-[`SRT_EUNKNOWN`](#srt_eunknown)                     | Internal error when setting the right error code.                                                              |
-[`SRT_SUCCESS`](#srt_success)                       | The value set when the last error was cleared and no error has occurred since then.                            |
-[`SRT_ECONNSETUP`](#srt_econnsetup)                 | General setup error resulting from internal system state.                                                      |
-[`SRT_ENOSERVER`](#srt_enoserver)                   | Connection timed out while attempting to connect to the remote address.                                        |
-[`SRT_ECONNREJ`](#srt_econnrej)                     | Connection has been rejected.                                                                                  |
-[`SRT_ESOCKFAIL`](#srt_esockfail)                   | An error occurred when trying to call a system function on an internally used UDP socket.                      |
-[`SRT_ESECFAIL`](#srt_esecfail)                     | A possible tampering with the handshake packets was detected, or encryption request wasn't properly fulfilled. |
-[`SRT_ESCLOSED`](#srt_esclosed)                     | A socket that was vital for an operation called in blocking mode has been closed during the operation.         |
-[`SRT_ECONNFAIL`](#srt_econnfail)                   | General connection failure of unknown details.                                                                 |
-[`SRT_ECONNLOST`](#srt_econnlost)                   | The socket was properly connected, but the connection has been broken.                                         |
-[`SRT_ENOCONN`](#srt_enoconn)                       | The socket is not connected.                                                                                   |
-[`SRT_ERESOURCE`](#srt_eresource)                   | System or standard library error reported unexpectedly for unknown purpose.                                    |
-[`SRT_ETHREAD`](#srt_ethread)                       | System was unable to spawn a new thread when requried.                                                         |
-[`SRT_ENOBUF`](#srt_enobuf)                         | System was unable to allocate memory for buffers.                                                              |
-[`SRT_ESYSOBJ`](#srt_esysobj)                       | System was unable to allocate system specific objects.                                                         |
-[`SRT_EFILE`](#srt_efile)                           | General filesystem error (for functions operating with file transmission).                                     |
-[`SRT_EINVRDOFF`](#srt_einvrdoff)                   | Failure when trying to read from a given position in the file.                                                 |
-[`SRT_ERDPERM`](#srt_erdperm)                       | Read permission was denied when trying to read from file.                                                      |
-[`SRT_EINVWROFF`](#srt_einvwroff)                   | Failed to set position in the written file.                                                                    |
-[`SRT_EWRPERM`](#srt_ewrperm)                       | Write permission was denied when trying to write to a file.                                                    |
-[`SRT_EINVOP`](#srt_einvop)                         | Invalid operation performed for the current state of a socket.                                                 |
-[`SRT_EBOUNDSOCK`](#srt_eboundsock)                 | The socket is currently bound and the required operation cannot be performed in this state.                    |
-[`SRT_ECONNSOCK`](#srt_econnsock)                   | The socket is currently connected and therefore performing the required operation is not possible.             |
-[`SRT_EINVPARAM`](#srt_einvparam)                   | Call parameters for API functions have some requirements that were not satisfied.                              |
-[`SRT_EINVSOCK`](#srt_einvsock)                     | The API function required an ID of an entity (socket or group) and it was invalid.                             |
-[`SRT_EUNBOUNDSOCK`](#srt_eunboundsock)             | The operation to be performed on a socket requires that it first be explicitly bound.                          |
-[`SRT_ENOLISTEN`](#srt_enolisten)                   | The socket passed for the operation is required to be in the listen state                                      |
-[`SRT_ERDVNOSERV`](#srt_erdvnoserv)                 | The required operation cannot be performed when the socket is set to rendezvous mode                           |
-[`SRT_ERDVUNBOUND`](#srt_erdvunbound)               | An attempt was made to connect to a socket set to rendezvous mode that was not first bound.                    |
-[`SRT_EINVALMSGAPI`](#srt_einvalmsgapi)             | The function was used incorrectly in the message API.                                                          |
-[`SRT_EINVALBUFFERAPI`](#srt_einvalbufferapi)       | The function was used incorrectly in the stream (buffer) API                                                   |
-[`SRT_EDUPLISTEN`](#srt_eduplisten)                 | The port tried to be bound for listening is already busy.                                                      |
-[`SRT_ELARGEMSG`](#srt_elargemsg)                   | Size exceeded.                                                                                                 |
-[`SRT_EINVPOLLID`](#srt_einvpollid)                 | The epoll ID passed to an epoll function is invalid                                                            |
-[`SRT_EPOLLEMPTY`](#srt_epollempty)                 | The epoll container currently has no subscribed sockets.                                                       |
-[`SRT_EASYNCFAIL`](#srt_easyncfail)                 | General asynchronous failure (not in use currently).                                                           |
-[`SRT_EASYNCSND`](#srt_easyncsnd)                   | Sending operation is not ready to perform.                                                                     |
-[`SRT_EASYNCRCV`](#srt_easyncrcv)                   | Receiving operation is not ready to perform.                                                                   |
-[`SRT_ETIMEOUT`](#srt_etimeout)                     | The operation timed out.                                                                                       |
-[`SRT_ECONGEST`](#srt_econgest)                     | With [`SRTO_TSBPDMODE`](../docs/APISocketOptions.md#SRTO_TSBPDMODE) and [`SRTO_TLPKTDROP`](../docs/APISocketOptions.md#SRTO_TLPKTDROP) set to true, some packets were dropped by sender                    |
-[`SRT_EPEERERR`](#srt_epeererr)                     | Receiver peer is writing to a file that the agent is sending.                                                  |
 | ![](/docs/images/1x290.png)                       | ![](/docs/images/1x720.png)                                                                                    |
 
 
@@ -219,6 +177,54 @@
 | [srt_connection_time](#srt_connection_time)       | Get connection time in microseconds elapsed since epoch using SRT internal clock (steady or monotonic clock).  |
 | ![](/docs/images/1x290.png)                       | ![](/docs/images/1x720.png)                                                                                    |
 
+
+
+### **Error Codes**
+  
+| *Error Code*                                      | *Description*                                                                                                  |
+|:------------------------------------------------- |:-------------------------------------------------------------------------------------------------------------- |
+[`SRT_EUNKNOWN`](#srt_eunknown)                     | Internal error when setting the right error code.                                                              |
+[`SRT_SUCCESS`](#srt_success)                       | The value set when the last error was cleared and no error has occurred since then.                            |
+[`SRT_ECONNSETUP`](#srt_econnsetup)                 | General setup error resulting from internal system state.                                                      |
+[`SRT_ENOSERVER`](#srt_enoserver)                   | Connection timed out while attempting to connect to the remote address.                                        |
+[`SRT_ECONNREJ`](#srt_econnrej)                     | Connection has been rejected.                                                                                  |
+[`SRT_ESOCKFAIL`](#srt_esockfail)                   | An error occurred when trying to call a system function on an internally used UDP socket.                      |
+[`SRT_ESECFAIL`](#srt_esecfail)                     | A possible tampering with the handshake packets was detected, or encryption request wasn't properly fulfilled. |
+[`SRT_ESCLOSED`](#srt_esclosed)                     | A socket that was vital for an operation called in blocking mode has been closed during the operation.         |
+[`SRT_ECONNFAIL`](#srt_econnfail)                   | General connection failure of unknown details.                                                                 |
+[`SRT_ECONNLOST`](#srt_econnlost)                   | The socket was properly connected, but the connection has been broken.                                         |
+[`SRT_ENOCONN`](#srt_enoconn)                       | The socket is not connected.                                                                                   |
+[`SRT_ERESOURCE`](#srt_eresource)                   | System or standard library error reported unexpectedly for unknown purpose.                                    |
+[`SRT_ETHREAD`](#srt_ethread)                       | System was unable to spawn a new thread when requried.                                                         |
+[`SRT_ENOBUF`](#srt_enobuf)                         | System was unable to allocate memory for buffers.                                                              |
+[`SRT_ESYSOBJ`](#srt_esysobj)                       | System was unable to allocate system specific objects.                                                         |
+[`SRT_EFILE`](#srt_efile)                           | General filesystem error (for functions operating with file transmission).                                     |
+[`SRT_EINVRDOFF`](#srt_einvrdoff)                   | Failure when trying to read from a given position in the file.                                                 |
+[`SRT_ERDPERM`](#srt_erdperm)                       | Read permission was denied when trying to read from file.                                                      |
+[`SRT_EINVWROFF`](#srt_einvwroff)                   | Failed to set position in the written file.                                                                    |
+[`SRT_EWRPERM`](#srt_ewrperm)                       | Write permission was denied when trying to write to a file.                                                    |
+[`SRT_EINVOP`](#srt_einvop)                         | Invalid operation performed for the current state of a socket.                                                 |
+[`SRT_EBOUNDSOCK`](#srt_eboundsock)                 | The socket is currently bound and the required operation cannot be performed in this state.                    |
+[`SRT_ECONNSOCK`](#srt_econnsock)                   | The socket is currently connected and therefore performing the required operation is not possible.             |
+[`SRT_EINVPARAM`](#srt_einvparam)                   | Call parameters for API functions have some requirements that were not satisfied.                              |
+[`SRT_EINVSOCK`](#srt_einvsock)                     | The API function required an ID of an entity (socket or group) and it was invalid.                             |
+[`SRT_EUNBOUNDSOCK`](#srt_eunboundsock)             | The operation to be performed on a socket requires that it first be explicitly bound.                          |
+[`SRT_ENOLISTEN`](#srt_enolisten)                   | The socket passed for the operation is required to be in the listen state                                      |
+[`SRT_ERDVNOSERV`](#srt_erdvnoserv)                 | The required operation cannot be performed when the socket is set to rendezvous mode                           |
+[`SRT_ERDVUNBOUND`](#srt_erdvunbound)               | An attempt was made to connect to a socket set to rendezvous mode that was not first bound.                    |
+[`SRT_EINVALMSGAPI`](#srt_einvalmsgapi)             | The function was used incorrectly in the message API.                                                          |
+[`SRT_EINVALBUFFERAPI`](#srt_einvalbufferapi)       | The function was used incorrectly in the stream (buffer) API                                                   |
+[`SRT_EDUPLISTEN`](#srt_eduplisten)                 | The port tried to be bound for listening is already busy.                                                      |
+[`SRT_ELARGEMSG`](#srt_elargemsg)                   | Size exceeded.                                                                                                 |
+[`SRT_EINVPOLLID`](#srt_einvpollid)                 | The epoll ID passed to an epoll function is invalid                                                            |
+[`SRT_EPOLLEMPTY`](#srt_epollempty)                 | The epoll container currently has no subscribed sockets.                                                       |
+[`SRT_EASYNCFAIL`](#srt_easyncfail)                 | General asynchronous failure (not in use currently).                                                           |
+[`SRT_EASYNCSND`](#srt_easyncsnd)                   | Sending operation is not ready to perform.                                                                     |
+[`SRT_EASYNCRCV`](#srt_easyncrcv)                   | Receiving operation is not ready to perform.                                                                   |
+[`SRT_ETIMEOUT`](#srt_etimeout)                     | The operation timed out.                                                                                       |
+[`SRT_ECONGEST`](#srt_econgest)                     | With [`SRTO_TSBPDMODE`](../docs/APISocketOptions.md#SRTO_TSBPDMODE) and [`SRTO_TLPKTDROP`](../docs/APISocketOptions.md#SRTO_TLPKTDROP) set to true, some packets were dropped by sender                    |
+[`SRT_EPEERERR`](#srt_epeererr)                     | Receiver peer is writing to a file that the agent is sending.                                                  |
+| ![](/docs/images/1x290.png)                       | ![](/docs/images/1x720.png)                                                                                    |
 
 
 
