@@ -9,9 +9,8 @@
 | <img width=290px height=1px/>                     | <img width=720px height=1px/>                                                                                  |
 
 
-
-### **Creating and Configuring Sockets**
- 
+<h3 id="creating-and-configuring-sockets">Creating and Configuring Sockets</h3>
+  
 | *Function / Structure*                            | *Description*                                                                                                  |
 |:------------------------------------------------- |:-------------------------------------------------------------------------------------------------------------- |
 | [srt_socket](#srt_socket)                         | Deprecated                                                                                                     |
@@ -23,8 +22,7 @@
 | [srt_close](#srt_close)                           | Closes the socket or group and frees all used resources.                                                       |
 | <img width=290px height=1px/>                     | <img width=720px height=1px/>                                                                                  |
 
-
-### **Connecting**
+<h3 id="connecting">Connecting</h3>
   
 | *Function / Structure*                            | *Description*                                                                                                  |
 |:------------------------------------------------- |:-------------------------------------------------------------------------------------------------------------- |
@@ -39,8 +37,7 @@
 | [srt_connect_callback](#srt_connect_callback)     | Installs/executes a callback hook on socket/group [`u`](#u) after connection resolution/failure                |
 | <img width=290px height=1px/>                     | <img width=720px height=1px/>                                                                                  |
 
-
-### **Socket Group Management**
+<h3 id="socket-group-management">Socket Group Management</h3>
   
 | *Function / Structure*                            | *Description*                                                                                                  |
 |:------------------------------------------------- |:-------------------------------------------------------------------------------------------------------------- |
@@ -60,8 +57,7 @@
 | [srt_config_add](#srt_config_add)                 | Adds a configuration option to the configuration object                                                        |
 | <img width=290px height=1px/>                     | <img width=720px height=1px/>                                                                                  |
 
-
-### **Options and Properties**
+<h3 id="options-and-properties">Options and Properties</h3>
   
 | *Function / Structure*                            | *Description*                                                                                                  |
 |:------------------------------------------------- |:-------------------------------------------------------------------------------------------------------------- |
@@ -74,16 +70,14 @@
 | [srt_getversion](#srt_getversion)                 | Get SRT version value                                                                                          |
 | <img width=290px height=1px/>                     | <img width=720px height=1px/>                                                                                  |
 
-
-### **Helper Data Types for Transmission**
+<h3 id="helper-data-types-for-transmission">Helper Data Types for Transmission</h3>
   
 | *Function / Structure*                            | *Description*                                                                                                  |
 |:------------------------------------------------- |:-------------------------------------------------------------------------------------------------------------- |
 | [SRT_MSGCTRL](#SRT_MSGCTRL)                       | Used in [`srt_sendmsg2`](#srt_sendmsg) and [`srt_recvmsg2`](#srt_recvmsg2) calls; specifies some extra parameters  |
 | <img width=290px height=1px/>                     | <img width=720px height=1px/>                                                                                  |
 
-
-### **Transmission**
+<h3 id="transmission">Transmission</h3>
   
 | *Function / Structure*                            | *Description*                                                                                                  |
 |:------------------------------------------------- |:-------------------------------------------------------------------------------------------------------------- |
@@ -97,8 +91,7 @@
 | [srt_recvfile](#srt_recvfile)                     | Function dedicated to receiving a file                                                                         |
 | <img width=290px height=1px/>                     | <img width=720px height=1px/>                                                                                  |
 
-
-### **Diagnostics**
+<h3 id="diagnostics">Diagnostics</h3>
   
 | *Function / Structure*                            | *Description*                                                                                                  |
 |:------------------------------------------------- |:-------------------------------------------------------------------------------------------------------------- |
@@ -128,8 +121,7 @@
 | <img width=290px height=1px/>                     | <img width=720px height=1px/>                                                                                  |
 | <img width=290px height=1px/>                     | <img width=720px height=1px/>                                                                                  |
 
-
-### **Performance Tracking**
+<h3 id="performance-tracking">Performance Tracking</h3>
   
 | *Function / Structure*                            | *Description*                                                                                                  |
 |:------------------------------------------------- |:-------------------------------------------------------------------------------------------------------------- |
@@ -137,8 +129,7 @@
 | [srt_bistats](#srt_bistats)                       | Reports the current statistics                                                                                 |
 | <img width=290px height=1px/>                     | <img width=720px height=1px/>                                                                                  |
 
-
-### **Asynchronous Operations (epoll)**
+<h3 id="asynchronous-operations-epoll">Asynchronous Operations (epoll)</h3>
   
 | *Function / Structure*                            | *Description*                                                                                                  |
 |:------------------------------------------------- |:-------------------------------------------------------------------------------------------------------------- |
@@ -156,8 +147,7 @@
 | [srt_epoll_release](#srt_epoll_release)           | Deletes the epoll container.                                                                                   |
 | <img width=290px height=1px/>                     | <img width=720px height=1px/>                                                                                  |
 
-
-### **Logging Control**
+<h3 id="logging-control">Logging Control</h3>
   
 | *Function / Structure*                            | *Description*                                                                                                  |
 |:------------------------------------------------- |:-------------------------------------------------------------------------------------------------------------- |
@@ -169,8 +159,7 @@
 | [srt_setlogflags](#srt_setlogflags)               | Allows configuring parts of log information that are not to be passed.                                         |
 | <img width=290px height=1px/>                     | <img width=720px height=1px/>                                                                                  |
 
-
-### **Time Access**
+<h3 id="time-access">Time Access</h3>
   
 | *Function / Structure*                            | *Description*                                                                                                  |
 |:------------------------------------------------- |:-------------------------------------------------------------------------------------------------------------- |
@@ -179,8 +168,7 @@
 | <img width=290px height=1px/>                     | <img width=720px height=1px/>                                                                                  |
 
 
-
-### **Error Codes**
+<h3 id="error-codes">Error Codes</h3>
   
 | *Error Code*                                      | *Description*                                                                                                  |
 |:------------------------------------------------- |:-------------------------------------------------------------------------------------------------------------- |
