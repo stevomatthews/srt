@@ -2,216 +2,222 @@
 
 <h3 id="Library Initialization">Library Initialization</h3>
   
-| *Function / Structure*               | *Description*                                                                                                  |
-|:------------------------------------ |:-------------------------------------------------------------------------------------------------------------- |
-| [srt_startup](#srt_startup)          | Called at the start of an application that uses the SRT library                                                |
-| [srt_cleanup](#srt_cleanup)          | Cleans up global SRT resources before exiting an application                                                   |
-| <img width=290px height=1px/>        | <img width=720px height=1px/>                                                                                  |
+| *Function / Structure*                            | *Description*                                                                                                  |
+|:------------------------------------------------- |:-------------------------------------------------------------------------------------------------------------- |
+| [srt_startup](#srt_startup)                       | Called at the start of an application that uses the SRT library                                                |
+| [srt_cleanup](#srt_cleanup)                       | Cleans up global SRT resources before exiting an application                                                   |
+| <img width=290px height=1px/>                     | <img width=720px height=1px/>                                                                                  |
 
 
 <h3 id="creating-and-configuring-sockets">Creating and Configuring Sockets</h3>
   
-| *Function / Structure*               | *Description*                                                                                                  |
-|:------------------------------------ |:-------------------------------------------------------------------------------------------------------------- |
-| [srt_socket](#srt_socket)            | Deprecated                                                                                                     |
+| *Function / Structure*                            | *Description*                                                                                                  |
+|:------------------------------------------------- |:-------------------------------------------------------------------------------------------------------------- |
+| [srt_socket](#srt_socket)                         | Deprecated                                                                                                     |
 | [srt_create_socket](#srt_create_socket)           | Creates an SRT socket                                                                                          |
-| [srt_bind](#srt_bind)                | Binds a socket to a local address and port.                                                                    |
-| [srt_bind_acquire](#srt_bind_acquire)| Acquires a given UDP socket instead of creating one.                                                           |
-| [srt_getsockstate](#srt_getsockstate)| Gets the current status of the socket.                                                                         |
-| [srt_getsndbuffer](#srt_getsndbuffer)| Retrieves information about the sender buffer.                                                                 |
-| [srt_close](#srt_close)              | Closes the socket or group and frees all used resources.                                                       |
-| <img width=290px height=1px/>        | <img width=720px height=1px/>                                                                                  |
+| [srt_bind](#srt_bind)                             | Binds a socket to a local address and port                                                                     |
+| [srt_bind_acquire](#srt_bind_acquire)             | Acquires a given UDP socket instead of creating one                                                            |
+| [srt_getsockstate](#srt_getsockstate)             | Gets the current status of the socket                                                                          |
+| [srt_getsndbuffer](#srt_getsndbuffer)             | Retrieves information about the sender buffer                                                                  |
+| [srt_close](#srt_close)                           | Closes the socket or group and frees all used resources                                                        |
+| <img width=290px height=1px/>                     | <img width=720px height=1px/>                                                                                  |
 
 <h3 id="connecting">Connecting</h3>
   
-| *Function / Structure*               | *Description*                                                                                                  |
-|:------------------------------------ |:-------------------------------------------------------------------------------------------------------------- |
-| [srt_listen](#srt_listen)            | Sets up the listening state on a socket.                                                                       |
-| [srt_accept](#srt_accept)            | Accepts a connection; creates/returns a new socket or group ID.                                                |
-| [srt_accept_bond](#srt_accept_bond)  | Accepts a connection pending on any sockets passed in the `listeners` array of `nlisteners` size               |
+| *Function / Structure*                            | *Description*                                                                                                  |
+|:------------------------------------------------- |:-------------------------------------------------------------------------------------------------------------- |
+| [srt_listen](#srt_listen)                         | Sets up the listening state on a socket                                                                        |
+| [srt_accept](#srt_accept)                         | Accepts a connection; creates/returns a new socket or group ID                                                 |
+| [srt_accept_bond](#srt_accept_bond)               | Accepts a connection pending on any sockets passed in the `listeners` array of `nlisteners` size               |
 | [srt_listen_callback](#srt_listen_callback)       | Installs/executes a callback hook on a socket created to handle the incoming connection on a listening socket  |
-| [srt_connect](#srt_connect)          | Connects a socket or a group to a remote party with a specified address and port                               |
-| [srt_connect_bind](#srt_connect_bind)| Same as [`srt_bind`](#srt_bind) then [`srt_connect`](#srt_connect) if called with socket [`u`](#u).            |
+| [srt_connect](#srt_connect)                       | Connects a socket or a group to a remote party with a specified address and port                               |
+| [srt_connect_bind](#srt_connect_bind)             | Same as [`srt_bind`](#srt_bind) then [`srt_connect`](#srt_connect) if called with socket [`u`](#u)             |
 | [srt_connect_debug](#srt_connect_debug)           | Same as [`srt_connect`](#srt_connect)but allows specifying ISN (developers only)                               |
-| [srt_rendezvous](#srt_rendezvous)    | Performs a rendezvous connection                                                                               |
+| [srt_rendezvous](#srt_rendezvous)                 | Performs a rendezvous connection                                                                               |
 | [srt_connect_callback](#srt_connect_callback)     | Installs/executes a callback hook on socket/group [`u`](#u) after connection resolution/failure                |
-| <img width=290px height=1px/>        | <img width=720px height=1px/>                                                                                  |
+| <img width=290px height=1px/>                     | <img width=720px height=1px/>                                                                                  |
 
 <h3 id="socket-group-management">Socket Group Management</h3>
   
-| *Function / Structure*               | *Description*                                                                                                  |
+| *Function / Structure*                            | *Description*                                                                                                  |
 |:------------------------------------------------- |:-------------------------------------------------------------------------------------------------------------- |
-| [SRT_GROUP_TYPE](#SRT_GROUP_TYPE)    | Group types collected in an [`SRT_GROUP_TYPE`](#SRT_GROUP_TYPE) enum                              | 
+| [SRT_GROUP_TYPE](#SRT_GROUP_TYPE)                 | Group types collected in an [`SRT_GROUP_TYPE`](#SRT_GROUP_TYPE) enum                                           | 
 | [SRT_SOCKGROUPCONFIG](#SRT_SOCKGROUPCONFIG)       | Structure used to define entry points for connections for [`srt_connect_group`](#srt_connect_group)            |
 | [SRT_SOCKGROUPDATA](#SRT_SOCKGROUPDATA)           | Most important structure for group member status                                                               |
-| [SRT_MEMBERSTATUS](#SRT_MEMBERSTATUS)| Enumeration type that defines the state of a member connection in the group                                    |
-| [srt_create_group](#srt_create_group)| Creates a new group of type `type`                                                                             |
-| [srt_include](#srt_include)          | Adds a socket to a group.                                                                                      |
-| [srt_exclude](#srt_exclude)          | Removes a socket from a group to which it currently belongs                                                    |
-| [srt_groupof](#srt_groupof)          | Returns the group ID of a socket, or `SRT_INVALID_SOCK`.                                                       |
-| [srt_group_data](#srt_group_data)    | Obtains the current member state of the group specified in `socketgroup`                                       |
+| [SRT_MEMBERSTATUS](#SRT_MEMBERSTATUS)             | Enumeration type that defines the state of a member connection in the group                                    |
+| [srt_create_group](#srt_create_group)             | Creates a new group of type `type`                                                                             |
+| [srt_include](#srt_include)                       | Adds a socket to a group                                                                                       |
+| [srt_exclude](#srt_exclude)                       | Removes a socket from a group to which it currently belongs                                                    |
+| [srt_groupof](#srt_groupof)                       | Returns the group ID of a socket, or `SRT_INVALID_SOCK`                                                        |
+| [srt_group_data](#srt_group_data)                 | Obtains the current member state of the group specified in `socketgroup`                                       |
 | [srt_connect_group](#srt_connect_group)           | Similar to calling [`srt_connect`](#srt_connect) or [`srt_connect_bind`](#srt_connect_bind) in a loop for every item in an array. |
 | [srt_prepare_endpoint](#srt_prepare_endpoint)     | Prepares a default [`SRT_SOCKGROUPCONFIG`](#SRT_SOCKGROUPCONFIG) object as an element of an array for [`srt_connect_group`](#srt_connect_group)              |
 | [srt_create_config](#srt_create_config)           | Creates a dynamic object for specifying socket options                                                         |
 | [srt_delete_config](#srt_delete_config)           | Deletes the configuration object                                                                               |
-| [srt_config_add](#srt_config_add)    | Adds a configuration option to the configuration object                                                        |
-| <img width=290px height=1px/>        | <img width=720px height=1px/>                                                                                  |
+| [srt_config_add](#srt_config_add)                 | Adds a configuration option to the configuration object                                                        |
+| <img width=290px height=1px/>                     | <img width=720px height=1px/>                                                                                  |
 
 <h3 id="options-and-properties">Options and Properties</h3>
   
-| *Function / Structure*               | *Description*                                                                                                  |
-|:------------------------------------ |:-------------------------------------------------------------------------------------------------------------- |
-| [srt_getpeername](#srt_getpeername)  | Retrieves the remote address to which the socket is connected                                                  |
-| [srt_getsockname](#srt_getsockname)  | Extracts the address to which the socket was bound                                                             |
-| [srt_getsockopt](#srt_getsockopt)    | Gets the value of the given socket option (from a socket or a group)                                           |
-| [srt_getsockflag](#srt_getsockflag)  | Gets the value of the given socket option (from a socket or a group)                                           |
-| [srt_setsockopt](#srt_setsockopt)    | Sets a value for a socket option in the socket or group                                                        |
-| [srt_setsockflag](#srt_setsockflag)  | Sets a value for a socket option in the socket or group                                                        |
-| [srt_getversion](#srt_getversion)    | Get SRT version value                                                                                          |
-| <img width=290px height=1px/>        | <img width=720px height=1px/>                                                                                  |
+| *Function / Structure*                            | *Description*                                                                                                  |
+|:------------------------------------------------- |:-------------------------------------------------------------------------------------------------------------- |
+| [srt_getpeername](#srt_getpeername)               | Retrieves the remote address to which the socket is connected                                                  |
+| [srt_getsockname](#srt_getsockname)               | Extracts the address to which the socket was bound                                                             |
+| [srt_getsockopt](#srt_getsockopt)                 | Gets the value of the given socket option (from a socket or a group)                                           |
+| [srt_getsockflag](#srt_getsockflag)               | Gets the value of the given socket option (from a socket or a group)                                           |
+| [srt_setsockopt](#srt_setsockopt)                 | Sets a value for a socket option in the socket or group                                                        |
+| [srt_setsockflag](#srt_setsockflag)               | Sets a value for a socket option in the socket or group                                                        |
+| [srt_getversion](#srt_getversion)                 | Get SRT version value                                                                                          |
+| <img width=290px height=1px/>                     | <img width=720px height=1px/>                                                                                  |
 
 <h3 id="helper-data-types-for-transmission">Helper Data Types for Transmission</h3>
   
-| *Function / Structure*               | *Description*                                                                                                  |
-|:------------------------------------ |:-------------------------------------------------------------------------------------------------------------- |
-| [SRT_MSGCTRL](#SRT_MSGCTRL)          | Used in [`srt_sendmsg2`](#srt_sendmsg) and [`srt_recvmsg2`](#srt_recvmsg2) calls; specifies some extra parameters  |
-| <img width=290px height=1px/>        | <img width=720px height=1px/>                                                                                  |
+| *Function / Structure*                            | *Description*                                                                                                  |
+|:------------------------------------------------- |:-------------------------------------------------------------------------------------------------------------- |
+| [SRT_MSGCTRL](#SRT_MSGCTRL)                       | Used in [`srt_sendmsg2`](#srt_sendmsg) and [`srt_recvmsg2`](#srt_recvmsg2) calls; specifies some extra parameters  |
+| <img width=290px height=1px/>                     | <img width=720px height=1px/>                                                                                  |
 
 <h3 id="transmission">Transmission</h3>
   
-| *Function / Structure*               | *Description*                                                                                                  |
-|:------------------------------------ |:-------------------------------------------------------------------------------------------------------------- |
-| [srt_send](#srt_send)                | Sends a payload to a remote party over a given socket                                                          |
-| [srt_sendmsg](#srt_sendmsg)          | Sends a payload to a remote party over a given socket                                                          |
-| [srt_sendmsg2](#srt_sendmsg2)        | Sends a payload to a remote party over a given socket                                                          |
-| [srt_recv](#srt_recv)                | Extracts the payload waiting to be received.                                                                   |
-| [srt_recvmsg](#srt_recvmsg)          | Extracts the payload waiting to be received.                                                                   |
-| [srt_recvmsg2](#srt_recvmsg2)        | Extracts the payload waiting to be received.                                                                   |
-| [srt_sendfile](#srt_sendfile)        | Function dedicated to sending a file                                                                           |
-| [srt_recvfile](#srt_recvfile)        | Function dedicated to receiving a file                                                                         |
-| <img width=290px height=1px/>        | <img width=720px height=1px/>                                                                                  |
+| *Function / Structure*                            | *Description*                                                                                                  |
+|:------------------------------------------------- |:-------------------------------------------------------------------------------------------------------------- |
+| [srt_send](#srt_send)                             | Sends a payload to a remote party over a given socket                                                          |
+| [srt_sendmsg](#srt_sendmsg)                       | Sends a payload to a remote party over a given socket                                                          |
+| [srt_sendmsg2](#srt_sendmsg2)                     | Sends a payload to a remote party over a given socket                                                          |
+| [srt_recv](#srt_recv)                             | Extracts the payload waiting to be received                                                                    |
+| [srt_recvmsg](#srt_recvmsg)                       | Extracts the payload waiting to be received                                                                    |
+| [srt_recvmsg2](#srt_recvmsg2)                     | Extracts the payload waiting to be received                                                                    |
+| [srt_sendfile](#srt_sendfile)                     | Function dedicated to sending a file                                                                           |
+| [srt_recvfile](#srt_recvfile)                     | Function dedicated to receiving a file                                                                         |
+| <img width=290px height=1px/>                     | <img width=720px height=1px/>                                                                                  |
 
 <h3 id="diagnostics">Diagnostics</h3>
   
-| *Function / Structure*               | *Description*                                                                                                  |
-|:------------------------------------ |:-------------------------------------------------------------------------------------------------------------- |
-| [srt_getlasterror](#srt_getlasterror)| Get the numeric code of the last error.                                                                        |
-| [srt_strerror](#srt_strerror)        | Returns a string message that represents a given SRT error code and possibly the `errno` value, if not 0.      |
-| [srt_getlasterror_str](#srt_getlasterror_str)     | Gets the text message for the last error.                                                                      |
-| [srt_clearlasterror](#srt_clearlasterror)         | Clears the last error.                                                                                         |
-| [srt_getrejectreason](#srt_getrejectreason)       | Provides a detailed reason for a failed connection attempt.                                                    |
-| [SRT_REJ_UNKNOWN](#SRT_REJ_UNKNOWN)  | A fallback value for cases when there was no connection rejected.                                              |
-| [SRT_REJ_SYSTEM](#SRT_REJ_SYSTEM)    | A system function reported a failure..                                                                         |
-| [SRT_REJ_PEER](#SRT_REJ_PEER)        | The connection has been rejected by peer, but no further details are available.                                |
-| [SRT_REJ_RESOURCE](#SRT_REJ_RESOURCE)| A problem with resource allocation (usually memory).                                                           |
-| [SRT_REJ_ROGUE](#SRT_REJ_ROGUE)      | The data sent by one party to another cannot be properly interpreted.                                          |
-| [SRT_REJ_BACKLOG](#SRT_REJ_BACKLOG)  | The listener's backlog has exceeded.                                                                           |
-| [SRT_REJ_IPE](#SRT_REJ_IPE)          | Internal Program Error.                                                                                        |
-| [SRT_REJ_CLOSE](#SRT_REJ_CLOSE)      | The listener socket received a request as it is being closed..                                                 |
-| [SRT_REJ_VERSION](#SRT_REJ_VERSION)  | A party did not satisfy the minimum version requirement that had been set up for a connection...               |
-| [SRT_REJ_RDVCOOKIE](#SRT_REJ_RDVCOOKIE)           | Rendezvous cookie collision.                                                                                   |
-| [SRT_REJ_BADSECRET](#SRT_REJ_BADSECRET)           | Both parties have defined a passprhase for connection and they differ.                                         |
-| [SRT_REJ_UNSECURE](#SRT_REJ_UNSECURE)| Only one connection party has set up a password.                                                               |
-| [SRT_REJ_MESSAGEAPI](#SRT_REJ_MESSAGEAPI)         | The value for [`SRTO_MESSAGEAPI`](../docs/APISocketOptions.md#SRTO_MESSAGEAPI) flag is different on both connection parties.                                  |
-| [SRT_REJ_FILTER](#SRT_REJ_FILTER)    | The [`SRTO_PACKETFILTER`](../docs/APISocketOptions.md#SRTO_PACKETFILTER) option has been set differently on both connection parties.                            |
-| [SRT_REJ_GROUP](#SRT_REJ_GROUP)      | The group type or some group settings are incompatible for both connection parties.                            |
-| [SRT_REJ_TIMEOUT](#SRT_REJ_TIMEOUT)  | The connection wasn't rejected, but it timed out.                                                              |
-| [srt_rejectreason_str](#srt_rejectreason_str)     | Returns a constant string for the reason of the connection rejected, as per given code ID.                     |
-| [srt_setrejectreason](#srt_setrejectreason)       | Sets the rejection code on the socket.                                                                         |
-| <img width=290px height=1px/>        | <img width=720px height=1px/>                                                                                  |
+| *Function / Structure*                            | *Description*                                                                                                  |
+|:------------------------------------------------- |:-------------------------------------------------------------------------------------------------------------- |
+| [srt_getlasterror](#srt_getlasterror)             | Get the numeric code of the last error                                                                         |
+| [srt_strerror](#srt_strerror)                     | Returns a string message that represents a given SRT error code and possibly the `errno` value, if not 0       |
+| [srt_getlasterror_str](#srt_getlasterror_str)     | Gets the text message for the last error                                                                       |
+| [srt_clearlasterror](#srt_clearlasterror)         | Clears the last error                                                                                          |
+| [srt_getrejectreason](#srt_getrejectreason)       | Provides a detailed reason for a failed connection attempt                                                     |
+| [SRT_REJ_UNKNOWN](#SRT_REJ_UNKNOWN)               | A fallback value for cases when there was no connection rejected                                               |
+| [SRT_REJ_SYSTEM](#SRT_REJ_SYSTEM)                 | A system function reported a failure                                                                           |
+| [SRT_REJ_PEER](#SRT_REJ_PEER)                     | The connection has been rejected by peer, but no further details are available                                 |
+| [SRT_REJ_RESOURCE](#SRT_REJ_RESOURCE)             | A problem with resource allocation (usually memory)                                                            |
+| [SRT_REJ_ROGUE](#SRT_REJ_ROGUE)                   | The data sent by one party to another cannot be properly interpreted                                           |
+| [SRT_REJ_BACKLOG](#SRT_REJ_BACKLOG)               | The listener's backlog has exceeded                                                                            |
+| [SRT_REJ_IPE](#SRT_REJ_IPE)                       | Internal Program Error                                                                                         |
+| [SRT_REJ_CLOSE](#SRT_REJ_CLOSE)                   | The listener socket received a request as it is being closed                                                   |
+| [SRT_REJ_VERSION](#SRT_REJ_VERSION)               | A party did not satisfy the minimum version requirement that had been set up for a connection                  |
+| [SRT_REJ_RDVCOOKIE](#SRT_REJ_RDVCOOKIE)           | Rendezvous cookie collision                                                                                    |
+| [SRT_REJ_BADSECRET](#SRT_REJ_BADSECRET)           | Both parties have defined a passprhase for connection and they differ                                          |
+| [SRT_REJ_UNSECURE](#SRT_REJ_UNSECURE)             | Only one connection party has set up a password                                                                |
+| [SRT_REJ_MESSAGEAPI](#SRT_REJ_MESSAGEAPI)         | The value for [`SRTO_MESSAGEAPI`](../docs/APISocketOptions.md#SRTO_MESSAGEAPI) flag is different on both connection parties                                   |
+| [SRT_REJ_FILTER](#SRT_REJ_FILTER)                 | The [`SRTO_PACKETFILTER`](../docs/APISocketOptions.md#SRTO_PACKETFILTER) option has been set differently on both connection parties                             |
+| [SRT_REJ_GROUP](#SRT_REJ_GROUP)                   | The group type or some group settings are incompatible for both connection parties                             |
+| [SRT_REJ_TIMEOUT](#SRT_REJ_TIMEOUT)               | The connection wasn't rejected, but it timed out                                                               |
+| [srt_rejectreason_str](#srt_rejectreason_str)     | Returns a constant string for the reason of the connection rejected, as per given code ID                      |
+| [srt_setrejectreason](#srt_setrejectreason)       | Sets the rejection code on the socket                                                                          |
+| <img width=290px height=1px/>                     | <img width=720px height=1px/>                                                                                  |
 
 <h3 id="performance-tracking">Performance Tracking</h3>
   
-| *Function / Structure*               | *Description*                                                                                                  |
-|:------------------------------------ |:-------------------------------------------------------------------------------------------------------------- |
-| [srt_bstats](#srt_bstats)            | Reports the current statistics                                                                                 |
-| [srt_bistats](#srt_bistats)          | Reports the current statistics                                                                                 |
-| <img width=290px height=1px/>        | <img width=720px height=1px/>                                                                                  |
+| *Function / Structure*                            | *Description*                                                                                                  |
+|:------------------------------------------------- |:-------------------------------------------------------------------------------------------------------------- |
+| [srt_bstats](#srt_bstats)                         | Reports the current statistics                                                                                 |
+| [srt_bistats](#srt_bistats)                       | Reports the current statistics                                                                                 |
+| <img width=290px height=1px/>                     | <img width=720px height=1px/>                                                                                  |
 
 <h3 id="asynchronous-operations-epoll">Asynchronous Operations (epoll)</h3>
   
-| *Function / Structure*               | *Description*                                                                                                  |
-|:------------------------------------ |:-------------------------------------------------------------------------------------------------------------- |
-| [srt_epoll_create](#srt_epoll_create)| Creates a new epoll container.                                                                                 |
-| [srt_epoll_add_usock](#srt_epoll_add_usock)       | Adds a user socket to a container, or updates an existing socket subscription..                                |
-| [srt_epoll_add_ssock](#srt_epoll_add_ssock)       | Adds a system socket to a container, or updates an existing socket subscription..                              |
-| [srt_epoll_update_usock](#srt_epoll_update_usock) | Adds a user socket to a container, or updates an existing socket subscription..                                |
-| [srt_epoll_update_ssock](#srt_epoll_update_ssock) | Adds a system socket to a container, or updates an existing socket subscription..                              |
-| [srt_epoll_remove_usock](#srt_epoll_remove_usock) | Removes a specified user socket from an epoll container; clears all readiness states for that socket.          |
-| [srt_epoll_remove_ssock](#srt_epoll_remove_ssock) | Removes a specified system socket from an epoll container; clears all readiness states for that socket.        |
-| [srt_epoll_wait](#srt_epoll_wait)    | Blocks the call until any readiness state occurs in the epoll container.                                       |
-| [srt_epoll_uwait](#srt_epoll_uwait)  | Blocks a call until any readiness state occurs in the epoll container.                                         |
-| [srt_epoll_clear_usocks](#srt_epoll_clear_usocks) | removes all SRT ("user") socket subscriptions from the epoll container identified by [`eid`](#eid).            |
-| [srt_epoll_set](#srt_epoll_set)      | Allows setting or retrieving flags that change the default behavior of the epoll functions.                    |
-| [srt_epoll_release](#srt_epoll_release)           | Deletes the epoll container.                                                                                   |
-| <img width=290px height=1px/>        | <img width=720px height=1px/>                                                                                  |
+| *Function / Structure*                            | *Description*                                                                                                  |
+|:------------------------------------------------- |:-------------------------------------------------------------------------------------------------------------- |
+| [srt_epoll_create](#srt_epoll_create)             | Creates a new epoll container                                                                                  |
+| [srt_epoll_add_usock](#srt_epoll_add_usock)       | Adds a user socket to a container, or updates an existing socket subscription                                  |
+| [srt_epoll_add_ssock](#srt_epoll_add_ssock)       | Adds a system socket to a container, or updates an existing socket subscription                                |
+| [srt_epoll_update_usock](#srt_epoll_update_usock) | Adds a user socket to a container, or updates an existing socket subscription                                  |
+| [srt_epoll_update_ssock](#srt_epoll_update_ssock) | Adds a system socket to a container, or updates an existing socket subscription                                |
+| [srt_epoll_remove_usock](#srt_epoll_remove_usock) | Removes a specified user socket from an epoll container; clears all readiness states for that socket           |
+| [srt_epoll_remove_ssock](#srt_epoll_remove_ssock) | Removes a specified system socket from an epoll container; clears all readiness states for that socket         |
+| [srt_epoll_wait](#srt_epoll_wait)                 | Blocks the call until any readiness state occurs in the epoll container                                        |
+| [srt_epoll_uwait](#srt_epoll_uwait)               | Blocks a call until any readiness state occurs in the epoll container                                          |
+| [srt_epoll_clear_usocks](#srt_epoll_clear_usocks) | removes all SRT ("user") socket subscriptions from the epoll container identified by [`eid`](#eid)             |
+| [srt_epoll_set](#srt_epoll_set)                   | Allows setting or retrieving flags that change the default behavior of the epoll functions                     |
+| [srt_epoll_release](#srt_epoll_release)           | Deletes the epoll container                                                                                    |
+| <img width=290px height=1px/>                     | <img width=720px height=1px/>                                                                                  |
 
 <h3 id="logging-control">Logging Control</h3>
   
-| *Function / Structure*               | *Description*                                                                                                  |
-|:------------------------------------ |:-------------------------------------------------------------------------------------------------------------- |
-| [srt_setloglevel](#srt_setloglevel)  | Sets the minimum severity for logging.                                                                         |
-| [srt_addlogfa](#srt_addlogfa)        | Add a functional area (FA), which is an additional filtering mechanism for logging.                            |
-| [srt_dellogfa](#srt_dellogfa)        | Delete a functional area (FA), which is an additional filtering mechanism for logging.                         |
-| [srt_resetlogfa](#srt_resetlogfa)    | Reset a functional area (FA), which is an additional filtering mechanism for logging.                          |
-| [srt_setloghandler](#srt_setloghandler)           | Replaces default standard stream for error logging.                                                            |
-| [srt_setlogflags](#srt_setlogflags)  | Allows configuring parts of log information that are not to be passed.                                         |
-| <img width=290px height=1px/>        | <img width=720px height=1px/>                                                                                  |
+| *Function / Structure*                            | *Description*                                                                                                  |
+|:------------------------------------------------- |:-------------------------------------------------------------------------------------------------------------- |
+| [srt_setloglevel](#srt_setloglevel)               | Sets the minimum severity for logging                                                                          |
+| [srt_addlogfa](#srt_addlogfa)                     | Add a functional area (FA), which is an additional filtering mechanism for logging                             |
+| [srt_dellogfa](#srt_dellogfa)                     | Delete a functional area (FA), which is an additional filtering mechanism for logging                          |
+| [srt_resetlogfa](#srt_resetlogfa)                 | Reset a functional area (FA), which is an additional filtering mechanism for logging                           |
+| [srt_setloghandler](#srt_setloghandler)           | Replaces default standard stream for error logging                                                             |
+| [srt_setlogflags](#srt_setlogflags)               | Allows configuring parts of log information that are not to be passed                                          |
+| <img width=290px height=1px/>                     | <img width=720px height=1px/>                                                                                  |
 
 <h3 id="time-access">Time Access</h3>
   
-| *Function / Structure*               | *Description*                                                                                                  |
-|:------------------------------------ |:-------------------------------------------------------------------------------------------------------------- |
-| [srt_time_now](#srt_time_now)        | Get time in microseconds elapsed since epoch using SRT internal clock (steady or monotonic clock).             |
-| [srt_connection_time](#srt_connection_time)       | Get connection time in microseconds elapsed since epoch using SRT internal clock (steady or monotonic clock).  |
-| <img width=290px height=1px/>        | <img width=720px height=1px/>                                                                                  |
+| *Function / Structure*                            | *Description*                                                                                                  |
+|:------------------------------------------------- |:-------------------------------------------------------------------------------------------------------------- |
+| [srt_time_now](#srt_time_now)                     | Get time in microseconds elapsed since epoch using SRT internal clock 
+(steady or monotonic clock)              |
+| [srt_connection_time](#srt_connection_time)       | Get connection time in microseconds elapsed since epoch using SRT internal clock 
+(steady or monotonic clock)   |
+| <img width=290px height=1px/>                     | <img width=720px height=1px/>                                                                                  |
 
 <h3 id="error-codes">Error Codes</h3>
   
-| *Error Code*                         | *Description*                                                                                                  |
-|:------------------------------------ |:-------------------------------------------------------------------------------------------------------------- |
-[`SRT_EUNKNOWN`](#srt_eunknown)        | Internal error when setting the right error code.                                                              |
-[`SRT_SUCCESS`](#srt_success)          | The value set when the last error was cleared and no error has occurred since then.                            |
-[`SRT_ECONNSETUP`](#srt_econnsetup)    | General setup error resulting from internal system state.                                                      |
-[`SRT_ENOSERVER`](#srt_enoserver)      | Connection timed out while attempting to connect to the remote address.                                        |
-[`SRT_ECONNREJ`](#srt_econnrej)        | Connection has been rejected.                                                                                  |
-[`SRT_ESOCKFAIL`](#srt_esockfail)      | An error occurred when trying to call a system function on an internally used UDP socket.                      |
-[`SRT_ESECFAIL`](#srt_esecfail)        | A possible tampering with the handshake packets was detected, or encryption request wasn't properly fulfilled. |
-[`SRT_ESCLOSED`](#srt_esclosed)        | A socket that was vital for an operation called in blocking mode has been closed during the operation.         |
-[`SRT_ECONNFAIL`](#srt_econnfail)      | General connection failure of unknown details.                                                                 |
-[`SRT_ECONNLOST`](#srt_econnlost)      | The socket was properly connected, but the connection has been broken.                                         |
-[`SRT_ENOCONN`](#srt_enoconn)          | The socket is not connected.                                                                                   |
-[`SRT_ERESOURCE`](#srt_eresource)      | System or standard library error reported unexpectedly for unknown purpose.                                    |
-[`SRT_ETHREAD`](#srt_ethread)          | System was unable to spawn a new thread when requried.                                                         |
-[`SRT_ENOBUF`](#srt_enobuf)            | System was unable to allocate memory for buffers.                                                              |
-[`SRT_ESYSOBJ`](#srt_esysobj)          | System was unable to allocate system specific objects.                                                         |
-[`SRT_EFILE`](#srt_efile)              | General filesystem error (for functions operating with file transmission).                                     |
-[`SRT_EINVRDOFF`](#srt_einvrdoff)      | Failure when trying to read from a given position in the file.                                                 |
-[`SRT_ERDPERM`](#srt_erdperm)          | Read permission was denied when trying to read from file.                                                      |
-[`SRT_EINVWROFF`](#srt_einvwroff)      | Failed to set position in the written file.                                                                    |
-[`SRT_EWRPERM`](#srt_ewrperm)          | Write permission was denied when trying to write to a file.                                                    |
-[`SRT_EINVOP`](#srt_einvop)            | Invalid operation performed for the current state of a socket.                                                 |
-[`SRT_EBOUNDSOCK`](#srt_eboundsock)    | The socket is currently bound and the required operation cannot be performed in this state.                    |
-[`SRT_ECONNSOCK`](#srt_econnsock)      | The socket is currently connected and therefore performing the required operation is not possible.             |
-[`SRT_EINVPARAM`](#srt_einvparam)      | Call parameters for API functions have some requirements that were not satisfied.                              |
-[`SRT_EINVSOCK`](#srt_einvsock)        | The API function required an ID of an entity (socket or group) and it was invalid.                             |
-[`SRT_EUNBOUNDSOCK`](#srt_eunboundsock)| The operation to be performed on a socket requires that it first be explicitly bound.                          |
-[`SRT_ENOLISTEN`](#srt_enolisten)      | The socket passed for the operation is required to be in the listen state                                      |
-[`SRT_ERDVNOSERV`](#srt_erdvnoserv)    | The required operation cannot be performed when the socket is set to rendezvous mode                           |
-[`SRT_ERDVUNBOUND`](#srt_erdvunbound)  | An attempt was made to connect to a socket set to rendezvous mode that was not first bound.                    |
-[`SRT_EINVALMSGAPI`](#srt_einvalmsgapi)| The function was used incorrectly in the message API.                                                          |
+| *Error Code*                                      | *Description*                                                                                                  |
+|:------------------------------------------------- |:-------------------------------------------------------------------------------------------------------------- |
+[`SRT_EUNKNOWN`](#srt_eunknown)                     | Internal error when setting the right error code                                                               |
+[`SRT_SUCCESS`](#srt_success)                       | The value set when the last error was cleared and no error has occurred since then                             |
+[`SRT_ECONNSETUP`](#srt_econnsetup)                 | General setup error resulting from internal system state                                                       |
+[`SRT_ENOSERVER`](#srt_enoserver)                   | Connection timed out while attempting to connect to the remote address                                         |
+[`SRT_ECONNREJ`](#srt_econnrej)                     | Connection has been rejected                                                                                   |
+[`SRT_ESOCKFAIL`](#srt_esockfail)                   | An error occurred when trying to call a system function on an internally used UDP socket                       |
+[`SRT_ESECFAIL`](#srt_esecfail)                     | A possible tampering with the handshake packets was detected, or encryption request wasn't properly fulfilled. |
+[`SRT_ESCLOSED`](#srt_esclosed)                     | A socket that was vital for an operation called in blocking mode has been closed during the operation          |
+[`SRT_ECONNFAIL`](#srt_econnfail)                   | General connection failure of unknown details                                                                  |
+[`SRT_ECONNLOST`](#srt_econnlost)                   | The socket was properly connected, but the connection has been broken                                          |
+[`SRT_ENOCONN`](#srt_enoconn)                       | The socket is not connected                                                                                    |
+[`SRT_ERESOURCE`](#srt_eresource)                   | System or standard library error reported unexpectedly for unknown purpose                                     |
+[`SRT_ETHREAD`](#srt_ethread)                       | System was unable to spawn a new thread when requried                                                          |
+[`SRT_ENOBUF`](#srt_enobuf)                         | System was unable to allocate memory for buffers                                                               |
+[`SRT_ESYSOBJ`](#srt_esysobj)                       | System was unable to allocate system specific objects                                                          |
+[`SRT_EFILE`](#srt_efile)                           | General filesystem error (for functions operating with file transmission)                                      |
+[`SRT_EINVRDOFF`](#srt_einvrdoff)                   | Failure when trying to read from a given position in the file                                                  |
+[`SRT_ERDPERM`](#srt_erdperm)                       | Read permission was denied when trying to read from file                                                       |
+[`SRT_EINVWROFF`](#srt_einvwroff)                   | Failed to set position in the written file                                                                     |
+[`SRT_EWRPERM`](#srt_ewrperm)                       | Write permission was denied when trying to write to a file                                                     |
+[`SRT_EINVOP`](#srt_einvop)                         | Invalid operation performed for the current state of a socket                                                  |
+[`SRT_EBOUNDSOCK`](#srt_eboundsock)                 | The socket is currently bound and the required operation cannot be performed in this state                     |
+[`SRT_ECONNSOCK`](#srt_econnsock)                   | The socket is currently connected and therefore performing the required operation is not possible              |
+[`SRT_EINVPARAM`](#srt_einvparam)                   | Call parameters for API functions have some requirements that were not satisfied                               |
+[`SRT_EINVSOCK`](#srt_einvsock)                     | The API function required an ID of an entity (socket or group) and it was invalid                              |
+[`SRT_EUNBOUNDSOCK`](#srt_eunboundsock)             | The operation to be performed on a socket requires that it first be explicitly bound                           |
+[`SRT_ENOLISTEN`](#srt_enolisten)                   | The socket passed for the operation is required to be in the listen state                                      |
+[`SRT_ERDVNOSERV`](#srt_erdvnoserv)                 | The required operation cannot be performed when the socket is set to rendezvous mode                           |
+[`SRT_ERDVUNBOUND`](#srt_erdvunbound)               | An attempt was made to connect to a socket set to rendezvous mode that was not first bound                     |
+[`SRT_EINVALMSGAPI`](#srt_einvalmsgapi)             | The function was used incorrectly in the message API                                                           |
 [`SRT_EINVALBUFFERAPI`](#srt_einvalbufferapi)       | The function was used incorrectly in the stream (buffer) API                                                   |
-[`SRT_EDUPLISTEN`](#srt_eduplisten)    | The port tried to be bound for listening is already busy.                                                      |
-[`SRT_ELARGEMSG`](#srt_elargemsg)      | Size exceeded.                                                                                                 |
-[`SRT_EINVPOLLID`](#srt_einvpollid)    | The epoll ID passed to an epoll function is invalid                                                            |
-[`SRT_EPOLLEMPTY`](#srt_epollempty)    | The epoll container currently has no subscribed sockets.                                                       |
-[`SRT_EASYNCFAIL`](#srt_easyncfail)    | General asynchronous failure (not in use currently).                                                           |
-[`SRT_EASYNCSND`](#srt_easyncsnd)      | Sending operation is not ready to perform.                                                                     |
-[`SRT_EASYNCRCV`](#srt_easyncrcv)      | Receiving operation is not ready to perform.                                                                   |
-[`SRT_ETIMEOUT`](#srt_etimeout)        | The operation timed out.                                                                                       |
-[`SRT_ECONGEST`](#srt_econgest)        | With [`SRTO_TSBPDMODE`](../docs/APISocketOptions.md#SRTO_TSBPDMODE) and [`SRTO_TLPKTDROP`](../docs/APISocketOptions.md#SRTO_TLPKTDROP) set to true, some packets were dropped by sender                    |
-[`SRT_EPEERERR`](#srt_epeererr)        | Receiver peer is writing to a file that the agent is sending.                                                  |
-| <img width=290px height=1px/>        | <img width=720px height=1px/>                                                                                  |
+[`SRT_EDUPLISTEN`](#srt_eduplisten)                 | The port tried to be bound for listening is already busy                                                       |
+[`SRT_ELARGEMSG`](#srt_elargemsg)                   | Size exceeded                                                                                                  |
+[`SRT_EINVPOLLID`](#srt_einvpollid)                 | The epoll ID passed to an epoll function is invalid                                                            |
+[`SRT_EPOLLEMPTY`](#srt_epollempty)                 | The epoll container currently has no subscribed sockets                                                        |
+[`SRT_EASYNCFAIL`](#srt_easyncfail)                 | General asynchronous failure (not in use currently)                                                            |
+[`SRT_EASYNCSND`](#srt_easyncsnd)                   | Sending operation is not ready to perform                                                                      |
+[`SRT_EASYNCRCV`](#srt_easyncrcv)                   | Receiving operation is not ready to perform                                                                    |
+[`SRT_ETIMEOUT`](#srt_etimeout)                     | The operation timed out                                                                                        |
+[`SRT_ECONGEST`](#srt_econgest)                     | With [`SRTO_TSBPDMODE`](../docs/APISocketOptions.md#SRTO_TSBPDMODE) 
+and [`SRTO_TLPKTDROP`](../docs/APISocketOptions.md#SRTO_TLPKTDROP) set to true, 
+some packets were dropped by sender                    |
+[`SRT_EPEERERR`](#srt_epeererr)                     | Receiver peer is writing to a file that the agent is sending                                                   |
+| <img width=290px height=1px/>                     | <img width=720px height=1px/>                                                                                  |
+
+
 
 
 
