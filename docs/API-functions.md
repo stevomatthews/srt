@@ -162,10 +162,8 @@
   
 | *Function / Structure*                            | *Description*                                                                                                  |
 |:------------------------------------------------- |:-------------------------------------------------------------------------------------------------------------- |
-| [srt_time_now](#srt_time_now)                     | Get time in microseconds elapsed since epoch using SRT internal clock 
-(steady or monotonic clock)              |
-| [srt_connection_time](#srt_connection_time)       | Get connection time in microseconds elapsed since epoch using SRT internal clock 
-(steady or monotonic clock)   |
+| [srt_time_now](#srt_time_now)                     | Get time in microseconds elapsed since epoch using SRT internal clock <br/> (steady or monotonic clock)              |
+| [srt_connection_time](#srt_connection_time)       | Get connection time in microseconds elapsed since epoch using SRT internal clock <br/> (steady or monotonic clock)   |
 | <img width=290px height=1px/>                     | <img width=720px height=1px/>                                                                                  |
 
 <h3 id="error-codes">Error Codes</h3>
@@ -211,11 +209,11 @@
 [`SRT_EASYNCSND`](#srt_easyncsnd)                   | Sending operation is not ready to perform                                                                      |
 [`SRT_EASYNCRCV`](#srt_easyncrcv)                   | Receiving operation is not ready to perform                                                                    |
 [`SRT_ETIMEOUT`](#srt_etimeout)                     | The operation timed out                                                                                        |
-[`SRT_ECONGEST`](#srt_econgest)                     | With [`SRTO_TSBPDMODE`](../docs/APISocketOptions.md#SRTO_TSBPDMODE) 
-and [`SRTO_TLPKTDROP`](../docs/APISocketOptions.md#SRTO_TLPKTDROP) set to true, 
+[`SRT_ECONGEST`](#srt_econgest)                     | With [`SRTO_TSBPDMODE`](../docs/APISocketOptions.md#SRTO_TSBPDMODE) and [`SRTO_TLPKTDROP`](../docs/APISocketOptions.md#SRTO_TLPKTDROP) set to true, 
 some packets were dropped by sender                    |
 [`SRT_EPEERERR`](#srt_epeererr)                     | Receiver peer is writing to a file that the agent is sending                                                   |
 | <img width=290px height=1px/>                     | <img width=720px height=1px/>                                                                                  |
+
 
 
 
