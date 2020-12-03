@@ -1,6 +1,6 @@
 # SRT API Functions
 
-**NOTE:** This is probably a design flaw (<span style="color:red;">BUG?</span>). Usually underlying system 
+**NOTE:** This is probably a design flaw (:warning: **BUG?**). Usually underlying system 
 errors are reported by [`SRT_ECONNSETUP`](#srt_econnsetup).
 
 
