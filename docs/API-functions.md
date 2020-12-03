@@ -50,8 +50,8 @@
 | [srt_exclude](#srt_exclude)                       | Removes a socket from a group to which it currently belongs                                                    |
 | [srt_groupof](#srt_groupof)                       | Returns the group ID of a socket, or `SRT_INVALID_SOCK`                                                        |
 | [srt_group_data](#srt_group_data)                 | Obtains the current member state of the group specified in `socketgroup`                                       |
-| [srt_connect_group](#srt_connect_group)           | Similar to calling [`srt_connect`](#srt_connect) or [`srt_connect_bind`](#srt_connect_bind) in a loop for every item in an array. |
-| [srt_prepare_endpoint](#srt_prepare_endpoint)     | Prepares a default [`SRT_SOCKGROUPCONFIG`](#SRT_SOCKGROUPCONFIG) object as an element of an array for [`srt_connect_group`](#srt_connect_group)              |
+| [srt_connect_group](#srt_connect_group)           | Similar to calling [`srt_connect`](#srt_connect) or [`srt_connect_bind`](#srt_connect_bind) <br/> in a loop for every item in an array. |
+| [srt_prepare_endpoint](#srt_prepare_endpoint)     | Prepares a default [`SRT_SOCKGROUPCONFIG`](#SRT_SOCKGROUPCONFIG) object as an element of <br/> an array for [`srt_connect_group`](#srt_connect_group)              |
 | [srt_create_config](#srt_create_config)           | Creates a dynamic object for specifying socket options                                                         |
 | [srt_delete_config](#srt_delete_config)           | Deletes the configuration object                                                                               |
 | [srt_config_add](#srt_config_add)                 | Adds a configuration option to the configuration object                                                        |
@@ -74,7 +74,7 @@
   
 | *Function / Structure*                            | *Description*                                                                                                  |
 |:------------------------------------------------- |:-------------------------------------------------------------------------------------------------------------- |
-| [SRT_MSGCTRL](#SRT_MSGCTRL)                       | Used in [`srt_sendmsg2`](#srt_sendmsg) and [`srt_recvmsg2`](#srt_recvmsg2) calls; specifies some extra parameters  |
+| [SRT_MSGCTRL](#SRT_MSGCTRL)                       | Used in [`srt_sendmsg2`](#srt_sendmsg) and [`srt_recvmsg2`](#srt_recvmsg2) calls; <br/> specifies some extra parameters  |
 | <img width=290px height=1px/>                     | <img width=720px height=1px/>                                                                                  |
 
 <h3 id="transmission">Transmission</h3>
@@ -96,7 +96,7 @@
 | *Function / Structure*                            | *Description*                                                                                                  |
 |:------------------------------------------------- |:-------------------------------------------------------------------------------------------------------------- |
 | [srt_getlasterror](#srt_getlasterror)             | Get the numeric code of the last error                                                                         |
-| [srt_strerror](#srt_strerror)                     | Returns a string message that represents a given SRT error code and possibly the `errno` value, if not 0       |
+| [srt_strerror](#srt_strerror)                     | Returns a string message that represents a given SRT error code and possibly <br/> the `errno` value, if not 0       |
 | [srt_getlasterror_str](#srt_getlasterror_str)     | Gets the text message for the last error                                                                       |
 | [srt_clearlasterror](#srt_clearlasterror)         | Clears the last error                                                                                          |
 | [srt_getrejectreason](#srt_getrejectreason)       | Provides a detailed reason for a failed connection attempt                                                     |
@@ -112,8 +112,8 @@
 | [SRT_REJ_RDVCOOKIE](#SRT_REJ_RDVCOOKIE)           | Rendezvous cookie collision                                                                                    |
 | [SRT_REJ_BADSECRET](#SRT_REJ_BADSECRET)           | Both parties have defined a passprhase for connection and they differ                                          |
 | [SRT_REJ_UNSECURE](#SRT_REJ_UNSECURE)             | Only one connection party has set up a password                                                                |
-| [SRT_REJ_MESSAGEAPI](#SRT_REJ_MESSAGEAPI)         | The value for [`SRTO_MESSAGEAPI`](../docs/APISocketOptions.md#SRTO_MESSAGEAPI) flag is different on both connection parties                                   |
-| [SRT_REJ_FILTER](#SRT_REJ_FILTER)                 | The [`SRTO_PACKETFILTER`](../docs/APISocketOptions.md#SRTO_PACKETFILTER) option has been set differently on both connection parties                             |
+| [SRT_REJ_MESSAGEAPI](#SRT_REJ_MESSAGEAPI)         | The value for [`SRTO_MESSAGEAPI`](../docs/APISocketOptions.md#SRTO_MESSAGEAPI) flag <br/> is different on both connection parties                                   |
+| [SRT_REJ_FILTER](#SRT_REJ_FILTER)                 | The [`SRTO_PACKETFILTER`](../docs/APISocketOptions.md#SRTO_PACKETFILTER) option has been <br/> set differently on both connection parties                             |
 | [SRT_REJ_GROUP](#SRT_REJ_GROUP)                   | The group type or some group settings are incompatible for both connection parties                             |
 | [SRT_REJ_TIMEOUT](#SRT_REJ_TIMEOUT)               | The connection wasn't rejected, but it timed out                                                               |
 | [srt_rejectreason_str](#srt_rejectreason_str)     | Returns a constant string for the reason of the connection rejected, as per given code ID                      |
@@ -176,8 +176,8 @@
 [`SRT_ENOSERVER`](#srt_enoserver)                   | Connection timed out while attempting to connect to the remote address                                         |
 [`SRT_ECONNREJ`](#srt_econnrej)                     | Connection has been rejected                                                                                   |
 [`SRT_ESOCKFAIL`](#srt_esockfail)                   | An error occurred when trying to call a system function on an internally used UDP socket                       |
-[`SRT_ESECFAIL`](#srt_esecfail)                     | A possible tampering with the handshake packets was detected, or encryption request wasn't properly fulfilled. |
-[`SRT_ESCLOSED`](#srt_esclosed)                     | A socket that was vital for an operation called in blocking mode has been closed during the operation          |
+[`SRT_ESECFAIL`](#srt_esecfail)                     | A possible tampering with the handshake packets was detected, or encryption request <br/> wasn't properly fulfilled. |
+[`SRT_ESCLOSED`](#srt_esclosed)                     | A socket that was vital for an operation called in blocking mode has been closed <br/> during the operation          |
 [`SRT_ECONNFAIL`](#srt_econnfail)                   | General connection failure of unknown details                                                                  |
 [`SRT_ECONNLOST`](#srt_econnlost)                   | The socket was properly connected, but the connection has been broken                                          |
 [`SRT_ENOCONN`](#srt_enoconn)                       | The socket is not connected                                                                                    |
@@ -210,10 +210,9 @@
 [`SRT_EASYNCRCV`](#srt_easyncrcv)                   | Receiving operation is not ready to perform                                                                    |
 [`SRT_ETIMEOUT`](#srt_etimeout)                     | The operation timed out                                                                                        |
 [`SRT_ECONGEST`](#srt_econgest)                     | With [`SRTO_TSBPDMODE`](../docs/APISocketOptions.md#SRTO_TSBPDMODE) and [`SRTO_TLPKTDROP`](../docs/APISocketOptions.md#SRTO_TLPKTDROP) set to true, 
-some packets were dropped by sender                    |
+ <br/> some packets were dropped by sender                    |
 [`SRT_EPEERERR`](#srt_epeererr)                     | Receiver peer is writing to a file that the agent is sending                                                   |
 | <img width=290px height=1px/>                     | <img width=720px height=1px/>                                                                                  |
-
 
 
 
