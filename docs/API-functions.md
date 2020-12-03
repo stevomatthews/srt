@@ -148,7 +148,7 @@
 | [srt_rejectreason_str](#srt_rejectreason_str)     | Returns a constant string for the reason of the connection rejected, as per given code ID                      |
 | [srt_setrejectreason](#srt_setrejectreason)       | Sets the rejection code on the socket                                                                          |
 | [srt_getrejectreason](#srt_getrejectreason)       | Provides a detailed reason for a failed connection attempt                                                     |
-| <h3>Rejection Reasons</h3>                        |                                                                                                                |
+| <h4>Rejection Reasons</h4>                        |                                                                                                                |
 | [SRT_REJ_UNKNOWN](#SRT_REJ_UNKNOWN)               | A fallback value for cases when there was no connection rejected                                               |
 | [SRT_REJ_SYSTEM](#SRT_REJ_SYSTEM)                 | A system function reported a failure                                                                           |
 | [SRT_REJ_PEER](#SRT_REJ_PEER)                     | The connection has been rejected by peer, but no further details are available                                 |
@@ -2752,7 +2752,8 @@ used for the connection, the function should also be called when the
 a numeric code, which can be translated into a message by 
 [`srt_rejectreason_str`](#srt_rejectreason_str).
 
-The following codes are currently reported:
+  
+## Rejection Reasons
 
   
 #### SRT_REJ_UNKNOWN
@@ -2782,6 +2783,8 @@ A problem with resource allocation (usually memory).
 The data sent by one party to another cannot be properly interpreted. This
 should not happen during normal usage, unless it's a bug, or some weird
 events are happening on the network.
+
+[:arrow_up: &nbsp; Back to List of Functions & Structures](#srt-api-functions)
 
   
 #### SRT_REJ_BACKLOG
@@ -2821,6 +2824,8 @@ the sent handshake packets are returning to the same host as if they
 were sent by the peer (i.e. a party is sending to itself). When this happens, 
 this reject reason will be reported by every attempt.
 
+[:arrow_up: &nbsp; Back to List of Functions & Structures](#srt-api-functions)
+
   
 #### SRT_REJ_BADSECRET
 
@@ -2849,6 +2854,8 @@ been set up differently on both connection parties.
 
 The [`SRTO_PACKETFILTER`](../docs/APISocketOptions.md#SRTO_PACKETFILTER) option 
 has been set differently on both connection parties.
+
+[:arrow_up: &nbsp; Back to List of Functions & Structures](#srt-api-functions)
 
   
 #### SRT_REJ_GROUP
@@ -2916,6 +2923,8 @@ the timeout reason.
 Connection has been rejected. Additional reject reason can be obtained through
 [`srt_getrejectreason`](#srt_getrejectreason) (see above).
 
+[:arrow_up: &nbsp; Back to List of Functions & Structures](#srt-api-functions)
+
   
 #### `SRT_ESOCKFAIL`
 
@@ -2952,6 +2961,8 @@ General connection failure of unknown details.
 The socket was properly connected, but the connection has been broken.
 This specialization is reported from the transmission functions.
 
+[:arrow_up: &nbsp; Back to List of Functions & Structures](#srt-api-functions)
+
   
 #### `SRT_ENOCONN`
 
@@ -2980,6 +2991,8 @@ System was unable to allocate memory for buffers.
 System was unable to allocate system specific objects (such as
 sockets, mutexes or condition variables).
 
+[:arrow_up: &nbsp; Back to List of Functions & Structures](#srt-api-functions)
+
   
 #### `SRT_EFILE`
 
@@ -3005,6 +3018,8 @@ Failed to set position in the written file.
 #### `SRT_EWRPERM`
 
 Write permission was denied when trying to write to a file.
+
+[:arrow_up: &nbsp; Back to List of Functions & Structures](#srt-api-functions)
 
   
 #### `SRT_EINVOP`
@@ -3047,6 +3062,8 @@ The API function required an ID of an entity (socket or group) and
 it was invalid. Note that some API functions work only with socket or
 only with group, so they would also return this error if inappropriate
 type of entity was passed, even if it was valid.
+
+[:arrow_up: &nbsp; Back to List of Functions & Structures](#srt-api-functions)
 
   
 #### `SRT_EUNBOUNDSOCK`
@@ -3095,6 +3112,8 @@ type parameter were incorrectly specified
 * The socket is a member of a self-managing group, therefore you should
 perform the operation on the group, not on this socket
 
+[:arrow_up: &nbsp; Back to List of Functions & Structures](#srt-api-functions)
+
   
 #### `SRT_EINVALBUFFERAPI`
 
@@ -3140,6 +3159,8 @@ waiting function was blocking). Note that this situation can be prevented
 by setting the `SRT_EPOLL_ENABLE_EMPTY` flag, which may be useful when
 you use multiple threads and start waiting without subscribed sockets, so that
 you can subscribe them later from another thread.
+
+[:arrow_up: &nbsp; Back to List of Functions & Structures](#srt-api-functions)
 
   
 #### `SRT_EASYNCFAIL`
