@@ -28,8 +28,8 @@
 |:------------------------------------------------- |:-------------------------------------------------------------------------------------------------------------- |
 | [srt_listen](#srt_listen)                         | Sets up the listening state on a socket                                                                        |
 | [srt_accept](#srt_accept)                         | Accepts a connection; creates/returns a new socket or group ID                                                 |
-| [srt_accept_bond](#srt_accept_bond)               | Accepts a connection pending on any sockets passed in the `listeners` array of `nlisteners` size               |
-| [srt_listen_callback](#srt_listen_callback)       | Installs/executes a callback hook on a socket created to handle the incoming connection on a listening socket  |
+| [srt_accept_bond](#srt_accept_bond)               | Accepts a connection pending on any sockets passed in the `listeners` array <br/> of `nlisteners` size               |
+| [srt_listen_callback](#srt_listen_callback)       | Installs/executes a callback hook on a socket created to handle the incoming connection <br/> on a listening socket  |
 | [srt_connect](#srt_connect)                       | Connects a socket or a group to a remote party with a specified address and port                               |
 | [srt_connect_bind](#srt_connect_bind)             | Same as [`srt_bind`](#srt_bind) then [`srt_connect`](#srt_connect) if called with socket [`u`](#u)             |
 | [srt_connect_debug](#srt_connect_debug)           | Same as [`srt_connect`](#srt_connect)but allows specifying ISN (developers only)                               |
@@ -142,7 +142,7 @@
 | *Function / Structure*                            | *Description*                                                                                                  |
 |:------------------------------------------------- |:-------------------------------------------------------------------------------------------------------------- |
 | [srt_getlasterror](#srt_getlasterror)             | Get the numeric code of the last error                                                                         |
-| [srt_strerror](#srt_strerror)                     | Returns a string message that represents a given SRT error code and possibly <br/> the `errno` value, if not 0       |
+| [srt_strerror](#srt_strerror)                     | Returns a string message that represents a given SRT error code and possibly <br/> the `errno` value, if not 0 |
 | [srt_getlasterror_str](#srt_getlasterror_str)     | Gets the text message for the last error                                                                       |
 | [srt_clearlasterror](#srt_clearlasterror)         | Clears the last error                                                                                          |
 | [srt_rejectreason_str](#srt_rejectreason_str)     | Returns a constant string for the reason of the connection rejected, as per given code ID                      |
@@ -161,8 +161,8 @@
 | [SRT_REJ_RDVCOOKIE](#SRT_REJ_RDVCOOKIE)           | Rendezvous cookie collision                                                                                    |
 | [SRT_REJ_BADSECRET](#SRT_REJ_BADSECRET)           | Both parties have defined a passprhase for connection and they differ                                          |
 | [SRT_REJ_UNSECURE](#SRT_REJ_UNSECURE)             | Only one connection party has set up a password                                                                |
-| [SRT_REJ_MESSAGEAPI](#SRT_REJ_MESSAGEAPI)         | The value for [`SRTO_MESSAGEAPI`](../docs/APISocketOptions.md#SRTO_MESSAGEAPI) flag <br/> is different on both connection parties                                   |
-| [SRT_REJ_FILTER](#SRT_REJ_FILTER)                 | The [`SRTO_PACKETFILTER`](../docs/APISocketOptions.md#SRTO_PACKETFILTER) option has been <br/> set differently on both connection parties                             |
+| [SRT_REJ_MESSAGEAPI](#SRT_REJ_MESSAGEAPI)         | The value for [`SRTO_MESSAGEAPI`](../docs/APISocketOptions.md#SRTO_MESSAGEAPI) flag is different on both connection parties  |
+| [SRT_REJ_FILTER](#SRT_REJ_FILTER)                 | The [`SRTO_PACKETFILTER`](../docs/APISocketOptions.md#SRTO_PACKETFILTER) option has been set differently on both connection parties  |
 | [SRT_REJ_GROUP](#SRT_REJ_GROUP)                   | The group type or some group settings are incompatible for both connection parties                             |
 | [SRT_REJ_TIMEOUT](#SRT_REJ_TIMEOUT)               | The connection wasn't rejected, but it timed out                                                               |
 | <img width=290px height=1px/>                     | <img width=720px height=1px/>                                                                                  |
@@ -215,6 +215,7 @@
 | <img width=290px height=1px/>                     | <img width=720px height=1px/>                                                                                  |
 
 
+
 ## Library initialization
 
 * [srt_startup](#srt_startup)
@@ -262,7 +263,6 @@ relying on this behavior is strongly discouraged.
 |      Returns                  |                                                                 |
 |:----------------------------- |:--------------------------------------------------------------- |
 |         0                     | A possibility to return other values is reserved for future use |
-| <img width=150px height=1px/> | <img width=600px height=1px/>                      |
 
 **IMPORTANT**: Note that the startup/cleanup calls have an instance counter.
 This means that if you call [`srt_startup`](#srt_startup) multiple times, you need to call the 
@@ -418,7 +418,6 @@ Gets the current status of the socket. Possible states are:
 | <a name="SRTS_CLOSING">`SRTS_CLOSING`</a>       | The socket may still be open and active, but closing is requested, so no further operations will be accepted (active operations will be completed before closing) |
 | <a name="SRTS_CLOSED">`SRTS_CLOSED`</a>         | The socket has been closed, but not yet removed by the GC thread. |
 | <a name="SRTS_NONEXIST">`SRTS_NONEXIST`</a>     | The specified number does not correspond to a valid socket.       |
-| <img width=150px height=1px/>                   | <img width=600px height=1px/>                      |
 
 
 
@@ -511,9 +510,9 @@ the listener socket to accept group connections
 | [`SRT_EINVSOCK`](#srt_einvsock)         | Socket [`u`](#u) indicates no valid SRT socket.                                              |
 | [`SRT_EUNBOUNDSOCK`](#srt_eunboundsock) | [`srt_bind`](#srt_bind) has not yet been called on that socket.                              |
 | [`SRT_ERDVNOSERV`](#srt_erdvnoserv)     | [`SRTO_RENDEZVOUS`](../docs/APISocketOptions.md#SRTO_RENDEZVOUS) flag is set to true on specified socket. |
-| [`SRT_EINVOP`](#srt_einvop)| Internal error (should not happen when [`SRT_EUNBOUNDSOCK`](#srt_eunboundsock) is reported). |
+| [`SRT_EINVOP`](#srt_einvop)             | Internal error (should not happen when [`SRT_EUNBOUNDSOCK`](#srt_eunboundsock) is reported). |
 | [`SRT_ECONNSOCK`](#srt_econnsock)       | The socket is already connected.                                                             |
-| [`SRT_EDUPLISTEN`](#srt_eduplisten)     | The address used in [`srt_bind`](#srt_bind) by this socket is already occupied by another listening socket. Binding multiple sockets to one IP address and port is allowed, as long as [`SRTO_REUSEADDR`](../docs/APISocketOptions.md#SRTO_REUSEADDRS) is set to true, but only one of these sockets can be set up as a listener.  |
+| [`SRT_EDUPLISTEN`](#srt_eduplisten)     | The address used in [`srt_bind`](#srt_bind) by this socket is already occupied by another listening socket. <br/> Binding multiple sockets to one IP address and port is allowed, as long as <br/> [`SRTO_REUSEADDR`](../docs/APISocketOptions.md#SRTO_REUSEADDRS) is set to true, but only one of these sockets can be set up as a listener.  |
 | <img width=150px height=1px/>           | <img width=600px height=1px/>                      |
 
 
@@ -569,8 +568,8 @@ internal use only.
 | [`SRT_EINVPARAM`](#srt_einvparam) | NULL specified as `addrlen`, when `addr` is not NULL  |
 | [`SRT_EINVSOCK`](#srt_einvsock)   | `lsn` designates no valid socket ID.                   |
 | [`SRT_ENOLISTEN`](#srt_enolisten) | `lsn` is not set up as a listener ([`srt_listen`](#srt_listen) not called). |
-| [`SRT_EASYNCRCV`](#srt_easyncrcv) | No connection reported so far. This error is reported only when the `lsn` listener socket was configured as non-blocking for reading ([`SRTO_RCVSYN`](../docs/APISocketOptions.md#SRTO_RCVSYN) set to false); otherwise the call blocks until a connection is reported or an error occurs    |
-| [`SRT_ESCLOSED`](#srt_esclosed)   | The `lsn` socket has been closed while the function was blocking the call (if [`SRTO_RCVSYN`](../docs/APISocketOptions.md#SRTO_RCVSYN) is set to default true). This includes a situation when the socket was closed just at the moment when a connection was made and the socket got closed during processing   |
+| [`SRT_EASYNCRCV`](#srt_easyncrcv) | No connection reported so far. This error is reported only when the `lsn` listener socket was configured <br/> as non-blocking for reading ([`SRTO_RCVSYN`](../docs/APISocketOptions.md#SRTO_RCVSYN) set to false); otherwise the call blocks <br/> until a connection is reported or an error occurs    |
+| [`SRT_ESCLOSED`](#srt_esclosed)   | The `lsn` socket has been closed while the function was blocking the call (if [`SRTO_RCVSYN`](../docs/APISocketOptions.md#SRTO_RCVSYN) is set to <br/> default true). This includes a situation when the socket was closed just at the moment when a connection <br/> was made and the socket got closed during processing   |
 | <img width=150px height=1px/>     | <img width=600px height=1px/>                      |
 
 
@@ -624,9 +623,9 @@ calling this function.
 |       Errors                      |                                                              |
 |:--------------------------------- |:------------------------------------------------------------ |
 | [`SRT_EINVPARAM`](#srt_einvparam) | NULL specified as `listeners` or `nlisteners` < 1            |
-| [`SRT_EINVSOCK`](#srt_einvsock)   | Any socket in `listeners` designates no valid socket ID. Can also mean Internal Error when an error occurred while creating an accepted socket (:warning: &nbsp; **BUG?**) |
-| [`SRT_ENOLISTEN`](#srt_enolisten) | Any socket in `listeners` is not set up as a listener ([`srt_listen`](#srt_listen) not called, or the listener socket has already been closed)  |
-| [`SRT_EASYNCRCV`](#srt_easyncrcv) | No connection reported on any listener socket as the timeout has been reached. This error is only reported when `msTimeOut` is not -1  |
+| [`SRT_EINVSOCK`](#srt_einvsock)   | Any socket in `listeners` designates no valid socket ID. Can also mean Internal Error when an error <br/> occurred while creating an accepted socket (:warning: &nbsp; **BUG?**) |
+| [`SRT_ENOLISTEN`](#srt_enolisten) | Any socket in `listeners` is not set up as a listener ([`srt_listen`](#srt_listen) not called, or the listener socket <br/> has already been closed)  |
+| [`SRT_EASYNCRCV`](#srt_easyncrcv) | No connection reported on any listener socket as the timeout has been reached. This error is only <br/> reported when `msTimeOut` is not -1  |
 | <img width=150px height=1px/>     | <img width=600px height=1px/>                      |
 
 
@@ -759,11 +758,11 @@ mode, you might want to use [`srt_connect_group`](#srt_connect_group) instead.
 |       Errors                          |                                                             |
 |:------------------------------------- |:----------------------------------------------------------- |
 | [`SRT_EINVSOCK`](#srt_einvsock)       | Socket [`u`](#u) indicates no valid socket ID               |
-| [`SRT_ERDVUNBOUND`](#srt_erdvunbound) | Socket [`u`](#u) has set [`SRTO_RENDEZVOUS`](../docs/APISocketOptions.md#SRTO_RENDEZVOUS) to true, but [`srt_bind`](#srt_bind) hasn't yet been called on it. The [`srt_connect`](#srt_connect) function is also used to connect a rendezvous socket, but rendezvous sockets must be explicitly bound to a local interface prior to connecting. Non-rendezvous sockets (caller sockets) can be left without binding - the call to [`srt_connect`](#srt_connect) will bind them automatically. |
+| [`SRT_ERDVUNBOUND`](#srt_erdvunbound) | Socket [`u`](#u) has set [`SRTO_RENDEZVOUS`](../docs/APISocketOptions.md#SRTO_RENDEZVOUS) to true, but [`srt_bind`](#srt_bind) hasn't yet been called on it. The [`srt_connect`](#srt_connect) <br/> function is also used to connect a rendezvous socket, but rendezvous sockets must be explicitly bound <br/> to a local interface prior to connecting. Non-rendezvous sockets (caller sockets) can be left <br/> without binding - the call to [`srt_connect`](#srt_connect) will bind them automatically. |
 | [`SRT_ECONNSOCK`](#srt_econnsock)     | Socket [`u`](#u) is already connected                       |
 | [`SRT_ECONNREJ`](#srt_econnrej)       | Connection has been rejected                                |
 | [`SRT_ENOSERVER`](#srt_enoserver)     | Connection has been timed out (see [`SRTO_CONNTIMEO`](../docs/APISocketOptions.md#SRTO_CONNTIMEO)) |
-| [`SRT_ESCLOSED`](#srt_esclosed)       | The socket [`u`](#u) has been closed while the function was blocking the call (if [`SRTO_RCVSYN`](../docs/APISocketOptions.md#SRTO_RCVSYN) is set to default true)   |
+| [`SRT_ESCLOSED`](#srt_esclosed)       | The socket [`u`](#u) has been closed while the function was blocking the call (if [`SRTO_RCVSYN`](../docs/APISocketOptions.md#SRTO_RCVSYN) is set to <br/> default true)   |
 | <img width=150px height=1px/>         | <img width=600px height=1px/>                      |
 
 
@@ -1406,7 +1405,6 @@ should delete it using [`srt_delete_config`](#srt_delete_config).
 |      Returns                  |                                                                    |
 |:----------------------------- |:------------------------------------------------------------------ |
 |      Pointer                  | The pointer to the created object (memory allocation errors apply) |
-| <img width=150px height=1px/> | <img width=600px height=1px/>                      |
 
 
 [:arrow_up: &nbsp; Back to List of Functions & Structures](#srt-api-functions)
@@ -1623,7 +1621,6 @@ readable form, where x = ("%d", (version>>16) & 0xff), etc.
 |      Returns                  |                                                           |
 |:----------------------------- |:--------------------------------------------------------- |
 | SRT Version                   | Unsigned 32-bit integer                                   |
-| <img width=150px height=1px/> | <img width=600px height=1px/>                      |
 
 
 
@@ -2217,7 +2214,7 @@ the only way to know what kind of error has occurred on the socket.
 |       Errors                        |                                                                     |
 |:----------------------------------- |:------------------------------------------------------------------- |
 | [`SRT_EINVPOLLID`](#srt_einvpollid) | [`eid`](#eid) parameter doesn't refer to a valid epoll container    |
-| [`SRT_ETIMEOUT`](#srt_etimeout)     | Up to `msTimeOut` no sockets subscribed in [`eid`](#eid) were ready. This is reported only if `msTimeOut` was \>=0, otherwise the function waits indefinitely. |
+| [`SRT_ETIMEOUT`](#srt_etimeout)     | Up to `msTimeOut` no sockets subscribed in [`eid`](#eid) were ready. This is reported only if `msTimeOut` <br/> was \>=0, otherwise the function waits indefinitely. |
 | <img width=150px height=1px/>       | <img width=600px height=1px/>                      |
 
 
@@ -2250,9 +2247,9 @@ indefinitely until a readiness state occurs.
 
 |      Returns                  |                                                                                                                                        |
 |:----------------------------- |:-------------------------------------------------------------------------------------------------------------------------------------- |
-|       Number                  | The number of user socket (SRT socket) state changes that have been reported in `fdsSet`, if this number isn't greater than `fdsSize`  |
-|   `fdsSize` + 1               | This means that there was not enough space in the output array to report all events. For events subscribed with the [`SRT_EPOLL_ET`](#SRT_EPOLL_ET) flag only those will be cleared that were reported. Others will wait for the next call.  |
-|         0                     | If no readiness state was found on any socket and the timeout has passed (this is not possible when waiting indefinitely)              |
+|       Number                  | The number of user socket (SRT socket) state changes that have been reported in `fdsSet`, if this <br/> number isn't greater than `fdsSize`  |
+|   `fdsSize` + 1               | This means that there was not enough space in the output array to report all events. For events subscribed <br/> with the [`SRT_EPOLL_ET`](#SRT_EPOLL_ET) flag only those will be cleared that were reported. Others will wait <br/> for the next call.  |
+|         0                     | If no readiness state was found on any socket and the timeout has passed (this is not possible <br/> when waiting indefinitely)              |
 |        -1                     | Error                                                                                                                                  |
 | <img width=150px height=1px/> | <img width=600px height=1px/>                      |
 
