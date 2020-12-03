@@ -1,5 +1,9 @@
 # SRT API Functions
 
+**NOTE:** This is probably a design flaw (<span style="color:red;">BUG?</span>). Usually underlying system 
+errors are reported by [`SRT_ECONNSETUP`](#srt_econnsetup).
+
+
 <h3 id="Library Initialization">Library Initialization</h3>
   
 | *Function / Structure*                            | *Description*                                                                                                  |
