@@ -244,7 +244,7 @@ relying on this behavior is strongly discouraged.
 
 |       Errors                  |                                                                 |
 |:----------------------------- |:--------------------------------------------------------------- |
-| [`SRT_ECONNSETUP`](#srt_econnsetup) | With error code set, reported when required system resource(s) failed to initialize. This is currently used only on Windows to report a failure from `WSAStartup`. |
+| [`SRT_ECONNSETUP`](#srt_econnsetup) | With error code set, reported when required system resource(s) failed to initialize. <br/> This is currently used only on Windows to report a failure from `WSAStartup`. |
 | <img width=150px height=1px/> | <img width=600px height=1px/>                      |
 
 
