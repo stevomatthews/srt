@@ -2,7 +2,6 @@
 
 
 
-
 |      Returns                  |                                                                 |
 |:----------------------------- |:--------------------------------------------------------------- |
 | 1                             | 1                                                               |
@@ -24,7 +23,6 @@
 | 1                             | 1                                                               |
 | 1                             | 1                                                               |
 | <img width=350px height=1px/> | <img width=800px height=1px/>                                   |
-
 
 
 |      Returns                  |                                                                 |
@@ -108,7 +106,6 @@
 | 1                             | 1                                                               |
 | 1                             | 1                                                               |
 | <img width=150px height=1px/> | <img width=600px height=1px/>                                   |
-
 
 
 <h3 id="Library Initialization">Library Initialization</h3>
@@ -259,7 +256,11 @@
 | [srt_rejectreason_str](#srt_rejectreason_str)     | Returns a constant string for the reason of the connection rejected, as per given code ID                      |
 | [srt_setrejectreason](#srt_setrejectreason)       | Sets the rejection code on the socket                                                                          |
 | [srt_getrejectreason](#srt_getrejectreason)       | Provides a detailed reason for a failed connection attempt                                                     |
-| <h4>Rejection Reasons</h4>                        |                                                                                                                |
+
+<h4 id="rejection-reasons">Rejection Reasons</h4>
+
+| *Rejection Reason*                                | *Description*                                                                                                  |
+|:------------------------------------------------- |:-------------------------------------------------------------------------------------------------------------- |
 | [SRT_REJ_UNKNOWN](#SRT_REJ_UNKNOWN)               | A fallback value for cases when there was no connection rejected                                               |
 | [SRT_REJ_SYSTEM](#SRT_REJ_SYSTEM)                 | A system function reported a failure                                                                           |
 | [SRT_REJ_PEER](#SRT_REJ_PEER)                     | The connection has been rejected by peer, but no further details are available                                 |
@@ -278,7 +279,7 @@
 | [SRT_REJ_TIMEOUT](#SRT_REJ_TIMEOUT)               | The connection wasn't rejected, but it timed out                                                               |
 | <img width=290px height=1px/>                     | <img width=720px height=1px/>                                                                                  |
 
-<h3 id="error-codes">Error Codes</h3>
+<h4 id="error-codes">Error Codes</h4>
   
 | *Error Code*                                      | *Description*                                                                                                  |
 |:------------------------------------------------- |:-------------------------------------------------------------------------------------------------------------- |
@@ -349,12 +350,12 @@ relying on this behavior is strongly discouraged.
 |         0                     | Successfully run, or already started                            |
 |         1                     | This is the first startup, but the GC thread is already running |
 |        -1                     | Failed                                                          |
-| <img width=150px height=1px/> | <img width=600px height=1px/>                      |
+| <img width=250px height=1px/> | <img width=700px height=1px/>                      |
 
 |       Errors                  |                                                                 |
 |:----------------------------- |:--------------------------------------------------------------- |
 | [`SRT_ECONNSETUP`](#srt_econnsetup) | With error code set, reported when required system resource(s) failed to initialize. <br/> This is currently used only on Windows to report a failure from `WSAStartup`. |
-| <img width=150px height=1px/> | <img width=600px height=1px/>                      |
+| <img width=250px height=1px/> | <img width=700px height=1px/>                      |
 
 
 [:arrow_up: &nbsp; Back to List of Functions & Structures](#srt-api-functions)
@@ -431,12 +432,12 @@ Note that socket IDs always have the `SRTGROUP_MASK` bit clear.
 |:----------------------------- |:------------------------------------------------------- |
 |      Socket ID                | A valid socket ID on success                            |
 | `SRT_INVALID_SOCK`            | (`-1`) on error                                         |
-| <img width=150px height=1px/> | <img width=600px height=1px/>                      |
+| <img width=250px height=1px/> | <img width=700px height=1px/>                      |
 
 |     Errors                    |                                                              |
 |:----------------------------- |:------------------------------------------------------------ |
 | [`SRT_ENOBUF`](#srt_enobuf)   |  Not enough memory to allocate required resources          . |
-| <img width=150px height=1px/> | <img width=600px height=1px/>                      |
+| <img width=250px height=1px/> | <img width=700px height=1px/>                      |
 
 **NOTE:** This is probably a design flaw (:warning: &nbsp; **BUG?**). Usually underlying system 
 errors are reported by [`SRT_ECONNSETUP`](#srt_econnsetup).
@@ -479,7 +480,7 @@ connecting, use [`srt_connect_bind`](#srt_connect_bind) for that purpose.
 |      Returns                  |                                                           |
 |:----------------------------- |:--------------------------------------------------------- |
 | `SRT_ERROR`                   | (-1) on error, otherwise 0                                |
-| <img width=150px height=1px/> | <img width=600px height=1px/>                      |
+| <img width=250px height=1px/> | <img width=700px height=1px/>                      |
 
 |       Errors                        |                                                                      |
 |:----------------------------------- |:-------------------------------------------------------------------- |
@@ -613,7 +614,7 @@ the listener socket to accept group connections
 |      Returns                  |                                                           |
 |:----------------------------- |:--------------------------------------------------------- |
 | `SRT_ERROR`                   | (-1) in case of error, otherwise 0.                       |
-| <img width=150px height=1px/> | <img width=600px height=1px/>                      |
+| <img width=250px height=1px/> | <img width=700px height=1px/>                      |
 
 |       Errors                            |                                                                                              |
 |:--------------------------------------- |:-------------------------------------------------------------------------------------------- |
@@ -672,7 +673,7 @@ internal use only.
 |:----------------------------- |:----------------------------------------------------------------------- |
 | socket/group ID               | On success, a valid SRT socket or group ID to be used for transmission. |
 | `SRT_ERROR`                   | (-1) on failure                                                         |
-| <img width=150px height=1px/> | <img width=600px height=1px/>                      |
+| <img width=250px height=1px/> | <img width=700px height=1px/>                      |
 
 |       Errors                      |                                                                         |
 |:--------------------------------- |:----------------------------------------------------------------------- |
@@ -729,7 +730,7 @@ calling this function.
 |:----------------------------- |:---------------------------------------------------------------------- |
 | SRT socket<br/>group ID       | On success, a valid SRT socket or group ID to be used for transmission |
 | `SRT_ERROR`      | (-1) on failure                                                        |
-| <img width=150px height=1px/> | <img width=600px height=1px/>                      |
+| <img width=250px height=1px/> | <img width=700px height=1px/>                      |
 
 |       Errors                      |                                                              |
 |:--------------------------------- |:------------------------------------------------------------ |
@@ -766,7 +767,7 @@ connection has been accepted.
 |:----------------------------- |:---------------------------------------------------------- |
 |         0                     | Successful                                                 |
 |        -1                     | Error                                                      |
-| <img width=150px height=1px/> | <img width=600px height=1px/>                      |
+| <img width=250px height=1px/> | <img width=700px height=1px/>                      |
 
 |       Errors                      |                                           |
 |:--------------------------------- |:----------------------------------------- |
@@ -864,7 +865,7 @@ mode, you might want to use [`srt_connect_group`](#srt_connect_group) instead.
 |    `SRT_ERROR`                | (-1) in case of error                                     |
 |         0                     | In case when used for [`u`](#u) socket                    |
 |     Socket ID                 | Created for connection for [`u`](#u) group                |
-| <img width=150px height=1px/> | <img width=600px height=1px/>                      |
+| <img width=250px height=1px/> | <img width=700px height=1px/>                      |
 
 |       Errors                          |                                                             |
 |:------------------------------------- |:----------------------------------------------------------- |
@@ -917,7 +918,7 @@ first on the automatically created socket for the connection.
 |    `SRT_ERROR`                | (-1) in case of error                                    |
 |         0                     | In case when used for [`u`](#u) socket                   |
 |    Socket ID                  | Created for connection for [`u`](#u) group               |
-| <img width=150px height=1px/> | <img width=600px height=1px/>                      |
+| <img width=250px height=1px/> | <img width=700px height=1px/>                      |
 
 |       Errors                          |                                                          |
 |:------------------------------------- |:-------------------------------------------------------- |
@@ -976,7 +977,7 @@ to true, and doing [`srt_connect`](#srt_connect).
 |      Returns                  |                                                          |
 |:----------------------------- |:-------------------------------------------------------- |
 | `SRT_ERROR`                   | (-1) in case of error, otherwise 0                       |
-| <img width=150px height=1px/> | <img width=600px height=1px/>                      |
+| <img width=250px height=1px/> | <img width=700px height=1px/>                      |
 
 |       Errors                          |                                                          |
 |:------------------------------------- |:-------------------------------------------------------- |
@@ -1039,7 +1040,7 @@ internal SRT threads.
 |:----------------------------- |:--------------------------------------------------------- |
 |         0                     | Successful                                                |
 |        -1                     | Error                                                     |
-| <img width=150px height=1px/> | <img width=600px height=1px/>                      |
+| <img width=250px height=1px/> | <img width=700px height=1px/>                      |
 
 |       Errors                       |                                           |
 |:---------------------------------- |:------------------------------------------|
@@ -1317,7 +1318,7 @@ and providing `socketgroup` and `inoutlen`.
 |:----------------------------- |:--------------------------------------------------------- |
 |   # of elements               | The number of data elements filled, on success            |
 |         -1                    | Error                                                     |
-| <img width=150px height=1px/> | <img width=600px height=1px/>                      |
+| <img width=250px height=1px/> | <img width=700px height=1px/>                      |
 
 |      Errors                        |                                                           |
 |:---------------------------------- |:--------------------------------------------------------- |
@@ -1571,7 +1572,7 @@ The following options are allowed to be set on the member socket:
 |:----------------------------- |:--------------------------------------------------------- |
 |         0                     | Success                                                   |
 |        -1                     | Failure                                                   |
-| <img width=150px height=1px/> | <img width=600px height=1px/>                      |
+| <img width=250px height=1px/> | <img width=700px height=1px/>                      |
 
 |       Errors                       |                                                                       |
 |:---------------------------------- |:--------------------------------------------------------------------- |
@@ -1605,7 +1606,7 @@ Retrieves the remote address to which the socket is connected.
 |      Returns                  |                                                           |
 |:----------------------------- |:--------------------------------------------------------- |
 | `SRT_ERROR`                   | (-1) in case of error, otherwise 0                        |
-| <img width=150px height=1px/> | <img width=600px height=1px/>                      |
+| <img width=250px height=1px/> | <img width=700px height=1px/>                      |
 
 |       Errors                    |                                                                          |
 |:------------------------------- |:------------------------------------------------------------------------ |
@@ -1632,7 +1633,7 @@ port number after it has been autoselected.
 |      Returns                  |                                                           |
 |:----------------------------- |:--------------------------------------------------------- |
 | `SRT_ERROR`                   | (-1) in case of error, otherwise 0                        |
-| <img width=150px height=1px/> | <img width=600px height=1px/>                      |
+| <img width=250px height=1px/> | <img width=700px height=1px/>                      |
 
 |       Errors                    |                                                |
 |:------------------------------- |:---------------------------------------------- |
@@ -1666,7 +1667,7 @@ type. Specifications are provided in the `apps/socketoptions.hpp` file at the
 |      Returns                  |                                                           |
 |:----------------------------- |:--------------------------------------------------------- |
 | `SRT_ERROR`                   | (-1) in case of error, otherwise 0                        |
-| <img width=150px height=1px/> | <img width=600px height=1px/>                      |
+| <img width=250px height=1px/> | <img width=700px height=1px/>                      |
 
 |       Errors                     |                                                |
 |:-------------------------------- |:---------------------------------------------- |
@@ -1703,7 +1704,7 @@ are then derived by the member sockets.
 |      Returns                  |                                                           |
 |:----------------------------- |:--------------------------------------------------------- |
 | `SRT_ERROR`                   | (-1) in case of error, otherwise 0                        |
-| <img width=150px height=1px/> | <img width=600px height=1px/>                      |
+| <img width=250px height=1px/> | <img width=700px height=1px/>                      |
 
 |       Errors                    |                                               |
 |:------------------------------- |:--------------------------------------------- |
@@ -1876,7 +1877,7 @@ single call to this function determines a message's boundaries.
 |:----------------------------- |:--------------------------------------------------------- |
 |       Size                    | Size of the data sent, if successful                      |
 |    `SRT_ERROR`                | In case of error (-1)                                     |
-| <img width=150px height=1px/> | <img width=600px height=1px/>                      |
+| <img width=250px height=1px/> | <img width=700px height=1px/>                      |
 
 **NOTE**: Note that in **file/stream mode** the returned size may be less than `len`, 
 which means that it didn't send the whole contents of the buffer. You would need to 
@@ -1955,7 +1956,7 @@ the currently lost one, it will be delivered and the lost one dropped.
 |       Size                    | Size (\>0) of the data received, if successful.           |
 |         0                     | If the connection has been closed                         |
 |   `SRT_ERROR`                 | (-1) when an error occurs                                 |
-| <img width=150px height=1px/> | <img width=600px height=1px/>                      |
+| <img width=250px height=1px/> | <img width=700px height=1px/>                      |
 
 |       Errors                                  |                                                           |
 |:--------------------------------------------- |:--------------------------------------------------------- |
@@ -2011,7 +2012,7 @@ You need to pass them to the [`srt_sendfile`](#srt_sendfile) or
 |:----------------------------- |:--------------------------------------------------------- |
 |       Size                    | The size (\>0) of the transmitted data of a file. It may be less than `size`, if the size was greater than the free space in the buffer, in which case you have to send rest of the file next time.  |
 |        -1                     | in case of error                                          |
-| <img width=150px height=1px/> | <img width=600px height=1px/>                      |
+| <img width=250px height=1px/> | <img width=700px height=1px/>                      |
 
 |       Errors                                  |                                                                               |
 |:--------------------------------------------- |:----------------------------------------------------------------------------- |
@@ -2119,7 +2120,7 @@ Creates a new epoll container.
 |:----------------------------- |:--------------------------------------------------------- |
 |     valid EID                 | Success                                                   |
 |        -1                     | Failure                                                   |
-| <img width=150px height=1px/> | <img width=600px height=1px/>                      |
+| <img width=250px height=1px/> | <img width=700px height=1px/>                      |
 
 |       Errors                        |                                                                       |
 |:----------------------------------- |:--------------------------------------------------------------------- |
@@ -2224,7 +2225,7 @@ this function doesn't work with system file descriptors.
 |:----------------------------- |:--------------------------------------------------------- |
 |         0                     | Success                                                   |
 |        -1                     | Failure                                                   |
-| <img width=150px height=1px/> | <img width=600px height=1px/>                      |
+| <img width=250px height=1px/> | <img width=700px height=1px/>                      |
 
 |       Errors                        |                                                                   |
 |:----------------------------------- |:----------------------------------------------------------------- |
@@ -2258,7 +2259,7 @@ The `_ssock` suffix refers to a system socket.
 |:----------------------------- |:--------------------------------------------------------- |
 |         0                     | Success                                                   |
 |        -1                     | Failure                                                   |
-| <img width=150px height=1px/> | <img width=600px height=1px/>                      |
+| <img width=250px height=1px/> | <img width=700px height=1px/>                      |
 
 |       Errors                        |                                                                   |
 |:----------------------------------- |:----------------------------------------------------------------- |
@@ -2320,7 +2321,7 @@ the only way to know what kind of error has occurred on the socket.
 |:----------------------------- |:------------------------------------------------------------ |
 |       Number                  | The number (\>0) of ready sockets, of whatever kind (if any) |
 |         -1                    | Error                                                        |
-| <img width=150px height=1px/> | <img width=600px height=1px/>                      |
+| <img width=250px height=1px/> | <img width=700px height=1px/>                      |
 
 |       Errors                        |                                                                     |
 |:----------------------------------- |:------------------------------------------------------------------- |
@@ -2362,7 +2363,7 @@ indefinitely until a readiness state occurs.
 |   `fdsSize` + 1               | This means that there was not enough space in the output array to report all events. For events subscribed <br/> with the [`SRT_EPOLL_ET`](#SRT_EPOLL_ET) flag only those will be cleared that were reported. Others will wait <br/> for the next call.  |
 |         0                     | If no readiness state was found on any socket and the timeout has passed (this is not possible <br/> when waiting indefinitely)              |
 |        -1                     | Error                                                                                                                                  |
-| <img width=150px height=1px/> | <img width=600px height=1px/>                      |
+| <img width=250px height=1px/> | <img width=700px height=1px/>                      |
 
 |       Errors                        |                                                                   |
 |:----------------------------------- |:----------------------------------------------------------------- |
@@ -2408,7 +2409,7 @@ container identified by [`eid`](#eid).
 |:----------------------------- |:--------------------------------------------------------- |
 |         0                     | Success                                                   |
 |        -1                     | Failure                                                   |
-| <img width=150px height=1px/> | <img width=600px height=1px/>                      |
+| <img width=250px height=1px/> | <img width=700px height=1px/>                      |
 
 |       Errors                        |                                                                   |
 |:----------------------------------- |:----------------------------------------------------------------- |
@@ -2453,7 +2454,7 @@ the general output array is not empty.
 |:----------------------------- |:-------------------------------------------------------------------------- |
 |                               | This function returns the state of the flags at the time before the call.  |
 |        -1                     | Special value in case when an error occurred.                              |
-| <img width=150px height=1px/> | <img width=600px height=1px/>                      |
+| <img width=250px height=1px/> | <img width=700px height=1px/>                      |
 
 |       Errors                        |                                                                   |
 |:----------------------------------- |:----------------------------------------------------------------- |
@@ -2476,7 +2477,7 @@ Deletes the epoll container.
 |:----------------------------- |:-------------------------------------------------------------- |
 |                               | The number (\>0) of ready sockets, of whatever kind (if any).  |
 |        -1                     | Error                           .                              |
-| <img width=150px height=1px/> | <img width=600px height=1px/>                      |
+| <img width=250px height=1px/> | <img width=700px height=1px/>                      |
 
 |       Errors                        |                                                                   |
 |:----------------------------------- |:----------------------------------------------------------------- |
@@ -2671,7 +2672,7 @@ Get time in microseconds elapsed since epoch using SRT internal clock (steady or
 |      Returns                  |                                                                          |
 |:----------------------------- |:------------------------------------------------------------------------ |
 |                               | Current time in microseconds elapsed since epoch of SRT internal clock.  |
-| <img width=150px height=1px/> | <img width=600px height=1px/>                      |
+| <img width=250px height=1px/> | <img width=700px height=1px/>                      |
 
 
 [:arrow_up: &nbsp; Back to List of Functions & Structures](#srt-api-functions)
@@ -2694,7 +2695,7 @@ and `msTimeStamp` value of the `SRT_TRACEBSTATS` (see [statistics.md](statistics
 |:----------------------------- |:--------------------------------------------------------------------------- |
 |                               | Connection time in microseconds elapsed since epoch of SRT internal clock.  |
 |        -1                     | Error                                                                       |
-| <img width=150px height=1px/> | <img width=600px height=1px/>                      |
+| <img width=250px height=1px/> | <img width=700px height=1px/>                      |
 
 |       Errors                      |                                                            |
 |:--------------------------------- |:---------------------------------------------------------- |
@@ -2832,7 +2833,7 @@ is not available - it then sets the value to `SRT_REJC_PREDEFINED + 404`.
 |:----------------------------- |:--------------------------------------------------------- |
 |         0                     | Error                                                     |
 |        -1                     | Success                                                   |
-| <img width=150px height=1px/> | <img width=600px height=1px/>                      |
+| <img width=250px height=1px/> | <img width=700px height=1px/>                      |
 
 |       Errors                      |                                              |
 |:--------------------------------- |:-------------------------------------------- |
