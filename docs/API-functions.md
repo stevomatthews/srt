@@ -378,6 +378,7 @@ relying on this behavior is strongly discouraged.
 |      Returns                  |                                                                 |
 |:----------------------------- |:--------------------------------------------------------------- |
 |         0                     | A possibility to return other values is reserved for future use |
+| <img width=250px height=1px/>       | <img width=700px height=1px/>                      |
 
 **IMPORTANT**: Note that the startup/cleanup calls have an instance counter.
 This means that if you call [`srt_startup`](#srt_startup) multiple times, you need to call the 
@@ -533,6 +534,7 @@ Gets the current status of the socket. Possible states are:
 | <a name="SRTS_CLOSING">`SRTS_CLOSING`</a>       | The socket may still be open and active, but closing is requested, so no further operations will be accepted (active operations will be completed before closing) |
 | <a name="SRTS_CLOSED">`SRTS_CLOSED`</a>         | The socket has been closed, but not yet removed by the GC thread. |
 | <a name="SRTS_NONEXIST">`SRTS_NONEXIST`</a>     | The specified number does not correspond to a valid socket.       |
+| <img width=250px height=1px/>       | <img width=700px height=1px/>                      |
 
 
 
@@ -683,8 +685,8 @@ internal use only.
 | [`SRT_EINVPARAM`](#srt_einvparam) | NULL specified as `addrlen`, when `addr` is not NULL  |
 | [`SRT_EINVSOCK`](#srt_einvsock)   | `lsn` designates no valid socket ID.                   |
 | [`SRT_ENOLISTEN`](#srt_enolisten) | `lsn` is not set up as a listener ([`srt_listen`](#srt_listen) not called). |
-| [`SRT_EASYNCRCV`](#srt_easyncrcv) | No connection reported so far. This error is reported only when the `lsn` listener socket was configured <br/> as non-blocking for reading ([`SRTO_RCVSYN`](../docs/APISocketOptions.md#SRTO_RCVSYN) set to false); otherwise the call blocks <br/> until a connection is reported or an error occurs    |
-| [`SRT_ESCLOSED`](#srt_esclosed)   | The `lsn` socket has been closed while the function was blocking the call (if [`SRTO_RCVSYN`](../docs/APISocketOptions.md#SRTO_RCVSYN) is set to <br/> default true). This includes a situation when the socket was closed just at the moment when a connection <br/> was made and the socket got closed during processing   |
+| [`SRT_EASYNCRCV`](#srt_easyncrcv) | No connection reported so far. This error is reported only when the `lsn` listener socket was <br/> configured as non-blocking for reading ([`SRTO_RCVSYN`](../docs/APISocketOptions.md#SRTO_RCVSYN) set to false); otherwise the call blocks <br/> until a connection is reported or an error occurs    |
+| [`SRT_ESCLOSED`](#srt_esclosed)   | The `lsn` socket has been closed while the function was blocking the call (if [`SRTO_RCVSYN`](../docs/APISocketOptions.md#SRTO_RCVSYN) is set to <br/> default true). This includes a situation when the socket was closed just at the moment when a <br/> connection was made and the socket got closed during processing   |
 | <img width=250px height=1px/>     | <img width=700px height=1px/>                      |
 
 
@@ -873,7 +875,7 @@ mode, you might want to use [`srt_connect_group`](#srt_connect_group) instead.
 |       Errors                          |                                                             |
 |:------------------------------------- |:----------------------------------------------------------- |
 | [`SRT_EINVSOCK`](#srt_einvsock)       | Socket [`u`](#u) indicates no valid socket ID               |
-| [`SRT_ERDVUNBOUND`](#srt_erdvunbound) | Socket [`u`](#u) has set [`SRTO_RENDEZVOUS`](../docs/APISocketOptions.md#SRTO_RENDEZVOUS) to true, but [`srt_bind`](#srt_bind) hasn't yet been called on it. The [`srt_connect`](#srt_connect) <br/> function is also used to connect a rendezvous socket, but rendezvous sockets must be explicitly bound <br/> to a local interface prior to connecting. Non-rendezvous sockets (caller sockets) can be left <br/> without binding - the call to [`srt_connect`](#srt_connect) will bind them automatically. |
+| [`SRT_ERDVUNBOUND`](#srt_erdvunbound) | Socket [`u`](#u) has set [`SRTO_RENDEZVOUS`](../docs/APISocketOptions.md#SRTO_RENDEZVOUS) to true, but [`srt_bind`](#srt_bind) hasn't yet been called on it. <br/> The [`srt_connect`](#srt_connect) function is also used to connect a rendezvous socket, but rendezvous sockets must <br/> be explicitly bound to a local interface prior to connecting. Non-rendezvous sockets (caller sockets) can <br/> be left without binding - the call to [`srt_connect`](#srt_connect) will bind them automatically. |
 | [`SRT_ECONNSOCK`](#srt_econnsock)     | Socket [`u`](#u) is already connected                       |
 | [`SRT_ECONNREJ`](#srt_econnrej)       | Connection has been rejected                                |
 | [`SRT_ENOSERVER`](#srt_enoserver)     | Connection has been timed out (see [`SRTO_CONNTIMEO`](../docs/APISocketOptions.md#SRTO_CONNTIMEO)) |
