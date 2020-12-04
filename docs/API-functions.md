@@ -258,6 +258,7 @@
 | [srt_rejectreason_str](#srt_rejectreason_str)     | Returns a constant string for the reason of the connection rejected, as per given code ID                      |
 | [srt_setrejectreason](#srt_setrejectreason)       | Sets the rejection code on the socket                                                                          |
 | [srt_getrejectreason](#srt_getrejectreason)       | Provides a detailed reason for a failed connection attempt                                                     |
+| <img width=290px height=1px/>                     | <img width=720px height=1px/>                                                                                  |
 
 <h4 id="rejection-reasons">Rejection Reasons</h4>
 
@@ -530,7 +531,7 @@ Gets the current status of the socket. Possible states are:
 | <a name="SRTS_CONNECTING">`SRTS_CONNECTING`</a> | The connect operation was initiated, but not yet finished. This may also mean that it has timed out; <br/> you can only know that after getting a socket error report from [`srt_epoll_wait`](#srt_epoll_wait). In blocking mode <br/> it's not possible because [`srt_connect`](#srt_connect) does not return until the socket is connected or failed due <br/> to timeout or interrupted call.  |
 | <a name="SRTS_CONNECTED">`SRTS_CONNECTED`</a>   | The socket is connected and ready for transmission.               |
 | <a name="SRTS_BROKEN">`SRTS_BROKEN`</a>         | The socket was connected, but the connection was broken.          |
-| <a name="SRTS_CLOSING">`SRTS_CLOSING`</a>       | The socket may still be open and active, but closing is requested, so no further operations will be accepted <br/> (active operations will be completed before closing) |
+| <a name="SRTS_CLOSING">`SRTS_CLOSING`</a>       | The socket may still be open and active, but closing is requested, so no further operations will <br/> be accepted (active operations will be completed before closing) |
 | <a name="SRTS_CLOSED">`SRTS_CLOSED`</a>         | The socket has been closed, but not yet removed by the GC thread. |
 | <a name="SRTS_NONEXIST">`SRTS_NONEXIST`</a>     | The specified number does not correspond to a valid socket.       |
 | <img width=240px height=1px/>       | <img width=710px height=1px/>                      |
@@ -1893,12 +1894,12 @@ In both **file/message** and **live mode** the successful return is always equal
 |:--------------------------------------------- |:------------------------------------------------------------------------------------------------------------------- |
 | [`SRT_ENOCONN`](#srt_enoconn)                 | Socket [`u`](#u) used when the operation is not connected.                                                          |
 | [`SRT_ECONNLOST`](#srt_econnlost)             | Socket [`u`](#u) used for the operation has lost its connection.                                                    |
-| [`SRT_EINVALMSGAPI`](#srt_einvalmsgapi)       | Incorrect API usage in **message mode**:<br/>**live mode**: trying to send more bytes at once than `SRTO_PAYLOADSIZE` or wrong source time was provided. |
-| [`SRT_EINVALBUFFERAPI`](#srt_einvalbufferapi) | Incorrect API usage in **stream mode** (reserved for future use):<br/>The congestion controller object used for this mode doesn't use any restrictions on this call, but this may change. |
-| [`SRT_ELARGEMSG`](#srt_elargemsg)             | Message to be sent can't fit in the sending buffer (that is, it exceeds the current total space in the sending buffer in bytes). This means that the sender buffer is too small, or the application is trying to send a larger message than initially predicted.  |
-| [`SRT_EASYNCSND`](#srt_easyncsnd)             | There's no free space currently in the buffer to schedule the payload. This is only reported in non-blocking mode ([`SRTO_SNDSYN`](../docs/APISocketOptions.md#SRTO_SNDSYN) set to false); in blocking mode the call is blocked until enough free space in the sending buffer becomes available.  |
-| [`SRT_ETIMEOUT`](#srt_etimeout)               | The condition described above still persists and the timeout has passed. This is only reported in blocking mode when [`SRTO_SNDTIMEO`](../docs/APISocketOptions.md#SRTO_SNDTIMEO) is set to a value other than -1. |
-| [`SRT_EPEERERR`](#srt_epeererr)               | This is reported only in the case where, as a stream is being received by a peer, the [`srt_recvfile`](#srt_recvfile) function encounters an error during a write operation on a file. This is reported by a `UMSG_PEERERROR` message from the peer, and the agent sets the appropriate flag internally. This flag persists up to the moment when the connection is broken or closed. |
+| [`SRT_EINVALMSGAPI`](#srt_einvalmsgapi)       | Incorrect API usage in **message mode**:<br/>**live mode**: trying to send more bytes at once than `SRTO_PAYLOADSIZE` or wrong source time <br/>was provided. |
+| [`SRT_EINVALBUFFERAPI`](#srt_einvalbufferapi) | Incorrect API usage in **stream mode** (reserved for future use):<br/>The congestion controller object used for this mode doesn't use any restrictions on this call, <br/>but this may change. |
+| [`SRT_ELARGEMSG`](#srt_elargemsg)             | Message to be sent can't fit in the sending buffer (that is, it exceeds the current total space in the <br/>sending buffer in bytes). This means that the sender buffer is too small, or the application is trying to send <br/>a larger message than initially predicted.  |
+| [`SRT_EASYNCSND`](#srt_easyncsnd)             | There's no free space currently in the buffer to schedule the payload. This is only reported in <br/>non-blocking mode ([`SRTO_SNDSYN`](../docs/APISocketOptions.md#SRTO_SNDSYN) set to false); in blocking mode the call is blocked until enough free space in <br/>the sending buffer becomes available.  |
+| [`SRT_ETIMEOUT`](#srt_etimeout)               | The condition described above still persists and the timeout has passed. This is only reported in <br/>blocking mode when [`SRTO_SNDTIMEO`](../docs/APISocketOptions.md#SRTO_SNDTIMEO) is set to a value other than -1. |
+| [`SRT_EPEERERR`](#srt_epeererr)               | This is reported only in the case where, as a stream is being received by a peer, the [`srt_recvfile`](#srt_recvfile) <br/>function encounters an error during a write operation on a file. This is reported by a `UMSG_PEERERROR` <br/>message from the peer, and the agent sets the appropriate flag internally. This flag persists up to the <br/>moment when the connection is broken or closed. |
 | <img width=240px height=1px/>                 | <img width=710px height=1px/>                      |
 
 
@@ -1969,7 +1970,7 @@ the currently lost one, it will be delivered and the lost one dropped.
 | [`SRT_ECONNLOST`](#srt_econnlost)             | Socket [`u`](#u) used for the operation has lost connection (this is reported only if the connection <br/> was unexpectedly broken, not when it was closed by the foreign host). |
 | [`SRT_EINVALMSGAPI`](#srt_einvalmsgapi)       | Incorrect API usage in **message mode**:<br/>-- **live mode**: size of the buffer is less than [`SRTO_PAYLOADSIZE`](../docs/APISocketOptions.md#SRTO_PAYLOADSIZE) |
 | [`SRT_EINVALBUFFERAPI`](#srt_einvalbufferapi) | Incorrect API usage in **stream mode**:<br/>• Currently not in use. File congestion control used for **stream mode** does not restrict <br/> the parameters. :warning: &nbsp; **???**   |
-| [`SRT_ELARGEMSG`](#srt_elargemsg)             | Message to be sent can't fit in the sending buffer (that is, it exceeds the current total space in <br/> the sending buffer in bytes). This means that the sender buffer is too small, or the application is trying to <br/> send a larger message than initially intended.  |
+| [`SRT_ELARGEMSG`](#srt_elargemsg)             | Message to be sent can't fit in the sending buffer (that is, it exceeds the current total space in <br/> the sending buffer in bytes). This means that the sender buffer is too small, or the application <br/> is trying to send a larger message than initially intended.  |
 | [`SRT_EASYNCRCV`](#srt_easyncrcv)             | There are no data currently waiting for delivery. This happens only in non-blocking mode <br/> (when [`SRTO_RCVSYN`](../docs/APISocketOptions.md#SRTO_RCVSYN) is set to false). In blocking mode the call is blocked until the data are ready. <br/> How this is defined, depends on the mode:<br/>• In **live mode** (with [`SRTO_TSBPDMODE`](../docs/APISocketOptions.md#SRTO_TSBPDMODE) on), at least one packet must be present in the receiver <br/> buffer and its time to play be in the past<br/>• In **file/message mode**, one full message must be available, the next one waiting if there are no <br/> messages with `inorder` = false, or possibly the first message ready with `inorder` = false<br/>• In **file/stream mode**, it is expected to have at least one byte of data still not extracted  |
 | [`SRT_ETIMEOUT`](#srt_etimeout)               | The readiness condition described above is still not achieved and the timeout has passed. <br/> This is only reported in blocking mode when[`SRTO_RCVTIMEO`](../docs/APISocketOptions.md#SRTO_RCVTIMEO) is set to a value other than -1. |
 | <img width=240px height=1px/>                 | <img width=710px height=1px/>                      |
@@ -2129,7 +2130,7 @@ Creates a new epoll container.
 
 |       Errors                        |                                                                       |
 |:----------------------------------- |:--------------------------------------------------------------------- |
-| [`SRT_ECONNSETUP`](#srt_econnsetup) | System operation failed or not enough space to create a new epoll. System error might happen on <br/> systems that use a special method for the system part of epoll (`epoll_create()`, `kqueue()`), and therefore <br/> associated resources, like epoll on Linux.   |
+| [`SRT_ECONNSETUP`](#srt_econnsetup) | System operation failed or not enough space to create a new epoll. System error might happen on <br/> systems that use a special method for the system part of epoll (`epoll_create()`, `kqueue()`), <br/> and therefore associated resources, like epoll on Linux.   |
 | <img width=240px height=1px/>       | <img width=710px height=1px/>                      |
 
 
