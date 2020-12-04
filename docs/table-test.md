@@ -11,10 +11,10 @@ Markdown Width      Measured Width
 
 Here is an image showing the measured widths:  
 
-![](/docs/images/table-test.png)
+![](/docs/images/table-test2.png)
 
 
-### Table Test 1 (varying <img> widths)
+### Table Test 1 (varying IMG widths)
 
 |      Returns                  |                                                                 |
 |:----------------------------- |:--------------------------------------------------------------- |
