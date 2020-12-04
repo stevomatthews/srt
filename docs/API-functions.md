@@ -2,7 +2,6 @@
 
 
 
-
 |      Returns                  |                                                                 |
 |:----------------------------- |:--------------------------------------------------------------- |
 | 1                             | 1                                                               |
@@ -527,7 +526,7 @@ Gets the current status of the socket. Possible states are:
 | <a name="SRTS_INIT">`SRTS_INIT`</a>             | Created, but not bound.                                           |
 | <a name="SRTS_OPENED">`SRTS_OPENED`</a>         | Created and bound, but not in use yet.                            |
 | <a name="SRTS_LISTENING">`SRTS_LISTENING`</a>   | Socket is in listening state.                                     |
-| <a name="SRTS_CONNECTING">`SRTS_CONNECTING`</a> | The connect operation was initiated, but not yet finished. This may also mean that it has timed out; <br/> you can only know that after getting a socket error report from [`srt_epoll_wait`](#srt_epoll_wait). In blocking mode <br/> it's not possible because [`srt_connect`](#srt_connect) does not return until the socket is connected or failed due to timeout <br/> or interrupted call.  |
+| <a name="SRTS_CONNECTING">`SRTS_CONNECTING`</a> | The connect operation was initiated, but not yet finished. This may also mean that it has timed out; <br/> you can only know that after getting a socket error report from [`srt_epoll_wait`](#srt_epoll_wait). In blocking mode <br/> it's not possible because [`srt_connect`](#srt_connect) does not return until the socket is connected or failed due <br/> to timeout or interrupted call.  |
 | <a name="SRTS_CONNECTED">`SRTS_CONNECTED`</a>   | The socket is connected and ready for transmission.               |
 | <a name="SRTS_BROKEN">`SRTS_BROKEN`</a>         | The socket was connected, but the connection was broken.          |
 | <a name="SRTS_CLOSING">`SRTS_CLOSING`</a>       | The socket may still be open and active, but closing is requested, so no further operations will be accepted <br/> (active operations will be completed before closing) |
@@ -685,7 +684,7 @@ internal use only.
 | [`SRT_EINVSOCK`](#srt_einvsock)   | `lsn` designates no valid socket ID.                   |
 | [`SRT_ENOLISTEN`](#srt_enolisten) | `lsn` is not set up as a listener ([`srt_listen`](#srt_listen) not called). |
 | [`SRT_EASYNCRCV`](#srt_easyncrcv) | No connection reported so far. This error is reported only when the `lsn` listener socket was <br/> configured as non-blocking for reading ([`SRTO_RCVSYN`](../docs/APISocketOptions.md#SRTO_RCVSYN) set to false); otherwise the call blocks <br/> until a connection is reported or an error occurs    |
-| [`SRT_ESCLOSED`](#srt_esclosed)   | The `lsn` socket has been closed while the function was blocking the call (if [`SRTO_RCVSYN`](../docs/APISocketOptions.md#SRTO_RCVSYN) is set to <br/> default true). This includes a situation when the socket was closed just at the moment when a <br/> connection was made and the socket got closed during processing   |
+| [`SRT_ESCLOSED`](#srt_esclosed)   | The `lsn` socket has been closed while the function was blocking the call (if [`SRTO_RCVSYN`](../docs/APISocketOptions.md#SRTO_RCVSYN) <br/> is set to default true). This includes a situation when the socket was closed just at the <br/> moment when a connection was made and the socket got closed during processing   |
 | <img width=250px height=1px/>     | <img width=700px height=1px/>                      |
 
 
@@ -739,7 +738,7 @@ calling this function.
 |       Errors                      |                                                              |
 |:--------------------------------- |:------------------------------------------------------------ |
 | [`SRT_EINVPARAM`](#srt_einvparam) | NULL specified as `listeners` or `nlisteners` < 1            |
-| [`SRT_EINVSOCK`](#srt_einvsock)   | Any socket in `listeners` designates no valid socket ID. Can also mean Internal Error when an error <br/> occurred while creating an accepted socket (:warning: &nbsp; **BUG?**) |
+| [`SRT_EINVSOCK`](#srt_einvsock)   | Any socket in `listeners` designates no valid socket ID. Can also mean *Internal Error* when <br/> an error occurred while creating an accepted socket (:warning: &nbsp; **BUG?**) |
 | [`SRT_ENOLISTEN`](#srt_enolisten) | Any socket in `listeners` is not set up as a listener ([`srt_listen`](#srt_listen) not called, or the listener socket <br/> has already been closed)  |
 | [`SRT_EASYNCRCV`](#srt_easyncrcv) | No connection reported on any listener socket as the timeout has been reached. This error is only <br/> reported when `msTimeOut` is not -1  |
 | <img width=250px height=1px/>     | <img width=700px height=1px/>                      |
@@ -874,7 +873,7 @@ mode, you might want to use [`srt_connect_group`](#srt_connect_group) instead.
 |       Errors                          |                                                             |
 |:------------------------------------- |:----------------------------------------------------------- |
 | [`SRT_EINVSOCK`](#srt_einvsock)       | Socket [`u`](#u) indicates no valid socket ID               |
-| [`SRT_ERDVUNBOUND`](#srt_erdvunbound) | Socket [`u`](#u) has set [`SRTO_RENDEZVOUS`](../docs/APISocketOptions.md#SRTO_RENDEZVOUS) to true, but [`srt_bind`](#srt_bind) hasn't yet been called on it. <br/> The [`srt_connect`](#srt_connect) function is also used to connect a rendezvous socket, but rendezvous sockets must <br/> be explicitly bound to a local interface prior to connecting. Non-rendezvous sockets (caller sockets) can <br/> be left without binding - the call to [`srt_connect`](#srt_connect) will bind them automatically. |
+| [`SRT_ERDVUNBOUND`](#srt_erdvunbound) | Socket [`u`](#u) has set [`SRTO_RENDEZVOUS`](../docs/APISocketOptions.md#SRTO_RENDEZVOUS) to true, but [`srt_bind`](#srt_bind) hasn't yet been called on it. <br/> The [`srt_connect`](#srt_connect) function is also used to connect a rendezvous socket, but rendezvous sockets <br/> must be explicitly bound to a local interface prior to connecting. Non-rendezvous sockets (caller <br/> sockets) can be left without binding - the call to [`srt_connect`](#srt_connect) will bind them automatically. |
 | [`SRT_ECONNSOCK`](#srt_econnsock)     | Socket [`u`](#u) is already connected                       |
 | [`SRT_ECONNREJ`](#srt_econnrej)       | Connection has been rejected                                |
 | [`SRT_ENOSERVER`](#srt_enoserver)     | Connection has been timed out (see [`SRTO_CONNTIMEO`](../docs/APISocketOptions.md#SRTO_CONNTIMEO)) |
@@ -1521,6 +1520,7 @@ should delete it using [`srt_delete_config`](#srt_delete_config).
 |      Returns                  |                                                                    |
 |:----------------------------- |:------------------------------------------------------------------ |
 |      Pointer                  | The pointer to the created object (memory allocation errors apply) |
+| <img width=250px height=1px/> | <img width=700px height=1px/>                      |
 
 
 [:arrow_up: &nbsp; Back to List of Functions & Structures](#srt-api-functions)
@@ -1642,7 +1642,7 @@ port number after it has been autoselected.
 |       Errors                    |                                                |
 |:------------------------------- |:---------------------------------------------- |
 | [`SRT_EINVSOCK`](#srt_einvsock) | Socket [`u`](#u) indicates no valid socket ID  |
-| [`SRT_ENOCONN`](#srt_enoconn)   | Socket [`u`](#u) isn't bound, so there's no local address to return (:warning: &nbsp; **BUG?** It should rather be [`SRT_EUNBOUNDSOCK`](#srt_eunboundsock))        |
+| [`SRT_ENOCONN`](#srt_enoconn)   | Socket [`u`](#u) isn't bound, so there's no local address to return <br/>(:warning: &nbsp; **BUG?** It should rather be [`SRT_EUNBOUNDSOCK`](#srt_eunboundsock))        |
 | <img width=250px height=1px/>   | <img width=700px height=1px/>                      |
 
 
@@ -1965,12 +1965,12 @@ the currently lost one, it will be delivered and the lost one dropped.
 |       Errors                                  |                                                           |
 |:--------------------------------------------- |:--------------------------------------------------------- |
 | [`SRT_ENOCONN`](#srt_enoconn)                 | Socket [`u`](#u) used for the operation is not connected. |
-| [`SRT_ECONNLOST`](#srt_econnlost)             | Socket [`u`](#u) used for the operation has lost connection (this is reported only if the connection was unexpectedly broken, not when it was closed by the foreign host). |
+| [`SRT_ECONNLOST`](#srt_econnlost)             | Socket [`u`](#u) used for the operation has lost connection (this is reported only if the connection <br/> was unexpectedly broken, not when it was closed by the foreign host). |
 | [`SRT_EINVALMSGAPI`](#srt_einvalmsgapi)       | Incorrect API usage in **message mode**:<br/>-- **live mode**: size of the buffer is less than [`SRTO_PAYLOADSIZE`](../docs/APISocketOptions.md#SRTO_PAYLOADSIZE) |
-| [`SRT_EINVALBUFFERAPI`](#srt_einvalbufferapi) | Incorrect API usage in **stream mode**:<br/>• Currently not in use. File congestion control used for **stream mode** does not restrict the parameters. :warning: &nbsp; **???**   |
-| [`SRT_ELARGEMSG`](#srt_elargemsg)             | Message to be sent can't fit in the sending buffer (that is, it exceeds the current total space in the sending buffer in bytes). This means that the sender buffer is too small, or the application is trying to send a larger message than initially intended.  |
-| [`SRT_EASYNCRCV`](#srt_easyncrcv)             | There are no data currently waiting for delivery. This happens only in non-blocking mode (when [`SRTO_RCVSYN`](../docs/APISocketOptions.md#SRTO_RCVSYN) is set to false). In blocking mode the call is blocked until the data are ready. How this is defined, depends on the mode:<br/>• In **live mode** (with [`SRTO_TSBPDMODE`](../docs/APISocketOptions.md#SRTO_TSBPDMODE) on), at least one packet must be present in the receiver buffer and its time to play be in the past<br/>• In **file/message mode**, one full message must be available, the next one waiting if there are no messages with `inorder` = false, or possibly the first message ready with `inorder` = false<br/>• In **file/stream mode**, it is expected to have at least one byte of data still not extracted  |
-| [`SRT_ETIMEOUT`](#srt_etimeout)               | The readiness condition described above is still not achieved and the timeout has passed. This is only reported in blocking mode when[`SRTO_RCVTIMEO`](../docs/APISocketOptions.md#SRTO_RCVTIMEO) is set to a value other than -1. |
+| [`SRT_EINVALBUFFERAPI`](#srt_einvalbufferapi) | Incorrect API usage in **stream mode**:<br/>• Currently not in use. File congestion control used for **stream mode** does not restrict <br/> the parameters. :warning: &nbsp; **???**   |
+| [`SRT_ELARGEMSG`](#srt_elargemsg)             | Message to be sent can't fit in the sending buffer (that is, it exceeds the current total space in <br/> the sending buffer in bytes). This means that the sender buffer is too small, or the application is trying to <br/> send a larger message than initially intended.  |
+| [`SRT_EASYNCRCV`](#srt_easyncrcv)             | There are no data currently waiting for delivery. This happens only in non-blocking mode <br/> (when [`SRTO_RCVSYN`](../docs/APISocketOptions.md#SRTO_RCVSYN) is set to false). In blocking mode the call is blocked until the data are ready. <br/> How this is defined, depends on the mode:<br/>• In **live mode** (with [`SRTO_TSBPDMODE`](../docs/APISocketOptions.md#SRTO_TSBPDMODE) on), at least one packet must be present in the receiver <br/> buffer and its time to play be in the past<br/>• In **file/message mode**, one full message must be available, the next one waiting if there are no <br/> messages with `inorder` = false, or possibly the first message ready with `inorder` = false<br/>• In **file/stream mode**, it is expected to have at least one byte of data still not extracted  |
+| [`SRT_ETIMEOUT`](#srt_etimeout)               | The readiness condition described above is still not achieved and the timeout has passed. <br/> This is only reported in blocking mode when[`SRTO_RCVTIMEO`](../docs/APISocketOptions.md#SRTO_RCVTIMEO) is set to a value other than -1. |
 | <img width=250px height=1px/>                 | <img width=700px height=1px/>                      |
 
 
@@ -2014,7 +2014,7 @@ You need to pass them to the [`srt_sendfile`](#srt_sendfile) or
 
 |      Returns                  |                                                           |
 |:----------------------------- |:--------------------------------------------------------- |
-|       Size                    | The size (\>0) of the transmitted data of a file. It may be less than `size`, if the size was greater than the free space in the buffer, in which case you have to send rest of the file next time.  |
+|       Size                    | The size (\>0) of the transmitted data of a file. It may be less than `size`, if the size was greater <br/> than the free space in the buffer, in which case you have to send rest of the file next time.  |
 |        -1                     | in case of error                                          |
 | <img width=250px height=1px/> | <img width=700px height=1px/>                      |
 
@@ -2023,7 +2023,7 @@ You need to pass them to the [`srt_sendfile`](#srt_sendfile) or
 | [`SRT_ENOCONN`](#srt_enoconn)                 | Socket [`u`](#u) used for the operation is not connected.                     |
 | [`SRT_ECONNLOST`](#srt_econnlost)             | Socket [`u`](#u) used for the operation has lost its connection.              |
 | [`SRT_EINVALBUFFERAPI`](#srt_einvalbufferapi) | When socket has [`SRTO_MESSAGEAPI`](../docs/APISocketOptions.md#SRTO_MESSAGEAPI) = true or [`SRTO_TSBPDMODE`](../docs/APISocketOptions.md#SRTO_TSBPDMODE) = true. (:warning: &nbsp; **BUG?**: Looxlike MESSAGEAPI isn't checked)   |
-| [`SRT_EINVRDOFF`](#srt_einvrdoff)             | There is a mistake in `offset` or `size` parameters, which should match the index availability and size of the bytes available since `offset` index. This is actually reported for [`srt_sendfile`](#srt_sendfile) when the `seekg` or `tellg` operations resulted in error.  |
+| [`SRT_EINVRDOFF`](#srt_einvrdoff)             | There is a mistake in `offset` or `size` parameters, which should match the index availability and <br/> size of the bytes available since `offset` index. This is actually reported for [`srt_sendfile`](#srt_sendfile) when the <br/> `seekg` or `tellg` operations resulted in error.  |
 | [`SRT_EINVWROFF`](#srt_einvwroff)             | Like above, reported for [`srt_recvfile`](#srt_recvfile) and `seekp`/`tellp`. |
 | [`SRT_ERDPERM`](#srt_erdperm)                 | The read from file operation has failed ([`srt_sendfile`](#srt_sendfile)).    |
 | [`SRT_EWRPERM`](#srt_ewrperm)                 | The write to file operation has failed ([`srt_recvfile`](#srt_recvfile)).     |
@@ -2128,7 +2128,7 @@ Creates a new epoll container.
 
 |       Errors                        |                                                                       |
 |:----------------------------------- |:--------------------------------------------------------------------- |
-| [`SRT_ECONNSETUP`](#srt_econnsetup) | System operation failed or not enough space to create a new epoll. System error might happen on systems that use a special method for the system part of epoll (`epoll_create()`, `kqueue()`), and therefore associated resources, like epoll on Linux.   |
+| [`SRT_ECONNSETUP`](#srt_econnsetup) | System operation failed or not enough space to create a new epoll. System error might happen on <br/> systems that use a special method for the system part of epoll (`epoll_create()`, `kqueue()`), and therefore <br/> associated resources, like epoll on Linux.   |
 | <img width=250px height=1px/>       | <img width=700px height=1px/>                      |
 
 
@@ -2363,9 +2363,9 @@ indefinitely until a readiness state occurs.
 
 |      Returns                  |                                                                                                                                        |
 |:----------------------------- |:-------------------------------------------------------------------------------------------------------------------------------------- |
-|       Number                  | The number of user socket (SRT socket) state changes that have been reported in `fdsSet`, if this <br/> number isn't greater than `fdsSize`  |
-|   `fdsSize` + 1               | This means that there was not enough space in the output array to report all events. For events subscribed <br/> with the [`SRT_EPOLL_ET`](#SRT_EPOLL_ET) flag only those will be cleared that were reported. Others will wait <br/> for the next call.  |
-|         0                     | If no readiness state was found on any socket and the timeout has passed (this is not possible <br/> when waiting indefinitely)              |
+|       Number                  | The number of user socket (SRT socket) state changes that have been reported in `fdsSet`, <br/> if this number isn't greater than `fdsSize`  |
+|   `fdsSize` + 1               | This means that there was not enough space in the output array to report all events. <br/> For events subscribed with the [`SRT_EPOLL_ET`](#SRT_EPOLL_ET) flag only those will be cleared that were reported. <br/> Others will wait for the next call.  |
+|         0                     | If no readiness state was found on any socket and the timeout has passed <br/> (this is not possible when waiting indefinitely)              |
 |        -1                     | Error                                                                                                                                  |
 | <img width=250px height=1px/> | <img width=700px height=1px/>                      |
 
