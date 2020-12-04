@@ -2,6 +2,7 @@
 
 
 
+
 |      Returns                  |                                                                 |
 |:----------------------------- |:--------------------------------------------------------------- |
 | 1                             | 1                                                               |
@@ -106,6 +107,8 @@
 | 1                             | 1                                                               |
 | 1                             | 1                                                               |
 | <img width=150px height=1px/> | <img width=600px height=1px/>                                   |
+
+
 
 
 <h3 id="Library Initialization">Library Initialization</h3>
@@ -488,7 +491,7 @@ connecting, use [`srt_connect_bind`](#srt_connect_bind) for that purpose.
 | [`SRT_EINVOP`](#srt_einvop)         | Socket already bound                                                 |
 | [`SRT_ECONNSETUP`](#srt_econnsetup) | Internal creation of a UDP socket failed                             |
 | [`SRT_ESOCKFAIL`](#srt_esockfail)   | Internal configuration of a UDP socket (`bind`, `setsockopt`) failed |
-| <img width=150px height=1px/>       | <img width=600px height=1px/>                      |
+| <img width=250px height=1px/>       | <img width=700px height=1px/>                      |
 
 
 
@@ -573,12 +576,12 @@ last user closed.
 |      Returns                  |                                                           |
 |:----------------------------- |:--------------------------------------------------------- |
 | `SRT_ERROR`                   | (-1) in case of error, otherwise 0                        |
-| <img width=150px height=1px/> | <img width=600px height=1px/>                             |
+| <img width=250px height=1px/> | <img width=700px height=1px/>                             |
 
 |       Errors                    |                                                 |
 |:------------------------------- |:----------------------------------------------- |
 | [`SRT_EINVSOCK`](#srt_einvsock) | Socket [`u`](#u) indicates no valid socket ID   |
-| <img width=150px height=1px/>   | <img width=600px height=1px/>                   |
+| <img width=250px height=1px/>   | <img width=700px height=1px/>                   |
 
 
 
@@ -625,7 +628,7 @@ the listener socket to accept group connections
 | [`SRT_EINVOP`](#srt_einvop)             | Internal error (should not happen when [`SRT_EUNBOUNDSOCK`](#srt_eunboundsock) is reported). |
 | [`SRT_ECONNSOCK`](#srt_econnsock)       | The socket is already connected.                                                             |
 | [`SRT_EDUPLISTEN`](#srt_eduplisten)     | The address used in [`srt_bind`](#srt_bind) by this socket is already occupied by another listening socket. <br/> Binding multiple sockets to one IP address and port is allowed, as long as <br/> [`SRTO_REUSEADDR`](../docs/APISocketOptions.md#SRTO_REUSEADDRS) is set to true, but only one of these sockets can be set up as a listener.  |
-| <img width=150px height=1px/>           | <img width=600px height=1px/>                      |
+| <img width=250px height=1px/>           | <img width=700px height=1px/>                      |
 
 
 
@@ -682,7 +685,7 @@ internal use only.
 | [`SRT_ENOLISTEN`](#srt_enolisten) | `lsn` is not set up as a listener ([`srt_listen`](#srt_listen) not called). |
 | [`SRT_EASYNCRCV`](#srt_easyncrcv) | No connection reported so far. This error is reported only when the `lsn` listener socket was configured <br/> as non-blocking for reading ([`SRTO_RCVSYN`](../docs/APISocketOptions.md#SRTO_RCVSYN) set to false); otherwise the call blocks <br/> until a connection is reported or an error occurs    |
 | [`SRT_ESCLOSED`](#srt_esclosed)   | The `lsn` socket has been closed while the function was blocking the call (if [`SRTO_RCVSYN`](../docs/APISocketOptions.md#SRTO_RCVSYN) is set to <br/> default true). This includes a situation when the socket was closed just at the moment when a connection <br/> was made and the socket got closed during processing   |
-| <img width=150px height=1px/>     | <img width=600px height=1px/>                      |
+| <img width=250px height=1px/>     | <img width=700px height=1px/>                      |
 
 
 
@@ -738,7 +741,7 @@ calling this function.
 | [`SRT_EINVSOCK`](#srt_einvsock)   | Any socket in `listeners` designates no valid socket ID. Can also mean Internal Error when an error <br/> occurred while creating an accepted socket (:warning: &nbsp; **BUG?**) |
 | [`SRT_ENOLISTEN`](#srt_enolisten) | Any socket in `listeners` is not set up as a listener ([`srt_listen`](#srt_listen) not called, or the listener socket <br/> has already been closed)  |
 | [`SRT_EASYNCRCV`](#srt_easyncrcv) | No connection reported on any listener socket as the timeout has been reached. This error is only <br/> reported when `msTimeOut` is not -1  |
-| <img width=150px height=1px/>     | <img width=600px height=1px/>                      |
+| <img width=250px height=1px/>     | <img width=700px height=1px/>                      |
 
 
 
@@ -772,7 +775,7 @@ connection has been accepted.
 |       Errors                      |                                           |
 |:--------------------------------- |:----------------------------------------- |
 | [`SRT_EINVPARAM`](#srt_einvparam) | Reported when `hook_fn` is a null pointer |
-| <img width=150px height=1px/>     | <img width=600px height=1px/>                      |
+| <img width=250px height=1px/>     | <img width=700px height=1px/>                      |
 
 The callback function has the signature as per this type definition:
 ```
@@ -875,7 +878,7 @@ mode, you might want to use [`srt_connect_group`](#srt_connect_group) instead.
 | [`SRT_ECONNREJ`](#srt_econnrej)       | Connection has been rejected                                |
 | [`SRT_ENOSERVER`](#srt_enoserver)     | Connection has been timed out (see [`SRTO_CONNTIMEO`](../docs/APISocketOptions.md#SRTO_CONNTIMEO)) |
 | [`SRT_ESCLOSED`](#srt_esclosed)       | The socket [`u`](#u) has been closed while the function was blocking the call (if [`SRTO_RCVSYN`](../docs/APISocketOptions.md#SRTO_RCVSYN) is set to <br/> default true)   |
-| <img width=150px height=1px/>         | <img width=600px height=1px/>                      |
+| <img width=250px height=1px/>         | <img width=700px height=1px/>                      |
 
 
 When the [`SRT_ECONNREJ`](#srt_econnrej) error is reported, you can get the reason 
@@ -929,7 +932,7 @@ first on the automatically created socket for the connection.
 | [`SRT_ERDVUNBOUND`](#srt_erdvunbound) | Internal error ([`srt_connect`](#srt_connect) should not report it after [`srt_bind`](#srt_bind) was called)   |
 | [`SRT_ECONNSOCK`](#srt_econnsock)     | Socket [`u`](#u) is already connected                    |
 | [`SRT_ECONNREJ`](#srt_econnrej)       | Connection has been rejected                             |
-| <img width=150px height=1px/>         | <img width=600px height=1px/>                      |
+| <img width=250px height=1px/>         | <img width=700px height=1px/>                      |
 
 
 **IMPORTANT**: It's not allowed to bind and connect the same socket to two
@@ -988,7 +991,7 @@ to true, and doing [`srt_connect`](#srt_connect).
 | [`SRT_ERDVUNBOUND`](#srt_erdvunbound) | Internal error ([`srt_connect`](#srt_connect) should not report it after [`srt_bind`](#srt_bind) was called)    |
 | [`SRT_ECONNSOCK`](#srt_econnsock)     | Socket [`u`](#u) is already connected                    |
 | [`SRT_ECONNREJ`](#srt_econnrej)       | Connection has been rejected                             |
-| <img width=150px height=1px/>         | <img width=600px height=1px/>                      |
+| <img width=250px height=1px/>         | <img width=700px height=1px/>                      |
 
 **IMPORTANT**: Establishing a rendezvous connection to two different families is not 
 allowed (that is, both `local_name` and `remote_name` must be `AF_INET` or `AF_INET6`).
@@ -1045,7 +1048,7 @@ internal SRT threads.
 |       Errors                       |                                           |
 |:---------------------------------- |:------------------------------------------|
 | [`SRT_EINVPARAM`](#srt_einvparam)  | Reported when `hook_fn` is a null pointer |
-| <img width=150px height=1px/>      | <img width=600px height=1px/>                      |
+| <img width=250px height=1px/>      | <img width=700px height=1px/>                      |
 
 
 The callback function signature has the following type definition:
@@ -1324,7 +1327,7 @@ and providing `socketgroup` and `inoutlen`.
 |:---------------------------------- |:--------------------------------------------------------- |
 | [`SRT_EINVPARAM`](#srt_einvparam)  | Reported if `socketgroup` is not an existing group ID     |
 | [`SRT_ELARGEMSG`](#srt_elargemsg)  | Reported if `inoutlen` if less than the size of the group |
-| <img width=150px height=1px/>      | <img width=600px height=1px/>                      |
+| <img width=250px height=1px/>      | <img width=700px height=1px/>                      |
 
    
    
@@ -1577,7 +1580,7 @@ The following options are allowed to be set on the member socket:
 |       Errors                       |                                                                       |
 |:---------------------------------- |:--------------------------------------------------------------------- |
 | [`SRT_EINVPARAM`](#srt_einvparam)  | This option is not allowed to be set on a socket being a group member |
-| <img width=150px height=1px/>      | <img width=600px height=1px/>                      |
+| <img width=250px height=1px/>      | <img width=700px height=1px/>                      |
 
 
 [:arrow_up: &nbsp; Back to List of Functions & Structures](#srt-api-functions)
@@ -1612,7 +1615,7 @@ Retrieves the remote address to which the socket is connected.
 |:------------------------------- |:------------------------------------------------------------------------ |
 | [`SRT_EINVSOCK`](#srt_einvsock) | Socket [`u`](#u) indicates no valid socket ID                            |
 | [`SRT_ENOCONN`](#srt_enoconn)   | Socket [`u`](#u) isn't connected, so there's no remote address to return |
-| <img width=150px height=1px/>   | <img width=600px height=1px/>                      |
+| <img width=250px height=1px/>   | <img width=700px height=1px/>                      |
 
 
 [:arrow_up: &nbsp; Back to List of Functions & Structures](#srt-api-functions)
@@ -1639,7 +1642,7 @@ port number after it has been autoselected.
 |:------------------------------- |:---------------------------------------------- |
 | [`SRT_EINVSOCK`](#srt_einvsock) | Socket [`u`](#u) indicates no valid socket ID  |
 | [`SRT_ENOCONN`](#srt_enoconn)   | Socket [`u`](#u) isn't bound, so there's no local address to return (:warning: &nbsp; **BUG?** It should rather be [`SRT_EUNBOUNDSOCK`](#srt_eunboundsock))        |
-| <img width=150px height=1px/>   | <img width=600px height=1px/>                      |
+| <img width=250px height=1px/>   | <img width=700px height=1px/>                      |
 
 
 [:arrow_up: &nbsp; Back to List of Functions & Structures](#srt-api-functions)
@@ -1673,7 +1676,7 @@ type. Specifications are provided in the `apps/socketoptions.hpp` file at the
 |:-------------------------------- |:---------------------------------------------- |
 | [`SRT_EINVSOCK`](#srt_einvsock)  | Socket [`u`](#u) indicates no valid socket ID  |
 | [`SRT_EINVOP`](#srt_einvop)      | Option `opt` indicates no valid option         |
-| <img width=150px height=1px/>    | <img width=600px height=1px/>                      |
+| <img width=250px height=1px/>    | <img width=700px height=1px/>                      |
 
 
 [:arrow_up: &nbsp; Back to List of Functions & Structures](#srt-api-functions)
@@ -1710,7 +1713,7 @@ are then derived by the member sockets.
 |:------------------------------- |:--------------------------------------------- |
 | [`SRT_EINVSOCK`](#srt_einvsock) | Socket [`u`](#u) indicates no valid socket ID |
 | [`SRT_EINVOP`](#srt_einvop)     | Option `opt` indicates no valid option        |
-| <img width=150px height=1px/>   | <img width=600px height=1px/>                      |
+| <img width=250px height=1px/>   | <img width=700px height=1px/>                      |
 
 **NOTE*: Various other errors may result from problems when setting a 
 specific option (see option description for details).
@@ -1894,7 +1897,7 @@ In both **file/message** and **live mode** the successful return is always equal
 | [`SRT_EASYNCSND`](#srt_easyncsnd)             | There's no free space currently in the buffer to schedule the payload. This is only reported in non-blocking mode ([`SRTO_SNDSYN`](../docs/APISocketOptions.md#SRTO_SNDSYN) set to false); in blocking mode the call is blocked until enough free space in the sending buffer becomes available.  |
 | [`SRT_ETIMEOUT`](#srt_etimeout)               | The condition described above still persists and the timeout has passed. This is only reported in blocking mode when [`SRTO_SNDTIMEO`](../docs/APISocketOptions.md#SRTO_SNDTIMEO) is set to a value other than -1. |
 | [`SRT_EPEERERR`](#srt_epeererr)               | This is reported only in the case where, as a stream is being received by a peer, the [`srt_recvfile`](#srt_recvfile) function encounters an error during a write operation on a file. This is reported by a `UMSG_PEERERROR` message from the peer, and the agent sets the appropriate flag internally. This flag persists up to the moment when the connection is broken or closed. |
-| <img width=150px height=1px/>                 | <img width=600px height=1px/>                      |
+| <img width=250px height=1px/>                 | <img width=700px height=1px/>                      |
 
 
 
@@ -1967,7 +1970,7 @@ the currently lost one, it will be delivered and the lost one dropped.
 | [`SRT_ELARGEMSG`](#srt_elargemsg)             | Message to be sent can't fit in the sending buffer (that is, it exceeds the current total space in the sending buffer in bytes). This means that the sender buffer is too small, or the application is trying to send a larger message than initially intended.  |
 | [`SRT_EASYNCRCV`](#srt_easyncrcv)             | There are no data currently waiting for delivery. This happens only in non-blocking mode (when [`SRTO_RCVSYN`](../docs/APISocketOptions.md#SRTO_RCVSYN) is set to false). In blocking mode the call is blocked until the data are ready. How this is defined, depends on the mode:<br/>• In **live mode** (with [`SRTO_TSBPDMODE`](../docs/APISocketOptions.md#SRTO_TSBPDMODE) on), at least one packet must be present in the receiver buffer and its time to play be in the past<br/>• In **file/message mode**, one full message must be available, the next one waiting if there are no messages with `inorder` = false, or possibly the first message ready with `inorder` = false<br/>• In **file/stream mode**, it is expected to have at least one byte of data still not extracted  |
 | [`SRT_ETIMEOUT`](#srt_etimeout)               | The readiness condition described above is still not achieved and the timeout has passed. This is only reported in blocking mode when[`SRTO_RCVTIMEO`](../docs/APISocketOptions.md#SRTO_RCVTIMEO) is set to a value other than -1. |
-| <img width=150px height=1px/>                 | <img width=600px height=1px/>                      |
+| <img width=250px height=1px/>                 | <img width=700px height=1px/>                      |
 
 
 
@@ -2023,7 +2026,7 @@ You need to pass them to the [`srt_sendfile`](#srt_sendfile) or
 | [`SRT_EINVWROFF`](#srt_einvwroff)             | Like above, reported for [`srt_recvfile`](#srt_recvfile) and `seekp`/`tellp`. |
 | [`SRT_ERDPERM`](#srt_erdperm)                 | The read from file operation has failed ([`srt_sendfile`](#srt_sendfile)).    |
 | [`SRT_EWRPERM`](#srt_ewrperm)                 | The write to file operation has failed ([`srt_recvfile`](#srt_recvfile)).     |
-| <img width=150px height=1px/>                 | <img width=600px height=1px/>                      |
+| <img width=250px height=1px/>                 | <img width=700px height=1px/>                      |
 
 
 
@@ -2125,7 +2128,7 @@ Creates a new epoll container.
 |       Errors                        |                                                                       |
 |:----------------------------------- |:--------------------------------------------------------------------- |
 | [`SRT_ECONNSETUP`](#srt_econnsetup) | System operation failed or not enough space to create a new epoll. System error might happen on systems that use a special method for the system part of epoll (`epoll_create()`, `kqueue()`), and therefore associated resources, like epoll on Linux.   |
-| <img width=150px height=1px/>       | <img width=600px height=1px/>                      |
+| <img width=250px height=1px/>       | <img width=700px height=1px/>                      |
 
 
 [:arrow_up: &nbsp; Back to List of Functions & Structures](#srt-api-functions)
@@ -2230,7 +2233,7 @@ this function doesn't work with system file descriptors.
 |       Errors                        |                                                                   |
 |:----------------------------------- |:----------------------------------------------------------------- |
 | [`SRT_EINVPOLLID`](#srt_einvpollid) | [`eid`](#eid) parameter doesn't refer to a valid epoll container  |
-| <img width=150px height=1px/>       | <img width=600px height=1px/>                      |
+| <img width=250px height=1px/>       | <img width=700px height=1px/>                      |
 
 :warning: &nbsp; **BUG?**: for `add_ssock` the system error results in an empty `CUDTException()`
 call which actually results in [`SRT_SUCCESS`](#srt_success). For cases like that 
@@ -2264,7 +2267,7 @@ The `_ssock` suffix refers to a system socket.
 |       Errors                        |                                                                   |
 |:----------------------------------- |:----------------------------------------------------------------- |
 | [`SRT_EINVPOLLID`](#srt_einvpollid) | [`eid`](#eid) parameter doesn't refer to a valid epoll container  |
-| <img width=150px height=1px/>       | <img width=600px height=1px/>                      |
+| <img width=250px height=1px/>       | <img width=700px height=1px/>                      |
 
 
 [:arrow_up: &nbsp; Back to List of Functions & Structures](#srt-api-functions)
@@ -2327,7 +2330,7 @@ the only way to know what kind of error has occurred on the socket.
 |:----------------------------------- |:------------------------------------------------------------------- |
 | [`SRT_EINVPOLLID`](#srt_einvpollid) | [`eid`](#eid) parameter doesn't refer to a valid epoll container    |
 | [`SRT_ETIMEOUT`](#srt_etimeout)     | Up to `msTimeOut` no sockets subscribed in [`eid`](#eid) were ready. This is reported only if `msTimeOut` <br/> was \>=0, otherwise the function waits indefinitely. |
-| <img width=150px height=1px/>       | <img width=600px height=1px/>                      |
+| <img width=250px height=1px/>       | <img width=700px height=1px/>                      |
 
 
 
@@ -2369,7 +2372,7 @@ indefinitely until a readiness state occurs.
 |:----------------------------------- |:----------------------------------------------------------------- |
 | [`SRT_EINVPOLLID`](#srt_einvpollid) | [`eid`](#eid) parameter doesn't refer to a valid epoll container  |
 | [`SRT_EINVPARAM`](#srt_einvparam)   | One of possible usage errors:<br/>* `fdsSize` is < 0<br/>* `fdsSize` is > 0 and `fdsSet` is a null pointer<br/>* [`eid`](#eid) was subscribed to any system socket  |
-| <img width=150px height=1px/>       | <img width=600px height=1px/>                      |
+| <img width=250px height=1px/>       | <img width=700px height=1px/>                      |
 
 **IMPORTANT**: This function reports timeout by returning 0, not by [`SRT_ETIMEOUT`](#srt_etimeout) error.
 
@@ -2414,7 +2417,7 @@ container identified by [`eid`](#eid).
 |       Errors                        |                                                                   |
 |:----------------------------------- |:----------------------------------------------------------------- |
 | [`SRT_EINVPOLLID`](#srt_einvpollid) | [`eid`](#eid) parameter doesn't refer to a valid epoll container  |
-| <img width=150px height=1px/>       | <img width=600px height=1px/>                      |
+| <img width=250px height=1px/>       | <img width=700px height=1px/>                      |
 
 
 
@@ -2459,7 +2462,7 @@ the general output array is not empty.
 |       Errors                        |                                                                   |
 |:----------------------------------- |:----------------------------------------------------------------- |
 | [`SRT_EINVPOLLID`](#srt_einvpollid) | [`eid`](#eid) parameter doesn't refer to a valid epoll container  |
-| <img width=150px height=1px/>       | <img width=600px height=1px/>                      |
+| <img width=250px height=1px/>       | <img width=700px height=1px/>                      |
 
 
 [:arrow_up: &nbsp; Back to List of Functions & Structures](#srt-api-functions)
@@ -2482,7 +2485,7 @@ Deletes the epoll container.
 |       Errors                        |                                                                   |
 |:----------------------------------- |:----------------------------------------------------------------- |
 | [`SRT_EINVPOLLID`](#srt_einvpollid) | [`eid`](#eid) parameter doesn't refer to a valid epoll container  |
-| <img width=150px height=1px/>       | <img width=600px height=1px/>                      |
+| <img width=250px height=1px/>       | <img width=700px height=1px/>                      |
 
 
 
@@ -2700,7 +2703,7 @@ and `msTimeStamp` value of the `SRT_TRACEBSTATS` (see [statistics.md](statistics
 |       Errors                      |                                                            |
 |:--------------------------------- |:---------------------------------------------------------- |
 | [`SRT_EINVSOCK`](#srt_einvsock)   | Socket `sock` is not an ID of a valid SRT socket           |
-| <img width=150px height=1px/>     | <img width=600px height=1px/>                      |
+| <img width=250px height=1px/>     | <img width=700px height=1px/>                      |
 
   
 ---  
@@ -2839,7 +2842,7 @@ is not available - it then sets the value to `SRT_REJC_PREDEFINED + 404`.
 |:--------------------------------- |:-------------------------------------------- |
 | [`SRT_EINVSOCK`](#srt_einvsock)   | Socket `sock` is not an ID of a valid socket |
 | [`SRT_EINVPARAM`](#srt_einvparam) | `value` is less than `SRT_REJC_PREDEFINED`   |
-| <img width=150px height=1px/>     | <img width=600px height=1px/>                      |
+| <img width=250px height=1px/>     | <img width=700px height=1px/>                      |
 
 [:arrow_up: &nbsp; Back to List of Functions & Structures](#srt-api-functions)
 
