@@ -2,12 +2,15 @@
 
 This page explores how GitHub renders Markdown tables. Despite having fixed-width <img> spacers, the columns vary greatly according to content. The three tables at the top have minimum contents but I changed the <img> widths, and then measured the results. Even in this case the rendered columns don’t appear to play by any rules:
 
+```
 Markdown Width      Measured Width
 150/600px    --->   177/628px
 250/700px    --->   278/728px
 350/800px    --->   317/696px
+```
 
-Here is an image showing the measured widths:
+Here is an image showing the measured widths:  
+
 ![](/docs/images/table-test.png)
 
 
