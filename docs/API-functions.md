@@ -1597,16 +1597,16 @@ Please note that some of the options can only be set on sockets or only on
 groups, although most of the options can be set on the groups so that they
 are then derived by the member sockets.
 
-|      Returns                  |                                                           |
-|:----------------------------- |:--------------------------------------------------------- |
-| `SRT_ERROR`                   | (-1) in case of error, otherwise 0                        |
-| <img width=240px height=1px/> | <img width=710px height=1px/>                      |
+|      Returns                  |                                                 |
+|:----------------------------- |:----------------------------------------------- |
+| `SRT_ERROR`                   | (-1) in case of error, otherwise 0              |
+| <img width=240px height=1px/> | <img width=710px height=1px/>                   |
 
 |       Errors                    |                                               |
 |:------------------------------- |:--------------------------------------------- |
 | [`SRT_EINVSOCK`](#srt_einvsock) | Socket [`u`](#u) indicates no valid socket ID |
 | [`SRT_EINVOP`](#srt_einvop)     | Option `opt` indicates no valid option        |
-| <img width=240px height=1px/>   | <img width=710px height=1px/>                      |
+| <img width=240px height=1px/>   | <img width=710px height=1px/>                 |
 
 **NOTE*: Various other errors may result from problems when setting a 
 specific option (see option description for details).
@@ -1629,6 +1629,7 @@ readable form, where x = ("%d", (version>>16) & 0xff), etc.
 |      Returns                  |                                                           |
 |:----------------------------- |:--------------------------------------------------------- |
 | SRT Version                   | Unsigned 32-bit integer                                   |
+| <img width=240px height=1px/> | <img width=710px height=1px/>                             |
 
 
 
@@ -1791,7 +1792,6 @@ In both **file/message** and **live mode** the successful return is always equal
 | [`SRT_ETIMEOUT`](#srt_etimeout)               | The condition described above still persists and the timeout has passed. This is only reported in <br/>blocking mode when [`SRTO_SNDTIMEO`](../docs/APISocketOptions.md#SRTO_SNDTIMEO) is set to a value other than -1. |
 | [`SRT_EPEERERR`](#srt_epeererr)               | This is reported only in the case where, as a stream is being received by a peer, the <br/>[`srt_recvfile`](#srt_recvfile) function encounters an error during a write operation on a file. This is reported by <br/>a `UMSG_PEERERROR` message from the peer, and the agent sets the appropriate flag internally. <br/>This flag persists up to the moment when the connection is broken or closed. |
 | <img width=240px height=1px/>                 | <img width=710px height=1px/>                      |
-
 
 
 
@@ -1998,7 +1998,7 @@ respectively).
 
 The epoll system, similar to the one on Linux, relies on [`eid`](#eid) objects 
 managed internally in SRT, which can be subscribed to particular sockets and the 
-readiness status of particular operations. The `[srt_epoll_wait](#srt_epoll_wait)` 
+readiness status of particular operations. The [`srt_epoll_wait`](#srt_epoll_wait) 
 function can then be used to block until any readiness status in the whole 
 [`eid`](#eid) is set.
 
@@ -2113,9 +2113,9 @@ call, it defines edge-triggered mode for all events passed together with it.
 However, if you want to have some events reported as edge-triggered and others 
 as level-triggered, you can do two separate subscriptions for the same socket.
 
-**IMPORTANT**: The `[srt_epoll_wait](#srt_epoll_wait)` function does not report
+**IMPORTANT**: The [`srt_epoll_wait`](#srt_epoll_wait) function does not report
 [`SRT_EPOLL_UPDATE`](#SRT_EPOLL_UPDATE) events. If you need the ability to get 
-any possible flag, you must use `[srt_epoll_uwait](#srt_epoll_uwait)`. Note that 
+any possible flag, you must use [`srt_epoll_wait`](#srt_epoll_wait). Note that 
 this function doesn't work with system file descriptors.
 
 |      Returns                  |                                                           |
@@ -2238,7 +2238,7 @@ int srt_epoll_uwait(int eid, SRT_EPOLL_EVENT* fdsSet, int fdsSize, int64_t msTim
 ```
 
 This function blocks a call until any readiness state occurs in the epoll container. 
-Unlike `[srt_epoll_wait](#srt_epoll_wait)`, it can only be used with [`eid`](#eid) 
+Unlike [`srt_epoll_wait`](#srt_epoll_wait), it can only be used with [`eid`](#eid) 
 subscribed to user sockets (SRT sockets), not system sockets.
 
 This function blocks until the timeout specified in `msTimeOut` parameter. If
@@ -2476,7 +2476,7 @@ the sending to a stream with a handler function that will receive them.
 void srt_setlogflags(int flags);
 ```
 
-When you set a log handler with `[srt_setloghandler](#srt_setloghandler)`, you 
+When you set a log handler with [`srt_setloghandler`](#srt_setloghandler), you 
 may also want to configure which parts of the log information you do not wish to 
 be passed in the log line (the `message` parameter). A user's logging facility may,
 for example, not wish to get the current time or log level marker, as it
@@ -3194,7 +3194,7 @@ was set to false (when true, the function would block the call otherwise).
 The operation timed out. This can happen if you have a timeout set by an option 
 ([`SRTO_RCVTIMEO`](../docs/APISocketOptions.md#SRTO_RCVTIMEO) or 
 [`SRTO_SNDTIMEO`](../docs/APISocketOptions.md#SRTO_SNDTIMEO)), or passed as an 
-extra argument (`[srt_epoll_wait](#srt_epoll_wait)` or [`srt_accept_bond`](#srt_accept_bond)) 
+extra argument ([`srt_epoll_wait`](#srt_epoll_wait) or [`srt_accept_bond`](#srt_accept_bond)) 
 and the function call was blocking, but the required timeout time has passed.
 
   
