@@ -34,70 +34,87 @@ SRT is applied to contribution and distribution endpoints as part of a video str
 
 <table>
   <tr>
-    <td width="120">
+    <td style="width:20%">
       <p>Contributing</p>
     </td>
-    <td width="120">
+    <td style="width:20%">
       <p>Contributing</p>
     </td>
-    <td width="120">
+    <td style="width:20%">
       <p>Contributing</p>
     </td>
-    <td width="120">
+    <td style="width:20%">
       <p>Contributing</p>
     </td>
-    <td width="120">
-      <p>Contributing</p>
-    </td>
-  </tr>
-  <tr>
-    <td width="120">
-      <p>Contributing</p>
-    </td>
-    <td width="120">
-      <p>Contributing</p>
-    </td>
-    <td width="120">
-      <p>Contributing</p>
-    </td>
-    <td width="120">
-      <p>Contributing</p>
-    </td>
-    <td width="120">
+    <td style="width:20%">
       <p>Contributing</p>
     </td>
   </tr>
   <tr>
-    <td width="120">
+    <td style="width:20%">
       <p>Contributing</p>
     </td>
-    <td width="120">
+    <td style="width:20%">
       <p>Contributing</p>
     </td>
-    <td width="120">
+    <td style="width:20%">
       <p>Contributing</p>
     </td>
-    <td width="120">
+    <td style="width:20%">
       <p>Contributing</p>
     </td>
-    <td width="120">
+    <td style="width:20%">
       <p>Contributing</p>
     </td>
   </tr>
   <tr>
-    <td width="120">
+    <td style="width:20%">
       <p>Contributing</p>
     </td>
-    <td width="120">
+    <td style="width:20%">
       <p>Contributing</p>
     </td>
-    <td width="120">
+    <td style="width:20%">
       <p>Contributing</p>
     </td>
-    <td width="120">
+    <td style="width:20%">
       <p>Contributing</p>
     </td>
-    <td width="120">
+    <td style="width:20%">
+      <p>Contributing</p>
+    </td>
+  </tr>
+  <tr>
+    <td style="width:20%">
+      <p>Contributing</p>
+    </td>
+    <td style="width:20%">
+      <p>Contributing</p>
+    </td>
+    <td style="width:20%">
+      <p>Contributing</p>
+    </td>
+    <td style="width:20%">
+      <p>Contributing</p>
+    </td>
+    <td style="width:20%">
+      <p>Contributing</p>
+    </td>
+  </tr>
+  <tr>
+    <td style="width:20%">
+      <p>Contributing</p>
+    </td>
+    <td style="width:20%">
+      <p>Contributing</p>
+    </td>
+    <td style="width:20%">
+      <p>Contributing</p>
+    </td>
+    <td style="width:20%">
+      <p>Contributing</p>
+    </td>
+    <td style="width:20%">
       <p>Contributing</p>
     </td>
   </tr>
