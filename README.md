@@ -10,9 +10,9 @@
 transmission across unpredictable networks, such as the Internet. It can
 encrypt streams, recover from severe packet loss, and dynamically adapt
 to changing network conditions. The protocol significantly improves the
-performance of video streams, but is by nature content-agnostic.*
-
-** NOTE:** The protocol was submitted to the IETF as a [draft standard](https://tools.ietf.org/html/draft-sharabayko-mops-srt-00) on 2020-03-09.
+performance of video streams, but is by nature content-agnostic. The
+protocol was submitted to the IETF
+as a [draft standard](https://tools.ietf.org/html/draft-sharabayko-mops-srt-00) on 2020-03-09.*
 
 ## Introduction
 
@@ -23,15 +23,12 @@ SRT is applied to contribution and distribution endpoints as part of a video str
 ### Guides
 
 | Why SRT? | SRT RFC | SRT Cookbook | Technical Overview | Contributing |
-|----------------|----------------|----------------|----------------|----------------|
+|:--------------:|:--------------:|:--------------:|:--------------:|:--------------:|
 | A brief history of and rational of SRT | The official IETF submission | Developer resources, tools, and templates | Provides additional context to the RFC | How to contribute to this project |
-| <img width=20% height=1px/> | <img width=20% height=1px/> | <img width=20% height=1px/> | <img width=20% height=1px/> | <img width=20% height=1px/> |
-
-
-| Reporting Problems | Developer's Guide | SRT Encryption | API | Test Apps |
-|----------------|----------------|----------------|----------------|----------------|
+| **Reporting Problems** | **Developer's Guide** | **SRT Encryption** | **API** | **Test Apps** |
+|:--------------:|:--------------:|:--------------:|:--------------:|:--------------:|
 | A brief history of and rational of SRT | The official IETF submission | Developer resources, tools, and templates | Provides additional context to the RFC | How to contribute to this project |
-| <img width=20% height=1px/> | <img width=20% height=1px/> | <img width=20% height=1px/> | <img width=20% height=1px/> | <img width=20% height=1px/> |
+| <img width=120px height=1px/> | <img width=120px height=1px/> | <img width=120px height=1px/> | <img width=120px height=1px/> | <img width=120px height=1px/> |
 
 
 
