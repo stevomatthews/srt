@@ -99,16 +99,6 @@ SRT is applied to contribution and distribution endpoints as part of a video str
   </tr>
 </table>
 
-* [Why SRT Was Created](docs/why-srt-was-created.md)
-* [SRT Protocol Technical Overview](https://github.com/Haivision/srt/files/2489142/SRT_Protocol_TechnicalOverview_DRAFT_2018-10-17.pdf)
-* SRT Cookbook: [website](https://srtlab.github.io/srt-cookbook), [GitHub](https://github.com/SRTLab/srt-cookbook)
-* SRT RFC: [txt](https://haivision.github.io/srt-rfc/draft-sharabayko-mops-srt.txt), [html](https://haivision.github.io/srt-rfc/draft-sharabayko-mops-srt.html), [GitHub](https://github.com/Haivision/srt-rfc)
-* [Using the `srt-live-transmit` App](docs/srt-live-transmit.md)
-* [Contributing](CONTRIBUTING.md)
-* [Developer's Guide](docs/DevelopersGuide.md)
-* [SRT Encryption](docs/encryption.md)
-* [API](docs/API.md)
-* [Reporting problems](docs/reporting.md)
 
 ## Requirements
 
