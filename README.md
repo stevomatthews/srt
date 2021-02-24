@@ -6,8 +6,7 @@
     <img align="right" alt="SRT" src="http://www.srtalliance.org/wp-content/uploads/SRT_text_hor_logo_grey.png" width="400"/>
 </a>
 
-*The SRT Protocol is an open source transport technology that optimizes
-transmission across unpredictable networks, such as the Internet. It is a user-level protocol (over UDP) that provides reliability and security optimized for low latency live video streaming, as well as generic bulk data transfer. To accomplish this, SRT introduces control packet extensions, improved flow control, enhanced congestion control and a mechanism for data encryption.*
+*SRT is an open source user-level protocol (over UDP) that provides reliability and security optimized for low latency live video streaming, as well as generic bulk data transfer. To accomplish this, SRT introduces control packet extensions, improved flow control, enhanced congestion control and a mechanism for data encryption.*
 
 **NOTE:** The protocol was submitted to the IETF
 as a [draft standard](https://tools.ietf.org/html/draft-sharabayko-mops-srt-00) on 2020-03-09.
@@ -19,7 +18,7 @@ as a [draft standard](https://tools.ietf.org/html/draft-sharabayko-mops-srt-00) 
 <img align="left" alt="SRT Quad Screen Video Comparison" src="https://github.com/stevomatthews/srt/blob/master/docs/images/SRT_QuadScreenVideoComparison.png" width="400"/>
 </a>
 
-SRT is applied to contribution and distribution endpoints as part of a video stream workflow to deliver the best quality and lowest latency video at all times. As audio/video packets are streamed from a source to a destination, SRT detects and adapts to the real-time network conditions between the two endpoints. SRT helps compensate for jitter and bandwidth fluctuations due to congestion over noisy networks. Its error recovery mechanism minimizes the packet loss typical of Internet connections. And SRT supports AES encryption for end-to-end security.
+SRT is a transport technology that optimizes transmission across unpredictable networks, such as the Internet. It can be applied to contribution and distribution endpoints as part of a video stream workflow to deliver the best quality and lowest latency video at all times. As audio/video packets are streamed from a source to a destination, SRT detects and adapts to the real-time network conditions between the two endpoints. SRT helps compensate for jitter and bandwidth fluctuations due to congestion over noisy networks. Its error recovery mechanism minimizes the packet loss typical of Internet connections. And SRT supports AES encryption for end-to-end security.
 
 <p align="right"><a href="https://slackin-srtalliance.azurewebsites.net">Join the conversation</a> in the <b>#development</b> channel on <a href="https://srtalliance.slack.com">Slack</a>.</p></br>
 
