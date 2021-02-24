@@ -23,9 +23,18 @@ SRT is applied to contribution and distribution endpoints as part of a video str
 ### Guides
 
 
-|----------------|----------------|----------------|----------------|----------------|
+
+
 | Why SRT? | SRT RFC | SRT Cookbook | Technical Overview | Contributing |
+|----------------|----------------|----------------|----------------|----------------|
+| Description | Description | Description | Description | Description |
+
+
 | Reporting Problems | Developer's Guide | SRT Encryption | API | Test Apps |
+|----------------|----------------|----------------|----------------|----------------|
+| Description | Description | Description | Description | Description |
+
+
 
 
 
