@@ -1,25 +1,19 @@
 # Secure Reliable Transport (SRT) Protocol
 
-<table>
-  <tr>
+[![License: MPLv2.0][license-badge]](./LICENSE) [![Latest release][release-badge]][github releases] [![Debian Badge][debian-badge]][debian-package] [![LGTM Code Quality][lgtm-quality-badge]][lgtm-project] [![LGTM Alerts][lgtm-alerts-badge]][lgtm-project] [![codecov][codecov-badge]][codecov-project] [![Build Status Linux and macOS][travis-badge]][travis] [![Build Status Windows][appveyor-badge]][appveyor]
+
+<table border=0>
+  <tr valign="top">
     <td>
     <p>The SRT Protocol is an open source transport technology that optimizes transmission across unpredictable networks, such as the Internet. It can encrypt streams, recover from sever packet loss, and dynamically adapt to changing network conditions. The protocol significantly improves the performance of video streams, but is by nature content-agnostic. The protocol was submitted to the IETF as a draft standard on 2017-09-15.</p>
+    <p>SRT is applied to contribution and distribution endpoints as part of a video stream workflow to deliver the best quality and lowest latency video at all times.</p>
+    <p>As audio/video packets are streamed from a source to a destination device, SRT detects and adapts to the real-time network conditions between the two endpoints. SRT helps compensate for jitter and bandwidth fluctuations due to congestion over noisy networks, such as the Internet. Its error recovery mechanism minimizes the packet loss typical of Internet connections. And SRT supports AES encryption for end-to-end security, keeping your streams safe from prying eyes.</p>
     </td>
     <td>
     <p align="left">
   <a href="http://srtalliance.org/">
     <img alt="SRT" src="http://www.srtalliance.org/wp-content/uploads/SRT_text_hor_logo_grey.png" width="500"/>
   </a>
-</p>
-<p>
-[![License: MPLv2.0][license-badge]](./LICENSE)
-[![Latest release][release-badge]][github releases]
-[![Debian Badge][debian-badge]][debian-package]  
-[![LGTM Code Quality][lgtm-quality-badge]][lgtm-project]
-[![LGTM Alerts][lgtm-alerts-badge]][lgtm-project]
-[![codecov][codecov-badge]][codecov-project]  
-[![Build Status Linux and macOS][travis-badge]][travis]
-[![Build Status Windows][appveyor-badge]][appveyor]
 </p>
     </td>
   </tr>
@@ -31,28 +25,19 @@
   </a>
 </p>
 
-[![License: MPLv2.0][license-badge]](./LICENSE)
-[![Latest release][release-badge]][github releases]
-[![Debian Badge][debian-badge]][debian-package]  
-[![LGTM Code Quality][lgtm-quality-badge]][lgtm-project]
-[![LGTM Alerts][lgtm-alerts-badge]][lgtm-project]
-[![codecov][codecov-badge]][codecov-project]  
-[![Build Status Linux and macOS][travis-badge]][travis]
-[![Build Status Windows][appveyor-badge]][appveyor]
 
-## Introduction
 
-Secure Reliable Transport (SRT) is an open source transport technology that optimizes streaming performance across unpredictable networks, such as the Internet.
+<p align="right">
+  <a href="http://srtalliance.org/">
+    <img alt="SRT" src="http://www.srtalliance.org/wp-content/uploads/SRT_text_hor_logo_grey.png" width="500"/>
+  </a>
+</p>
+<p>The SRT Protocol is an open source transport technology that optimizes transmission across unpredictable networks, such as the Internet. It can encrypt streams, recover from sever packet loss, and dynamically adapt to changing network conditions. The protocol significantly improves the performance of video streams, but is by nature content-agnostic. The protocol was submitted to the IETF as a draft standard on 2017-09-15.</p>
+    <p>SRT is applied to contribution and distribution endpoints as part of a video stream workflow to deliver the best quality and lowest latency video at all times.</p>
+    <p>As audio/video packets are streamed from a source to a destination device, SRT detects and adapts to the real-time network conditions between the two endpoints. SRT helps compensate for jitter and bandwidth fluctuations due to congestion over noisy networks, such as the Internet. Its error recovery mechanism minimizes the packet loss typical of Internet connections. And SRT supports AES encryption for end-to-end security, keeping your streams safe from prying eyes.</p>
 
-|    |    |
-| --- | --- |
-| **S**ecure | Encrypts video streams |
-| **R**eliable | Recovers from severe packet loss |
-| **T**ransport | Dynamically adapts to changing network conditions |
 
-SRT is applied to contribution and distribution endpoints as part of a video stream workflow to deliver the best quality and lowest latency video at all times.
 
-As audio/video packets are streamed from a source to a destination device, SRT detects and adapts to the real-time network conditions between the two endpoints. SRT helps compensate for jitter and bandwidth fluctuations due to congestion over noisy networks, such as the Internet. Its error recovery mechanism minimizes the packet loss typical of Internet connections. And SRT supports AES encryption for end-to-end security, keeping your streams safe from prying eyes.
 
 [Join the conversation](https://slackin-srtalliance.azurewebsites.net/) in the `#development` channel on [Slack](https://srtalliance.slack.com).
 
