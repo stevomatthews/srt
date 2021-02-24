@@ -34,13 +34,13 @@ SRT is applied to contribution and distribution endpoints as part of a video str
       <p align="center" valign="middle"><a href="https://github.com/Haivision/srt/blob/master/docs/why-srt-was-created.md"><b>Why SRT?</b></a></p>
     </td>
     <td style="width:20%">
-      <p align="center" valign="middle"><a href="https://github.com/Haivision/srt-rfc"><b>SRT RFC</b></a></p>
+      <p align="center" valign="middle"><a href="https://github.com/Haivision/srt-rfc"><b>RFC Project</b></a></p>
     </td>
     <td style="width:20%">
       <p align="center" valign="middle"><a href="https://srtlab.github.io/srt-cookbook"><b>SRT Cookbook</b></a></p>
     </td>
     <td style="width:20%">
-      <p align="center" valign="middle"><a href="https://github.com/Haivision/srt/files/2489142/SRT_Protocol_TechnicalOverview_DRAFT_2018-10-17.pdf"><b>Technical Overview</b></a></p>
+      <p align="center" valign="middle"><a href="https://github.com/Haivision/srt/files/2489142/SRT_Protocol_TechnicalOverview_DRAFT_2018-10-17.pdf"><b>SRT Overview</b></a></p>
     </td>
     <td style="width:20%">
       <p align="center" valign="middle"><a href="https://github.com/Haivision/srt/blob/master/CONTRIBUTING.md"><b>Contributing</b></a></p>
@@ -48,53 +48,53 @@ SRT is applied to contribution and distribution endpoints as part of a video str
   </tr>
   <tr>
     <td style="width:20%">
-      <p align="center">A brief history of and rational for SRT by one of its originators</p>
+      <p align="center">A brief history and rational for SRT by M. Cymontkowski</p>
     </td>
     <td style="width:20%">
-      <p align="center">The official IETF submission</p>
+      <p align="center">The official submission of the SRT protocol to the IETF</p>
     </td>
     <td style="width:20%">
-      <p align="center">Developer resources, tools, and templates</p>
+      <p align="center">Resources, tools, statistics and templates for developers</p>
     </td>
     <td style="width:20%">
       <p align="center">Early draft providing additional context to the RFC</p>
     </td>
     <td style="width:20%">
-      <p align="center">How to contribute to the SRT project</p>
+      <p align="center">Guidelines for making contributions to the SRT project</p>
     </td>
   </tr>
   <tr>
     <td style="width:20%">
-      <p align="center"><a href="https://github.com/Haivision/srt/blob/master/docs/reporting.md"><b>Feedback</b></a></p>
+      <p align="center"><a href="https://github.com/Haivision/srt/blob/master/docs/reporting.md"><b>SRT Feedback</b></a></p>
     </td>
     <td style="width:20%">
-      <p align="center"><a href="https://github.com/Haivision/srt/blob/master/docs/DevelopersGuide.md"><b>Developer's Guide</b></a></p>
+      <p align="center"><a href="https://github.com/Haivision/srt/blob/master/docs/DevelopersGuide.md"><b>SRT Development</b></a></p>
     </td>
     <td style="width:20%">
       <p align="center"><a href="https://github.com/Haivision/srt/blob/master/docs/encryption.md"><b>SRT Encryption</b></a></p>
     </td>
     <td style="width:20%">
-      <p align="center" valign="top"><a href="https://github.com/Haivision/srt/blob/master/docs/API.md"><b>API</b></a></p>
+      <p align="center" valign="top"><a href="https://github.com/Haivision/srt/blob/master/docs/API.md"><b>The SRT API</b></a></p>
     </td>
     <td style="width:20%">
-      <p align="center"><a href="https://github.com/Haivision/srt/blob/master/docs/srt-live-transmit.md"><b>Test Apps</b></a></p>
+      <p align="center"><a href="https://github.com/Haivision/srt/blob/master/docs/srt-live-transmit.md"><b>SRT Test Apps</b></a></p>
     </td>
   </tr>
   <tr>
     <td style="width:20%">
-      <p align="center">How to provide feedback and report problems</p>
+      <p align="center">Guidelines for providing feedback and report problems</p>
     </td>
     <td style="width:20%">
-      <p align="center">Developer resources, tools, and templates</p>
+      <p align="center">How to set up a development environment to build/test SRT</p>
     </td>
     <td style="width:20%">
-      <p align="center">Details on how SRT encryption works</p>
+      <p align="center">How the SRT encryption mechanism protects stream payloads</p>
     </td>
     <td style="width:20%">
-      <p align="center">Complete API reference</p>
+      <p align="center">Complete reference documentation for the SRT API</p>
     </td>
     <td style="width:20%">
-      <p align="center">Instructions for using the `srt-live-transmit` app</p>
+      <p align="center">Instructions for using the <i>srt-live-transmit<i/> app</p>
     </td>
   </tr>
 </table>
