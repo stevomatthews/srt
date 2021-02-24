@@ -74,7 +74,7 @@ SRT is applied to contribution and distribution endpoints as part of a video str
       <p align="center"><a href="https://github.com/Haivision/srt/blob/master/docs/encryption.md"><b>SRT Encryption</b></a></p>
     </td>
     <td style="width:20%">
-      <p align="center"><a href="https://github.com/Haivision/srt/blob/master/docs/API.md"><b>API</b></a></p>
+      <p align="center" valign="top"><a href="https://github.com/Haivision/srt/blob/master/docs/API.md"><b>API</b></a></p>
     </td>
     <td style="width:20%">
       <p align="center"><a href="https://github.com/Haivision/srt/blob/master/docs/srt-live-transmit.md"><b>Test Apps</b></a></p>
