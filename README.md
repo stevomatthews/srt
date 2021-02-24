@@ -26,6 +26,8 @@ SRT is applied to contribution and distribution endpoints as part of a video str
 
 <p align="right"><a href="https://slackin-srtalliance.azurewebsites.net">Join the conversation</a> in the <b>#development</b> channel on <a href="https://srtalliance.slack.com">Slack</a>.</p>
 
+### Getting Started with SRT
+
 <table>
   <tr>
     <td style="width:20%">
@@ -83,7 +85,7 @@ SRT is applied to contribution and distribution endpoints as part of a video str
       <p align="center">Guidelines for providing feedback and report problems</p>
     </td>
     <td style="width:20%">
-      <p align="center">How to set up your SRT development environment</p>
+      <p align="center">Setting up a development environment to build/test SRT</p>
     </td>
     <td style="width:20%">
       <p align="center">How the SRT encryption mechanism protects stream payloads</p>
