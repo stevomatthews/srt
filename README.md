@@ -35,7 +35,7 @@ SRT is applied to contribution and distribution endpoints as part of a video str
       <p align="center" valign="middle"><b>SRT Cookbook</b></p>
     </td>
     <td style="width:20%">
-      <p align="center" valign="middle"><a href="https://github.com/Haivision/srt/files/2489142/SRT_Protocol_TechnicalOverview_DRAFT_2018-10-17.pdf><b>Technical Overview"</b></a></p>
+      <p align="center" valign="middle"><a href="https://github.com/Haivision/srt/files/2489142/SRT_Protocol_TechnicalOverview_DRAFT_2018-10-17.pdf"><b>Technical Overview</b></a></p>
     </td>
     <td style="width:20%">
       <p align="center" valign="middle"><b>Contributing</b></p>
