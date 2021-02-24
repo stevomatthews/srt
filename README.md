@@ -85,7 +85,7 @@ SRT is applied to contribution and distribution endpoints as part of a video str
       <p align="center">Guidelines for providing feedback and report problems</p>
     </td>
     <td style="width:20%">
-      <p align="center">Setting up a development environment to build/test SRT</p>
+      <p align="center">Set up a development environment to build/test SRT</p>
     </td>
     <td style="width:20%">
       <p align="center">How the SRT encryption mechanism protects stream payloads</p>
