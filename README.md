@@ -22,9 +22,9 @@
 
 
 
-<p align="right">
+<p>
   <a href="http://srtalliance.org/">
-    <img alt="SRT" src="http://www.srtalliance.org/wp-content/uploads/SRT_text_hor_logo_grey.png" width="500"/>
+    <img align="right" alt="SRT" src="http://www.srtalliance.org/wp-content/uploads/SRT_text_hor_logo_grey.png" width="300"/>
   </a>
 </p>
 <p>The SRT Protocol is an open source transport technology that optimizes transmission across unpredictable networks, such as the Internet. It can encrypt streams, recover from sever packet loss, and dynamically adapt to changing network conditions. The protocol significantly improves the performance of video streams, but is by nature content-agnostic. The protocol was submitted to the IETF as a draft standard on 2017-09-15.</p>
