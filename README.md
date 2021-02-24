@@ -13,14 +13,13 @@ as a [draft standard](https://tools.ietf.org/html/draft-sharabayko-mops-srt-00) 
 
 ## Introduction
 
-
 <a href="https://www.srtalliance.org?wvideo=ayibwnfw56">
 <img align="left" alt="SRT Quad Screen Video Comparison" src="https://github.com/stevomatthews/srt/blob/master/docs/images/SRT_QuadScreenVideoComparison.png" width="400"/>
 </a>
 
 SRT is a transport technology that optimizes transmission across unpredictable networks, such as the Internet. It can be applied to contribution and distribution endpoints as part of a video stream workflow to deliver the best quality and lowest latency video at all times. As audio/video packets are streamed from a source to a destination, SRT detects and adapts to the real-time network conditions between the two endpoints. SRT helps compensate for jitter and bandwidth fluctuations due to congestion over noisy networks. Its error recovery mechanism minimizes the packet loss typical of Internet connections. And SRT supports AES encryption for end-to-end security.
 
-<p align="right"><a href="https://slackin-srtalliance.azurewebsites.net">Join the conversation</a> in the <b>#development</b> channel on <a href="https://srtalliance.slack.com">Slack</a>.</p></br>
+<p align="right"><a href="https://slackin-srtalliance.azurewebsites.net">Join the conversation</a> in the <b>#development</b> channel on <a href="https://srtalliance.slack.com">Slack</a>.</p>
 
 ### Getting Started with SRT
 
@@ -90,7 +89,7 @@ SRT is a transport technology that optimizes transmission across unpredictable n
       <p align="center">Complete reference documentation for the SRT API</p>
     </td>
     <td style="width:20%">
-      <p align="center">Instructions for using the <i>srt-live-transmit</i> app for testing</p>
+      <p align="center">Instructions for using test apps (e.g. <i>srt-live-transmit</i>)</p>
     </td>
   </tr>
 </table>
