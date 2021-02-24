@@ -102,17 +102,19 @@ SRT is applied to contribution and distribution endpoints as part of a video str
 
 ## Requirements
 
-* cmake (as build system)
+* CMake (as build system)
 * Tcl 8.5 (optional for user-friendly build system)
 * OpenSSL
-* Pthreads (for POSIX systems it's builtin, for Windows there's a library)
+* Pthreads (built in on POSIX systems; for Windows there is a library)
 
-For detailed description of the build system and options, please read [BuildOptions.md](docs/BuildOptions.md).
+## Build Instructions
 
-### Build on Linux
+For detailed descriptions of the build system and options, please read [BuildOptions.md](docs/BuildOptions.md).
 
-Install cmake and openssl-devel (or similar name) package. For pthreads
-there should be -lpthreads linker flag added.
+### Building on Linux
+
+Install the `cmake` and `openssl-devel` (or similar name) package. For pthreads
+add the -lpthreads linker flag.
 
 Default installation path prefix of `make install` is `/usr/local`.
 
@@ -151,7 +153,7 @@ scl enable devtoolset-3 bash
 make
 ```
 
-### Build on Mac (Darwin, iOS)
+### Building on Mac (Darwin, iOS)
 
 [Homebrew](https://brew.sh/) supports "srt" formula.
 
@@ -160,15 +162,15 @@ brew update
 brew install srt
 ```
 
-If you prefer using a head commit of `master` branch, you should add `--HEAD` option
-to `brew` command.
+If you prefer using a head commit of `master` branch, add the `--HEAD` option
+to the `brew` command.
 
 ```shell
 brew install --HEAD srt
 ```
 
-Also, SRT can be built with `cmake` and `make` on Mac.
-Install cmake and openssl with development files from "brew". Note that the
+SRT can also be built with `cmake` and `make` on Mac.
+Install CMake and OpenSSL with development files from 'brew'. Note that the
 system version of OpenSSL is inappropriate, although you should be able to
 use any newer version compiled from sources, if you prefer.
 
@@ -182,7 +184,7 @@ export OPENSSL_INCLUDE_DIR=$(brew --prefix openssl)"/include"
 make
 ```
 
-### Build on Windows
+### Building on Windows
 
 Follow the [Windows build instructions](docs/build-win.md).
 
@@ -205,7 +207,7 @@ Follow the [Windows build instructions](docs/build-win.md).
 [debian-badge]: https://badges.debian.net/badges/debian/testing/libsrt1/version.svg
 [debian-package]: https://packages.debian.org/testing/libsrt1
 
-##License
+## License
 
 TBD
 
