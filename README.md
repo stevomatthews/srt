@@ -89,7 +89,7 @@ SRT is a transport technology that optimizes transmission across unpredictable n
       <p align="center">Complete reference documentation for the SRT API</p>
     </td>
     <td style="width:20%">
-      <p align="center">Instructions for using test apps (e.g. <i>srt-live-transmit</i>)</p>
+      <p align="center">Instructions for using test apps (<i>srt-live-transmit, srt-xtransmit</i>, etc.)</p>
     </td>
   </tr>
 </table>
