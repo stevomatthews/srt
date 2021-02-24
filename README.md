@@ -17,6 +17,10 @@ as a [draft standard](https://tools.ietf.org/html/draft-sharabayko-mops-srt-00) 
 
 ## Introduction
 
+
+
+<img align="left" alt="SRT Quad Screen Video Comparison" src="https://github.com/stevomatthews/srt/blob/master/docs/images/SRT_QuadScreenVideoComparison.png" width="400"/>
+
 SRT is applied to contribution and distribution endpoints as part of a video stream workflow to deliver the best quality and lowest latency video at all times. As audio/video packets are streamed from a source to a destination device, SRT detects and adapts to the real-time network conditions between the two endpoints. SRT helps compensate for jitter and bandwidth fluctuations due to congestion over noisy networks, such as the Internet. Its error recovery mechanism minimizes the packet loss typical of Internet connections. And SRT supports AES encryption for end-to-end security, keeping your streams safe from prying eyes.
 
 [Join the conversation](https://slackin-srtalliance.azurewebsites.net/) in the **#development** channel on [Slack](https://srtalliance.slack.com).
