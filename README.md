@@ -11,14 +11,14 @@ transmission across unpredictable networks, such as the Internet. It can
 encrypt streams, recover from severe packet loss, and dynamically adapt
 to changing network conditions. The protocol significantly improves the
 performance of video streams, but is by nature content-agnostic. The
-protocol was submitted to the IETF as a [draft standard](https://tools.ietf.org/html/draft-sharabayko-mops-srt-00)
-on 2020-03-09.*
+protocol was submitted to the IETF
+as a [draft standard](https://tools.ietf.org/html/draft-sharabayko-mops-srt-00) on 2020-03-09.*
 
 ## Introduction
 
 SRT is applied to contribution and distribution endpoints as part of a video stream workflow to deliver the best quality and lowest latency video at all times. As audio/video packets are streamed from a source to a destination device, SRT detects and adapts to the real-time network conditions between the two endpoints. SRT helps compensate for jitter and bandwidth fluctuations due to congestion over noisy networks, such as the Internet. Its error recovery mechanism minimizes the packet loss typical of Internet connections. And SRT supports AES encryption for end-to-end security, keeping your streams safe from prying eyes.
 
-[Join the conversation](https://slackin-srtalliance.azurewebsites.net/) in the `#development` channel on [Slack](https://srtalliance.slack.com).
+[Join the conversation](https://slackin-srtalliance.azurewebsites.net/) in the **#development** channel on [Slack](https://srtalliance.slack.com).
 
 ### Guides
 
