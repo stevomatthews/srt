@@ -10,10 +10,10 @@
 transmission across unpredictable networks, such as the Internet. It can
 encrypt streams, recover from severe packet loss, and dynamically adapt
 to changing network conditions. The protocol significantly improves the
-performance of video streams, but is by nature content-agnostic. 
+performance of video streams, but is by nature content-agnostic.*
 
 **NOTE:** The protocol was submitted to the IETF
-as a [draft standard](https://tools.ietf.org/html/draft-sharabayko-mops-srt-00) on 2020-03-09.*
+as a [draft standard](https://tools.ietf.org/html/draft-sharabayko-mops-srt-00) on 2020-03-09.
 
 ## Introduction
 
@@ -26,19 +26,19 @@ SRT is applied to contribution and distribution endpoints as part of a video str
 <table>
   <tr>
     <td style="width:20%">
-      <p align="center" valign="middle"><b>Why SRT?</b></p>
+      <p align="center" valign="middle"><a href="https://github.com/Haivision/srt/blob/master/docs/why-srt-was-created.md"><b>Why SRT?</b></a></p>
     </td>
     <td style="width:20%">
-      <p align="center" valign="middle"><b>SRT RFC</b></p>
+      <p align="center" valign="middle"><a href="https://github.com/Haivision/srt-rfc"><b>SRT RFC</b></a></p>
     </td>
     <td style="width:20%">
-      <p align="center" valign="middle"><b>SRT Cookbook</b></p>
+      <p align="center" valign="middle"><a href="https://srtlab.github.io/srt-cookbook"><b>SRT Cookbook</b></a></p>
     </td>
     <td style="width:20%">
       <p align="center" valign="middle"><a href="https://github.com/Haivision/srt/files/2489142/SRT_Protocol_TechnicalOverview_DRAFT_2018-10-17.pdf"><b>Technical Overview</b></a></p>
     </td>
     <td style="width:20%">
-      <p align="center" valign="middle"><b>Contributing</b></p>
+      <p align="center" valign="middle"><a href="https://github.com/Haivision/srt/blob/master/CONTRIBUTING.md"><b>Contributing</b></a></p>
     </td>
   </tr>
   <tr>
@@ -60,19 +60,19 @@ SRT is applied to contribution and distribution endpoints as part of a video str
   </tr>
   <tr>
     <td style="width:20%">
-      <p align="center"><b>Reporting Problems</b></p>
+      <p align="center"><a href="https://github.com/Haivision/srt/blob/master/docs/reporting.md"><b>Reporting Problems</b></a></p>
     </td>
     <td style="width:20%">
-      <p align="center"><b>Developer's Guide</b></p>
+      <p align="center"><a href="https://github.com/Haivision/srt/blob/master/docs/DevelopersGuide.md"><b>Developer's Guide</b></a></p>
     </td>
     <td style="width:20%">
-      <p align="center"><b>SRT Encryption</b></p>
+      <p align="center"><a href="https://github.com/Haivision/srt/blob/master/docs/encryption.md"><b>SRT Encryption</b></a></p>
     </td>
     <td style="width:20%">
-      <p align="center"><b>API</b></p>
+      <p align="center"><a href="https://github.com/Haivision/srt/blob/master/docs/API.md"><b>API</b></a></p>
     </td>
     <td style="width:20%">
-      <p align="center"><b>Test Apps</b></p>
+      <p align="center"><a href="https://github.com/Haivision/srt/blob/master/docs/srt-live-transmit.md"><b>Test Apps</b></a></p>
     </td>
   </tr>
   <tr>
