@@ -23,36 +23,27 @@ SRT is applied to contribution and distribution endpoints as part of a video str
 
 ### Guides
 
-| Why SRT? | SRT RFC | SRT Cookbook | Technical Overview | Contributing |
-|:--------------:|:--------------:|:--------------:|:--------------:|:--------------:|
-| A brief history of and rational of SRT | The official IETF submission | Developer resources, tools, and templates | Provides additional context to the RFC | How to contribute to this project |
-| **Reporting Problems** | **Developer's Guide** | **SRT Encryption** | **API** | **Test Apps** |
-| A brief history of and rational of SRT | The official IETF submission | Developer resources, tools, and templates | Provides additional context to the RFC | How to contribute to this project |
-| <img width="120" height="1"> | <img width="120" height="1"> | <img width="120" height="1"> | <img width="120" height="1"> | <img width="120" height="1"> |
-
-
-
 <table>
   <tr>
     <td style="width:20%">
-      <p align="center"><b>Why SRT?</b></p>
+      <p align="center" valign="middle"><b>Why SRT?</b></p>
     </td>
     <td style="width:20%">
-      <p align="center"><b>SRT RFC</b></p>
+      <p align="center" valign="middle"><b>SRT RFC</b></p>
     </td>
     <td style="width:20%">
-      <p align="center"><b>SRT Cookbook</b></p>
+      <p align="center" valign="middle"><b>SRT Cookbook</b></p>
     </td>
     <td style="width:20%">
-      <p align="center"><b>Technical Overview</b></p>
+      <p align="center" valign="middle"><a src=https://github.com/Haivision/srt/files/2489142/SRT_Protocol_TechnicalOverview_DRAFT_2018-10-17.pdf><b>Technical Overview</b></a></p>
     </td>
     <td style="width:20%">
-      <p align="center"><b>Contributing</b></p>
+      <p align="center" valign="middle"><b>Contributing</b></p>
     </td>
   </tr>
   <tr>
     <td style="width:20%">
-      <p align="center">A brief history of and rational of SRT</p>
+      <p align="center">A brief history of and rational for SRT</p>
     </td>
     <td style="width:20%">
       <p align="center">The official IETF submission</p>
