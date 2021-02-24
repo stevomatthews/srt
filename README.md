@@ -35,70 +35,70 @@ SRT is applied to contribution and distribution endpoints as part of a video str
 <table>
   <tr>
     <td style="width:20%">
-      <p>Why SRT?</p>
+      <p align="center"><b>Why SRT?</b></p>
     </td>
     <td style="width:20%">
-      <p>SRT RFC</p>
+      <p align="center">SRT RFC</b></p>
     </td>
     <td style="width:20%">
-      <p>SRT Cookbook</p>
+      <p align="center">SRT Cookbook</b></p>
     </td>
     <td style="width:20%">
-      <p>Technical Overview</p>
+      <p align="center">Technical Overview</b></p>
     </td>
     <td style="width:20%">
-      <p>Contributing</p>
-    </td>
-  </tr>
-  <tr>
-    <td style="width:20%">
-      <p>A brief history of and rational of SRT</p>
-    </td>
-    <td style="width:20%">
-      <p>The official IETF submission</p>
-    </td>
-    <td style="width:20%">
-      <p>Developer resources, tools, and templates</p>
-    </td>
-    <td style="width:20%">
-      <p>Additional context to the RFC</p>
-    </td>
-    <td style="width:20%">
-      <p>How to contribute to this project</p>
+      <p align="center">Contributing</b></p>
     </td>
   </tr>
   <tr>
     <td style="width:20%">
-      <p>**Reporting Problems**</p>
+      <p align="center">A brief history of and rational of SRT</b></p>
     </td>
     <td style="width:20%">
-      <p>**Developer's Guide**</p>
+      <p align="center">The official IETF submission</b></p>
     </td>
     <td style="width:20%">
-      <p>**SRT Encryption**</p>
+      <p align="center">Developer resources, tools, and templates</b></p>
     </td>
     <td style="width:20%">
-      <p>**API**</p>
+      <p align="center">Additional context to the RFC</b></p>
     </td>
     <td style="width:20%">
-      <p>**Test Apps**</p>
+      <p align="center">How to contribute to this project</b></p>
     </td>
   </tr>
   <tr>
     <td style="width:20%">
-      <p>Developer resources, tools, and templates</p>
+      <p align="center">Reporting Problems</b></p>
     </td>
     <td style="width:20%">
-      <p>Developer resources, tools, and templates</p>
+      <p align="center">Developer's Guide</b></p>
     </td>
     <td style="width:20%">
-      <p>Developer resources, tools, and templates</p>
+      <p align="center">SRT Encryption</b></p>
     </td>
     <td style="width:20%">
-      <p>Developer resources, tools, and templates</p>
+      <p align="center">API</b></p>
     </td>
     <td style="width:20%">
-      <p>Developer resources, tools, and templates</p>
+      <p align="center">Test Apps</b></p>
+    </td>
+  </tr>
+  <tr>
+    <td style="width:20%">
+      <p align="center">Developer resources, tools, and templates</b></p>
+    </td>
+    <td style="width:20%">
+      <p align="center">Developer resources, tools, and templates</b></p>
+    </td>
+    <td style="width:20%">
+      <p align="center">Developer resources, tools, and templates</b></p>
+    </td>
+    <td style="width:20%">
+      <p align="center">Developer resources, tools, and templates</b></p>
+    </td>
+    <td style="width:20%">
+      <p align="center">Developer resources, tools, and templates</b></p>
     </td>
   </tr>
 </table>
