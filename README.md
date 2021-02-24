@@ -18,12 +18,11 @@ as a [draft standard](https://tools.ietf.org/html/draft-sharabayko-mops-srt-00) 
 ## Introduction
 
 
-
-<img align="left" alt="SRT Quad Screen Video Comparison" src="https://github.com/stevomatthews/srt/blob/master/docs/images/SRT_QuadScreenVideoComparison.png" width="400"/>
+<p align="left"><a href="https://www.srtalliance.org?wvideo=ayibwnfw56"><img src="https://embedwistia-a.akamaihd.net/deliveries/28a78beaed387b40cefef46ee04d88b7.jpg?image_play_button_size=2x&amp;image_crop_resized=960x540&amp;image_play_button=1&amp;image_play_button_color=ff3c00e0" width="400" height="225" style="width: 400px; height: 225px;"></a></p><p><a href="https://www.srtalliance.org?wvideo=ayibwnfw56">SRT Quad Screen Video Comparison</a></p>
 
 SRT is applied to contribution and distribution endpoints as part of a video stream workflow to deliver the best quality and lowest latency video at all times. As audio/video packets are streamed from a source to a destination device, SRT detects and adapts to the real-time network conditions between the two endpoints. SRT helps compensate for jitter and bandwidth fluctuations due to congestion over noisy networks, such as the Internet. Its error recovery mechanism minimizes the packet loss typical of Internet connections. And SRT supports AES encryption for end-to-end security, keeping your streams safe from prying eyes.
 
-<p align="right">[Join the conversation](https://slackin-srtalliance.azurewebsites.net/) in the **#development** channel on [Slack](https://srtalliance.slack.com).</p>
+<p align="right"><a href="https://slackin-srtalliance.azurewebsites.net">Join the conversation</a> in the **#development** channel on <a href="https://srtalliance.slack.com">Slack</a>.</p>
 
 ### Guides
 
