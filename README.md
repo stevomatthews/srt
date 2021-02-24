@@ -48,7 +48,7 @@ SRT is applied to contribution and distribution endpoints as part of a video str
   </tr>
   <tr>
     <td style="width:20%">
-      <p align="center">A brief history and rationale for SRT by M. Cymontkowski</p>
+      <p align="center">A brief history and rationale for SRT by Marc Cymontkowski</p>
     </td>
     <td style="width:20%">
       <p align="center">The working repo for the official SRT protocol RFC</p>
@@ -85,7 +85,7 @@ SRT is applied to contribution and distribution endpoints as part of a video str
       <p align="center">Guidelines for providing feedback and report problems</p>
     </td>
     <td style="width:20%">
-      <p align="center">Setting up an environment to develop, build and test SRT</p>
+      <p align="center">Environment setup to develop, build and test SRT</p>
     </td>
     <td style="width:20%">
       <p align="center">How the SRT encryption mechanism protects stream payloads</p>
