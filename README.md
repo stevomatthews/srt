@@ -22,19 +22,16 @@ SRT is applied to contribution and distribution endpoints as part of a video str
 
 ### Guides
 
-
-
-
 | Why SRT? | SRT RFC | SRT Cookbook | Technical Overview | Contributing |
 |----------------|----------------|----------------|----------------|----------------|
 | Description | Description | Description | Description | Description |
+| <img width=120px height=1px/> | <img width=120px height=1px/> | <img width=120px height=1px/> | <img width=120px height=1px/> | <img width=120px height=1px/> |
 
 
 | Reporting Problems | Developer's Guide | SRT Encryption | API | Test Apps |
 |----------------|----------------|----------------|----------------|----------------|
 | Description | Description | Description | Description | Description |
-
-
+| <img width=120px height=1px/> | <img width=120px height=1px/> | <img width=120px height=1px/> | <img width=120px height=1px/> | <img width=120px height=1px/> |
 
 
 
