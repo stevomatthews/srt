@@ -26,8 +26,6 @@ SRT is applied to contribution and distribution endpoints as part of a video str
 
 <p align="right"><a href="https://slackin-srtalliance.azurewebsites.net">Join the conversation</a> in the <b>#development</b> channel on <a href="https://srtalliance.slack.com">Slack</a>.</p>
 
-### Guides
-
 <table>
   <tr>
     <td style="width:20%">
