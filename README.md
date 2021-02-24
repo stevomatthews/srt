@@ -35,33 +35,16 @@ SRT is applied to contribution and distribution endpoints as part of a video str
 <table>
   <tr>
     <td style="width:20%">
-      <p>Contributing</p>
+      <p>Why SRT?</p>
     </td>
     <td style="width:20%">
-      <p>Contributing</p>
+      <p>SRT RFC</p>
     </td>
     <td style="width:20%">
-      <p>Contributing</p>
+      <p>SRT Cookbook</p>
     </td>
     <td style="width:20%">
-      <p>Contributing</p>
-    </td>
-    <td style="width:20%">
-      <p>Contributing</p>
-    </td>
-  </tr>
-  <tr>
-    <td style="width:20%">
-      <p>Contributing</p>
-    </td>
-    <td style="width:20%">
-      <p>Contributing</p>
-    </td>
-    <td style="width:20%">
-      <p>Contributing</p>
-    </td>
-    <td style="width:20%">
-      <p>Contributing</p>
+      <p>Technical Overview</p>
     </td>
     <td style="width:20%">
       <p>Contributing</p>
@@ -69,53 +52,53 @@ SRT is applied to contribution and distribution endpoints as part of a video str
   </tr>
   <tr>
     <td style="width:20%">
-      <p>Contributing</p>
+      <p>A brief history of and rational of SRT</p>
     </td>
     <td style="width:20%">
-      <p>Contributing</p>
+      <p>The official IETF submission</p>
     </td>
     <td style="width:20%">
-      <p>Contributing</p>
+      <p>Developer resources, tools, and templates</p>
     </td>
     <td style="width:20%">
-      <p>Contributing</p>
+      <p>Additional context to the RFC</p>
     </td>
     <td style="width:20%">
-      <p>Contributing</p>
-    </td>
-  </tr>
-  <tr>
-    <td style="width:20%">
-      <p>Contributing</p>
-    </td>
-    <td style="width:20%">
-      <p>Contributing</p>
-    </td>
-    <td style="width:20%">
-      <p>Contributing</p>
-    </td>
-    <td style="width:20%">
-      <p>Contributing</p>
-    </td>
-    <td style="width:20%">
-      <p>Contributing</p>
+      <p>How to contribute to this project</p>
     </td>
   </tr>
   <tr>
     <td style="width:20%">
-      <p>Contributing</p>
+      <p>**Reporting Problems**</p>
     </td>
     <td style="width:20%">
-      <p>Contributing</p>
+      <p>**Developer's Guide**</p>
     </td>
     <td style="width:20%">
-      <p>Contributing</p>
+      <p>**SRT Encryption**</p>
     </td>
     <td style="width:20%">
-      <p>Contributing</p>
+      <p>**API**</p>
     </td>
     <td style="width:20%">
-      <p>Contributing</p>
+      <p>**Test Apps**</p>
+    </td>
+  </tr>
+  <tr>
+    <td style="width:20%">
+      <p>Developer resources, tools, and templates</p>
+    </td>
+    <td style="width:20%">
+      <p>Developer resources, tools, and templates</p>
+    </td>
+    <td style="width:20%">
+      <p>Developer resources, tools, and templates</p>
+    </td>
+    <td style="width:20%">
+      <p>Developer resources, tools, and templates</p>
+    </td>
+    <td style="width:20%">
+      <p>Developer resources, tools, and templates</p>
     </td>
   </tr>
 </table>
