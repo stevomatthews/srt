@@ -7,10 +7,7 @@
 </a>
 
 *The SRT Protocol is an open source transport technology that optimizes
-transmission across unpredictable networks, such as the Internet. It can
-encrypt streams, recover from severe packet loss, and dynamically adapt
-to changing network conditions. SRT significantly improves the
-performance of video streams, and is content-agnostic.*
+transmission across unpredictable networks, such as the Internet. It is a user-level protocol (over UDP) that provides reliability and security optimized for low latency live video streaming, as well as generic bulk data transfer. To accomplish this, SRT introduces control packet extensions, improved flow control, enhanced congestion control and a mechanism for data encryption.*
 
 **NOTE:** The protocol was submitted to the IETF
 as a [draft standard](https://tools.ietf.org/html/draft-sharabayko-mops-srt-00) on 2020-03-09.
