@@ -230,17 +230,17 @@ If you have any questions, please feel free to ask in the <b>#development</b> ch
 
 ## Examples & Demo
 
-Please visit the SRT Cookbook for more information.
+Please visit the [SRT Cookbook](https://srtlab.github.io/srt-cookbook) for more information.
 
 
 ## Release History
 
-Releases are tracked in srt-changelog.md
+Releases are tracked in **srt-changelog.md**
 
 
 ## Sponsors
 
-Please visit srtalliance.org for more information
+Please visit [srtalliance.org](srtalliance.org) for more information
 
 
 ## Security
