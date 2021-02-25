@@ -11,21 +11,21 @@
 **NOTE:** The protocol was submitted to the IETF
 as a [draft standard](https://tools.ietf.org/html/draft-sharabayko-mops-srt-00) on 2020-03-09.
 
-## Introduction
+## About SRT
 
 <a href="https://www.srtalliance.org?wvideo=ayibwnfw56">
 <img align="left" alt="SRT Quad Screen Video Comparison" src="https://github.com/stevomatthews/srt/blob/master/docs/images/SRT_QuadScreenVideoComparison.png" width="400"/>
 </a>
 
 SRT is a transport technology that optimizes transmission across unpredictable networks, such as the Internet. It can be applied to contribution and distribution endpoints as part of a video stream workflow to deliver the best quality and lowest latency video at all times. As audio/video packets are streamed from a source to a destination, SRT detects and adapts to the real-time network conditions between the two endpoints. SRT helps compensate for jitter and bandwidth fluctuations due to congestion over noisy networks. Its error recovery mechanism minimizes the packet loss typical of Internet connections. And SRT supports AES encryption for end-to-end security.
+<p align="right"><a href="https://slackin-srtalliance.azurewebsites.net">Join the conversation</a> in the <b>#development</b> channel on <a href="https://srtalliance.slack.com">Slack</a>.</p>
 
-### Features
+## Features
 
 TBD
 
-<p align="right"><a href="https://slackin-srtalliance.azurewebsites.net">Join the conversation</a> in the <b>#development</b> channel on <a href="https://srtalliance.slack.com">Slack</a>.</p>
 
-### Getting Started with SRT
+## Getting Started with SRT
 
 <table>
   <tr>
@@ -109,6 +109,9 @@ TBD
 ## Build Instructions
 
 For detailed descriptions of the build system and options, please read [BuildOptions.md](docs/BuildOptions.md).
+
+If you encounter build failures, please refer to **troubleshooting-build-issues.md**
+
 
 ### Building on Linux
 
@@ -207,10 +210,6 @@ Follow the [Windows build instructions](docs/build-win.md).
 [debian-package]: https://packages.debian.org/testing/libsrt1
 
 
-### Build Failures
-
-See troubleshooting-build-issues.md
-
 
 ## Contributing
 Anyone is welcome to contribute. If you decide to get involved, please take a moment to review the guidelines:
@@ -218,7 +217,6 @@ Anyone is welcome to contribute. If you decide to get involved, please take a mo
   - Bug reports
   - Feature requests
   - Pull requests
-
 
 
 ## License
