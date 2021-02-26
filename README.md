@@ -18,26 +18,23 @@ as a [draft standard](https://tools.ietf.org/html/draft-sharabayko-mops-srt-00) 
 <a href="https://www.srtalliance.org?wvideo=ayibwnfw56">
 <img align="left" alt="SRT Quad Screen Video Comparison" src="https://github.com/stevomatthews/srt/blob/master/docs/images/SRT_QuadScreenVideoComparison.png" width="400"/><img width="15" height="1">
 </a>
-**
-  - Access Control
-  - Bonding
-  - Encryption
-  - Handshake
-  - Live Streaming
-  - Packet Filtering-& FEC
-  - Socket Groups
-  - SRT Multiplex
-**
+
+  - **Access Control**
+  - **Bonding**
+  - **Encryption**
+  - **Handshake**
+  - **Live Streaming**
+  - **Packet Filtering & FEC**
+  - **Socket Groups**
+  - **SRT Multiplex**
+
 <br/>
 
 Secure, Reliable Transport, known simply as SRT, is a protocol that allows unreliable networks like the internet to be used for reliable, encrypted, live video contribution. Created by Haivision and now an open-source technology with an IETF draft spec, the alliance of SRT users continues to grow as the technology continues to develop and add features.
 
 SRT is a transport technology that optimizes transmission across unpredictable networks, such as the Internet. It can be applied to contribution and distribution endpoints as part of a video stream workflow to deliver the best quality and lowest latency video at all times. As audio/video packets are streamed from a source to a destination, SRT detects and adapts to the real-time network conditions between the two endpoints. SRT helps compensate for jitter and bandwidth fluctuations due to congestion over noisy networks. Its error recovery mechanism minimizes the packet loss typical of Internet connections. And SRT supports AES encryption for end-to-end security.
 
-<p align="right"><a href="https://slackin-srtalliance.azurewebsites.net">Join the conversation</a> in the <b>#development</b> channel on <a href="https://srtalliance.slack.com"><img alt="slack logo" src="https://github.com/stevomatthews/srt/blob/master/docs/images/Slack_RGB2.svg" width="100"></a></p>
-
-
-
+<p align="right"><a href="https://slackin-srtalliance.azurewebsites.net">Join the conversation</a> in the <b>#development</b> channel on <a href="https://srtalliance.slack.com"><img alt="slack logo" src="https://github.com/stevomatthews/srt/blob/master/docs/images/Slack_RGB2.svg" width="60"></a></p>
 
 
 ## Getting Started with SRT
@@ -100,10 +97,10 @@ SRT is a transport technology that optimizes transmission across unpredictable n
   </tr>
   <tr>
     <td style="width:20%">
-      <p align="center">How the SRT encryption mechanism protects stream payloads</p>
+      <p align="center">How SRT encryption protects stream payloads</p>
     </td>
     <td style="width:20%">
-      <p align="center">Complete reference documentation for the SRT API</p>
+      <p align="center">Reference documentation for the SRT API</p>
     </td>
     <td style="width:20%">
       <p align="center">Instructions for using test apps (<i>srt-live-transmit, srt-xtransmit</i>, etc.)</p>
