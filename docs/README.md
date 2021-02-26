@@ -22,6 +22,4 @@
 | srt-live-transmit.md | Tool | How to use the universal data transport tool |
 | srt-tunnel.md | Tool | How to use the tunnelling application |
 | statistics.md | Tool | How to use SRT socket and group statistics |
-![image](https://user-images.githubusercontent.com/28537807/109350196-18423200-7845-11eb-9d02-2a92e7e81bc3.png)
 
-![image](https://user-images.githubusercontent.com/28537807/109349879-9ce08080-7844-11eb-9461-9026b844a320.png)
