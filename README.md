@@ -2,7 +2,7 @@
 
 <img alt="badges example" src="https://github.com/stevomatthews/srt/blob/master/docs/images/badge-example.png">
 
-[Features](#features) | [Getting Started](#getting-started) | [Requirements](#requirements) | [Builds](#builds) | [Contribute](#contributing) | [License](#license) | [Questions](#questions) | [Examples](#examples) | [Releases](#releases) | [Sponsors](#sponsors) | [Security](#security)
+[Features](#features) | [Getting Started](#getting-started) | [Builds](#builds) | [Contribute](#contributing) | [License](#license) | [Examples](#examples) | [Releases](#releases) | [Sponsors](#sponsors) | [Security](#security)
 
 <a href="http://srtalliance.org/">
     <img align="right" alt="SRT" src="http://www.srtalliance.org/wp-content/uploads/SRT_text_hor_logo_grey.png" width="400"/>
@@ -13,13 +13,11 @@
 **NOTE:** The protocol was submitted to the IETF
 as a [draft standard](https://tools.ietf.org/html/draft-sharabayko-mops-srt-00) on 2020-03-09.
 
-## About SRT
+## Features
 
 <a href="https://www.srtalliance.org?wvideo=ayibwnfw56">
 <img align="left" alt="SRT Quad Screen Video Comparison" src="https://github.com/stevomatthews/srt/blob/master/docs/images/SRT_QuadScreenVideoComparison.png" width="400"/>
 </a>
-
-## Features
 
   - Access Control
   - Bonding
@@ -35,7 +33,7 @@ Secure, Reliable Transport, known simply as SRT, is a protocol that allows unrel
 
 SRT is a transport technology that optimizes transmission across unpredictable networks, such as the Internet. It can be applied to contribution and distribution endpoints as part of a video stream workflow to deliver the best quality and lowest latency video at all times. As audio/video packets are streamed from a source to a destination, SRT detects and adapts to the real-time network conditions between the two endpoints. SRT helps compensate for jitter and bandwidth fluctuations due to congestion over noisy networks. Its error recovery mechanism minimizes the packet loss typical of Internet connections. And SRT supports AES encryption for end-to-end security.
 
-<p align="right"><a href="https://slackin-srtalliance.azurewebsites.net">Join the conversation</a> in the <b>#development</b> channel on <a href="https://srtalliance.slack.com"><img alt="slack logo" src="https://github.com/stevomatthews/srt/blob/master/docs/images/Slack_RGB.svg" width="100"></a></p>
+<p align="right"><a href="https://slackin-srtalliance.azurewebsites.net">Join the conversation</a> in the <b>#development</b> channel on <a href="https://srtalliance.slack.com"><img alt="slack logo" src="https://github.com/stevomatthews/srt/blob/master/docs/images/Slack_RGB2.svg" width="100"></a></p>
 
 
 
@@ -113,7 +111,7 @@ SRT is a transport technology that optimizes transmission across unpredictable n
 </table>
 
 
-## Requirements
+### Requirements
 
 * CMake (as build system)
 * Tcl 8.5 (optional for user-friendly build system)
@@ -139,10 +137,6 @@ Anyone is welcome to contribute. If you decide to get involved, please take a mo
 
 TBD
 
-## Questions
-
-If you have any questions, please feel free to ask in the <b>#development</b> channel on <a href="https://srtalliance.slack.com">Slack</a>.</p>
-
 
 ## Examples & Demo
 
@@ -163,6 +157,9 @@ Please visit [srtalliance.org](srtalliance.org) for more information
 
 Please report security issues to TBD
 
+---
+
+If you have any questions, please feel free to ask in the <b>#development</b> channel on <a href="https://srtalliance.slack.com">Slack</a>.</p>
 
 
 
