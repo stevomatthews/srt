@@ -19,7 +19,10 @@ as a [draft standard](https://tools.ietf.org/html/draft-sharabayko-mops-srt-00) 
 <img align="left" alt="SRT Quad Screen Video Comparison" src="https://github.com/stevomatthews/srt/blob/master/docs/images/SRT_QuadScreenVideoComparison.png" width="400"/>
 </a>
 
+Secure, Reliable Transport, known simply as SRT, is a protocol that allows unreliable networks like the internet to be used for reliable, encrypted, live video contribution. Created by Haivision and now an open-source technology with an IETF draft spec, the alliance of SRT users continues to grow as the technology continues to develop and add features.
+
 SRT is a transport technology that optimizes transmission across unpredictable networks, such as the Internet. It can be applied to contribution and distribution endpoints as part of a video stream workflow to deliver the best quality and lowest latency video at all times. As audio/video packets are streamed from a source to a destination, SRT detects and adapts to the real-time network conditions between the two endpoints. SRT helps compensate for jitter and bandwidth fluctuations due to congestion over noisy networks. Its error recovery mechanism minimizes the packet loss typical of Internet connections. And SRT supports AES encryption for end-to-end security.
+
 <p align="right"><a href="https://slackin-srtalliance.azurewebsites.net">Join the conversation</a> in the <b>#development</b> channel on <a href="https://srtalliance.slack.com">Slack</a>.</p>
 
 
@@ -111,11 +114,11 @@ TBD
 * Pthreads (built in on POSIX systems; for Windows there is a library)
 
 ## Build Instructions
+
 [Linux (Ubuntu/CentOS)](https://github.com/stevomatthews/srt/blob/master/docs/BuildOptions.md) | [Windows](https://github.com/Haivision/srt/blob/master/docs/build-win.md) | [Mac (Darwin)](https://github.com/stevomatthews/srt/blob/master/docs/BuildOptions.md) | [iOS](https://github.com/Haivision/srt/blob/master/docs/build_iOS.md) | [Android](https://github.com/stevomatthews/srt/blob/master/docs/BuildOptions.md)
 
   - For detailed descriptions of the build system and options, please read [BuildOptions.md](docs/BuildOptions.md).
   - If you encounter build failures, please refer to **troubleshooting-build-issues.md**
-
 
 ## Contributing
 Anyone is welcome to contribute. If you decide to get involved, please take a moment to review the guidelines:
@@ -127,7 +130,7 @@ Anyone is welcome to contribute. If you decide to get involved, please take a mo
 
 ## License
 
-MPL v2.0
+TBD
 
 ## Questions
 
@@ -152,5 +155,7 @@ Please visit [srtalliance.org](srtalliance.org) for more information
 ## Security
 
 Please report security issues to TBD
+
+
 
 
