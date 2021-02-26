@@ -1,9 +1,7 @@
 # Secure Reliable Transport (SRT) Protocol
 
+[![License: MPLv2.0][license-badge]](./LICENSE)
 
-[![codecov][codecov-badge]][codecov-project]  
-[![Build Status Linux and macOS][travis-badge]][travis]
-[![Build Status Windows][appveyor-badge]][appveyor]
 
 [Features](#features) | [Getting Started](#getting-started) | [Requirements](#requirements) | [Builds](#builds) | [Contributing](#contributing) | [License](#license) | [Questions](#questions) | [Examples](#examples) | [Releases](#releases) | [Sponsors](#sponsors) | [Security](#security)
 
