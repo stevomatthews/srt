@@ -112,107 +112,11 @@ TBD
 
 ## Build Instructions
 
+Linux (Ubuntu/CentOS) | [Windows](https://github.com/Haivision/srt/blob/master/docs/build-win.md) | Mac (Darwin) | [iOS](https://github.com/Haivision/srt/blob/master/docs/build_iOS.md) | Android
+
 For detailed descriptions of the build system and options, please read [BuildOptions.md](docs/BuildOptions.md).
 
 If you encounter build failures, please refer to **troubleshooting-build-issues.md**
-
-
-### Building on Linux
-
-Install the `cmake` and `openssl-devel` (or similar name) package. For pthreads
-add the -lpthreads linker flag.
-
-Default installation path prefix of `make install` is `/usr/local`.
-
-To define a different installation path prefix, use the `--prefix` option with `configure`
-or [`-DCMAKE_INSTALL_PREFIX`](https://cmake.org/cmake/help/v3.0/variable/CMAKE_INSTALL_PREFIX.html) CMake option.
-
-To uninstall, call `make -n install` to list all the dependencies, and then pass the list to `rm`.
-
-#### Ubuntu 14
-
-```shell
-sudo apt-get update
-sudo apt-get upgrade
-sudo apt-get install tclsh pkg-config cmake libssl-dev build-essential
-./configure
-make
-```
-
-#### CentOS 7
-
-```shell
-sudo yum update
-sudo yum install tcl pkgconfig openssl-devel cmake gcc gcc-c++ make automake
-./configure
-make
-```
-
-#### CentOS 6
-
-```shell
-sudo yum update
-sudo yum install tcl pkgconfig openssl-devel cmake gcc gcc-c++ make automake
-sudo yum install centos-release-scl-rh devtoolset-3-gcc devtoolset-3-gcc-c++
-scl enable devtoolset-3 bash
-./configure --use-static-libstdc++ --with-compiler-prefix=/opt/rh/devtoolset-3/root/usr/bin/
-make
-```
-
-### Building on Mac (Darwin, iOS)
-
-[Homebrew](https://brew.sh/) supports "srt" formula.
-
-```shell
-brew update
-brew install srt
-```
-
-If you prefer using a head commit of `master` branch, add the `--HEAD` option
-to the `brew` command.
-
-```shell
-brew install --HEAD srt
-```
-
-SRT can also be built with `cmake` and `make` on Mac.
-Install CMake and OpenSSL with development files from 'brew'. Note that the
-system version of OpenSSL is inappropriate, although you should be able to
-use any newer version compiled from sources, if you prefer.
-
-```shell
-brew install cmake
-brew install openssl
-export OPENSSL_ROOT_DIR=$(brew --prefix openssl)
-export OPENSSL_LIB_DIR=$(brew --prefix openssl)"/lib"
-export OPENSSL_INCLUDE_DIR=$(brew --prefix openssl)"/include"
-./configure
-make
-```
-
-### Building on Windows
-
-Follow the [Windows build instructions](docs/build-win.md).
-
-[appveyor-badge]: https://img.shields.io/appveyor/ci/Haivision/srt/master.svg?label=Windows
-[appveyor]: https://ci.appveyor.com/project/Haivision/srt
-[travis-badge]: https://img.shields.io/travis/Haivision/srt/master.svg?label=Linux/macOS
-[travis]: https://travis-ci.org/Haivision/srt
-[license-badge]: https://img.shields.io/badge/License-MPLv2.0-blue
-
-[lgtm-alerts-badge]: https://img.shields.io/lgtm/alerts/github/Haivision/srt
-[lgtm-quality-badge]: https://img.shields.io/lgtm/grade/cpp/github/Haivision/srt
-[lgtm-project]: https://lgtm.com/projects/g/Haivision/srt/
-
-[codecov-project]: https://codecov.io/gh/haivision/srt
-[codecov-badge]: https://codecov.io/gh/haivision/srt/branch/master/graph/badge.svg
-
-[github releases]: https://github.com/Haivision/srt/releases
-[release-badge]: https://img.shields.io/github/release/Haivision/srt.svg
-
-[debian-badge]: https://badges.debian.net/badges/debian/testing/libsrt1/version.svg
-[debian-package]: https://packages.debian.org/testing/libsrt1
-
 
 
 ## Contributing
