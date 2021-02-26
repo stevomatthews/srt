@@ -1,7 +1,5 @@
 # Secure Reliable Transport (SRT) Protocol
 
-[![License: MPLv2.0][license-badge]](./LICENSE)
-
 
 [Features](#features) | [Getting Started](#getting-started) | [Requirements](#requirements) | [Builds](#builds) | [Contributing](#contributing) | [License](#license) | [Questions](#questions) | [Examples](#examples) | [Releases](#releases) | [Sponsors](#sponsors) | [Security](#security)
 
@@ -157,4 +155,12 @@ Please report security issues to TBD
 
 
 
+[![License: MPLv2.0][license-badge]](./LICENSE)
+[![Latest release][release-badge]][github releases]
+[![Debian Badge][debian-badge]][debian-package]  
+[![LGTM Code Quality][lgtm-quality-badge]][lgtm-project]
+[![LGTM Alerts][lgtm-alerts-badge]][lgtm-project]
+[![codecov][codecov-badge]][codecov-project]  
+[![Build Status Linux and macOS][travis-badge]][travis]
+[![Build Status Windows][appveyor-badge]][appveyor]
 
