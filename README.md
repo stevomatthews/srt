@@ -52,12 +52,6 @@ SRT is a transport technology that optimizes transmission across unpredictable n
     <td style="width:20%">
       <p align="center" valign="middle"><a href="https://srtlab.github.io/srt-cookbook"><b>SRT Cookbook</b></a></p>
     </td>
-    <td style="width:20%">
-      <p align="center" valign="middle"><a href="https://github.com/Haivision/srt/files/2489142/SRT_Protocol_TechnicalOverview_DRAFT_2018-10-17.pdf"><b>SRT Overview</b></a></p>
-    </td>
-    <td style="width:20%">
-      <p align="center" valign="middle"><a href="https://github.com/Haivision/srt/blob/master/CONTRIBUTING.md"><b>Contributing</b></a></p>
-    </td>
   </tr>
   <tr>
     <td style="width:20%">
@@ -69,20 +63,30 @@ SRT is a transport technology that optimizes transmission across unpredictable n
     <td style="width:20%">
       <p align="center">Resources, tools, statistics and templates for developers</p>
     </td>
-    <td style="width:20%">
-      <p align="center">Early draft technical overview (precursor to the RFC)</p>
-    </td>
-    <td style="width:20%">
-      <p align="center">Guidelines for making contributions to the SRT project</p>
-    </td>
   </tr>
   <tr>
     <td style="width:20%">
-      <p align="center"><a href="https://github.com/Haivision/srt/blob/master/docs/reporting.md"><b>SRT Feedback</b></a></p>
+      <p align="center" valign="middle"><a href="https://github.com/Haivision/srt/files/2489142/SRT_Protocol_TechnicalOverview_DRAFT_2018-10-17.pdf"><b>SRT Overview</b></a></p>
     </td>
     <td style="width:20%">
       <p align="center"><a href="https://github.com/Haivision/srt/blob/master/docs/DevelopersGuide.md"><b>SRT Development</b></a></p>
     </td>
+    <td style="width:20%">
+      <p align="center"><a href="https://github.com/Haivision/srt/blob/master/docs/reporting.md"><b>SRT Feedback</b></a></p>
+    </td>
+  </tr>
+  <tr>
+    <td style="width:20%">
+      <p align="center">Early draft technical overview (precursor to the RFC)</p>
+    </td>
+    <td style="width:20%">
+      <p align="center">Environment setup to develop, build and test SRT</p>
+    </td>
+    <td style="width:20%">
+      <p align="center">Guidelines for providing feedback and report problems</p>
+    </td>
+  </tr>
+  <tr>
     <td style="width:20%">
       <p align="center"><a href="https://github.com/Haivision/srt/blob/master/docs/encryption.md"><b>SRT Encryption</b></a></p>
     </td>
@@ -94,12 +98,6 @@ SRT is a transport technology that optimizes transmission across unpredictable n
     </td>
   </tr>
   <tr>
-    <td style="width:20%">
-      <p align="center">Guidelines for providing feedback and report problems</p>
-    </td>
-    <td style="width:20%">
-      <p align="center">Environment setup to develop, build and test SRT</p>
-    </td>
     <td style="width:20%">
       <p align="center">How the SRT encryption mechanism protects stream payloads</p>
     </td>
