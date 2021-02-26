@@ -17,7 +17,7 @@ as a [draft standard](https://tools.ietf.org/html/draft-sharabayko-mops-srt-00) 
 
 <a href="https://www.srtalliance.org?wvideo=ayibwnfw56">
 <img align="left" alt="SRT Quad Screen Video Comparison" src="https://github.com/stevomatthews/srt/blob/master/docs/images/SRT_QuadScreenVideoComparison.png" width="400"/>
-</a><img align="left" border="0" width="15" height="220">
+</a>
 
   - **Access Control**
   - **Bonding**
