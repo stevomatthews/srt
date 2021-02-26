@@ -2,6 +2,8 @@
 
 [![License: MPLv2.0][license-badge]](./LICENSE) [![Latest release][release-badge]][github releases] [![Debian Badge][debian-badge]][debian-package] [![LGTM Code Quality][lgtm-quality-badge]][lgtm-project] [![LGTM Alerts][lgtm-alerts-badge]][lgtm-project] [![codecov][codecov-badge]][codecov-project] [![Build Status Linux and macOS][travis-badge]][travis] [![Build Status Windows][appveyor-badge]][appveyor]
 
+[Features](#features) | [Getting Started](#getting-started) | [Requirements](#requirements) | [Builds](#builds) | [Contributing](#contributing) | [License](#license) | [Questions](#questions) | [Examples](#examples) | [Releases](#releases) | [Sponsors](#sponsors) | [Security](#security)
+
 <a href="http://srtalliance.org/">
     <img align="right" alt="SRT" src="http://www.srtalliance.org/wp-content/uploads/SRT_text_hor_logo_grey.png" width="400"/>
 </a>
@@ -20,7 +22,6 @@ as a [draft standard](https://tools.ietf.org/html/draft-sharabayko-mops-srt-00) 
 SRT is a transport technology that optimizes transmission across unpredictable networks, such as the Internet. It can be applied to contribution and distribution endpoints as part of a video stream workflow to deliver the best quality and lowest latency video at all times. As audio/video packets are streamed from a source to a destination, SRT detects and adapts to the real-time network conditions between the two endpoints. SRT helps compensate for jitter and bandwidth fluctuations due to congestion over noisy networks. Its error recovery mechanism minimizes the packet loss typical of Internet connections. And SRT supports AES encryption for end-to-end security.
 <p align="right"><a href="https://slackin-srtalliance.azurewebsites.net">Join the conversation</a> in the <b>#development</b> channel on <a href="https://srtalliance.slack.com">Slack</a>.</p>
 
-Features | Getting Started | Requirements | Builds | Contributing | License | Questions | Examples | Releases | Sponsors | Security
 
 
 ## Features
