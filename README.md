@@ -1,10 +1,6 @@
 # Secure Reliable Transport (SRT) Protocol
 
 
-[![Latest release][release-badge]][github releases]
-[![Debian Badge][debian-badge]][debian-package]  
-[![LGTM Code Quality][lgtm-quality-badge]][lgtm-project]
-[![LGTM Alerts][lgtm-alerts-badge]][lgtm-project]
 [![codecov][codecov-badge]][codecov-project]  
 [![Build Status Linux and macOS][travis-badge]][travis]
 [![Build Status Windows][appveyor-badge]][appveyor]
