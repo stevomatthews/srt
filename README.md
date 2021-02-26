@@ -16,9 +16,9 @@ as a [draft standard](https://tools.ietf.org/html/draft-sharabayko-mops-srt-00) 
 ## Features
 
 <a href="https://www.srtalliance.org?wvideo=ayibwnfw56">
-<img align="left" alt="SRT Quad Screen Video Comparison" src="https://github.com/stevomatthews/srt/blob/master/docs/images/SRT_QuadScreenVideoComparison.png" width="400"/>
+<img align="left" alt="SRT Quad Screen Video Comparison" src="https://github.com/stevomatthews/srt/blob/master/docs/images/SRT_QuadScreenVideoComparison.png" width="400"/><img width="15" height="1">
 </a>
-
+**
   - Access Control
   - Bonding
   - Encryption
@@ -27,7 +27,8 @@ as a [draft standard](https://tools.ietf.org/html/draft-sharabayko-mops-srt-00) 
   - Packet Filtering-& FEC
   - Socket Groups
   - SRT Multiplex
-<br/><br/>
+**
+<br/>
 
 Secure, Reliable Transport, known simply as SRT, is a protocol that allows unreliable networks like the internet to be used for reliable, encrypted, live video contribution. Created by Haivision and now an open-source technology with an IETF draft spec, the alliance of SRT users continues to grow as the technology continues to develop and add features.
 
