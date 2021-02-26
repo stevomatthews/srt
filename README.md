@@ -2,13 +2,13 @@
 
 <img alt="badges example" src="https://github.com/stevomatthews/srt/blob/master/docs/images/badge-example.png">
 
-[Features](#features) | [Getting Started](#getting-started) | [Requirements](#requirements) | [Builds](#builds) | [Contributing](#contributing) | [License](#license) | [Questions](#questions) | [Examples](#examples) | [Releases](#releases) | [Sponsors](#sponsors) | [Security](#security)
+[Features](#features) | [Getting Started](#getting-started) | [Requirements](#requirements) | [Builds](#builds) | [Contribute](#contributing) | [License](#license) | [Questions](#questions) | [Examples](#examples) | [Releases](#releases) | [Sponsors](#sponsors) | [Security](#security)
 
 <a href="http://srtalliance.org/">
     <img align="right" alt="SRT" src="http://www.srtalliance.org/wp-content/uploads/SRT_text_hor_logo_grey.png" width="400"/>
 </a>
 
-*SRT is an open source user-level protocol (over UDP) that provides reliability and security optimized for low latency live video streaming, as well as generic bulk data transfer. To accomplish this, SRT introduces control packet extensions, improved flow control, enhanced congestion control and a mechanism for data encryption.*
+*SRT is an open source user-level protocol (over UDP) that provides reliability and security optimized for low latency live video streaming, as well as generic bulk data transfer. To accomplish this, SRT introduces control packet extensions, improved flow control, enhanced<br/> congestion control and a mechanism for data encryption.*
 
 **NOTE:** The protocol was submitted to the IETF
 as a [draft standard](https://tools.ietf.org/html/draft-sharabayko-mops-srt-00) on 2020-03-09.
@@ -29,7 +29,14 @@ SRT is a transport technology that optimizes transmission across unpredictable n
 
 ## Features
 
-TBD
+  - Access Control
+  - Bonding
+  - Encryption
+  - Handshake
+  - Live Streaming
+  - Packet Filtering-& FEC
+  - Socket Groups
+  - SRT Multiplex
 
 
 ## Getting Started with SRT
