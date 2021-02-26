@@ -19,14 +19,14 @@ as a [draft standard](https://tools.ietf.org/html/draft-sharabayko-mops-srt-00) 
 <img align="left" alt="SRT Quad Screen Video Comparison" src="https://github.com/stevomatthews/srt/blob/master/docs/images/SRT_QuadScreenVideoComparison.png" width="400"/>
 </a>
 
-**Access Control**
-**Bonding**
-**Encryption**
-**Handshake**
-**Live Streaming**
-**Packet Filtering & FEC**
-**Socket Groups**
-**SRT Multiplex**
+**Access Control**<br/>
+**Bonding**<br/>
+**Encryption**<br/>
+**Handshake**<br/>
+**Live Streaming**<br/>
+**Packet Filtering & FEC**<br/>
+**Socket Groups**<br/>
+**SRT Multiplex**<br/>
 
 <br/>
 
