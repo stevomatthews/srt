@@ -111,7 +111,7 @@ TBD
 * Pthreads (built in on POSIX systems; for Windows there is a library)
 
 ## Build Instructions
-Linux (Ubuntu/CentOS) | [Windows](https://github.com/Haivision/srt/blob/master/docs/build-win.md) | Mac (Darwin) | [iOS](https://github.com/Haivision/srt/blob/master/docs/build_iOS.md) | Android
+[Linux (Ubuntu/CentOS)](https://github.com/stevomatthews/srt/blob/master/docs/BuildOptions.md) | [Windows](https://github.com/Haivision/srt/blob/master/docs/build-win.md) | [Mac (Darwin)](https://github.com/stevomatthews/srt/blob/master/docs/BuildOptions.md) | [iOS](https://github.com/Haivision/srt/blob/master/docs/build_iOS.md) | [Android](https://github.com/stevomatthews/srt/blob/master/docs/BuildOptions.md)
 
   - For detailed descriptions of the build system and options, please read [BuildOptions.md](docs/BuildOptions.md).
   - If you encounter build failures, please refer to **troubleshooting-build-issues.md**
