@@ -1,6 +1,6 @@
 # Secure Reliable Transport (SRT) Protocol
 
-[![License: MPLv2.0][license-badge]](./LICENSE) [![Latest release][release-badge]][github releases] [![Debian Badge][debian-badge]][debian-package] [![LGTM Code Quality][lgtm-quality-badge]][lgtm-project] [![LGTM Alerts][lgtm-alerts-badge]][lgtm-project] [![codecov][codecov-badge]][codecov-project] [![Build Status Linux and macOS][travis-badge]][travis] [![Build Status Windows][appveyor-badge]][appveyor]
+[![License: MPLv2.0][license-badge]](./LICENSE) 
 
 [Features](#features) | [Getting Started](#getting-started) | [Requirements](#requirements) | [Builds](#builds) | [Contributing](#contributing) | [License](#license) | [Questions](#questions) | [Examples](#examples) | [Releases](#releases) | [Sponsors](#sponsors) | [Security](#security)
 
@@ -111,7 +111,7 @@ TBD
 * Pthreads (built in on POSIX systems; for Windows there is a library)
 
 ## Build Instructions
-
+Linux (Ubuntu/CentOS) | [Windows](https://github.com/Haivision/srt/blob/master/docs/build-win.md) | Mac (Darwin) | [iOS](https://github.com/Haivision/srt/blob/master/docs/build_iOS.md) | Android
 
 For detailed descriptions of the build system and options, please read [BuildOptions.md](docs/BuildOptions.md).
 
