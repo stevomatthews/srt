@@ -113,9 +113,8 @@ TBD
 ## Build Instructions
 Linux (Ubuntu/CentOS) | [Windows](https://github.com/Haivision/srt/blob/master/docs/build-win.md) | Mac (Darwin) | [iOS](https://github.com/Haivision/srt/blob/master/docs/build_iOS.md) | Android
 
-For detailed descriptions of the build system and options, please read [BuildOptions.md](docs/BuildOptions.md).
-
-If you encounter build failures, please refer to **troubleshooting-build-issues.md**
+  - For detailed descriptions of the build system and options, please read [BuildOptions.md](docs/BuildOptions.md).
+  - If you encounter build failures, please refer to **troubleshooting-build-issues.md**
 
 
 ## Contributing
