@@ -1,7 +1,6 @@
 # Secure Reliable Transport (SRT) Protocol
 
 
-[![License: MPLv2.0][license-badge]][./LICENSE]
 [![Latest release][release-badge]][github releases]
 [![Debian Badge][debian-badge]][debian-package]  
 [![LGTM Code Quality][lgtm-quality-badge]][lgtm-project]
