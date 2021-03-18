@@ -30,9 +30,13 @@ as a [draft standard](https://tools.ietf.org/html/draft-sharabayko-mops-srt-00) 
 
 <br/>
 
-Secure, Reliable Transport, known simply as SRT, is a protocol that allows unreliable networks like the internet to be used for reliable, encrypted, live video contribution. Created by Haivision and now an open-source technology with an IETF draft spec, the alliance of SRT users continues to grow as the technology continues to develop and add features.
+<details>
+    <summary>Secure, Reliable Transport, known simply as SRT, is a protocol that allows unreliable networks like the internet to be used for reliable, encrypted, live video contribution. </summary>
+    
+    Created by Haivision and now an open-source technology with an IETF draft spec, the alliance of SRT users continues to grow as the technology continues to develop and add features.
 
 SRT is a transport technology that optimizes transmission across unpredictable networks, such as the Internet. It can be applied to contribution and distribution endpoints as part of a video stream workflow to deliver the best quality and lowest latency video at all times. As audio/video packets are streamed from a source to a destination, SRT detects and adapts to the real-time network conditions between the two endpoints. SRT helps compensate for jitter and bandwidth fluctuations due to congestion over noisy networks. Its error recovery mechanism minimizes the packet loss typical of Internet connections. And SRT supports AES encryption for end-to-end security.
+</details>
 
 <p align="right"><a href="https://slackin-srtalliance.azurewebsites.net">Join the conversation</a> in the <b>#development</b> channel on <a href="https://srtalliance.slack.com"><img alt="slack logo" src="https://github.com/stevomatthews/srt/blob/master/docs/images/Slack_RGB2.svg" width="60"></a></p>
 
