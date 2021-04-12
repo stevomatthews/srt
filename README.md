@@ -161,7 +161,7 @@ Please report security issues to TBD
 
 ## Values
 
-** (12 Apr 2021) Example text borrowed from [pandas.org](https://pandas.pydata.org/about/index.html):** Is in the core of pandas to be respectful and welcoming with everybody, users, contributors and the broader community. Regardless of level of experience, gender, gender identity and expression, sexual orientation, disability, personal appearance, body size, race, ethnicity, age, religion, or nationality.
+**(12 Apr 2021) Example text borrowed from** [pandas.org](https://pandas.pydata.org/about/index.html): *Is in the core of pandas to be respectful and welcoming with everybody, users, contributors and the broader community. Regardless of level of experience, gender, gender identity and expression, sexual orientation, disability, personal appearance, body size, race, ethnicity, age, religion, or nationality.*
 
   
 
